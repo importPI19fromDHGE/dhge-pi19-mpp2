@@ -44,5 +44,5 @@ jobs:
           name: Anki Decks
           body: Dieses Release wurde automatisch erstellt
           gzip: false
-          files: output/[A-Z]*[A-Z]-[A-Z]*[A-Z].apkg
+          files: output/**.apkg
           allow_override: true
