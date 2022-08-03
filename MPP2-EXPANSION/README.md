@@ -52,7 +52,7 @@ Diese File beinhaltet überwiegend Inhalte der letzten beiden Semester zur Vorbe
 # Entwicklung von Webanwendungen
 
 > **ToDo**
-> 
+>
 > - HTML
 > - CSS
 >   - Selektoren
