@@ -375,10 +375,7 @@ $$\begin{matrix}
 
 - bsp.: $316_7$ zu dezimal
 
-$$
-6\cdot 7^0 + 1 \cdot 7^1 + 3 \cdot 7^2 = 160_{10}
-$$
-
+$$6\cdot 7^0 + 1 \cdot 7^1 + 3 \cdot 7^2 = 160_{10}$$
 
 # Digitaltechnik
 
@@ -948,7 +945,6 @@ Einteilung von Grammatiken in vier Klassen:
               ╰╯
 ```
 
-
 # Betriebssysteme
 
 ## Definition Betriebssystem
@@ -1159,7 +1155,6 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 - Dienst verwaltet eine Ressource zentral $\rightarrow$ kann von mehreren Prozessen angefordert werden
 - z.B. Drucker-Spooler = Puffer für Druckeraufträge (*nicht bei allen Ressourcen möglich*)
 
-
 # Betriebssystemverwaltung
 
 ## RAID
@@ -1182,7 +1177,6 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 
 - Pipes verbinden die Ausgabe eines Programmes mit der Eingabe eines anderen $\rightarrow$ Datenstrom zwischen zwei Prozessen nach dem FIFO-Prinzip
 - Symbol: `|`; z.B. `cat example.txt | wc -l`
-
 
 ## Datensicherung
 
@@ -1324,7 +1318,6 @@ ACK = Bestätigen der SeqNr
 - `ACK`: Server bestätigt, optionale Konfiguration
 - Konfiguration: Default-Gateway, Subnetz, IP, (DNS), (Timeserver)
 
-
 ## SDSL / ADSL
 
 - SDSL: Symmetric Digital Subscriber Line
@@ -1443,7 +1436,6 @@ Archivspeicher ╱     offline    ╲ sec - min
                ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 ```
 
-
 # Systemanalyse
 
 > **ToDo:**
@@ -1533,7 +1525,6 @@ Archivspeicher ╱     offline    ╲ sec - min
 | klarer Ablauf (nächster Schritt bei Fehler wird klar) | Fehler in der Analyse-Phase erst sehr spät sichtbar (früher mehr Kommunikation mit dem Kunden und MVP als Lösung) |
 | klare Test-Struktur vorgegeben                        | bezieht sich nur auf Entwicklung: Kein Betrieb, keine Wartung definiert                                           |
 | Iterationen bis alle Tests der Phase OK sind          | kein Rückspringen in vorherige Phase ohne Fehlerfall vorgesehen (siehe iteriertes Wasserfallmodell)               |
-
 
 # Systementwurf
 
@@ -1652,7 +1643,6 @@ Befehl 2:                  │   Hol-Phase   │   Decodierphase  │ Ausführun
 Befehl 3:                                  │    Hol-Phase     │   Decodierphase  │ ... │
                                            └──────────────────┴──────────────────┴─────┘
 ```
-
 
 # IT-Trends
 
