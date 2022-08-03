@@ -1,11 +1,14 @@
 MPP1 - Themenkatalog
 ====================
 
+<!-- md2apkg ignore-card -->
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Inhaltsverzeichnis**
 
-- [Präambel](#pr%C3%A4ambel)
+- [MPP1 - Themenkatalog](#mpp1---themenkatalog)
+- [Präambel](#präambel)
   - [Most Important Topics](#most-important-topics)
 - [Grundlagen der Informationsverarbeitung](#grundlagen-der-informationsverarbeitung)
   - [Von-Neumann-Architektur](#von-neumann-architektur)
@@ -15,7 +18,7 @@ MPP1 - Themenkatalog
     - [Problemorientierte Programmiersprachen](#problemorientierte-programmiersprachen)
     - [Maschinenorientierte Programmiersprachen](#maschinenorientierte-programmiersprachen)
   - [`Call by Value` vs. `Call by Reference`](#call-by-value-vs-call-by-reference)
-  - [Unterschied Java, JavaScript, C&#035;, C++](#unterschied-java-javascript-c-c)
+  - [Unterschied Java, JavaScript, C#, C++](#unterschied-java-javascript-c-c)
   - [Statisches vs. dynamisches Linking](#statisches-vs-dynamisches-linking)
   - [Gleitpunktverfahren](#gleitpunktverfahren)
   - [Umrechnen von Zahlensystemen](#umrechnen-von-zahlensystemen)
@@ -36,8 +39,8 @@ MPP1 - Themenkatalog
   - [Arten von Kippgliedern](#arten-von-kippgliedern)
 - [Elektrotechnik](#elektrotechnik)
   - [Grundlegende elektrische Bauteile](#grundlegende-elektrische-bauteile)
-  - [Flüchtiger RAM](#fl%C3%BCchtiger-ram)
-  - [Signalübertragung Kabel](#signal%C3%BCbertragung-kabel)
+  - [Flüchtiger RAM](#flüchtiger-ram)
+  - [Signalübertragung Kabel](#signalübertragung-kabel)
 - [Algorithmen und Datenstrukturen](#algorithmen-und-datenstrukturen)
   - [Eigenschaften von Algorithmen](#eigenschaften-von-algorithmen)
   - [Sortieralgorithmen](#sortieralgorithmen)
@@ -46,7 +49,7 @@ MPP1 - Themenkatalog
     - [Insertion-Sort](#insertion-sort)
     - [Quick-Sort](#quick-sort)
     - [Merge-Sort](#merge-sort)
-  - [Verschlüsselung](#verschl%C3%BCsselung)
+  - [Verschlüsselung](#verschlüsselung)
     - [Schutzziele](#schutzziele)
     - [symmetrisch vs. asymmetrisch](#symmetrisch-vs-asymmetrisch)
   - [Hashing](#hashing)
@@ -54,27 +57,34 @@ MPP1 - Themenkatalog
   - [Stack und Queue](#stack-und-queue)
   - [Graphen](#graphen)
 - [Automaten und Sprachen](#automaten-und-sprachen)
-  - [Reguläre Ausdrücke](#regul%C3%A4re-ausdr%C3%BCcke)
+  - [Reguläre Ausdrücke](#reguläre-ausdrücke)
   - [Grammatiken](#grammatiken)
+    - [Bestandteile einer Grammatik](#bestandteile-einer-grammatik)
+    - [Die Chomsky-Hierarchie](#die-chomsky-hierarchie)
   - [Turing-Maschine](#turing-maschine)
   - [Registermaschinen](#registermaschinen)
+    - [Programm einer Registermaschine](#programm-einer-registermaschine)
   - [Automatenkonstruktion](#automatenkonstruktion)
+    - [Nicht-deterministischer endlicher Automat](#nicht-deterministischer-endlicher-automat)
+    - [deterministischer endlicher Automat](#deterministischer-endlicher-automat)
 - [Betriebssysteme](#betriebssysteme)
   - [Definition Betriebssystem](#definition-betriebssystem)
   - [Aufgaben eines Betriebssystems](#aufgaben-eines-betriebssystems)
   - [Klassifizierung von Betriebssystemen](#klassifizierung-von-betriebssystemen)
   - [Betriebsmittel](#betriebsmittel)
   - [Thread/Prozess/Task](#threadprozesstask)
-  - [Parallelität und Nebenläufigkeit](#parallelit%C3%A4t-und-nebenl%C3%A4ufigkeit)
+  - [Parallelität und Nebenläufigkeit](#parallelität-und-nebenläufigkeit)
   - [Dateisysteme](#dateisysteme)
   - [Virtueller Speicher](#virtueller-speicher)
   - [Cache](#cache)
   - [Speicherzuweisungsstrategien](#speicherzuweisungsstrategien)
   - [Seitenersetzungsstrategien](#seitenersetzungsstrategien)
-  - [Scheduling-Strategien für Prozesse](#scheduling-strategien-f%C3%BCr-prozesse)
+  - [Scheduling-Strategien für Prozesse](#scheduling-strategien-für-prozesse)
   - [Adressierungsarten](#adressierungsarten)
-  - [Serielle vs. Parallele Datenübertragung](#serielle-vs-parallele-daten%C3%BCbertragung)
+  - [Serielle vs. Parallele Datenübertragung](#serielle-vs-parallele-datenübertragung)
+    - [*Warum ist heute die serielle Datenübertragung verbreiteter?*](#warum-ist-heute-die-serielle-datenübertragung-verbreiteter)
   - [Interrupts](#interrupts)
+    - [Traps](#traps)
   - [Semaphore](#semaphore)
   - [Spooling](#spooling)
 - [Betriebssystemverwaltung](#betriebssystemverwaltung)
@@ -101,6 +111,7 @@ MPP1 - Themenkatalog
   - [Operationen im Relationalen Modell](#operationen-im-relationalen-modell)
   - [ACID (Transkationseigenschaften)](#acid-transkationseigenschaften)
   - [Sperrkonzepte](#sperrkonzepte)
+    - [RX-Sperrverfahren](#rx-sperrverfahren)
   - [Constraints](#constraints)
   - [Speicherpyramide](#speicherpyramide)
 - [Systemanalyse](#systemanalyse)
@@ -113,15 +124,19 @@ MPP1 - Themenkatalog
     - [V-Modell](#v-modell)
 - [Systementwurf](#systementwurf)
   - [OOP-Paradigmen](#oop-paradigmen)
+    - [Vorteile der OOP](#vorteile-der-oop)
   - [MVC-Architektur](#mvc-architektur)
   - [Compiler vs. Interpreter](#compiler-vs-interpreter)
   - [XML](#xml)
+    - [tag- vs. inhaltsbasiertes XML](#tag--vs-inhaltsbasiertes-xml)
 - [Hardwarenahe Programmierung](#hardwarenahe-programmierung)
   - [RISC vs. CISC](#risc-vs-cisc)
   - [Pipelining](#pipelining)
 - [IT-Trends](#it-trends)
   - [Cloud Computing](#cloud-computing)
-  - [Machine-Learning und Künstliche Intelligenz](#machine-learning-und-k%C3%BCnstliche-intelligenz)
+  - [Machine-Learning und Künstliche Intelligenz](#machine-learning-und-künstliche-intelligenz)
+    - [Künstliche Intelligenz](#künstliche-intelligenz)
+      - [Machine-Learning](#machine-learning)
   - [Internet of Things (IoT)](#internet-of-things-iot)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -146,11 +161,15 @@ MPP1 - Themenkatalog
 - RAID Level
 - Sortieralogrithmen
 
+<!-- md2apkg ignore-card -->
+
 # Grundlagen der Informationsverarbeitung
 
 > **ToDo:**
 >
 > - Struktogramm?
+
+<!-- md2apkg ignore-card -->
 
 ## Von-Neumann-Architektur
 
@@ -597,6 +616,8 @@ Zur Überprüfung kann Wahrheitswerttabelle genutzt werden.
 > - Kupferleiter (Widerstand & Kapazitiver Widerstand)
 > - RGB???
 
+<!-- md2apkg ignore-card -->
+
 ## Grundlegende elektrische Bauteile
 
 **Kondensator**
@@ -788,15 +809,15 @@ Zur Überprüfung kann Wahrheitswerttabelle genutzt werden.
 
 - Siehe: [Algo Cheatsheet](https://github.com/importPI19fromDHGE/dhge-pi19-sem2/blob/master/ALGO/ALGO-Cheatsheet.pdf)
 
+<!-- md2apkg ignore-card -->
+
 ----------------------------------------------------------------------------------------------------------------------
 
 # Automaten und Sprachen
 
 ## Reguläre Ausdrücke
 
-> *Was sind reguläre Ausdrücke?*
-
-- beschreiben reguläre Mengen
+- Reguläre Ausdrücke beschreiben reguläre Mengen
 
 **Definition einer regulären Menge**
 
@@ -815,12 +836,10 @@ $$L \subset A^{\ast}=(ab)^{\ast}\lor(ba)^{\ast}\lor a(ba)^{\ast} \lor b(ab)^{\as
 
 ## Grammatiken
 
-> *Was ist eine Grammatik? (+Grammatik-Typen)*
-
 - Regelwerk, das festlegt, welche Zeichen und Zeichenfolgen zu einer Sprache gehören (= Wortproblem)
 - Definition von Programmiersprachen erfolgt über präzise Grammatiken
 
-**Bestandteile einer Grammatik**
+### Bestandteile einer Grammatik
 
 $$G = {T,V,S,P}$$
 
@@ -834,7 +853,7 @@ $$G = {T,V,S,P}$$
 <Buchstabe> ::= A | B | C | ... | Z
 ```
 
-**Die Chomsky-Hierarchie**
+### Die Chomsky-Hierarchie
 
 Einteilung von Grammatiken in vier Klassen:
 
@@ -860,7 +879,7 @@ Einteilung von Grammatiken in vier Klassen:
 - eine Registermaschine besitzt $m$ Register und berechnet die Funktionen $f:N^r_0 \rightarrow N^s_0 \;\text{mit}\; r,s \leq m$
 - Eingabe in den ersten Registern $r$, Ausgabe beginnend im ersten Register $s$
 
-**Programm**
+### Programm einer Registermaschine
 
 - einzelne Befehle des Programmes sind nummeriert
 - Programm verarbeitet natürliche Zahlen aus den Eingaberegistern in natürliche Zahlen in den Ausgaberegistern
@@ -870,7 +889,7 @@ Einteilung von Grammatiken in vier Klassen:
 
 ## Automatenkonstruktion
 
-**Nicht-deterministischer endlicher Automat**
+### Nicht-deterministischer endlicher Automat
 
 - Orakel bestimmt Folgezustand
 - gleiche Eingaben führen nicht immer zur gleichen Ausgabe
@@ -887,7 +906,7 @@ Einteilung von Grammatiken in vier Klassen:
        ╰──╯
 ```
 
-**deterministischer endlicher Automat**
+### deterministischer endlicher Automat
 
 - gleiche Eingaben führen immer zur gleichen Ausgabe
 - tatsächlich von Computer ausführbar
@@ -915,7 +934,7 @@ Einteilung von Grammatiken in vier Klassen:
 
 > Die Programme eines digitalen Rechnersystems, die zusammen mit den Eigenschaften dieser Rechenanlage
 > die Basis der möglichen Betriebsarten des digitalen Rechnersystems bilden und die insbesondere
-> die Abwicklung von Programmen steuern und überwachen
+> die Abwicklung von Programmen steuern und überwachen.
 >
 > - DIN 44300
 
@@ -945,8 +964,6 @@ Einteilung von Grammatiken in vier Klassen:
 - *Nach Anzahl der verwalteten Prozessoren:* Ein- oder Mehr-Prozessor-Betriebssystem
 
 ## Betriebsmittel
-
-> *Welche Betriebsmittel kennen Sie?*
 
 - aktive Ressourcen verarbeiten passive Ressourcen
 - Einteilung in Klassen: Entziehbarkeit, Zuteilbarkeit, Wiederverwendbarkeit, Hard- oder Software Ressource
@@ -1083,15 +1100,13 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 - störanfällig $\rightarrow$ parallele Leitungen beeinflussen sich gegenseitig (Übersprechen)
 - Berücksichtigung von Laufzeitunterschieden verschiedener Leitungen nötig
 
-> *Warum ist heute die serielle Datenübertragung verbreiteter?*
+### *Warum ist heute die serielle Datenübertragung verbreiteter?*
 
 - Taktrate hat gegenüber Busbreite gewonnen
 - Früher: seriell für langsamere Datenübertragungen über ggf. längere Distanzen
   - parallele für schnellere Übertragungen über kürzere Entfernungen
 
 ## Interrupts
-
-> *Was passiert beim Auftreten eines Interrupts? (+Interrupt vs. Trap)*
 
 - Interrupt = kurzfristige Unterbrechung eines Programms durch eine von der CPU abzuarbeitende Befehlssequenz (Interrupt Service Routine $\rightarrow$ schnelle Reaktion auf I/O, Zeitgeber, ...)
 
@@ -1104,7 +1119,7 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 - Abarbeitung der Interruptroutine
 - Rückkehr zur unterbrochenen Aufgabe (Registerinformationen wiederherstellen)
 
-**Traps**
+### Traps
 
 - Trap = Art automatischer Prozeduraufruf bei bestimmten Bedingungen (z.B. Gleitkommaüberlauf) $\rightarrow$ Programmcounter wird mit Adresse des Trap-Handlers überschrieben
 
@@ -1115,8 +1130,6 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 - Synchronisation von Prozessen $\rightarrow$ Semaphore realisiert ein passives Warten der Prozesse
 
 ## Spooling
-
-> *Was ist Spooling?*
 
 - Dienst verwaltet eine Ressource zentral $\rightarrow$ kann von mehreren Prozessen angefordert werden
 - z.B. Drucker-Spooler = Puffer für Druckeraufträge (*nicht bei allen Ressourcen möglich*)
@@ -1142,8 +1155,6 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 - Spare: zusätzliches Speichermedium $\rightarrow$ bei Ausfall erfolgt sofortiger Restore auf Spare
 
 ## Pipes
-
-> *Was sind Pipes?*
 
 - Pipes verbinden die Ausgabe eines Programmes mit der Eingabe eines anderen $\rightarrow$ Datenstrom zwischen zwei Prozessen nach dem FIFO-Prinzip
 - Symbol: `|`; z.B. `cat example.txt | wc -l`
@@ -1305,6 +1316,8 @@ ACK = Bestätigen der SeqNr
 > - ERM
 > - *"SQL"*
 
+<!-- md2apkg ignore-card -->
+
 ## Datenbankentwurf
 
 - Anforderungsanalyse (requirements engineering)
@@ -1373,7 +1386,7 @@ ACK = Bestätigen der SeqNr
 
 ## Sperrkonzepte
 
-**RX-Sperrverfahren**
+### RX-Sperrverfahren
 
 ```text
                vorhandene Sperre
@@ -1385,8 +1398,6 @@ Sperre         X |  + | % | %        X = Write Lock |
 - Gefahren durch Deadlocks: Transaktionen abbrechen (später erneut durchführen) oder Timeout-Verfahren
 
 ## Constraints
-
-> *Was sind Constraints?*
 
 - Wahrung der Konsistenz durch Bedingungen $\rightarrow$ ermöglichen DBMS Integrität zu prüfen
 - z.B. `CONSTRAINT ck_plz CHECK (plz LIKE '[0-9][0-9][0-9][0-9][0-9]');`
@@ -1417,6 +1428,8 @@ Archivspeicher ╱     offline    ╲ sec - min
 > - *Welche Phasenmodelle gibt es und wie funktionieren diese?* (inkl. Vor- und Nachteile)
 > - *Welche Rolle spielt das Testen in der SE?*
 > - Aufwandsschätzung
+
+<!-- md2apkg ignore-card -->
 
 ## Softwareengineering
 
@@ -1449,8 +1462,6 @@ Archivspeicher ╱     offline    ╲ sec - min
 - Belege, Ablaufpläne und Checklisten
 
 ## Phasenmodelle
-
-> - *Welche Phasenmodelle gibt es und wie funktionieren diese?* (inkl. Vor- und Nachteile) TODO
 
 ### Wasserfallmodell (einfaches Phasenmodell)
 
@@ -1508,6 +1519,8 @@ Archivspeicher ╱     offline    ╲ sec - min
 >   - Unterschied Klasse/Objekt/Interface/abstrakte Klasse
 > - UML
 
+<!-- md2apkg ignore-card -->
+
 ## OOP-Paradigmen
 
 - **Abstraktion**: Jedes Objekt im System kann als ein abstraktes Modell eines Akteurs betrachtet werden $\rightarrow$ Klassen oder Prototypen
@@ -1518,25 +1531,13 @@ Archivspeicher ╱     offline    ╲ sec - min
 - **Polymorphie**: Fähigkeit eines Bezeichners, abhängig von seiner Verwendung unterschiedliche Datentypen anzunehmen (vgl. virtual-Klassen)
 - **Vererbung**: abgeleitete Klasse erben die Methoden und Attribute der Basisklasse
 
-> - *Was ist OOP? Wieso wurde OOP eingeführt? Wofür wird OOP verwendet?*
+### Vorteile der OOP
 
-**Was ist OOP?**
-
-- siehe OOP-Paradigmen
-- Alles ist ein Objekt
-- Objekte sind Instanzen einer Klasse
-- etc..
-
-**Wieso?**
-
-- Wiederverwendbarkeit Entwurfstmuster
+- Wiederverwendbarkeit von Entwurfstmuster
   - steigert Produktivität der Programmierer
   - vermeidet Fehler
 - Datenkapselung
-
-**Wofür?**
-
-- Immer komplexere Softwareprodukte
+- immer komplexere Softwareprodukte
 - Architektur einer Software der Realität ähnlich abbilden
 
 ## MVC-Architektur
@@ -1564,12 +1565,12 @@ Archivspeicher ╱     offline    ╲ sec - min
 
 ## XML
 
-> *Was ist XML? Wie können XML-Dateien validiert werden?*
-
 - XML = E**X**tensible **M**arkup **L**anguage
 - Auszeichnungssprache zur Darstellung hierarchisch strukturierter Daten in einem Textformat
 - für Mensch und Maschine lesbar
 - Validierung: wohlgeformt = physische Struktur eingehalten (Regeln der Sprache); valide = entspricht einem definiertem Schema
+
+### tag- vs. inhaltsbasiertes XML
 
 **tag-basiertes XML**
 
@@ -1593,13 +1594,13 @@ Archivspeicher ╱     offline    ╲ sec - min
 </ROOT>
 ```
 
-----------------------------------------------------------------------------------------------------------------------
-
 # Hardwarenahe Programmierung
 
 > **ToDo:**
 >
 > - *Was ist das wichtigste Flag in Rechensystemen + Wieso? (Overflow-Flag)*
+
+<!-- md2apkg ignore-card -->
 
 ## RISC vs. CISC
 
@@ -1646,7 +1647,7 @@ Befehl 3:                                  │    Hol-Phase     │   Decodierph
 
 ## Machine-Learning und Künstliche Intelligenz
 
-**Künstliche Intelligenz (TODO)**
+### Künstliche Intelligenz
 
 - Überbegriff für Anwendungen, bei denen Maschinen menschenähnliche Intelligenzleistungen wie Lernen, Urteilen und Problemlösen erbringen
 - geeignet für nicht-turing-vollständige Probleme
@@ -1654,7 +1655,7 @@ Befehl 3:                                  │    Hol-Phase     │   Decodierph
 - schwache KI: Experte auf einem Gebiet, Vorhersagen/Entscheidungen treffen
 - starke KI: System, das eigenständig entscheidet, anpassbar, quasi die Fähigkeiten (und darüber hinaus) eines Menschen in Software
 
-**Machine-Learning**
+#### Machine-Learning
 
 - Teilbereich KI
 - Erkennen von Mustern in  Datenbeständen: in der Lage, eigenständig Lösungen für Probleme zu finden
@@ -1667,10 +1668,8 @@ Befehl 3:                                  │    Hol-Phase     │   Decodierph
 
 ## Internet of Things (IoT)
 
-> - *Was sind IoT?*
-
 - (alltägliche) Gegenstände sind Teil des Internets
 - bekommen ID, kommunizieren untereinander, empfangen Befehle, senden Daten
-- Aufgaben ohne Eingriffe von außen erledigen
-- Industriell vs privat
-- Vgl. Smart-Home, Wearables
+- können Aufgaben ohne Eingriffe von außen erledigen
+- industriell vs. privat
+- vgl. Smart-Home, Smart-City<!--Gera-->, Wearables
