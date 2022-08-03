@@ -14,6 +14,21 @@ MPP2 - Themenkatalog
 
 Diese File beinhaltet überwiegend Inhalte der letzten beiden Semester zur Vorbereitungen für die zweite mündlichen Praxisprüfung. Es sollte stets gemeinsam mit den [Vorbereitungen zur ersten Praxisprüfung](../BASE-PACK/README.md) betrachtet werden.
 
+Als größtenteil irrelevant betrachtete Themen:
+> **ToDo**
+>
+> - manche WPM II und III
+>   - Herbst Unity
+>   - Medienkram Turtenwald
+>   - **ToDO**
+> - Graphische Datenverarbeitung - (GDV) - Herbst
+> <!--über die folgenden müssen wir noch diskutieren-->
+> - neuronale Netze und maschinelles Lernen - (ML) - Feldmann (**ToDo**)
+> - Forensik - (PRO) - Strassburg (**ToDo**)
+> - e-Commerce - (WEB) - Müller (**ToDo**)
+> - Consulting - (CONS) - Müller (**ToDo**)
+> - ABWL 1&2 - Leder (Ausnahmen)
+
 <!-- md2apkg ignore-card -->
 
 # Hardwarenahe Programmierung
@@ -64,12 +79,23 @@ Diese File beinhaltet überwiegend Inhalte der letzten beiden Semester zur Vorbe
 # IT-Sicherheit/-Recht/-Infrastrukturen
 
 > **ToDo**
+> 
+> - IT-Sibe
+> - ISO 27001
+> - BSI 200er kennen
+> - IT-Grundschutz-Kompendium und Bausteine einordnen 
 
 <!-- md2apkg ignore-card -->
 
-# Rechnernetze und Verteilte
+# Rechnernetze und Verteilte Systeme
 
 > **ToDo**
+>
+> - VLAN
+> - OSPF
+> - BGP
+> - Architekturen
+> - CAP-Theorem <!--?-->
 
 <!-- md2apkg ignore-card -->
 
