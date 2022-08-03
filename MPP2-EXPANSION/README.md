@@ -19,18 +19,45 @@ Diese File beinhaltet überwiegend Inhalte der letzten beiden Semester zur Vorbe
 # Hardwarenahe Programmierung
 
 > **ToDo**
+>
+> - Intel vs. AVR?
+> - Application Binary Interface (ABI)
+> - Register
+> - Stack
+> - Heap
+> - Flags
+> - Timer
+> - Watchdog
 
 <!-- md2apkg ignore-card -->
 
 # Systemprogrammierung
 
 > **ToDo**
+>
+> - Parallele Programmierung
+> - Kritischer Abschnitt
+> - Atomare Operation
+> - Exklusive Ressource
+> - Semaphore
+> - Deadlock
+> - Interprozesskommunikation
+>   - Pipes (uni/bidirektional, named)
+>   - Sockets (lokal, rechnerübergreifend)
+>   - Shared Memory
+> - Signale?! <!-- Steht nur in der Übersicht am Anfang des Moduls und taucht dann nicht nochmal auf-->
 
 <!-- md2apkg ignore-card -->
 
 # Entwicklung von Webanwendungen
 
 > **ToDo**
+> 
+> - HTML
+> - CSS
+>   - Selektoren
+> - Javascript
+> - PHP?!
 
 <!-- md2apkg ignore-card -->
 
@@ -49,18 +76,33 @@ Diese File beinhaltet überwiegend Inhalte der letzten beiden Semester zur Vorbe
 # Allgemeine Betriebswirtschaftslehre
 
 > **ToDo**
+>
+> - Kalkulation <!--Günther-->
+> - Angebotsarbeit <!--Günther-->
 
 <!-- md2apkg ignore-card -->
 
 # Entwicklerwerkzeuge
 
 > **ToDo**
+>
+> - Dokumentationsgeneratoren
+> - Builds-Tools
+> - Versionsverwaltung
+> - Debugger
+> - Speicherzugriffsanalyse
+> - Profiling
+> - Unit-Tests
 
 <!-- md2apkg ignore-card -->
 
 # Compilerbau
 
 > **ToDo**
+>
+> - Parser
+> - Lexer
+> - Compiler-Compiler
 
 <!-- md2apkg ignore-card -->
 
@@ -73,5 +115,15 @@ Diese File beinhaltet überwiegend Inhalte der letzten beiden Semester zur Vorbe
 # IT-Consulting
 
 > **ToDo**
+
+<!-- md2apkg ignore-card -->
+
+# Wissenschaftliches Arbeiten
+
+> **ToDo**
+>
+> - Problemdefinition <!--Günther-->
+> - Lösungsansatz <!--Günther-->
+> - Anforderungsanalyse
 
 <!-- md2apkg ignore-card -->
