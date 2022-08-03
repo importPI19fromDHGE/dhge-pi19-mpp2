@@ -605,7 +605,6 @@ AB│
 >
 > eigentlich: $(\neg a \lor (\neg a) \land b) = \neg a$
 
-
 $$(\neg a \lor (\neg a) \land b) = \neg a$$
 
 1. Negation des zweiten Terms entfernen
