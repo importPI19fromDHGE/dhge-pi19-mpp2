@@ -7,7 +7,8 @@ MPP1 - Themenkatalog
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Inhaltsverzeichnis**
 
-- [Präambel](#pr%C3%A4ambel)
+- [MPP1 - Themenkatalog](#mpp1---themenkatalog)
+- [Präambel](#präambel)
   - [Most Important Topics](#most-important-topics)
 - [Grundlagen der Informationsverarbeitung](#grundlagen-der-informationsverarbeitung)
   - [Von-Neumann-Architektur](#von-neumann-architektur)
@@ -18,12 +19,12 @@ MPP1 - Themenkatalog
       - [Imperative Programmiersprachen](#imperative-programmiersprachen)
       - [Funktionale Programmiersprachen](#funktionale-programmiersprachen)
       - [Deskriptive Programmiersprachen](#deskriptive-programmiersprachen)
-      - [Prädikative Programmiersprachen](#pr%C3%A4dikative-programmiersprachen)
+      - [Prädikative Programmiersprachen](#prädikative-programmiersprachen)
       - [Objektorientierte Programmiersprachen](#objektorientierte-programmiersprachen)
     - [Maschinenorientierte Programmiersprachen](#maschinenorientierte-programmiersprachen)
     - [Befehl](#befehl)
   - [`Call by Value` vs. `Call by Reference`](#call-by-value-vs-call-by-reference)
-  - [Unterschied Java, JavaScript, C&#035;, C++](#unterschied-java-javascript-c-c)
+  - [Unterschied Java, JavaScript, C#, C++](#unterschied-java-javascript-c-c)
   - [Statisches vs. dynamisches Linking](#statisches-vs-dynamisches-linking)
   - [Gleitpunktverfahren](#gleitpunktverfahren)
   - [Umrechnen von Zahlensystemen](#umrechnen-von-zahlensystemen)
@@ -35,10 +36,10 @@ MPP1 - Themenkatalog
     - [Gray-Code](#gray-code)
     - [Aiken-Code](#aiken-code)
   - [Fehlererkennbare Codes](#fehlererkennbare-codes)
-    - [Paritätsbit](#parit%C3%A4tsbit)
+    - [Paritätsbit](#paritätsbit)
     - [Gleichgewichtige Codes](#gleichgewichtige-codes)
   - [Fehlerkorrigierbare Codes](#fehlerkorrigierbare-codes)
-    - [Blockprüfung](#blockpr%C3%BCfung)
+    - [Blockprüfung](#blockprüfung)
     - [Hamming-Codes](#hamming-codes)
   - [AD-Wandler](#ad-wandler)
   - [Volladdierer](#volladdierer)
@@ -53,8 +54,8 @@ MPP1 - Themenkatalog
     - [Diode](#diode)
     - [Transistor](#transistor)
     - [Spule](#spule)
-  - [Flüchtiger RAM](#fl%C3%BCchtiger-ram)
-  - [Signalübertragung Kabel](#signal%C3%BCbertragung-kabel)
+  - [Flüchtiger RAM](#flüchtiger-ram)
+  - [Signalübertragung Kabel](#signalübertragung-kabel)
 - [Algorithmen und Datenstrukturen](#algorithmen-und-datenstrukturen)
   - [Eigenschaften von Algorithmen](#eigenschaften-von-algorithmen)
   - [Sortieralgorithmen](#sortieralgorithmen)
@@ -64,18 +65,18 @@ MPP1 - Themenkatalog
     - [Insertion-Sort](#insertion-sort)
     - [Quick-Sort](#quick-sort)
     - [Merge-Sort](#merge-sort)
-  - [Verschlüsselung](#verschl%C3%BCsselung)
+  - [Verschlüsselung](#verschlüsselung)
     - [Schutzziele](#schutzziele)
-    - [Symmetrische Verschlüsselung](#symmetrische-verschl%C3%BCsselung)
-    - [Asymmetrisch Verschlüsselung](#asymmetrisch-verschl%C3%BCsselung)
-    - [hybrides Verfahren zur Verschlüsselung](#hybrides-verfahren-zur-verschl%C3%BCsselung)
+    - [Symmetrische Verschlüsselung](#symmetrische-verschlüsselung)
+    - [Asymmetrisch Verschlüsselung](#asymmetrisch-verschlüsselung)
+    - [hybrides Verfahren zur Verschlüsselung](#hybrides-verfahren-zur-verschlüsselung)
   - [Hashing](#hashing)
   - [Digitale Signatur](#digitale-signatur)
   - [Stack und Queue](#stack-und-queue)
   - [Graphen](#graphen)
 - [Automaten und Sprachen](#automaten-und-sprachen)
-  - [Reguläre Ausdrücke](#regul%C3%A4re-ausdr%C3%BCcke)
-    - [Definition einer regulären Menge](#definition-einer-regul%C3%A4ren-menge)
+  - [Reguläre Ausdrücke](#reguläre-ausdrücke)
+    - [Definition einer regulären Menge](#definition-einer-regulären-menge)
   - [Grammatiken](#grammatiken)
     - [Bestandteile einer Grammatik](#bestandteile-einer-grammatik)
     - [Die Chomsky-Hierarchie](#die-chomsky-hierarchie)
@@ -91,16 +92,16 @@ MPP1 - Themenkatalog
   - [Klassifizierung von Betriebssystemen](#klassifizierung-von-betriebssystemen)
   - [Betriebsmittel](#betriebsmittel)
   - [Thread/Prozess/Task](#threadprozesstask)
-  - [Parallelität und Nebenläufigkeit](#parallelit%C3%A4t-und-nebenl%C3%A4ufigkeit)
+  - [Parallelität und Nebenläufigkeit](#parallelität-und-nebenläufigkeit)
   - [Dateisysteme](#dateisysteme)
   - [Virtueller Speicher](#virtueller-speicher)
   - [Cache](#cache)
   - [Speicherzuweisungsstrategien](#speicherzuweisungsstrategien)
   - [Seitenersetzungsstrategien](#seitenersetzungsstrategien)
-  - [Scheduling-Strategien für Prozesse](#scheduling-strategien-f%C3%BCr-prozesse)
+  - [Scheduling-Strategien für Prozesse](#scheduling-strategien-für-prozesse)
   - [Adressierungsarten](#adressierungsarten)
-  - [Serielle vs. Parallele Datenübertragung](#serielle-vs-parallele-daten%C3%BCbertragung)
-    - [*Warum ist heute die serielle Datenübertragung verbreiteter?*](#warum-ist-heute-die-serielle-daten%C3%BCbertragung-verbreiteter)
+  - [Serielle vs. Parallele Datenübertragung](#serielle-vs-parallele-datenübertragung)
+    - [*Warum ist heute die serielle Datenübertragung verbreiteter?*](#warum-ist-heute-die-serielle-datenübertragung-verbreiteter)
   - [Interrupts](#interrupts)
     - [Traps](#traps)
   - [Semaphore](#semaphore)
@@ -153,8 +154,8 @@ MPP1 - Themenkatalog
   - [Pipelining](#pipelining)
 - [IT-Trends](#it-trends)
   - [Cloud Computing](#cloud-computing)
-  - [Machine-Learning und Künstliche Intelligenz](#machine-learning-und-k%C3%BCnstliche-intelligenz)
-    - [Künstliche Intelligenz](#k%C3%BCnstliche-intelligenz)
+  - [Machine-Learning und Künstliche Intelligenz](#machine-learning-und-künstliche-intelligenz)
+    - [Künstliche Intelligenz](#künstliche-intelligenz)
       - [Machine-Learning](#machine-learning)
   - [Internet of Things (IoT)](#internet-of-things-iot)
 
@@ -602,21 +603,26 @@ AB│
 
 > (`!a||(!a&&b)`)
 >
-> eigentlich `(¬a ∨ (¬a)∧b) = ¬a`
+> eigentlich: $(\neg a \lor (\neg a) \land b) = \neg a$
 
-```text
-(¬a ∨ ¬(a∧b))
-Negation des zweiten Terms entfernen
-(¬a ∨ (¬a)∨(¬b))
-(¬a ∨ ¬a ∨ ¬b)
-Vereinfachen !a ∨ !a = !a
-(¬a ∨ ¬b)
-Negation zusammenführen
-¬(a∧b)
 
-NAND(a,b)
-Zur Überprüfung kann Wahrheitswerttabelle genutzt werden.
-```
+$$(\neg a \lor (\neg a) \land b) = \neg a$$
+
+1. Negation des zweiten Terms entfernen
+
+$$(\neg a \lor (\neg a)\lor(\neg b))$$
+$$(\neg a \lor \neg a \lor \neg b)$$
+
+2. Vereinfachen: $\neg a \lor \neg a = \neg a$
+
+$$(\neg a \lor \neg b)$$
+
+3. Negation zusammenführen
+
+$$\neg (a \land b)$$
+$$\text{NAND(a,b)}$$
+
+4. Zur Überprüfung kann Wahrheitswerttabelle genutzt werden.
 
 ## Arten von Kippgliedern
 
