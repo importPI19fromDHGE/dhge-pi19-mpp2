@@ -7,7 +7,8 @@ MPP1 - Themenkatalog
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Inhaltsverzeichnis**
 
-- [Präambel](#pr%C3%A4ambel)
+- [MPP1 - Themenkatalog](#mpp1---themenkatalog)
+- [Präambel](#präambel)
   - [Most Important Topics](#most-important-topics)
 - [Grundlagen der Informationsverarbeitung](#grundlagen-der-informationsverarbeitung)
   - [Von-Neumann-Architektur](#von-neumann-architektur)
@@ -18,12 +19,12 @@ MPP1 - Themenkatalog
       - [Imperative Programmiersprachen](#imperative-programmiersprachen)
       - [Funktionale Programmiersprachen](#funktionale-programmiersprachen)
       - [Deskriptive Programmiersprachen](#deskriptive-programmiersprachen)
-      - [Prädikative Programmiersprachen](#pr%C3%A4dikative-programmiersprachen)
+      - [Prädikative Programmiersprachen](#prädikative-programmiersprachen)
       - [Objektorientierte Programmiersprachen](#objektorientierte-programmiersprachen)
     - [Maschinenorientierte Programmiersprachen](#maschinenorientierte-programmiersprachen)
     - [Befehl](#befehl)
   - [`Call by Value` vs. `Call by Reference`](#call-by-value-vs-call-by-reference)
-  - [Unterschied Java, JavaScript, C&#035;, C++](#unterschied-java-javascript-c-c)
+  - [Unterschied Java, JavaScript, C#, C++](#unterschied-java-javascript-c-c)
   - [Statisches vs. dynamisches Linking](#statisches-vs-dynamisches-linking)
   - [Gleitpunktverfahren](#gleitpunktverfahren)
   - [Umrechnen von Zahlensystemen](#umrechnen-von-zahlensystemen)
@@ -35,10 +36,10 @@ MPP1 - Themenkatalog
     - [Gray-Code](#gray-code)
     - [Aiken-Code](#aiken-code)
   - [Fehlererkennbare Codes](#fehlererkennbare-codes)
-    - [Paritätsbit](#parit%C3%A4tsbit)
+    - [Paritätsbit](#paritätsbit)
     - [Gleichgewichtige Codes](#gleichgewichtige-codes)
   - [Fehlerkorrigierbare Codes](#fehlerkorrigierbare-codes)
-    - [Blockprüfung](#blockpr%C3%BCfung)
+    - [Blockprüfung](#blockprüfung)
     - [Hamming-Codes](#hamming-codes)
   - [AD-Wandler](#ad-wandler)
   - [Volladdierer](#volladdierer)
@@ -53,8 +54,8 @@ MPP1 - Themenkatalog
     - [Diode](#diode)
     - [Transistor](#transistor)
     - [Spule](#spule)
-  - [Flüchtiger RAM](#fl%C3%BCchtiger-ram)
-  - [Signalübertragung Kabel](#signal%C3%BCbertragung-kabel)
+  - [Flüchtiger RAM](#flüchtiger-ram)
+  - [Signalübertragung Kabel](#signalübertragung-kabel)
 - [Algorithmen und Datenstrukturen](#algorithmen-und-datenstrukturen)
   - [Eigenschaften von Algorithmen](#eigenschaften-von-algorithmen)
   - [Sortieralgorithmen](#sortieralgorithmen)
@@ -64,18 +65,18 @@ MPP1 - Themenkatalog
     - [Insertion-Sort](#insertion-sort)
     - [Quick-Sort](#quick-sort)
     - [Merge-Sort](#merge-sort)
-  - [Verschlüsselung](#verschl%C3%BCsselung)
+  - [Verschlüsselung](#verschlüsselung)
     - [Schutzziele](#schutzziele)
-    - [Symmetrische Verschlüsselung](#symmetrische-verschl%C3%BCsselung)
-    - [Asymmetrisch Verschlüsselung](#asymmetrisch-verschl%C3%BCsselung)
-    - [hybrides Verfahren zur Verschlüsselung](#hybrides-verfahren-zur-verschl%C3%BCsselung)
+    - [Symmetrische Verschlüsselung](#symmetrische-verschlüsselung)
+    - [Asymmetrisch Verschlüsselung](#asymmetrisch-verschlüsselung)
+    - [hybrides Verfahren zur Verschlüsselung](#hybrides-verfahren-zur-verschlüsselung)
   - [Hashing](#hashing)
   - [Digitale Signatur](#digitale-signatur)
   - [Stack und Queue](#stack-und-queue)
   - [Graphen](#graphen)
 - [Automaten und Sprachen](#automaten-und-sprachen)
-  - [Reguläre Ausdrücke](#regul%C3%A4re-ausdr%C3%BCcke)
-    - [Definition einer regulären Menge](#definition-einer-regul%C3%A4ren-menge)
+  - [Reguläre Ausdrücke](#reguläre-ausdrücke)
+    - [Definition einer regulären Menge](#definition-einer-regulären-menge)
   - [Grammatiken](#grammatiken)
     - [Bestandteile einer Grammatik](#bestandteile-einer-grammatik)
     - [Die Chomsky-Hierarchie](#die-chomsky-hierarchie)
@@ -91,22 +92,28 @@ MPP1 - Themenkatalog
   - [Klassifizierung von Betriebssystemen](#klassifizierung-von-betriebssystemen)
   - [Betriebsmittel](#betriebsmittel)
   - [Thread/Prozess/Task](#threadprozesstask)
-  - [Parallelität und Nebenläufigkeit](#parallelit%C3%A4t-und-nebenl%C3%A4ufigkeit)
+  - [Parallelität und Nebenläufigkeit](#parallelität-und-nebenläufigkeit)
   - [Dateisysteme](#dateisysteme)
   - [Virtueller Speicher](#virtueller-speicher)
   - [Cache](#cache)
   - [Speicherzuweisungsstrategien](#speicherzuweisungsstrategien)
   - [Seitenersetzungsstrategien](#seitenersetzungsstrategien)
-  - [Scheduling-Strategien für Prozesse](#scheduling-strategien-f%C3%BCr-prozesse)
+    - [Optimale Seitenersetzungsstrategie](#optimale-seitenersetzungsstrategie)
+    - [Reale Seitenersetzungsstrategien](#reale-seitenersetzungsstrategien)
+  - [Scheduling-Strategien für Prozesse](#scheduling-strategien-für-prozesse)
+    - [Non-präemptive Scheduling](#non-präemptive-scheduling)
+    - [Präemptive Scheduling](#präemptive-scheduling)
   - [Adressierungsarten](#adressierungsarten)
-  - [Serielle vs. Parallele Datenübertragung](#serielle-vs-parallele-daten%C3%BCbertragung)
-    - [*Warum ist heute die serielle Datenübertragung verbreiteter?*](#warum-ist-heute-die-serielle-daten%C3%BCbertragung-verbreiteter)
+  - [Serielle vs. Parallele Datenübertragung](#serielle-vs-parallele-datenübertragung)
+    - [*Warum ist heute die serielle Datenübertragung verbreiteter?*](#warum-ist-heute-die-serielle-datenübertragung-verbreiteter)
   - [Interrupts](#interrupts)
+    - [Ablauf eines Interrupt](#ablauf-eines-interrupt)
     - [Traps](#traps)
   - [Semaphore](#semaphore)
   - [Spooling](#spooling)
 - [Betriebssystemverwaltung](#betriebssystemverwaltung)
   - [RAID](#raid)
+    - [RAID-Arten](#raid-arten)
   - [Pipes](#pipes)
   - [Datensicherung](#datensicherung)
 - [Rechnernetze](#rechnernetze)
@@ -127,6 +134,11 @@ MPP1 - Themenkatalog
   - [Datenbankentwurf](#datenbankentwurf)
   - [ANSI-SPARC Drei-Ebenen-Konzept](#ansi-sparc-drei-ebenen-konzept)
   - [Datenmodelle](#datenmodelle)
+    - [hierarchisches Modell](#hierarchisches-modell)
+    - [Netzwerkmodell](#netzwerkmodell)
+    - [Relationales Modell](#relationales-modell)
+    - [Objektorientiertes Datenmodell](#objektorientiertes-datenmodell)
+    - [Objektrelationale Systeme](#objektrelationale-systeme)
   - [Operationen im Relationalen Modell](#operationen-im-relationalen-modell)
   - [ACID (Transkationseigenschaften)](#acid-transkationseigenschaften)
   - [Sperrkonzepte](#sperrkonzepte)
@@ -153,8 +165,8 @@ MPP1 - Themenkatalog
   - [Pipelining](#pipelining)
 - [IT-Trends](#it-trends)
   - [Cloud Computing](#cloud-computing)
-  - [Machine-Learning und Künstliche Intelligenz](#machine-learning-und-k%C3%BCnstliche-intelligenz)
-    - [Künstliche Intelligenz](#k%C3%BCnstliche-intelligenz)
+  - [Machine-Learning und Künstliche Intelligenz](#machine-learning-und-künstliche-intelligenz)
+    - [Künstliche Intelligenz](#künstliche-intelligenz)
       - [Machine-Learning](#machine-learning)
   - [Internet of Things (IoT)](#internet-of-things-iot)
 
@@ -1068,13 +1080,15 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 - richtiges Auslagern ist eines der größten Probleme virtueller Speichersysteme (extreme Auswirkungen auf Gesamtleistung)
 - Worst case: ausgelagerte Seite wird sofort wieder benötigt $\rightarrow$ Seitenflattern (trashing)
 
-**Optimale Seitenersetzungsstrategie**
+### Optimale Seitenersetzungsstrategie
 
 - lagere die Seite aus, für die der nächste Zugriff am weitesten in der Zukunft liegt (theoretisch beste Strategie)
 - jedoch unmöglich, herauszufinden, welche Seite wann als nächstes gebraucht wird (praktisch nicht umsetzbar)
 - Auch bekannt als **Belady-Theorem der optimalen Verdrängung**
 
-**Seitenersetzungsstrategien** (optimale Strategie dient als Referenz)
+### Reale Seitenersetzungsstrategien
+
+> (optimale Strategie dient als Referenz)
 
 - **NRU:** teilt Seiten anhand ihrer R- und M-Bits (read, modified) in vier Klassen ein und entfernt zufällig eine Seite aus der niedrigsten, nicht-leeren Klasse
 - **FIFO:** Auslagern der Seite, die sich am längsten im Hauptspeicher befunden hat (älteste Seite)
@@ -1087,14 +1101,16 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 
 ## Scheduling-Strategien für Prozesse
 
-**Non-präemptive Scheduling**
+<!--ToDo: Non-präemptive und Präemptive erklären! -->
+
+### Non-präemptive Scheduling
 
 - **First come first serve** (FCFS / FIFO): Jobs werden bei Entstehen in Warteschlange eingefügt
 - **Shortest-Job-First** (SJF): Prozesse mit (geschätzt) kürzester Ausführungzeit werden zuerst bedient
 - **Highest response ratio next** (HRN): Bearbeitet Jobs mit maximalem Verhältnis Antwortzeit zu Bedienzeit zuerst. (Zeiten liegen Schätzungen zugrunde)
 - **Prioritätsscheduling** (PS): Nächster Job, der in rechenbereit-Liste aufgenommen wird, wird in Warteschlange gemäß seiner Prioritäten einsortiert
 
-**Präemptive Scheduling**
+### Präemptive Scheduling
 
 - **Round-Robin** (RR): Kombination aus der FCFS-Strategie und dem Zeitscheibenverfahren
 - **Dynamic Priority Round Robin**: Prioritäten der Prozesse in "rechenbereit"-Schlange erhöhen sich nach jeder sie nicht berücksichtigenden Zeitscheibe
@@ -1134,7 +1150,7 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 
 - Interrupt = kurzfristige Unterbrechung eines Programms durch eine von der CPU abzuarbeitende Befehlssequenz (Interrupt Service Routine $\rightarrow$ schnelle Reaktion auf I/O, Zeitgeber, ...)
 
-**Ablauf**
+### Ablauf eines Interrupt
 
 - Sperren weiterer Unterbrechungen mit gleicher oder geringerer Priorität
 - Sicherung wichtiger Register-Informationen
@@ -1163,10 +1179,14 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 ## RAID
 
 - **R**edundant **A**rray of **I**ndependent **D**isks
-- Nutzen von Redundanzen zur Erhöhung der Ausfallsicherheit oder des Datendurchsatzes (keine Datensicherung!)
-- Mirroring: alle Daten auf mehreren Speichermedien gespeichert (kein Datenverlust bei einem Ausfall)
-- Striping: Daten auf allen Speichermedien verteilen (Datenverlust bei einem Ausfall)
-  - Parität: Bei verteilter Datenspeicherung durch Striping $\rightarrow$ Speicherung von Paritätsinformationen auf weiterem Speichermedium
+- Nutzen von Redundanzen zur Erhöhung der Ausfallsicherheit oder des Datendurchsatzes **(keine Datensicherung!)**
+- **Mirroring:** alle Daten auf mehreren Speichermedien gespeichert (kein Datenverlust bei einem Ausfall)
+- **Striping:** Daten auf allen Speichermedien verteilen (Datenverlust bei einem Ausfall)
+  - **Parität:** Bei verteilter Datenspeicherung durch Striping $\rightarrow$ Speicherung von Paritätsinformationen auf weiterem Speichermedium
+- **Spare:** zusätzliches Speichermedium $\rightarrow$ bei Ausfall erfolgt sofortiger Restore auf Spare
+
+### RAID-Arten
+
 - `RAID 0`: Striping über min. 2 Datenträger (höhere Performance, aber keine Ausfallsicherheit)
 - `RAID 1`: Mirroring über min. 2 Datenträger (Ausfallsicherheit; geringe Netto-Kapazität; hohe Kosten)
 - `RAID 5`: Striping mit einer XOR-Parität über 3-16 Datenträger (hohe Netto-Kapazität und Lesegeschwindigkeit; komplexe Initialisierung, langsames Schreiben)
@@ -1174,7 +1194,6 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 - `RAID 10`: Striping und Mirroring über min. 4 Datenträger
 - `RAID 50`: Striping, Mirroring und Parität über min. 6 Datenträger
 - `RAID 60`: Striping, Mirroring und doppelte Parität über min. 8 Datenträger
-- Spare: zusätzliches Speichermedium $\rightarrow$ bei Ausfall erfolgt sofortiger Restore auf Spare
 
 ## Pipes
 
@@ -1188,10 +1207,10 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
   - 3 Datenstände
   - 2 unterschiedliche Speichermedien
   - 1 off-site
-- Online Backup $\rightarrow$ sofort verfügbar und immer online
-- Offline Backup $\rightarrow$ nicht immer verfügbar und online, braucht Zeit um eingesetzt werden zu können
-- Hot Backup $\rightarrow$ wird im laufenden Betrieb erstellt
-- Cold Backup $\rightarrow$ wird im ausgeschalteten Zustand erstellt (konsistenter Zustand wird gesichert)
+- **Online Backup** $\rightarrow$ sofort verfügbar und immer online
+- **Offline Backup** $\rightarrow$ nicht immer verfügbar und online, braucht Zeit um eingesetzt werden zu können
+- **Hot Backup** $\rightarrow$ wird im laufenden Betrieb erstellt
+- **Cold Backup** $\rightarrow$ wird im ausgeschalteten Zustand erstellt (konsistenter Zustand wird gesichert)
 
 # Rechnernetze
 
@@ -1239,25 +1258,23 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 
 ## IPv4 vs IPv6
 
-```text
-IPv4                                | IPv6
-- 32bit Adressen  (NAT!)            | - 128bit Adressen
-- keine autom. Adress-Conf.         | - SLAAC
-- variabler Header                  | - konstanter Header + Extension-Header
-  -> ineffizentes Routing           |
-- Fragmentierung durch Router       | - Fragmentierung durch Sender
-```
+| IPv4                          | IPv6                                   |
+| ----------------------------- | -------------------------------------- |
+| - 32bit Adressen  (NAT!)      | - 128bit Adressen                      |
+| - keine autom. Adress-Conf.   | - SLAAC                                |
+| - variabler Header            | - konstanter Header + Extension-Header |
+| -> ineffizentes Routing       |                                        |
+| - Fragmentierung durch Router | - Fragmentierung durch Sender          |
 
 ## UDP vs TCP
 
-```text
-UDP                              | TCP
-- verbindungslos                 | - verbindungsorientiert
-- unzuverlässig                  | - zuverlässig
-- geringer Protokoll-Overhead    | - höherer Protokoll-Overhead
-- keine Reihenfolgegarantie      | - Reihenfolgegarantie
-- Anw.: DNS, DHCP, NTP, SNMP     | - Flusskontrolle, Überlaststeuerung
-```
+| UDP                           | TCP                                 |
+| ----------------------------- | ----------------------------------- |
+| - verbindungslos              | - verbindungsorientiert             |
+| - unzuverlässig               | - zuverlässig                       |
+| - geringer Protokoll-Overhead | - höherer Protokoll-Overhead        |
+| - keine Reihenfolgegarantie   | - Reihenfolgegarantie               |
+| - Anw.: DNS, DHCP, NTP, SNMP  | - Flusskontrolle, Überlaststeuerung |
 
 ## TCP-Handshake
 
@@ -1347,6 +1364,8 @@ ACK = Bestätigen der SeqNr
 - Modellierung der Sichten
 - TODO:
 
+<!-- md2apkg ignore-card -->
+
 ## ANSI-SPARC Drei-Ebenen-Konzept
 
 - **Externe Ebene:** logische Datenstrukturen der Anw.-Programme zur Präsentation der Daten an den Benutzer
@@ -1357,32 +1376,32 @@ ACK = Bestätigen der SeqNr
 
 ## Datenmodelle
 
-**hierarchisches Modell**
+### hierarchisches Modell
 
 - hierarchische Datensätze mit verschiedenen Feldern
 - stark an Filesystem orientiert $\rightarrow$ Baumstruktur (Verweise über Pointer)
 - Grenzen: starres Modell, das keine n:m-Beziehungen unterstützt (ohne Redundanzen)
 
-**Netzwerkmodell**
+### Netzwerkmodell
 
 - Verallgemeinerung des hierarchischen Modells $\rightarrow$ keine strenge Hierarchie
 - m:n-Beziehungen indirekt über Hilfsdatensatztyp möglich (2x 1:n)
 
-**Relationales Modell**
+### Relationales Modell
 
 - ein Objekt besitzt bestimmte Merkmale (= Attribute)
 - Beziehungen zwischen den Objekten besitzen ebenfalls Merkmale
 - Speicherung in einfacher Tabellenform (Zeilen = Objekte, Spalten = Attribute)
 - Darstellung von Beziehungen zwischen Objekten durch Attributwerte statt Pointer
 
-**Objektorientiertes Datenmodell**
+### Objektorientiertes Datenmodell
 
 - Sammlung von Objekten (enthalten Attribute und weitere Objekte)
 - eindeutige Identifikation von Objekten durch unveränderliche Indikatoren
 - Erfassen von mehr Semantik $\rightarrow$ aufwändige Verbundoperationen entfallen (Optimierung vs. Datenunabhängigkeit)
 - Kriterien: komplexe Objekte, Kapselung, Klassen- und Typhierarchie, Sicherstellung der Objektidentität, ...
 
-**Objektrelationale Systeme**
+### Objektrelationale Systeme
 
 - Verknüpfung von relationalen Systemen und Objektorientierung
 
@@ -1622,16 +1641,14 @@ Archivspeicher ╱     offline    ╲ sec - min
 
 ## RISC vs. CISC
 
-```text
-Reduced Instruction Set Computing   | Complex Instruction Set Computing
-────────────────────────────────────┼─────────────────────────────────────────
-reduzierter, homogener Befehlssatz  | komplexer, aber komfortabler Befehlssatz
-parallele Verarbeitung              | sequenzielle Verarbeitung
--> geringere Taktrate, Verbrauch    | -> höhere Taktrate, Stromverbrauch nötig
--> aber: Synchronisationsaufwand    |
-komplexer Compile-Schritt           | Befehle werden als Microcode ausgeführt
-Pipelining möglich                  | Pipelining schwierig
-```
+| Reduced Instruction Set Computing    | Complex Instruction Set Computing          |
+| ------------------------------------ | ------------------------------------------ |
+| - reduzierter, homogener Befehlssatz | - komplexer, aber komfortabler Befehlssatz |
+| - parallele Verarbeitung             | - sequenzielle Verarbeitung                |
+| -> geringere Taktrate, Verbrauch     | -> höhere Taktrate, Stromverbrauch nötig   |
+| -> aber: Synchronisationsaufwand     |                                            |
+| - komplexer Compile-Schritt          | - Befehle werden als Microcode ausgeführt  |
+| - Pipelining möglich                 | - Pipelining schwierig                     |
 
 ## Pipelining
 
@@ -1674,7 +1691,8 @@ Befehl 3:                                  │    Hol-Phase     │   Decodierph
 #### Machine-Learning
 
 - Teilbereich KI
-- Erkennen von Mustern in  Datenbeständen: in der Lage, eigenständig Lösungen für Probleme zu finden
+- Erkennen von Mustern in Datenbeständen
+- $\rightarrow$ in der Lage, eigenständig Lösungen für Probleme zu finden
 
 **Anwendung**
 
