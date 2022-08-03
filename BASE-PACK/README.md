@@ -16,7 +16,13 @@ MPP1 - Themenkatalog
   - [Befehlsverarbeitung](#befehlsverarbeitung)
   - [Einordnung von Programmiersprachen](#einordnung-von-programmiersprachen)
     - [Problemorientierte Programmiersprachen](#problemorientierte-programmiersprachen)
+      - [Imperative Programmiersprachen](#imperative-programmiersprachen)
+      - [Funktionale Programmiersprachen](#funktionale-programmiersprachen)
+      - [Deskriptive Programmiersprachen](#deskriptive-programmiersprachen)
+      - [Prädikative Programmiersprachen](#prädikative-programmiersprachen)
+      - [Objektorientierte Programmiersprachen](#objektorientierte-programmiersprachen)
     - [Maschinenorientierte Programmiersprachen](#maschinenorientierte-programmiersprachen)
+    - [Befehl](#befehl)
   - [`Call by Value` vs. `Call by Reference`](#call-by-value-vs-call-by-reference)
   - [Unterschied Java, JavaScript, C#, C++](#unterschied-java-javascript-c-c)
   - [Statisches vs. dynamisches Linking](#statisches-vs-dynamisches-linking)
@@ -30,7 +36,11 @@ MPP1 - Themenkatalog
     - [Gray-Code](#gray-code)
     - [Aiken-Code](#aiken-code)
   - [Fehlererkennbare Codes](#fehlererkennbare-codes)
+    - [Paritätsbit](#paritätsbit)
+    - [Gleichgewichtige Codes](#gleichgewichtige-codes)
   - [Fehlerkorrigierbare Codes](#fehlerkorrigierbare-codes)
+    - [Blockprüfung](#blockprüfung)
+    - [Hamming-Codes](#hamming-codes)
   - [AD-Wandler](#ad-wandler)
   - [Volladdierer](#volladdierer)
   - [Konjunktive/Disjunktive-Normalform](#konjunktivedisjunktive-normalform)
@@ -39,6 +49,11 @@ MPP1 - Themenkatalog
   - [Arten von Kippgliedern](#arten-von-kippgliedern)
 - [Elektrotechnik](#elektrotechnik)
   - [Grundlegende elektrische Bauteile](#grundlegende-elektrische-bauteile)
+    - [Kondensator](#kondensator)
+    - [Ohmscher Widerstand](#ohmscher-widerstand)
+    - [Diode](#diode)
+    - [Transistor](#transistor)
+    - [Spule](#spule)
   - [Flüchtiger RAM](#flüchtiger-ram)
   - [Signalübertragung Kabel](#signalübertragung-kabel)
 - [Algorithmen und Datenstrukturen](#algorithmen-und-datenstrukturen)
@@ -228,13 +243,13 @@ STOP
 
 ## Einordnung von Programmiersprachen
 
-| Maschinenorientierte Sprachen                                                 | Problemorientierte Sprachen                                           |
-| ----------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| orientieren sich am Befehlssatz der zugrundeliegenden Hardware                | Sprache orientiert sich an den zu lösenden Problemstellungen          |
-| Programmierung für einen spezifischen Prozessor (nicht plattformübergreifend) | Bsp.: imperative, funktionale, logische o. deskriptive Programmierung |
-| sehr einfache Befehle $\rightarrow$ Komplexe Programmierung                   | auch "höhere Programmiersprachen"                                     |
-| Assembler-Programmierung $=$ Vereinfachung durch mnemonische Ersetzungen      | plattformunabhängige Entwicklung durch Verwendung von Compilern       |
-| hohe Effizienz                                                                | einfachere Programmierung                                             |
+| Maschinenorientierte Sprachen                                                     | Problemorientierte Sprachen                                           |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| orientieren sich am Befehlssatz der **zugrundeliegenden Hardware**                | Sprache orientiert sich an den **zu lösenden Problemstellungen**      |
+| Programmierung für einen **spezifischen Prozessor** (nicht plattformübergreifend) | Bsp.: imperative, funktionale, logische o. deskriptive Programmierung |
+| sehr einfache Befehle $\rightarrow$ Komplexe Programmierung                       | auch "höhere Programmiersprachen"                                     |
+| **Assembler**-Programmierung $=$ Vereinfachung durch mnemonische Ersetzungen      | **plattformunabhängige** Entwicklung durch Verwendung von Compilern   |
+| hohe Effizienz                                                                    | einfachere Programmierung                                             |
 
 ### Problemorientierte Programmiersprachen
 
@@ -243,53 +258,58 @@ STOP
 - eventuell maschinen-/plattformspezifische Erweiterungen
 - sog. Quellprogramme werden mit Übersetzungswerkzeugen in Maschinensprache des Rechners übersetzt
 
-**Imperative Programmiersprachen**
+#### Imperative Programmiersprachen
 
-- Folge von Anweisungen
-- Weg der Verarbeitung im Vordergrund
-- Bsp.: C, Pascal, Fortan, Cobol, Basic
+- **Folge von Anweisungen**
+- Weg der **Verarbeitung im Vordergrund**
+- Bsp.: `C`, `Pascal`, `Fortan`, `Cobol`, `Basic`
 
-**Funktionale Programmiersprachen**
+#### Funktionale Programmiersprachen
 
-- Funktionen die Eingabegrößen in Ausgabegrößen abbilden
+- Funktionen die **Eingabegrößen in Ausgabegrößen abbilden**
 - Funktionen bestehen aus Ausdrücken, die sich aus Operationen zusammensetzen
-- Bsp.: Lisp
+- Bsp.: `Lisp`
 
-**Deskriptive Programmiersprachen**
+#### Deskriptive Programmiersprachen
 
-- Ergebnis selbst im Vordergrund $\rightarrow$ Sprache beschreibt Eigenschaften des gewünschten Ergebnis
+- **Ergebnis selbst im Vordergrund** $\rightarrow$ Sprache **beschreibt Eigenschaften** des gewünschten Ergebnis
 - Programm liefert alle Eingabewerte, die diese Bedingungen erfüllen
-- keine Manipulation der Eingabegrößen
-- oft Abfragesprachen für Datenbanken $\rightarrow$ Bsp.: SQL
+- **keine Manipulation** der Eingabegrößen
+- oft Abfragesprachen für Datenbanken $\rightarrow$ Bsp.: `SQL`
 
-**Prädikative Programmiersprachen**
+#### Prädikative Programmiersprachen
 
-- Beweis in einem System aus Tatsachen und Regeln im Vordergrund (= Wissensbasis)
+- **Beweis in einem System aus Tatsachen und Regeln** im Vordergrund (= Wissensbasis)
 - Benutzer formuliert Anfrage an das System, welches versucht, diese mit "richtig" oder "falsch" zu beantworten
-- Bsp.: Prolog
+- Bsp.: `Prolog`
 
-**Objektorientierte Programmiersprachen**
+#### Objektorientierte Programmiersprachen
 
 - Zusammenfassen der zur Lösung von Teilproblemen notwendigen Daten und Operationen zu Objekten
 - Objekte kommunizieren über Signale und Botschaften miteinander
 - einige imperative Vertreter sind durch objektorientierte Programmierung erweitert wurden
-- Bsp.: C++, Java, Smalltalk
+- Bsp.: `C++`, `Java`, `Smalltalk`
 
 ### Maschinenorientierte Programmiersprachen
 
-- Orientierung an der vorliegenden Hardware (Befehlssatz des Zentralprozessors)
-- Typische Vertreter: Assemblersprachen
+- Orientierung an der vorliegenden Hardware (**Befehlssatz** des Zentralprozessors)
+- Typische Vertreter: `Assemblersprachen`
 
-**Befehl**
+### Befehl
 
-- bezeichnen einzelne Arbeitsschritte $\rightarrow$ kleinste, nicht weiter zerlegbare Einheit einer Programmiersprache
-- bei problemorientierten Sprachen: Anweisung (oft keine einzelnen Schritte, sondern komplexere Abläufe)
-- Befehl = Operationsteil + Adressteil
+- bezeichnen **einzelne Arbeitsschritte** $\rightarrow$ kleinste, nicht weiter zerlegbare Einheit einer Programmiersprache
+- vgl. bei problemorientierten Sprachen: Anweisung (oft keine einzelnen Schritte, sondern komplexere Abläufe)
+
+> Befehl = Operationsteil + Adressteil
 
 ## `Call by Value` vs. `Call by Reference`
 
-- `Call by Value`: Übergabe der Kopie eines Parameters bei Funktionsaufruf (z.B. `int`, `char` in `C`; Kopie existiert nur innerhalb der Funktion)
-- `Call by Reference`: Übergabe der Referenz auf einen Parameter bei Funktionsaufruf (z.B. `*` in `C`; Änderungen bleiben nach Verlassen der Funktion erhalten)
+- `Call by Value`: Übergabe der **Kopie** eines Parameters bei Funktionsaufruf
+  - Kopie existiert nur innerhalb der Funktion
+  - z.B. `int`, `char` in `C`
+- `Call by Reference`: Übergabe der **Referenz** auf einen Parameter bei Funktionsaufruf
+  - Änderungen bleiben nach Verlassen der Funktion erhalten
+  - z.B. `*` in `C`
 
 ## Unterschied Java, JavaScript, C#, C++
 
@@ -319,12 +339,13 @@ STOP
 
 **eine Gleitkommazahl setzt sich zusammen aus:**
 
-- Vorzeichenbit: Vorzeichen der Mantisse
-- Mantisse: auf $0.$ formatierte Zahl
+- **Vorzeichenbit:** Vorzeichen der Mantisse
+- **Mantisse:** auf $0.$ formatierte Zahl
   - 25 Stellen (bei 32-Bit Zahl)
-- Exponent: Anzahl Stellen, um die das Komma der Mantisse verschoben wurde
+- **Exponent:** Anzahl Stellen, um die das Komma der Mantisse verschoben wurde
   - 6 Stellen (bei 32-Bit Zahl)
-- Bias: konstanter Wert, der vom Exponenten abgezogen wird, um negative Exponenten darstellen zu können ($\text{Exponent} - \text{Bias} = \text{tatsächlicher Exponent}$)
+- **Bias:** konstanter Wert, der vom Exponenten abgezogen wird, um negative Exponenten darstellen zu können
+  - $\text{Exponent} - \text{Bias} = \text{tatsächlicher Exponent}$
   - üblicherweise 32
 
 ## Umrechnen von Zahlensystemen
@@ -336,7 +357,7 @@ STOP
 - bsp.: 160 zu Basis 7
 
 $$\begin{matrix}
-160 / 7 & = 22 &  R 6 \\
+160 / 7 & = 22 & R 6 \\
 22 / 7 & = 3 & R 1 \\
 3 / 7 & = 0 & R 3 \\
 \end{matrix}
@@ -351,15 +372,12 @@ $$
 6\cdot 7^0 + 1 \cdot 7^1 + 3 \cdot 7^2 = 160_{10}
 $$
 
-----------------------------------------------------------------------------------------------------------------------
 
 # Digitaltechnik
 
 ## Eigenschaften von Codes
 
-> *Was ist ein Code?(+Eigenschaften) Wie funktioniert ein BCD-Code, Binärcodes, Gray-Code*
-
-Code = Abbildungsvorschrift zur Darstellung von Zahlen
+> Code = **Abbildungsvorschrift** zur Darstellung von Zahlen
 
 - **Bewertbarkeit:** jeder Stelle wird eine bestimmte Wertigkeit zugeordnet
 - **Gewicht:** Anzahl der mit `1` belegten Stellen
@@ -434,13 +452,10 @@ Ziffer | Aiken-Code
 
 ## Fehlererkennbare Codes
 
-> *Wie können Fehler bei der Signalübertragung erkannt werden?*
-> *Wie viele Bits werden benötigt um einen Fehler zu erkennen bzw. beheben?*
-
 - Ziel: Erkennen einfacher Fehler $\rightarrow$ Verfälschung von `0` in `1` oder `1` in `0`
 - Methoden: Quersummenprüfung, gleichgewichtige Codes (gleiche Zahl mit `1` belegter Stellen)
 
-**Paritätsbit**
+### Paritätsbit
 
 - Zusätzliches Bit für Parität (XOR); ein Fehler erkennbar, Doppelfehler wird nicht erkannt
 
@@ -455,7 +470,7 @@ Dezimal | 2^2 | 2^1 | 2^0 | Parität
   ...
 ```
 
-**Gleichgewichtige Codes**
+### Gleichgewichtige Codes
 
 - einfach Fehler werden immer erkannt
 - Doppelfehler werden nur einseitig Erkannt (nur `0` zu `1` oder `1` zu `0`)
@@ -475,13 +490,11 @@ Dezimal | 7 | 4 | 2 | 1 | 0
 
 ## Fehlerkorrigierbare Codes
 
-> *Wie viele Bits werden benötigt um einen Fehler zu erkennen bzw. beheben?*
-
 - Ziel: Fehlerkorrektur für übertragene Zeichen
 - Methoden: Rückfrageverfahren, automatische Fehlerkorrektur durch Empfänger bei Fehlererkennung (Block-Verfahren, Hamming-Codes)
 - Eigenschaften: Vergrößerung der Redundanz $\rightarrow$ Verringerung der Datenrate, Erhöhung Übertragungsdauer
 
-**Blockprüfung**
+### Blockprüfung
 
 - Blockbildung aus mehreren Codeworten $\rightarrow$ Prüfwort am Ende eines Blocks$\rightarrow$ Paritätsbit für jede Zeile/Spalte
 
@@ -497,7 +510,7 @@ Prüfwort|  1  |  0  |  0  |  1  |    0
                Fehler
 ```
 
-**Hamming-Codes**
+### Hamming-Codes
 
 - Codes mit korrigierbaren Einzelzeichen $\rightarrow$ Überprüfung jedes Informationsbits mit zwei Prüfbits
 - Prinzip der Erkennung: ein Prüfbit falsch $\rightarrow$ Fehler im Prüfbit; zwei Prüfbit falsch $\rightarrow$ Fehler im Informationsbit
@@ -562,12 +575,12 @@ cin ────────────│───┬─╯╘═══╝
 **Disjunktive Normalform**
 
 - alle Eingansbelegungen für die die Funktion den Wert `1` annimmt werden disjunktiv verknüpft (OR)
-- $\rightarrow\; Y = \bar{A}\bar{B}C \lor \bar{A}B\bar{C} \lor \bar{A}BC \lor ABC$
+- $\rightarrow Y = \bar{A}\bar{B}C \lor \bar{A}B\bar{C} \lor \bar{A}BC \lor ABC$
 
 **Konjunktive Normalform**
 
 - alle Eingansbelegungen für die die Funktion den Wert `0` annimmt werden konjunktiv verknüpft (AND)
-- $\rightarrow\; Y = (\bar{A}\lor\bar{B}\lor\bar{C}) \land (A\lor\bar{B}\lor\bar{C}) \land (A\lor\bar{B}\lor C) \land (A\lor B\lor\bar{C})$
+- $\rightarrow Y = (\bar{A}\lor\bar{B}\lor\bar{C}) \land (A\lor\bar{B}\lor\bar{C}) \land (A\lor\bar{B}\lor C) \land (A\lor B\lor\bar{C})$
 
 ## KV-Diagramme
 
@@ -585,7 +598,8 @@ AB│
 ## Vereinfachung Boolescher Schaltfunktionen
 
 > (`!a||(!a&&b)`)
-> eigentlich (¬a ∨ (¬a)∧b) = ¬a
+>
+> eigentlich `(¬a ∨ (¬a)∧b) = ¬a`
 
 ```text
 (¬a ∨ ¬(a∧b))
@@ -607,8 +621,6 @@ Zur Überprüfung kann Wahrheitswerttabelle genutzt werden.
 - **Monostabil:** ein statischer Zustand und ein quasistatischer Zustand (zeitlich begrenzt)
 - **Astabil:** kein stabiler Zustand (toggelt)
 
-----------------------------------------------------------------------------------------------------------------------
-
 # Elektrotechnik
 
 > **ToDo:**
@@ -620,40 +632,38 @@ Zur Überprüfung kann Wahrheitswerttabelle genutzt werden.
 
 ## Grundlegende elektrische Bauteile
 
-**Kondensator**
+### Kondensator
 
 - Speichern von elektrischen Ladungen
 - Anwendung: Glättungskondensatoren, Datenspeicherung im flüchtigen Speicher
 
-**Ohmscher Widerstand**
+### Ohmscher Widerstand
 
 - begrenzt den Strom
 - Spannung ändert sich anhand des Ohmschen Gesetzes
 - Ohmsches Gesetz:$R=\frac{U}{I}$
 - Anwendung: Vorwiderstand, Spannungsteiler
 
-**Diode**
+### Diode
 
 - Halbleiterelement
 - sperrt in Abhängigkeit von Stromrichtung
 - Anwendung: Gleichrichter, LeuchtEmitterDiode (LED), Schutzdiode für Spulen
 
-**Transistor**
+### Transistor
 
 - Halbleiterelement
 - besteht aus: Kollektor, Emitter und Basis
 - Grundlage für heutige Rechentechnik
 - Anwendung: Verstärker, Schalter
 
-**Spule**
+### Spule
 
 - Transformation von Spannungen
 - erzeugen Magnetfelder / Induktivität
 - Anwendungen: Relais, Störfilter
 
 ## Flüchtiger RAM
-
-> *Warum ist ein RAM-Speicher flüchtig?*
 
 - DRAM-Zelle besteht aus Kondensator und Transistor
 - Speicherung als Ladung im Kondensator
@@ -668,7 +678,6 @@ Zur Überprüfung kann Wahrheitswerttabelle genutzt werden.
 - Signallaufzeit: Latenz
 - Abschwächung des Signals durch Störungen, Interferenz, elektrischer Widerstand (Google: Leitungsdämpfung)
 
-----------------------------------------------------------------------------------------------------------------------
 
 # Algorithmen und Datenstrukturen
 
@@ -811,7 +820,6 @@ Zur Überprüfung kann Wahrheitswerttabelle genutzt werden.
 
 <!-- md2apkg ignore-card -->
 
-----------------------------------------------------------------------------------------------------------------------
 
 # Automaten und Sprachen
 
@@ -926,7 +934,6 @@ Einteilung von Grammatiken in vier Klassen:
               ╰╯
 ```
 
-----------------------------------------------------------------------------------------------------------------------
 
 # Betriebssysteme
 
@@ -1134,7 +1141,6 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 - Dienst verwaltet eine Ressource zentral $\rightarrow$ kann von mehreren Prozessen angefordert werden
 - z.B. Drucker-Spooler = Puffer für Druckeraufträge (*nicht bei allen Ressourcen möglich*)
 
-----------------------------------------------------------------------------------------------------------------------
 
 # Betriebssystemverwaltung
 
@@ -1159,7 +1165,6 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 - Pipes verbinden die Ausgabe eines Programmes mit der Eingabe eines anderen $\rightarrow$ Datenstrom zwischen zwei Prozessen nach dem FIFO-Prinzip
 - Symbol: `|`; z.B. `cat example.txt | wc -l`
 
-----------------------------------------------------------------------------------------------------------------------
 
 ## Datensicherung
 
@@ -1297,7 +1302,6 @@ ACK = Bestätigen der SeqNr
 - `ACK`: Server bestätigt, optionale Konfiguration
 - Konfiguration: Default-Gateway, Subnetz, IP, (DNS), (Timeserver)
 
-----------------------------------------------------------------------------------------------------------------------
 
 ## SDSL / ADSL
 
@@ -1417,7 +1421,6 @@ Archivspeicher ╱     offline    ╲ sec - min
                ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 ```
 
-----------------------------------------------------------------------------------------------------------------------
 
 # Systemanalyse
 
@@ -1509,7 +1512,6 @@ Archivspeicher ╱     offline    ╲ sec - min
 | klare Test-Struktur vorgegeben                        | bezieht sich nur auf Entwicklung: Kein Betrieb, keine Wartung definiert                                           |
 | Iterationen bis alle Tests der Phase OK sind          | kein Rückspringen in vorherige Phase ohne Fehlerfall vorgesehen (siehe iteriertes Wasserfallmodell)               |
 
-----------------------------------------------------------------------------------------------------------------------
 
 # Systementwurf
 
@@ -1629,7 +1631,6 @@ Befehl 3:                                  │    Hol-Phase     │   Decodierph
                                            └──────────────────┴──────────────────┴─────┘
 ```
 
-----------------------------------------------------------------------------------------------------------------------
 
 # IT-Trends
 
