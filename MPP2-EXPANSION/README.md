@@ -90,7 +90,7 @@ Diese File beinhaltet überwiegend Inhalte der letzten beiden Semester zur Vorbe
 > - Builds-Tools
 > - Versionsverwaltung
 > - Debugger
-> - Speicherzugriffsanalyse
+> - Analyse von Speicherzugriffen
 > - Profiling
 > - Unit-Tests
 
@@ -101,6 +101,9 @@ Diese File beinhaltet überwiegend Inhalte der letzten beiden Semester zur Vorbe
 > **ToDo**
 >
 > - Parser
+>   - Tabellengesteuert
+>   - Rekursiv
+>   - Syntaxbaum
 > - Lexer
 > - Compiler-Compiler
 
