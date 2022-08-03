@@ -59,6 +59,7 @@ MPP1 - Themenkatalog
 - [Algorithmen und Datenstrukturen](#algorithmen-und-datenstrukturen)
   - [Eigenschaften von Algorithmen](#eigenschaften-von-algorithmen)
   - [Sortieralgorithmen](#sortieralgorithmen)
+    - [Eigenschaften von Sortierverfahren](#eigenschaften-von-sortierverfahren)
     - [Selection-Sort](#selection-sort)
     - [Bubble-Sort](#bubble-sort)
     - [Insertion-Sort](#insertion-sort)
@@ -66,13 +67,16 @@ MPP1 - Themenkatalog
     - [Merge-Sort](#merge-sort)
   - [Verschlüsselung](#verschlüsselung)
     - [Schutzziele](#schutzziele)
-    - [symmetrisch vs. asymmetrisch](#symmetrisch-vs-asymmetrisch)
+    - [Symmetrische Verschlüsselung](#symmetrische-verschlüsselung)
+    - [Asymmetrisch Verschlüsselung](#asymmetrisch-verschlüsselung)
+    - [hybrides Verfahren zur Verschlüsselung](#hybrides-verfahren-zur-verschlüsselung)
   - [Hashing](#hashing)
   - [Digitale Signatur](#digitale-signatur)
   - [Stack und Queue](#stack-und-queue)
   - [Graphen](#graphen)
 - [Automaten und Sprachen](#automaten-und-sprachen)
   - [Reguläre Ausdrücke](#reguläre-ausdrücke)
+    - [Definition einer regulären Menge](#definition-einer-regulären-menge)
   - [Grammatiken](#grammatiken)
     - [Bestandteile einer Grammatik](#bestandteile-einer-grammatik)
     - [Die Chomsky-Hierarchie](#die-chomsky-hierarchie)
@@ -110,6 +114,7 @@ MPP1 - Themenkatalog
   - [ISO/OSI-Referenzmodell und TCP/IP](#isoosi-referenzmodell-und-tcpip)
   - [Netzwerktopologien](#netzwerktopologien)
   - [IP und Routing](#ip-und-routing)
+    - [Warum braucht man ne IP Adresse anstatt gleich mit MAC zu kommunizieren?](#warum-braucht-man-ne-ip-adresse-anstatt-gleich-mit-mac-zu-kommunizieren)
   - [IPv4 vs IPv6](#ipv4-vs-ipv6)
   - [UDP vs TCP](#udp-vs-tcp)
   - [TCP-Handshake](#tcp-handshake)
@@ -221,6 +226,8 @@ MPP1 - Themenkatalog
 ## Befehlsverarbeitung
 
 > *Wie erfolgt die Befehlsabarbeitung in einer CPU?*
+
+<!-- md2apkg split -->
 
 ```text
        ┌──────────────────┒
@@ -675,9 +682,10 @@ Zur Überprüfung kann Wahrheitswerttabelle genutzt werden.
 
 > *Warum darf/kann ein Kabel für die Signalübertragung nicht unendlich lang sein?*
 
+<!-- md2apkg split -->
+
 - Signallaufzeit: Latenz
 - Abschwächung des Signals durch Störungen, Interferenz, elektrischer Widerstand (Google: Leitungsdämpfung)
-
 
 # Algorithmen und Datenstrukturen
 
@@ -692,48 +700,54 @@ Zur Überprüfung kann Wahrheitswerttabelle genutzt werden.
 
 ## Sortieralgorithmen
 
-- Sortieren = zentrales Problem der Computeranwendung (grundlegende Voraussetzung für effizientes Suchen)
-- Anwendung: statistische Auswertung großer Datenmengen, Datenbankanwendungen (erfordern effiziente Zugriffe), Teilschritt in anderen Algorithmen
+- Sortieren = zentrales Problem der Informatik
+- grundlegende Voraussetzung für effizientes Suchen
 
-**Eigenschaften von Sortierverfahren**
+**Anwendung:**
 
-- stabiles Sortieren: Reihenfolge gleicher Werte bleibt erhalten
-- Speicherbedarf: in situ (Array) oder ex situ (Liste)
-- Anzahl der Vergleiche/Tausche (best-/worst-case)
+- statistische Auswertung großer Datenmengen
+- Datenbankanwendungen (erfordern effiziente Zugriffe)
+- Teilschritt in anderen Algorithmen
+
+### Eigenschaften von Sortierverfahren
+
+- **stabiles Sortieren:** Reihenfolge gleicher Werte bleibt erhalten
+- **Speicherbedarf:** `in situ` (Array) oder `ex situ` (Liste)
+- **Anzahl der Vergleiche/Tausche** (best-/worst-case)
 
 ### Selection-Sort
 
-- Idee: entferne jeweils das kleinste Element aus der Ausgangsfolge und füge es am Ende der Ergebnisfolge ein
-- Selection-Sort ist terminiert (sortierter Bereich wird in jedem Durchlauf vergrößert)
+- **Idee:** entferne jeweils das kleinste Element aus der Ausgangsfolge und füge es am Ende der Ergebnisfolge ein
+- Selection-Sort ist **terminiert** (sortierter Bereich wird in jedem Durchlauf vergrößert)
 - $N-1$ Swaps, $N-1$ Durchläufe (in jedem Durchlauf $i$ $N-i$ Vergleiche)
-- in situ, kein stabiles Verfahren
+- `in situ`, **kein stabiles Verfahren**
 - Aufwandsabschätzung: $T_{worst}(n)=T_{best}(N)\rightarrow O(N^2)$
 
 ### Bubble-Sort
 
-- Idee: Tausche benachbarte Schlüssel, wenn diese nicht in der gewünschten Reihenfolge sind
+- **Idee:** Tausche benachbarte Schlüssel, wenn diese nicht in der gewünschten Reihenfolge sind
 - Bubble-Sort ist terminiert (sortierter Bereich wird in jedem Durchlauf vergrößert)
 - In jedem Durchlauf wandert das größte Element an die richtige Stelle
-- in situ, stabiles Suchverfahren (bei fast Vorsortierung trotzdem $n-1$ Durchläufe)
+- `in situ`, **stabiles Suchverfahren** (bei fast Vorsortierung trotzdem $n-1$ Durchläufe)
 - Aufwandsabschätzung: $T_{worst}(n)\rightarrow O(N^2); T_{best}(N)\rightarrow O(N); T_{avg}\rightarrow(N^2)$
 
 ### Insertion-Sort
 
-- Idee: Entnimm der Ausgangsfolge ein beliebiges Element und sortiere es in die (bereits sortierte) Ergebnisfolge
-- Insertion-Sort ist terminiert (Ausgangsfolge wird bei jedem Durchlauf um ein Element verringert)
+- **Idee:** Entnimm der Ausgangsfolge ein beliebiges Element und sortiere es in die (bereits sortierte) Ergebnisfolge
+- Insertion-Sort ist **terminiert** (Ausgangsfolge wird bei jedem Durchlauf um ein Element verringert)
 - $N-1$ Durchläufe (in jedem Durchlauf $i$ $N-i$ Vergleiche)
-- pro Durchlauf von Vorsortierung abhängige Anzahl von Vergleichen und Verschiebungen ($T_{worst}(n)\neq T_{best})
-- in situ, stabiles Verfahren
+- pro Durchlauf von Vorsortierung abhängige Anzahl von Vergleichen und Verschiebungen ($T_{worst}(n)\neq T_{best}$)
+- `in situ`, **stabiles Verfahren**
 - Aufwandsabschätzung: $T_{worst}(n)\rightarrow O(N^2); T_{best}(N)\rightarrow O(N); T_{avg}\rightarrow(N^2)$
 
 ### Quick-Sort
 
-- Idee: wähle ein beliebiges Element $x$ aus der Folge (= Pivotelement)
+- **Idee:** wähle ein beliebiges Element $x$ aus der Folge (= Pivotelement)
   - teile die Restfolge in zwei Teilmengen (LTM und RTM)
   - sortiere beide Teilmengen mit Quick-Sort (Rekursion)
 - Auswahl des Pivot-Elements durch verschiedene Strategien $\rightarrow$ für höchste Effizienz teilen in zwei gleichgroße Teilmengen
 - Termination: bei Partitionierung entstehende Teilmengen sind immer kleiner als die Ausgangsmenge bis zur einelementigen Liste
-- in situ, kein stabiles Verfahren
+- `in situ`, **kein stabiles Verfahren**
 - worst-case: Conquer zerlegt eine Folge von $N$ Elementen rekursiv in 2 Folgen der Länge $1$ und $N-1$ ($T_{worst}\rightarrow O(N^2)$)
 - best-case: Conquer zerlegt eine Folge von $N$ Elementen rekursiv in 2 Folgen gleicher Länge ($T_{best}\rightarrow O(N log N)$)
 
@@ -754,34 +768,32 @@ Zur Überprüfung kann Wahrheitswerttabelle genutzt werden.
 - Klartext *so* transformieren, dass originale Informationen nicht mehr lesbar sind
 - Vertraulichkeit
 
-### symmetrisch vs. asymmetrisch
+### Symmetrische Verschlüsselung
 
-**symmetrisch**
+- **gleicher Schlüssel** für Ver- und Entschlüsselung
+- **hohe Performance**
+- typische Schlüsselänge: `>128bit`
+- Problem: **sicherer Schlüsseltausch**
+- Implementierungen: `AES-256` (Rijndael), `DES` (unsicher)
 
-- gleicher Schlüssel für Ver- und Entschlüsselung
-- hohe Performance
-- typische Schlüsselänge: >128bit
-- Problem: sicherer Schlüsseltausch
-- Implementierungen: AES-256 (Rijndael), DES (unsicher)
+### Asymmetrisch Verschlüsselung
 
-**asymmetrisch**
-
-- unterschiedliche Schlüssel für Ver- und Entschlüsselung
-- vergleichsweise niedrige Performance
+- **unterschiedliche Schlüssel** für Ver- und Entschlüsselung
+- vergleichsweise **niedrige Performance**
 - in der Regel:
   - Verschlüsselung mit Public-Key des Empfängers
   - Entschlüsselung mit Private-Key des Empfängers
 - privater Schlüssel muss sicher verwahrt werden
 - ermöglicht durch: Einsatz mathematischer Einwegfunktionen
   - privater Schlüssel darf nicht aus öffentlichem ableitbar sein
-- Implementierungen: RSA
+- Implementierungen: `RSA`
 
-**hybrides Verfahren**
+### hybrides Verfahren zur Verschlüsselung
 
 - Kombination von symmetrischen und asymmetrischen Verfahren
-  - asymmetrisches Verfahren für den sicheren Schlüsseltausch
-  - symmetrisches Verfahren für den Nutzdatenaustausch
-- Implementierungen: TLS/SSL
+  - **asymmetrisches** Verfahren für den sicheren **Schlüsseltausch**
+  - **symmetrisches** Verfahren für den **Nutzdatenaustausch**
+- Implementierungen: `TLS/SSL`
 
 ## Hashing
 
@@ -789,25 +801,27 @@ Zur Überprüfung kann Wahrheitswerttabelle genutzt werden.
 >
 > *Wie kann sondiert werden?*
 
+<!-- md2apkg split -->
+
 - variable Eingangsgröße auf fixe Ausgangsgröße abbilden
 - Lawineneffekt (minimale Änderung im Eingang führt zu großen Änderungen im Ausgang)
-- Anwendungen: Speichern von Passwörtern, Integritätsüberprüfung
-- sichere/kryptografische Hashverfahren: SHA-256
-- verschiedene Sondierungsverfahren: lineares, quadratisches Sondieren
+- **Anwendungen:** Speichern von Passwörtern, Integritätsüberprüfung
+- sichere/kryptografische Hashverfahren: `SHA-256`
+- verschiedene Sondierungsverfahren zur Behandlung von Kollisionen: lineares, quadratisches Sondieren
 
 ## Digitale Signatur
 
-- Authentifizierung des Kommunikationspartners
+- **Authentifizierung** des Kommunikationspartners
 - Hash der Nachricht wird mit Private-Key des Absenders verschlüsselt
 - Funktionen wie Unterschrift: Abschlussfunktion, Identitätsfunktion, Echtheitsfunktion, Warnfunktion, Beweisfunktion
 
 ## Stack und Queue
 
-- Queue: FIFO: First In, First Out
-  - auch Warteschlange
+- **Queue: FIFO** (First In, First Out)
+  - auch **Warteschlange**
   - Anwendung: Round-Robin-Verfahren
-- Stack: LIFO: Last In, First Out
-  - auch Kellerspeicher genannt
+- **Stack: LIFO** (Last In, First Out)
+  - auch **Kellerspeicher** genannt
   - Rechnen mit Postfix-Notation
   - Anwendung: Funktionsaufrufe, Speicherung statischer Daten
 
@@ -820,14 +834,13 @@ Zur Überprüfung kann Wahrheitswerttabelle genutzt werden.
 
 <!-- md2apkg ignore-card -->
 
-
 # Automaten und Sprachen
 
 ## Reguläre Ausdrücke
 
 - Reguläre Ausdrücke beschreiben reguläre Mengen
 
-**Definition einer regulären Menge**
+### Definition einer regulären Menge
 
 - $\emptyset \in R$; die leere Menge ist regulär
 - $\{\epsilon\}\in R$; die Menge, die das leere Wort enthält ist regulär
@@ -865,15 +878,16 @@ $$G = {T,V,S,P}$$
 
 Einteilung von Grammatiken in vier Klassen:
 
-- Chomsky-0: Grammatiken ohne Einschränkungen
-- Chomsky-1: Alle Regeln der Form $u\rightarrow v$ mit $u \in V^+$ mit $v \in ((V \cup T) - {S})^+$ und $|u| \leq |v|$ oder $S \rightarrow \varepsilon$ (kontextsensitive Grammatiken)
-- Chomsky-2: Alle Regeln der Form $A\rightarrow v$ mit $A \in V$ und $v \in (V \cup T)^*$ (kontextfreie Grammatiken)
-- Chomsky-3: Alle Regeln der Form $A\rightarrow v$ mit $A \in V$ und $v = \varepsilon$ oder $v = aB$ mit $a \in T$ und $B \in V$ (rechtslinear, reguläre Grammatiken)
+- **Chomsky-0:** Grammatiken ohne Einschränkungen
+- **Chomsky-1:** Alle Regeln der Form $u\rightarrow v$ mit $u \in V^+$ mit $v \in ((V \cup T) - {S})^+$ und $|u| \leq |v|$ oder $S \rightarrow \varepsilon$ (kontextsensitive Grammatiken)
+- **Chomsky-2:** Alle Regeln der Form $A\rightarrow v$ mit $A \in V$ und $v \in (V \cup T)^*$ (kontextfreie Grammatiken)
+- **Chomsky-3:** Alle Regeln der Form $A\rightarrow v$ mit $A \in V$ und $v = \varepsilon$ oder $v = aB$ mit $a \in T$ und $B \in V$ (rechtslinear, reguläre Grammatiken)
 
 ## Turing-Maschine
 
-- Mathematisches Modell, das Berechenbarkeit definiert [Wikipedia](https://de.wikipedia.org/wiki/Turingmaschine#Formale_Definition)
-- unendlich langes Band : Bandalphabet
+> **Mathematisches Modell**, das Berechenbarkeit definiert [Wikipedia](https://de.wikipedia.org/wiki/Turingmaschine#Formale_Definition)
+
+- unendlich langes Band: Bandalphabet
 - Lese-Schreibkopf kann Lesen, Schreiben, arbeitet auf Band : Eingabealphabet
 - Zustandsmenge
 - Anfangszustand
@@ -881,7 +895,7 @@ Einteilung von Grammatiken in vier Klassen:
 
 ## Registermaschinen
 
-- Registermaschine = vereinfachtes Modell realer Rechner (Vorbild: Von-Neumann-Architektur)
+- Registermaschine = **vereinfachtes Modell realer Rechner** (Vorbild: Von-Neumann-Architektur)
 - beinhaltet Befehlszähler, Akkumulator, Programm und endliche Anzahl von Registern
 - jedes Register kann eine beliebig große natürliche Zahl aufnehmen und die Operationen Inkrement, Dekrement und das Testen des Wertes im Register auf 0
 - eine Registermaschine besitzt $m$ Register und berechnet die Funktionen $f:N^r_0 \rightarrow N^s_0 \;\text{mit}\; r,s \leq m$
@@ -1001,6 +1015,8 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 
 - Beispiele: exFAT, ext4, NTFS, FAT32
 
+<!-- md2apkg ignore-card -->
+
 ## Virtueller Speicher
 
 - mehrere Fragmente müssen für das Programm so dargestellt werden, als ob sie aus einem kontinuierlichen Bereich stammen
@@ -1022,6 +1038,8 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 ## Cache
 
 > *Wozu dienen Caches in Rechnersystemen?*
+
+<!-- md2apkg split -->
 
 - schneller Zwischenspeicher
 - dient Ausgleichung der Zugriffslücke
@@ -1214,7 +1232,7 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 
 <!--> TODO: Wie funktioniert Routing eigentlich? (Grob) <--->
 
-**Warum braucht man ne IP Adresse anstatt gleich mit MAC zu kommunizieren?**
+### Warum braucht man ne IP Adresse anstatt gleich mit MAC zu kommunizieren?
 
 - Routing im Internet (effizient) ermöglichen, Zusammengehöriges kommt in ein Sub-Netz
 - man möchte keine Broadcasts im Internet
@@ -1270,6 +1288,8 @@ ACK = Bestätigen der SeqNr
 
 > *Was ist der Unterschied zischen HTTP und HTTPS?*
 
+<!-- md2apkg split -->
+
 - setzt auf TCP-Verbindungen auf
 - bietet: Authentisierung und Schlüsselaustausch, Verschlüsselungsalgorithmen und kryptographische Hashfunktionen
 - sichert z.B. HTTP-Kommunikation (`https`) oder Schlüsseltausch bei OpenVPN
@@ -1288,6 +1308,8 @@ ACK = Bestätigen der SeqNr
 ## URL-Aufruf
 
 > *Was passiert bei einem Browseraufruf (URL)?*
+
+<!-- md2apkg split -->
 
 - Namensauflösung URL -> IP durch DNS
 - HTTP-Request
