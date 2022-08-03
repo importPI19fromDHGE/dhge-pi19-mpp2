@@ -79,11 +79,11 @@ Als größtenteil irrelevant betrachtete Themen:
 # IT-Sicherheit/-Recht/-Infrastrukturen
 
 > **ToDo**
-> 
+>
 > - IT-Sibe
 > - ISO 27001
 > - BSI 200er kennen
-> - IT-Grundschutz-Kompendium und Bausteine einordnen 
+> - IT-Grundschutz-Kompendium und Bausteine einordnen
 
 <!-- md2apkg ignore-card -->
 
