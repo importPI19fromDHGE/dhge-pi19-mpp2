@@ -54,9 +54,7 @@ Als größtenteil irrelevant betrachtete Themen:
 > - Kritischer Abschnitt
 > - Atomare Operation
 > - Exklusive Ressource
-> - Semaphore
 > - Interprozesskommunikation
->   - Pipes (uni/bidirektional, named)
 >   - Sockets (lokal, rechnerübergreifend)
 >   - Shared Memory
 > - Signale?! <!-- Steht nur in der Übersicht am Anfang des Moduls und taucht dann nicht nochmal auf-->
@@ -85,9 +83,58 @@ Als größtenteil irrelevant betrachtete Themen:
 - ggf. auch über Pipes (Implementierung notwendig)
 - Sockets benutzen
 <!-- ToDo Erklärung für Pipes, Sockets, Factcheck, sind Semaphoren gemeint?-->
+- Semaphoren
 - Reboot
 - Auf Ressource verzichten (Signale an Prozess senden)
 - Prozess beenden, Signal SIGTERM/SIGKILL
+
+<!-- Sempahore -->
+
+## Was sind Semaphoren und wozu werden Sie eingesetzt?
+
+- Mittel der Interprozesskommunikation zu Verwaltung von (exklusivem) Zugriff auf Ressourcen
+- Deadlock vermeiden
+
+## Was ist der kritische Abschnitt im Kontext Sempahoren?
+
+- Es ist ein Codebereich, der nur in einer definierten Anzahl von Prozessen gleichzeitig zur Verfügung steht (stehen sollte)
+- Entwickler müssen im Programm dafür Sorge tragen und den kritischen Abschnitt definieren
+- Semaphor Operation -P- Vor dem kritischen Abschnitt LOCK - Ressourcen blockieren
+- Semaphor Operation -V- Nach dem kritischen Abschnitt UNLOCK - Ressourcen freigeben
+
+<!-- Pipes -->
+
+## Was sind Pipes im Kontext Interprozesskommunikation? Unterscheiden Sie zwei Arten von Pipes
+
+- unidirektionaler Datenstrom zwischen zwei Prozessen: Puffer/Warteschlange nach dem FIFO-Prinzip
+- namenlose Pipes: Kommunikation zwischen verwandten Prozessen (vgl. fork())
+- benannte Pipes: Zugriff durch alle Prozesse mit Zugriffsrecht möglich
+
+## Welche Operationen auf einer Pipe kennen Sie? Beschreiben Sie deren Funktion
+
+- `write(pipefd[1],buffer)`
+  - Write: Aus Programmbuffer auf die Pipe schreiben, in den Kernelbuffer
+  - Daten sind gepuffert bis sie gelesen werden
+- `read(pipefd[0],buffer)`
+  - Read: Aus Kernelbuffer in Programmbuffer schreiben; aus Sicht des Programms von Pipe lesen
+  - Lesen verbraucht Daten der Pipe
+
+### Wie können Sie bidirektionale Interprozesskommunikation ermöglichen?
+
+- Pipe umdrehen, ggf. mit Zugriffskonzept (Semaphore), BAD Practice
+- 2 Pipes verwenden
+- Sockets
+
+<!-- Sockets ToDo -->
+
+## Unterschied Pipe Socket
+
+- Pipes
+  - Unix-Domaine exklusiv, d.h. gleiches Rechensystem
+  - unidirektional
+- Socket
+  - Unix/Internetdomäne
+  - bidirektional
 
 # Entwicklung von Webanwendungen
 
