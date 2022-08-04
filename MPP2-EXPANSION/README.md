@@ -241,6 +241,7 @@ $$\text{Amortisationszeit} = \frac{\text{Kapitaleinsatz}}{\text{Rückflüsse pro
 int someFunction(int par1, ///< parameter 1
                  int par2) ///< parameter 2
 ```
+
 ## Versionsverwaltung
 
 - **Verwaltung und Archivierung aller Dateien** eines Software-Produkts **in Ständen**
