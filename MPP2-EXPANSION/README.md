@@ -85,7 +85,8 @@ Als größtenteil irrelevant betrachtete Themen:
 > - ISO 27001
 > - BSI 200er kennen
 > - IT-Grundschutz-Kompendium und Bausteine einordnen
-> - Anonymisierung
+> - Schutzziele
+> - Anonymisierung, Pseudonomisierung
 
 <!-- md2apkg ignore-card -->
 
@@ -245,6 +246,19 @@ $$\text{Amortisationszeit} = \frac{\text{Kapitaleinsatz}}{\text{Rückflüsse pro
 # IT-Consulting
 
 > **ToDo**
+>
+> - DevOps
+> - Virtualiserung vs. Containerisierung
+
+<!-- md2apkg ignore-card -->
+
+# Wissenschaftliches Arbeiten
+
+> **ToDo**
+>
+> - Problemdefinition <!--Günther-->
+> - Lösungsansatz <!--Günther-->
+> - Anforderungsanalyse
 
 <!-- md2apkg ignore-card -->
 
