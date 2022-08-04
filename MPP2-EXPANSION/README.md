@@ -85,7 +85,8 @@ Als größtenteil irrelevant betrachtete Themen:
 > - ISO 27001
 > - BSI 200er kennen
 > - IT-Grundschutz-Kompendium und Bausteine einordnen
-> - Anonymisierung
+> - Schutzziele
+> - Anonymisierung, Pseudonomisierung
 
 <!-- md2apkg ignore-card -->
 
@@ -167,6 +168,9 @@ Als größtenteil irrelevant betrachtete Themen:
 # IT-Consulting
 
 > **ToDo**
+>
+> - DevOps
+> - Virtualiserung vs. Containerisierung
 
 <!-- md2apkg ignore-card -->
 
