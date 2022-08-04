@@ -1,6 +1,8 @@
 MPP1 - Themenkatalog
 ====================
 
+<!-- md2apkg ignore-card -->
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Inhaltsverzeichnis**
@@ -13,7 +15,13 @@ MPP1 - Themenkatalog
   - [Befehlsverarbeitung](#befehlsverarbeitung)
   - [Einordnung von Programmiersprachen](#einordnung-von-programmiersprachen)
     - [Problemorientierte Programmiersprachen](#problemorientierte-programmiersprachen)
+      - [Imperative Programmiersprachen](#imperative-programmiersprachen)
+      - [Funktionale Programmiersprachen](#funktionale-programmiersprachen)
+      - [Deskriptive Programmiersprachen](#deskriptive-programmiersprachen)
+      - [Prädikative Programmiersprachen](#pr%C3%A4dikative-programmiersprachen)
+      - [Objektorientierte Programmiersprachen](#objektorientierte-programmiersprachen)
     - [Maschinenorientierte Programmiersprachen](#maschinenorientierte-programmiersprachen)
+    - [Befehl](#befehl)
   - [`Call by Value` vs. `Call by Reference`](#call-by-value-vs-call-by-reference)
   - [Unterschied Java, JavaScript, C&#035;, C++](#unterschied-java-javascript-c-c)
   - [Statisches vs. dynamisches Linking](#statisches-vs-dynamisches-linking)
@@ -27,7 +35,11 @@ MPP1 - Themenkatalog
     - [Gray-Code](#gray-code)
     - [Aiken-Code](#aiken-code)
   - [Fehlererkennbare Codes](#fehlererkennbare-codes)
+    - [Paritätsbit](#parit%C3%A4tsbit)
+    - [Gleichgewichtige Codes](#gleichgewichtige-codes)
   - [Fehlerkorrigierbare Codes](#fehlerkorrigierbare-codes)
+    - [Blockprüfung](#blockpr%C3%BCfung)
+    - [Hamming-Codes](#hamming-codes)
   - [AD-Wandler](#ad-wandler)
   - [Volladdierer](#volladdierer)
   - [Konjunktive/Disjunktive-Normalform](#konjunktivedisjunktive-normalform)
@@ -36,11 +48,17 @@ MPP1 - Themenkatalog
   - [Arten von Kippgliedern](#arten-von-kippgliedern)
 - [Elektrotechnik](#elektrotechnik)
   - [Grundlegende elektrische Bauteile](#grundlegende-elektrische-bauteile)
+    - [Kondensator](#kondensator)
+    - [Ohmscher Widerstand](#ohmscher-widerstand)
+    - [Diode](#diode)
+    - [Transistor](#transistor)
+    - [Spule](#spule)
   - [Flüchtiger RAM](#fl%C3%BCchtiger-ram)
   - [Signalübertragung Kabel](#signal%C3%BCbertragung-kabel)
 - [Algorithmen und Datenstrukturen](#algorithmen-und-datenstrukturen)
   - [Eigenschaften von Algorithmen](#eigenschaften-von-algorithmen)
   - [Sortieralgorithmen](#sortieralgorithmen)
+    - [Eigenschaften von Sortierverfahren](#eigenschaften-von-sortierverfahren)
     - [Selection-Sort](#selection-sort)
     - [Bubble-Sort](#bubble-sort)
     - [Insertion-Sort](#insertion-sort)
@@ -48,17 +66,25 @@ MPP1 - Themenkatalog
     - [Merge-Sort](#merge-sort)
   - [Verschlüsselung](#verschl%C3%BCsselung)
     - [Schutzziele](#schutzziele)
-    - [symmetrisch vs. asymmetrisch](#symmetrisch-vs-asymmetrisch)
+    - [Symmetrische Verschlüsselung](#symmetrische-verschl%C3%BCsselung)
+    - [Asymmetrisch Verschlüsselung](#asymmetrisch-verschl%C3%BCsselung)
+    - [hybrides Verfahren zur Verschlüsselung](#hybrides-verfahren-zur-verschl%C3%BCsselung)
   - [Hashing](#hashing)
   - [Digitale Signatur](#digitale-signatur)
   - [Stack und Queue](#stack-und-queue)
   - [Graphen](#graphen)
 - [Automaten und Sprachen](#automaten-und-sprachen)
   - [Reguläre Ausdrücke](#regul%C3%A4re-ausdr%C3%BCcke)
+    - [Definition einer regulären Menge](#definition-einer-regul%C3%A4ren-menge)
   - [Grammatiken](#grammatiken)
+    - [Bestandteile einer Grammatik](#bestandteile-einer-grammatik)
+    - [Die Chomsky-Hierarchie](#die-chomsky-hierarchie)
   - [Turing-Maschine](#turing-maschine)
   - [Registermaschinen](#registermaschinen)
+    - [Programm einer Registermaschine](#programm-einer-registermaschine)
   - [Automatenkonstruktion](#automatenkonstruktion)
+    - [Nicht-deterministischer endlicher Automat](#nicht-deterministischer-endlicher-automat)
+    - [deterministischer endlicher Automat](#deterministischer-endlicher-automat)
 - [Betriebssysteme](#betriebssysteme)
   - [Definition Betriebssystem](#definition-betriebssystem)
   - [Aufgaben eines Betriebssystems](#aufgaben-eines-betriebssystems)
@@ -71,20 +97,29 @@ MPP1 - Themenkatalog
   - [Cache](#cache)
   - [Speicherzuweisungsstrategien](#speicherzuweisungsstrategien)
   - [Seitenersetzungsstrategien](#seitenersetzungsstrategien)
+    - [Optimale Seitenersetzungsstrategie](#optimale-seitenersetzungsstrategie)
+    - [Reale Seitenersetzungsstrategien](#reale-seitenersetzungsstrategien)
   - [Scheduling-Strategien für Prozesse](#scheduling-strategien-f%C3%BCr-prozesse)
+    - [Non-präemptive Scheduling](#non-pr%C3%A4emptive-scheduling)
+    - [Präemptive Scheduling](#pr%C3%A4emptive-scheduling)
   - [Adressierungsarten](#adressierungsarten)
   - [Serielle vs. Parallele Datenübertragung](#serielle-vs-parallele-daten%C3%BCbertragung)
+    - [*Warum ist heute die serielle Datenübertragung verbreiteter?*](#warum-ist-heute-die-serielle-daten%C3%BCbertragung-verbreiteter)
   - [Interrupts](#interrupts)
+    - [Ablauf eines Interrupt](#ablauf-eines-interrupt)
+    - [Traps](#traps)
   - [Semaphore](#semaphore)
   - [Spooling](#spooling)
 - [Betriebssystemverwaltung](#betriebssystemverwaltung)
   - [RAID](#raid)
+    - [RAID-Arten](#raid-arten)
   - [Pipes](#pipes)
   - [Datensicherung](#datensicherung)
 - [Rechnernetze](#rechnernetze)
   - [ISO/OSI-Referenzmodell und TCP/IP](#isoosi-referenzmodell-und-tcpip)
   - [Netzwerktopologien](#netzwerktopologien)
   - [IP und Routing](#ip-und-routing)
+    - [Warum braucht man ne IP Adresse anstatt gleich mit MAC zu kommunizieren?](#warum-braucht-man-ne-ip-adresse-anstatt-gleich-mit-mac-zu-kommunizieren)
   - [IPv4 vs IPv6](#ipv4-vs-ipv6)
   - [UDP vs TCP](#udp-vs-tcp)
   - [TCP-Handshake](#tcp-handshake)
@@ -98,9 +133,15 @@ MPP1 - Themenkatalog
   - [Datenbankentwurf](#datenbankentwurf)
   - [ANSI-SPARC Drei-Ebenen-Konzept](#ansi-sparc-drei-ebenen-konzept)
   - [Datenmodelle](#datenmodelle)
+    - [hierarchisches Modell](#hierarchisches-modell)
+    - [Netzwerkmodell](#netzwerkmodell)
+    - [Relationales Modell](#relationales-modell)
+    - [Objektorientiertes Datenmodell](#objektorientiertes-datenmodell)
+    - [Objektrelationale Systeme](#objektrelationale-systeme)
   - [Operationen im Relationalen Modell](#operationen-im-relationalen-modell)
   - [ACID (Transkationseigenschaften)](#acid-transkationseigenschaften)
   - [Sperrkonzepte](#sperrkonzepte)
+    - [RX-Sperrverfahren](#rx-sperrverfahren)
   - [Constraints](#constraints)
   - [Speicherpyramide](#speicherpyramide)
 - [Systemanalyse](#systemanalyse)
@@ -113,15 +154,19 @@ MPP1 - Themenkatalog
     - [V-Modell](#v-modell)
 - [Systementwurf](#systementwurf)
   - [OOP-Paradigmen](#oop-paradigmen)
+    - [Vorteile der OOP](#vorteile-der-oop)
   - [MVC-Architektur](#mvc-architektur)
   - [Compiler vs. Interpreter](#compiler-vs-interpreter)
   - [XML](#xml)
+    - [tag- vs. inhaltsbasiertes XML](#tag--vs-inhaltsbasiertes-xml)
 - [Hardwarenahe Programmierung](#hardwarenahe-programmierung)
   - [RISC vs. CISC](#risc-vs-cisc)
   - [Pipelining](#pipelining)
 - [IT-Trends](#it-trends)
   - [Cloud Computing](#cloud-computing)
   - [Machine-Learning und Künstliche Intelligenz](#machine-learning-und-k%C3%BCnstliche-intelligenz)
+    - [Künstliche Intelligenz](#k%C3%BCnstliche-intelligenz)
+      - [Machine-Learning](#machine-learning)
   - [Internet of Things (IoT)](#internet-of-things-iot)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -146,11 +191,15 @@ MPP1 - Themenkatalog
 - RAID Level
 - Sortieralogrithmen
 
+<!-- md2apkg ignore-card -->
+
 # Grundlagen der Informationsverarbeitung
 
 > **ToDo:**
 >
 > - Struktogramm?
+
+<!-- md2apkg ignore-card -->
 
 ## Von-Neumann-Architektur
 
@@ -188,6 +237,8 @@ MPP1 - Themenkatalog
 
 > *Wie erfolgt die Befehlsabarbeitung in einer CPU?*
 
+<!-- md2apkg split -->
+
 ```text
        ┌──────────────────┒
        ↓                  │
@@ -209,13 +260,13 @@ STOP
 
 ## Einordnung von Programmiersprachen
 
-| Maschinenorientierte Sprachen                                                 | Problemorientierte Sprachen                                           |
-| ----------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| orientieren sich am Befehlssatz der zugrundeliegenden Hardware                | Sprache orientiert sich an den zu lösenden Problemstellungen          |
-| Programmierung für einen spezifischen Prozessor (nicht plattformübergreifend) | Bsp.: imperative, funktionale, logische o. deskriptive Programmierung |
-| sehr einfache Befehle $\rightarrow$ Komplexe Programmierung                   | auch "höhere Programmiersprachen"                                     |
-| Assembler-Programmierung $=$ Vereinfachung durch mnemonische Ersetzungen      | plattformunabhängige Entwicklung durch Verwendung von Compilern       |
-| hohe Effizienz                                                                | einfachere Programmierung                                             |
+| Maschinenorientierte Sprachen                                                     | Problemorientierte Sprachen                                           |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| orientieren sich am Befehlssatz der **zugrundeliegenden Hardware**                | Sprache orientiert sich an den **zu lösenden Problemstellungen**      |
+| Programmierung für einen **spezifischen Prozessor** (nicht plattformübergreifend) | Bsp.: imperative, funktionale, logische o. deskriptive Programmierung |
+| sehr einfache Befehle $\rightarrow$ Komplexe Programmierung                       | auch "höhere Programmiersprachen"                                     |
+| **Assembler**-Programmierung $=$ Vereinfachung durch mnemonische Ersetzungen      | **plattformunabhängige** Entwicklung durch Verwendung von Compilern   |
+| hohe Effizienz                                                                    | einfachere Programmierung                                             |
 
 ### Problemorientierte Programmiersprachen
 
@@ -224,53 +275,58 @@ STOP
 - eventuell maschinen-/plattformspezifische Erweiterungen
 - sog. Quellprogramme werden mit Übersetzungswerkzeugen in Maschinensprache des Rechners übersetzt
 
-**Imperative Programmiersprachen**
+#### Imperative Programmiersprachen
 
-- Folge von Anweisungen
-- Weg der Verarbeitung im Vordergrund
-- Bsp.: C, Pascal, Fortan, Cobol, Basic
+- **Folge von Anweisungen**
+- Weg der **Verarbeitung im Vordergrund**
+- Bsp.: `C`, `Pascal`, `Fortan`, `Cobol`, `Basic`
 
-**Funktionale Programmiersprachen**
+#### Funktionale Programmiersprachen
 
-- Funktionen die Eingabegrößen in Ausgabegrößen abbilden
+- Funktionen die **Eingabegrößen in Ausgabegrößen abbilden**
 - Funktionen bestehen aus Ausdrücken, die sich aus Operationen zusammensetzen
-- Bsp.: Lisp
+- Bsp.: `Lisp`
 
-**Deskriptive Programmiersprachen**
+#### Deskriptive Programmiersprachen
 
-- Ergebnis selbst im Vordergrund $\rightarrow$ Sprache beschreibt Eigenschaften des gewünschten Ergebnis
+- **Ergebnis selbst im Vordergrund** $\rightarrow$ Sprache **beschreibt Eigenschaften** des gewünschten Ergebnis
 - Programm liefert alle Eingabewerte, die diese Bedingungen erfüllen
-- keine Manipulation der Eingabegrößen
-- oft Abfragesprachen für Datenbanken $\rightarrow$ Bsp.: SQL
+- **keine Manipulation** der Eingabegrößen
+- oft Abfragesprachen für Datenbanken $\rightarrow$ Bsp.: `SQL`
 
-**Prädikative Programmiersprachen**
+#### Prädikative Programmiersprachen
 
-- Beweis in einem System aus Tatsachen und Regeln im Vordergrund (= Wissensbasis)
+- **Beweis in einem System aus Tatsachen und Regeln** im Vordergrund (= Wissensbasis)
 - Benutzer formuliert Anfrage an das System, welches versucht, diese mit "richtig" oder "falsch" zu beantworten
-- Bsp.: Prolog
+- Bsp.: `Prolog`
 
-**Objektorientierte Programmiersprachen**
+#### Objektorientierte Programmiersprachen
 
 - Zusammenfassen der zur Lösung von Teilproblemen notwendigen Daten und Operationen zu Objekten
 - Objekte kommunizieren über Signale und Botschaften miteinander
 - einige imperative Vertreter sind durch objektorientierte Programmierung erweitert wurden
-- Bsp.: C++, Java, Smalltalk
+- Bsp.: `C++`, `Java`, `Smalltalk`
 
 ### Maschinenorientierte Programmiersprachen
 
-- Orientierung an der vorliegenden Hardware (Befehlssatz des Zentralprozessors)
-- Typische Vertreter: Assemblersprachen
+- Orientierung an der vorliegenden Hardware (**Befehlssatz** des Zentralprozessors)
+- Typische Vertreter: `Assemblersprachen`
 
-**Befehl**
+### Befehl
 
-- bezeichnen einzelne Arbeitsschritte $\rightarrow$ kleinste, nicht weiter zerlegbare Einheit einer Programmiersprache
-- bei problemorientierten Sprachen: Anweisung (oft keine einzelnen Schritte, sondern komplexere Abläufe)
-- Befehl = Operationsteil + Adressteil
+- bezeichnen **einzelne Arbeitsschritte** $\rightarrow$ kleinste, nicht weiter zerlegbare Einheit einer Programmiersprache
+- vgl. bei problemorientierten Sprachen: Anweisung (oft keine einzelnen Schritte, sondern komplexere Abläufe)
+
+> Befehl = Operationsteil + Adressteil
 
 ## `Call by Value` vs. `Call by Reference`
 
-- `Call by Value`: Übergabe der Kopie eines Parameters bei Funktionsaufruf (z.B. `int`, `char` in `C`; Kopie existiert nur innerhalb der Funktion)
-- `Call by Reference`: Übergabe der Referenz auf einen Parameter bei Funktionsaufruf (z.B. `*` in `C`; Änderungen bleiben nach Verlassen der Funktion erhalten)
+- `Call by Value`: Übergabe der **Kopie** eines Parameters bei Funktionsaufruf
+  - Kopie existiert nur innerhalb der Funktion
+  - z.B. `int`, `char` in `C`
+- `Call by Reference`: Übergabe der **Referenz** auf einen Parameter bei Funktionsaufruf
+  - Änderungen bleiben nach Verlassen der Funktion erhalten
+  - z.B. `*` in `C`
 
 ## Unterschied Java, JavaScript, C#, C++
 
@@ -300,12 +356,13 @@ STOP
 
 **eine Gleitkommazahl setzt sich zusammen aus:**
 
-- Vorzeichenbit: Vorzeichen der Mantisse
-- Mantisse: auf $0.$ formatierte Zahl
+- **Vorzeichenbit:** Vorzeichen der Mantisse
+- **Mantisse:** auf $0.$ formatierte Zahl
   - 25 Stellen (bei 32-Bit Zahl)
-- Exponent: Anzahl Stellen, um die das Komma der Mantisse verschoben wurde
+- **Exponent:** Anzahl Stellen, um die das Komma der Mantisse verschoben wurde
   - 6 Stellen (bei 32-Bit Zahl)
-- Bias: konstanter Wert, der vom Exponenten abgezogen wird, um negative Exponenten darstellen zu können ($\text{Exponent} - \text{Bias} = \text{tatsächlicher Exponent}$)
+- **Bias:** konstanter Wert, der vom Exponenten abgezogen wird, um negative Exponenten darstellen zu können
+  - $\text{Exponent} - \text{Bias} = \text{tatsächlicher Exponent}$
   - üblicherweise 32
 
 ## Umrechnen von Zahlensystemen
@@ -317,7 +374,7 @@ STOP
 - bsp.: 160 zu Basis 7
 
 $$\begin{matrix}
-160 / 7 & = 22 &  R 6 \\
+160 / 7 & = 22 & R 6 \\
 22 / 7 & = 3 & R 1 \\
 3 / 7 & = 0 & R 3 \\
 \end{matrix}
@@ -328,19 +385,13 @@ $$\begin{matrix}
 
 - bsp.: $316_7$ zu dezimal
 
-$$
-6\cdot 7^0 + 1 \cdot 7^1 + 3 \cdot 7^2 = 160_{10}
-$$
-
-----------------------------------------------------------------------------------------------------------------------
+$$6\cdot 7^0 + 1 \cdot 7^1 + 3 \cdot 7^2 = 160_{10}$$
 
 # Digitaltechnik
 
 ## Eigenschaften von Codes
 
-> *Was ist ein Code?(+Eigenschaften) Wie funktioniert ein BCD-Code, Binärcodes, Gray-Code*
-
-Code = Abbildungsvorschrift zur Darstellung von Zahlen
+> Code = **Abbildungsvorschrift** zur Darstellung von Zahlen
 
 - **Bewertbarkeit:** jeder Stelle wird eine bestimmte Wertigkeit zugeordnet
 - **Gewicht:** Anzahl der mit `1` belegten Stellen
@@ -415,13 +466,10 @@ Ziffer | Aiken-Code
 
 ## Fehlererkennbare Codes
 
-> *Wie können Fehler bei der Signalübertragung erkannt werden?*
-> *Wie viele Bits werden benötigt um einen Fehler zu erkennen bzw. beheben?*
-
 - Ziel: Erkennen einfacher Fehler $\rightarrow$ Verfälschung von `0` in `1` oder `1` in `0`
 - Methoden: Quersummenprüfung, gleichgewichtige Codes (gleiche Zahl mit `1` belegter Stellen)
 
-**Paritätsbit**
+### Paritätsbit
 
 - Zusätzliches Bit für Parität (XOR); ein Fehler erkennbar, Doppelfehler wird nicht erkannt
 
@@ -436,7 +484,7 @@ Dezimal | 2^2 | 2^1 | 2^0 | Parität
   ...
 ```
 
-**Gleichgewichtige Codes**
+### Gleichgewichtige Codes
 
 - einfach Fehler werden immer erkannt
 - Doppelfehler werden nur einseitig Erkannt (nur `0` zu `1` oder `1` zu `0`)
@@ -456,13 +504,11 @@ Dezimal | 7 | 4 | 2 | 1 | 0
 
 ## Fehlerkorrigierbare Codes
 
-> *Wie viele Bits werden benötigt um einen Fehler zu erkennen bzw. beheben?*
-
 - Ziel: Fehlerkorrektur für übertragene Zeichen
 - Methoden: Rückfrageverfahren, automatische Fehlerkorrektur durch Empfänger bei Fehlererkennung (Block-Verfahren, Hamming-Codes)
 - Eigenschaften: Vergrößerung der Redundanz $\rightarrow$ Verringerung der Datenrate, Erhöhung Übertragungsdauer
 
-**Blockprüfung**
+### Blockprüfung
 
 - Blockbildung aus mehreren Codeworten $\rightarrow$ Prüfwort am Ende eines Blocks$\rightarrow$ Paritätsbit für jede Zeile/Spalte
 
@@ -478,7 +524,7 @@ Prüfwort|  1  |  0  |  0  |  1  |    0
                Fehler
 ```
 
-**Hamming-Codes**
+### Hamming-Codes
 
 - Codes mit korrigierbaren Einzelzeichen $\rightarrow$ Überprüfung jedes Informationsbits mit zwei Prüfbits
 - Prinzip der Erkennung: ein Prüfbit falsch $\rightarrow$ Fehler im Prüfbit; zwei Prüfbit falsch $\rightarrow$ Fehler im Informationsbit
@@ -543,12 +589,12 @@ cin ────────────│───┬─╯╘═══╝
 **Disjunktive Normalform**
 
 - alle Eingansbelegungen für die die Funktion den Wert `1` annimmt werden disjunktiv verknüpft (OR)
-- $\rightarrow\; Y = \bar{A}\bar{B}C \lor \bar{A}B\bar{C} \lor \bar{A}BC \lor ABC$
+- $\rightarrow Y = \bar{A}\bar{B}C \lor \bar{A}B\bar{C} \lor \bar{A}BC \lor ABC$
 
 **Konjunktive Normalform**
 
 - alle Eingansbelegungen für die die Funktion den Wert `0` annimmt werden konjunktiv verknüpft (AND)
-- $\rightarrow\; Y = (\bar{A}\lor\bar{B}\lor\bar{C}) \land (A\lor\bar{B}\lor\bar{C}) \land (A\lor\bar{B}\lor C) \land (A\lor B\lor\bar{C})$
+- $\rightarrow Y = (\bar{A}\lor\bar{B}\lor\bar{C}) \land (A\lor\bar{B}\lor\bar{C}) \land (A\lor\bar{B}\lor C) \land (A\lor B\lor\bar{C})$
 
 ## KV-Diagramme
 
@@ -566,29 +612,32 @@ AB│
 ## Vereinfachung Boolescher Schaltfunktionen
 
 > (`!a||(!a&&b)`)
-> eigentlich (¬a ∨ (¬a)∧b) = ¬a
+>
+> eigentlich: $(\neg a \lor (\neg a) \land b) = \neg a$
 
-```text
-(¬a ∨ ¬(a∧b))
-Negation des zweiten Terms entfernen
-(¬a ∨ (¬a)∨(¬b))
-(¬a ∨ ¬a ∨ ¬b)
-Vereinfachen !a ∨ !a = !a
-(¬a ∨ ¬b)
-Negation zusammenführen
-¬(a∧b)
+$$(\neg a \lor (\neg a) \land b) = \neg a$$
 
-NAND(a,b)
-Zur Überprüfung kann Wahrheitswerttabelle genutzt werden.
-```
+1. Negation des zweiten Terms entfernen
+
+$$(\neg a \lor (\neg a)\lor(\neg b))$$
+$$(\neg a \lor \neg a \lor \neg b)$$
+
+2. Vereinfachen: $\neg a \lor \neg a = \neg a$
+
+$$(\neg a \lor \neg b)$$
+
+3. Negation zusammenführen
+
+$$\neg (a \land b)$$
+$$\text{NAND(a,b)}$$
+
+4. Zur Überprüfung kann Wahrheitswerttabelle genutzt werden.
 
 ## Arten von Kippgliedern
 
 - **Bistabil:** zwei stabile Zustände
 - **Monostabil:** ein statischer Zustand und ein quasistatischer Zustand (zeitlich begrenzt)
 - **Astabil:** kein stabiler Zustand (toggelt)
-
-----------------------------------------------------------------------------------------------------------------------
 
 # Elektrotechnik
 
@@ -597,42 +646,42 @@ Zur Überprüfung kann Wahrheitswerttabelle genutzt werden.
 > - Kupferleiter (Widerstand & Kapazitiver Widerstand)
 > - RGB???
 
+<!-- md2apkg ignore-card -->
+
 ## Grundlegende elektrische Bauteile
 
-**Kondensator**
+### Kondensator
 
 - Speichern von elektrischen Ladungen
 - Anwendung: Glättungskondensatoren, Datenspeicherung im flüchtigen Speicher
 
-**Ohmscher Widerstand**
+### Ohmscher Widerstand
 
 - begrenzt den Strom
 - Spannung ändert sich anhand des Ohmschen Gesetzes
 - Ohmsches Gesetz:$R=\frac{U}{I}$
 - Anwendung: Vorwiderstand, Spannungsteiler
 
-**Diode**
+### Diode
 
 - Halbleiterelement
 - sperrt in Abhängigkeit von Stromrichtung
 - Anwendung: Gleichrichter, LeuchtEmitterDiode (LED), Schutzdiode für Spulen
 
-**Transistor**
+### Transistor
 
 - Halbleiterelement
 - besteht aus: Kollektor, Emitter und Basis
 - Grundlage für heutige Rechentechnik
 - Anwendung: Verstärker, Schalter
 
-**Spule**
+### Spule
 
 - Transformation von Spannungen
 - erzeugen Magnetfelder / Induktivität
 - Anwendungen: Relais, Störfilter
 
 ## Flüchtiger RAM
-
-> *Warum ist ein RAM-Speicher flüchtig?*
 
 - DRAM-Zelle besteht aus Kondensator und Transistor
 - Speicherung als Ladung im Kondensator
@@ -644,10 +693,10 @@ Zur Überprüfung kann Wahrheitswerttabelle genutzt werden.
 
 > *Warum darf/kann ein Kabel für die Signalübertragung nicht unendlich lang sein?*
 
+<!-- md2apkg split -->
+
 - Signallaufzeit: Latenz
 - Abschwächung des Signals durch Störungen, Interferenz, elektrischer Widerstand (Google: Leitungsdämpfung)
-
-----------------------------------------------------------------------------------------------------------------------
 
 # Algorithmen und Datenstrukturen
 
@@ -662,48 +711,54 @@ Zur Überprüfung kann Wahrheitswerttabelle genutzt werden.
 
 ## Sortieralgorithmen
 
-- Sortieren = zentrales Problem der Computeranwendung (grundlegende Voraussetzung für effizientes Suchen)
-- Anwendung: statistische Auswertung großer Datenmengen, Datenbankanwendungen (erfordern effiziente Zugriffe), Teilschritt in anderen Algorithmen
+- Sortieren = zentrales Problem der Informatik
+- grundlegende Voraussetzung für effizientes Suchen
 
-**Eigenschaften von Sortierverfahren**
+**Anwendung:**
 
-- stabiles Sortieren: Reihenfolge gleicher Werte bleibt erhalten
-- Speicherbedarf: in situ (Array) oder ex situ (Liste)
-- Anzahl der Vergleiche/Tausche (best-/worst-case)
+- statistische Auswertung großer Datenmengen
+- Datenbankanwendungen (erfordern effiziente Zugriffe)
+- Teilschritt in anderen Algorithmen
+
+### Eigenschaften von Sortierverfahren
+
+- **stabiles Sortieren:** Reihenfolge gleicher Werte bleibt erhalten
+- **Speicherbedarf:** `in situ` (Array) oder `ex situ` (Liste)
+- **Anzahl der Vergleiche/Tausche** (best-/worst-case)
 
 ### Selection-Sort
 
-- Idee: entferne jeweils das kleinste Element aus der Ausgangsfolge und füge es am Ende der Ergebnisfolge ein
-- Selection-Sort ist terminiert (sortierter Bereich wird in jedem Durchlauf vergrößert)
+- **Idee:** entferne jeweils das kleinste Element aus der Ausgangsfolge und füge es am Ende der Ergebnisfolge ein
+- Selection-Sort ist **terminiert** (sortierter Bereich wird in jedem Durchlauf vergrößert)
 - $N-1$ Swaps, $N-1$ Durchläufe (in jedem Durchlauf $i$ $N-i$ Vergleiche)
-- in situ, kein stabiles Verfahren
+- `in situ`, **kein stabiles Verfahren**
 - Aufwandsabschätzung: $T_{worst}(n)=T_{best}(N)\rightarrow O(N^2)$
 
 ### Bubble-Sort
 
-- Idee: Tausche benachbarte Schlüssel, wenn diese nicht in der gewünschten Reihenfolge sind
+- **Idee:** Tausche benachbarte Schlüssel, wenn diese nicht in der gewünschten Reihenfolge sind
 - Bubble-Sort ist terminiert (sortierter Bereich wird in jedem Durchlauf vergrößert)
 - In jedem Durchlauf wandert das größte Element an die richtige Stelle
-- in situ, stabiles Suchverfahren (bei fast Vorsortierung trotzdem $n-1$ Durchläufe)
+- `in situ`, **stabiles Suchverfahren** (bei fast Vorsortierung trotzdem $n-1$ Durchläufe)
 - Aufwandsabschätzung: $T_{worst}(n)\rightarrow O(N^2); T_{best}(N)\rightarrow O(N); T_{avg}\rightarrow(N^2)$
 
 ### Insertion-Sort
 
-- Idee: Entnimm der Ausgangsfolge ein beliebiges Element und sortiere es in die (bereits sortierte) Ergebnisfolge
-- Insertion-Sort ist terminiert (Ausgangsfolge wird bei jedem Durchlauf um ein Element verringert)
+- **Idee:** Entnimm der Ausgangsfolge ein beliebiges Element und sortiere es in die (bereits sortierte) Ergebnisfolge
+- Insertion-Sort ist **terminiert** (Ausgangsfolge wird bei jedem Durchlauf um ein Element verringert)
 - $N-1$ Durchläufe (in jedem Durchlauf $i$ $N-i$ Vergleiche)
-- pro Durchlauf von Vorsortierung abhängige Anzahl von Vergleichen und Verschiebungen ($T_{worst}(n)\neq T_{best})
-- in situ, stabiles Verfahren
+- pro Durchlauf von Vorsortierung abhängige Anzahl von Vergleichen und Verschiebungen ($T_{worst}(n)\neq T_{best}$)
+- `in situ`, **stabiles Verfahren**
 - Aufwandsabschätzung: $T_{worst}(n)\rightarrow O(N^2); T_{best}(N)\rightarrow O(N); T_{avg}\rightarrow(N^2)$
 
 ### Quick-Sort
 
-- Idee: wähle ein beliebiges Element $x$ aus der Folge (= Pivotelement)
+- **Idee:** wähle ein beliebiges Element $x$ aus der Folge (= Pivotelement)
   - teile die Restfolge in zwei Teilmengen (LTM und RTM)
   - sortiere beide Teilmengen mit Quick-Sort (Rekursion)
 - Auswahl des Pivot-Elements durch verschiedene Strategien $\rightarrow$ für höchste Effizienz teilen in zwei gleichgroße Teilmengen
 - Termination: bei Partitionierung entstehende Teilmengen sind immer kleiner als die Ausgangsmenge bis zur einelementigen Liste
-- in situ, kein stabiles Verfahren
+- `in situ`, **kein stabiles Verfahren**
 - worst-case: Conquer zerlegt eine Folge von $N$ Elementen rekursiv in 2 Folgen der Länge $1$ und $N-1$ ($T_{worst}\rightarrow O(N^2)$)
 - best-case: Conquer zerlegt eine Folge von $N$ Elementen rekursiv in 2 Folgen gleicher Länge ($T_{best}\rightarrow O(N log N)$)
 
@@ -724,34 +779,32 @@ Zur Überprüfung kann Wahrheitswerttabelle genutzt werden.
 - Klartext *so* transformieren, dass originale Informationen nicht mehr lesbar sind
 - Vertraulichkeit
 
-### symmetrisch vs. asymmetrisch
+### Symmetrische Verschlüsselung
 
-**symmetrisch**
+- **gleicher Schlüssel** für Ver- und Entschlüsselung
+- **hohe Performance**
+- typische Schlüsselänge: `>128bit`
+- Problem: **sicherer Schlüsseltausch**
+- Implementierungen: `AES-256` (Rijndael), `DES` (unsicher)
 
-- gleicher Schlüssel für Ver- und Entschlüsselung
-- hohe Performance
-- typische Schlüsselänge: >128bit
-- Problem: sicherer Schlüsseltausch
-- Implementierungen: AES-256 (Rijndael), DES (unsicher)
+### Asymmetrisch Verschlüsselung
 
-**asymmetrisch**
-
-- unterschiedliche Schlüssel für Ver- und Entschlüsselung
-- vergleichsweise niedrige Performance
+- **unterschiedliche Schlüssel** für Ver- und Entschlüsselung
+- vergleichsweise **niedrige Performance**
 - in der Regel:
   - Verschlüsselung mit Public-Key des Empfängers
   - Entschlüsselung mit Private-Key des Empfängers
 - privater Schlüssel muss sicher verwahrt werden
 - ermöglicht durch: Einsatz mathematischer Einwegfunktionen
   - privater Schlüssel darf nicht aus öffentlichem ableitbar sein
-- Implementierungen: RSA
+- Implementierungen: `RSA`
 
-**hybrides Verfahren**
+### hybrides Verfahren zur Verschlüsselung
 
 - Kombination von symmetrischen und asymmetrischen Verfahren
-  - asymmetrisches Verfahren für den sicheren Schlüsseltausch
-  - symmetrisches Verfahren für den Nutzdatenaustausch
-- Implementierungen: TLS/SSL
+  - **asymmetrisches** Verfahren für den sicheren **Schlüsseltausch**
+  - **symmetrisches** Verfahren für den **Nutzdatenaustausch**
+- Implementierungen: `TLS/SSL`
 
 ## Hashing
 
@@ -759,25 +812,27 @@ Zur Überprüfung kann Wahrheitswerttabelle genutzt werden.
 >
 > *Wie kann sondiert werden?*
 
+<!-- md2apkg split -->
+
 - variable Eingangsgröße auf fixe Ausgangsgröße abbilden
 - Lawineneffekt (minimale Änderung im Eingang führt zu großen Änderungen im Ausgang)
-- Anwendungen: Speichern von Passwörtern, Integritätsüberprüfung
-- sichere/kryptografische Hashverfahren: SHA-256
-- verschiedene Sondierungsverfahren: lineares, quadratisches Sondieren
+- **Anwendungen:** Speichern von Passwörtern, Integritätsüberprüfung
+- sichere/kryptografische Hashverfahren: `SHA-256`
+- verschiedene Sondierungsverfahren zur Behandlung von Kollisionen: lineares, quadratisches Sondieren
 
 ## Digitale Signatur
 
-- Authentifizierung des Kommunikationspartners
+- **Authentifizierung** des Kommunikationspartners
 - Hash der Nachricht wird mit Private-Key des Absenders verschlüsselt
 - Funktionen wie Unterschrift: Abschlussfunktion, Identitätsfunktion, Echtheitsfunktion, Warnfunktion, Beweisfunktion
 
 ## Stack und Queue
 
-- Queue: FIFO: First In, First Out
-  - auch Warteschlange
+- **Queue: FIFO** (First In, First Out)
+  - auch **Warteschlange**
   - Anwendung: Round-Robin-Verfahren
-- Stack: LIFO: Last In, First Out
-  - auch Kellerspeicher genannt
+- **Stack: LIFO** (Last In, First Out)
+  - auch **Kellerspeicher** genannt
   - Rechnen mit Postfix-Notation
   - Anwendung: Funktionsaufrufe, Speicherung statischer Daten
 
@@ -788,17 +843,15 @@ Zur Überprüfung kann Wahrheitswerttabelle genutzt werden.
 
 - Siehe: [Algo Cheatsheet](https://github.com/importPI19fromDHGE/dhge-pi19-sem2/blob/master/ALGO/ALGO-Cheatsheet.pdf)
 
-----------------------------------------------------------------------------------------------------------------------
+<!-- md2apkg ignore-card -->
 
 # Automaten und Sprachen
 
 ## Reguläre Ausdrücke
 
-> *Was sind reguläre Ausdrücke?*
+- Reguläre Ausdrücke beschreiben reguläre Mengen
 
-- beschreiben reguläre Mengen
-
-**Definition einer regulären Menge**
+### Definition einer regulären Menge
 
 - $\emptyset \in R$; die leere Menge ist regulär
 - $\{\epsilon\}\in R$; die Menge, die das leere Wort enthält ist regulär
@@ -815,12 +868,10 @@ $$L \subset A^{\ast}=(ab)^{\ast}\lor(ba)^{\ast}\lor a(ba)^{\ast} \lor b(ab)^{\as
 
 ## Grammatiken
 
-> *Was ist eine Grammatik? (+Grammatik-Typen)*
-
 - Regelwerk, das festlegt, welche Zeichen und Zeichenfolgen zu einer Sprache gehören (= Wortproblem)
 - Definition von Programmiersprachen erfolgt über präzise Grammatiken
 
-**Bestandteile einer Grammatik**
+### Bestandteile einer Grammatik
 
 $$G = {T,V,S,P}$$
 
@@ -834,19 +885,20 @@ $$G = {T,V,S,P}$$
 <Buchstabe> ::= A | B | C | ... | Z
 ```
 
-**Die Chomsky-Hierarchie**
+### Die Chomsky-Hierarchie
 
 Einteilung von Grammatiken in vier Klassen:
 
-- Chomsky-0: Grammatiken ohne Einschränkungen
-- Chomsky-1: Alle Regeln der Form $u\rightarrow v$ mit $u \in V^+$ mit $v \in ((V \cup T) - {S})^+$ und $|u| \leq |v|$ oder $S \rightarrow \varepsilon$ (kontextsensitive Grammatiken)
-- Chomsky-2: Alle Regeln der Form $A\rightarrow v$ mit $A \in V$ und $v \in (V \cup T)^*$ (kontextfreie Grammatiken)
-- Chomsky-3: Alle Regeln der Form $A\rightarrow v$ mit $A \in V$ und $v = \varepsilon$ oder $v = aB$ mit $a \in T$ und $B \in V$ (rechtslinear, reguläre Grammatiken)
+- **Chomsky-0:** Grammatiken ohne Einschränkungen
+- **Chomsky-1:** Alle Regeln der Form $u\rightarrow v$ mit $u \in V^+$ mit $v \in ((V \cup T) - {S})^+$ und $|u| \leq |v|$ oder $S \rightarrow \varepsilon$ (kontextsensitive Grammatiken)
+- **Chomsky-2:** Alle Regeln der Form $A\rightarrow v$ mit $A \in V$ und $v \in (V \cup T)^*$ (kontextfreie Grammatiken)
+- **Chomsky-3:** Alle Regeln der Form $A\rightarrow v$ mit $A \in V$ und $v = \varepsilon$ oder $v = aB$ mit $a \in T$ und $B \in V$ (rechtslinear, reguläre Grammatiken)
 
 ## Turing-Maschine
 
-- Mathematisches Modell, das Berechenbarkeit definiert [Wikipedia](https://de.wikipedia.org/wiki/Turingmaschine#Formale_Definition)
-- unendlich langes Band : Bandalphabet
+> **Mathematisches Modell**, das Berechenbarkeit definiert [Wikipedia](https://de.wikipedia.org/wiki/Turingmaschine#Formale_Definition)
+
+- unendlich langes Band: Bandalphabet
 - Lese-Schreibkopf kann Lesen, Schreiben, arbeitet auf Band : Eingabealphabet
 - Zustandsmenge
 - Anfangszustand
@@ -854,13 +906,13 @@ Einteilung von Grammatiken in vier Klassen:
 
 ## Registermaschinen
 
-- Registermaschine = vereinfachtes Modell realer Rechner (Vorbild: Von-Neumann-Architektur)
+- Registermaschine = **vereinfachtes Modell realer Rechner** (Vorbild: Von-Neumann-Architektur)
 - beinhaltet Befehlszähler, Akkumulator, Programm und endliche Anzahl von Registern
 - jedes Register kann eine beliebig große natürliche Zahl aufnehmen und die Operationen Inkrement, Dekrement und das Testen des Wertes im Register auf 0
 - eine Registermaschine besitzt $m$ Register und berechnet die Funktionen $f:N^r_0 \rightarrow N^s_0 \;\text{mit}\; r,s \leq m$
 - Eingabe in den ersten Registern $r$, Ausgabe beginnend im ersten Register $s$
 
-**Programm**
+### Programm einer Registermaschine
 
 - einzelne Befehle des Programmes sind nummeriert
 - Programm verarbeitet natürliche Zahlen aus den Eingaberegistern in natürliche Zahlen in den Ausgaberegistern
@@ -870,7 +922,7 @@ Einteilung von Grammatiken in vier Klassen:
 
 ## Automatenkonstruktion
 
-**Nicht-deterministischer endlicher Automat**
+### Nicht-deterministischer endlicher Automat
 
 - Orakel bestimmt Folgezustand
 - gleiche Eingaben führen nicht immer zur gleichen Ausgabe
@@ -887,7 +939,7 @@ Einteilung von Grammatiken in vier Klassen:
        ╰──╯
 ```
 
-**deterministischer endlicher Automat**
+### deterministischer endlicher Automat
 
 - gleiche Eingaben führen immer zur gleichen Ausgabe
 - tatsächlich von Computer ausführbar
@@ -907,15 +959,13 @@ Einteilung von Grammatiken in vier Klassen:
               ╰╯
 ```
 
-----------------------------------------------------------------------------------------------------------------------
-
 # Betriebssysteme
 
 ## Definition Betriebssystem
 
 > Die Programme eines digitalen Rechnersystems, die zusammen mit den Eigenschaften dieser Rechenanlage
 > die Basis der möglichen Betriebsarten des digitalen Rechnersystems bilden und die insbesondere
-> die Abwicklung von Programmen steuern und überwachen
+> die Abwicklung von Programmen steuern und überwachen.
 >
 > - DIN 44300
 
@@ -946,8 +996,6 @@ Einteilung von Grammatiken in vier Klassen:
 
 ## Betriebsmittel
 
-> *Welche Betriebsmittel kennen Sie?*
-
 - aktive Ressourcen verarbeiten passive Ressourcen
 - Einteilung in Klassen: Entziehbarkeit, Zuteilbarkeit, Wiederverwendbarkeit, Hard- oder Software Ressource
 - **aktive Ressourcen:** CPU, Netzwerk
@@ -977,6 +1025,8 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 
 - Beispiele: exFAT, ext4, NTFS, FAT32
 
+<!-- md2apkg ignore-card -->
+
 ## Virtueller Speicher
 
 - mehrere Fragmente müssen für das Programm so dargestellt werden, als ob sie aus einem kontinuierlichen Bereich stammen
@@ -998,6 +1048,8 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 ## Cache
 
 > *Wozu dienen Caches in Rechnersystemen?*
+
+<!-- md2apkg split -->
 
 - schneller Zwischenspeicher
 - dient Ausgleichung der Zugriffslücke
@@ -1027,13 +1079,15 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 - richtiges Auslagern ist eines der größten Probleme virtueller Speichersysteme (extreme Auswirkungen auf Gesamtleistung)
 - Worst case: ausgelagerte Seite wird sofort wieder benötigt $\rightarrow$ Seitenflattern (trashing)
 
-**Optimale Seitenersetzungsstrategie**
+### Optimale Seitenersetzungsstrategie
 
 - lagere die Seite aus, für die der nächste Zugriff am weitesten in der Zukunft liegt (theoretisch beste Strategie)
 - jedoch unmöglich, herauszufinden, welche Seite wann als nächstes gebraucht wird (praktisch nicht umsetzbar)
 - Auch bekannt als **Belady-Theorem der optimalen Verdrängung**
 
-**Seitenersetzungsstrategien** (optimale Strategie dient als Referenz)
+### Reale Seitenersetzungsstrategien
+
+> (optimale Strategie dient als Referenz)
 
 - **NRU:** teilt Seiten anhand ihrer R- und M-Bits (read, modified) in vier Klassen ein und entfernt zufällig eine Seite aus der niedrigsten, nicht-leeren Klasse
 - **FIFO:** Auslagern der Seite, die sich am längsten im Hauptspeicher befunden hat (älteste Seite)
@@ -1046,14 +1100,16 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 
 ## Scheduling-Strategien für Prozesse
 
-**Non-präemptive Scheduling**
+<!--ToDo: Non-präemptive und Präemptive erklären! -->
+
+### Non-präemptive Scheduling
 
 - **First come first serve** (FCFS / FIFO): Jobs werden bei Entstehen in Warteschlange eingefügt
 - **Shortest-Job-First** (SJF): Prozesse mit (geschätzt) kürzester Ausführungzeit werden zuerst bedient
 - **Highest response ratio next** (HRN): Bearbeitet Jobs mit maximalem Verhältnis Antwortzeit zu Bedienzeit zuerst. (Zeiten liegen Schätzungen zugrunde)
 - **Prioritätsscheduling** (PS): Nächster Job, der in rechenbereit-Liste aufgenommen wird, wird in Warteschlange gemäß seiner Prioritäten einsortiert
 
-**Präemptive Scheduling**
+### Präemptive Scheduling
 
 - **Round-Robin** (RR): Kombination aus der FCFS-Strategie und dem Zeitscheibenverfahren
 - **Dynamic Priority Round Robin**: Prioritäten der Prozesse in "rechenbereit"-Schlange erhöhen sich nach jeder sie nicht berücksichtigenden Zeitscheibe
@@ -1083,7 +1139,7 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 - störanfällig $\rightarrow$ parallele Leitungen beeinflussen sich gegenseitig (Übersprechen)
 - Berücksichtigung von Laufzeitunterschieden verschiedener Leitungen nötig
 
-> *Warum ist heute die serielle Datenübertragung verbreiteter?*
+### *Warum ist heute die serielle Datenübertragung verbreiteter?*
 
 - Taktrate hat gegenüber Busbreite gewonnen
 - Früher: seriell für langsamere Datenübertragungen über ggf. längere Distanzen
@@ -1091,11 +1147,9 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 
 ## Interrupts
 
-> *Was passiert beim Auftreten eines Interrupts? (+Interrupt vs. Trap)*
-
 - Interrupt = kurzfristige Unterbrechung eines Programms durch eine von der CPU abzuarbeitende Befehlssequenz (Interrupt Service Routine $\rightarrow$ schnelle Reaktion auf I/O, Zeitgeber, ...)
 
-**Ablauf**
+### Ablauf eines Interrupt
 
 - Sperren weiterer Unterbrechungen mit gleicher oder geringerer Priorität
 - Sicherung wichtiger Register-Informationen
@@ -1104,7 +1158,7 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 - Abarbeitung der Interruptroutine
 - Rückkehr zur unterbrochenen Aufgabe (Registerinformationen wiederherstellen)
 
-**Traps**
+### Traps
 
 - Trap = Art automatischer Prozeduraufruf bei bestimmten Bedingungen (z.B. Gleitkommaüberlauf) $\rightarrow$ Programmcounter wird mit Adresse des Trap-Handlers überschrieben
 
@@ -1116,22 +1170,22 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 
 ## Spooling
 
-> *Was ist Spooling?*
-
 - Dienst verwaltet eine Ressource zentral $\rightarrow$ kann von mehreren Prozessen angefordert werden
 - z.B. Drucker-Spooler = Puffer für Druckeraufträge (*nicht bei allen Ressourcen möglich*)
-
-----------------------------------------------------------------------------------------------------------------------
 
 # Betriebssystemverwaltung
 
 ## RAID
 
 - **R**edundant **A**rray of **I**ndependent **D**isks
-- Nutzen von Redundanzen zur Erhöhung der Ausfallsicherheit oder des Datendurchsatzes (keine Datensicherung!)
-- Mirroring: alle Daten auf mehreren Speichermedien gespeichert (kein Datenverlust bei einem Ausfall)
-- Striping: Daten auf allen Speichermedien verteilen (Datenverlust bei einem Ausfall)
-  - Parität: Bei verteilter Datenspeicherung durch Striping $\rightarrow$ Speicherung von Paritätsinformationen auf weiterem Speichermedium
+- Nutzen von Redundanzen zur Erhöhung der Ausfallsicherheit oder des Datendurchsatzes **(keine Datensicherung!)**
+- **Mirroring:** alle Daten auf mehreren Speichermedien gespeichert (kein Datenverlust bei einem Ausfall)
+- **Striping:** Daten auf allen Speichermedien verteilen (Datenverlust bei einem Ausfall)
+  - **Parität:** Bei verteilter Datenspeicherung durch Striping $\rightarrow$ Speicherung von Paritätsinformationen auf weiterem Speichermedium
+- **Spare:** zusätzliches Speichermedium $\rightarrow$ bei Ausfall erfolgt sofortiger Restore auf Spare
+
+### RAID-Arten
+
 - `RAID 0`: Striping über min. 2 Datenträger (höhere Performance, aber keine Ausfallsicherheit)
 - `RAID 1`: Mirroring über min. 2 Datenträger (Ausfallsicherheit; geringe Netto-Kapazität; hohe Kosten)
 - `RAID 5`: Striping mit einer XOR-Parität über 3-16 Datenträger (hohe Netto-Kapazität und Lesegeschwindigkeit; komplexe Initialisierung, langsames Schreiben)
@@ -1139,16 +1193,11 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 - `RAID 10`: Striping und Mirroring über min. 4 Datenträger
 - `RAID 50`: Striping, Mirroring und Parität über min. 6 Datenträger
 - `RAID 60`: Striping, Mirroring und doppelte Parität über min. 8 Datenträger
-- Spare: zusätzliches Speichermedium $\rightarrow$ bei Ausfall erfolgt sofortiger Restore auf Spare
 
 ## Pipes
 
-> *Was sind Pipes?*
-
 - Pipes verbinden die Ausgabe eines Programmes mit der Eingabe eines anderen $\rightarrow$ Datenstrom zwischen zwei Prozessen nach dem FIFO-Prinzip
 - Symbol: `|`; z.B. `cat example.txt | wc -l`
-
-----------------------------------------------------------------------------------------------------------------------
 
 ## Datensicherung
 
@@ -1157,10 +1206,10 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
   - 3 Datenstände
   - 2 unterschiedliche Speichermedien
   - 1 off-site
-- Online Backup $\rightarrow$ sofort verfügbar und immer online
-- Offline Backup $\rightarrow$ nicht immer verfügbar und online, braucht Zeit um eingesetzt werden zu können
-- Hot Backup $\rightarrow$ wird im laufenden Betrieb erstellt
-- Cold Backup $\rightarrow$ wird im ausgeschalteten Zustand erstellt (konsistenter Zustand wird gesichert)
+- **Online Backup** $\rightarrow$ sofort verfügbar und immer online
+- **Offline Backup** $\rightarrow$ nicht immer verfügbar und online, braucht Zeit um eingesetzt werden zu können
+- **Hot Backup** $\rightarrow$ wird im laufenden Betrieb erstellt
+- **Cold Backup** $\rightarrow$ wird im ausgeschalteten Zustand erstellt (konsistenter Zustand wird gesichert)
 
 # Rechnernetze
 
@@ -1198,7 +1247,7 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 
 <!--> TODO: Wie funktioniert Routing eigentlich? (Grob) <--->
 
-**Warum braucht man ne IP Adresse anstatt gleich mit MAC zu kommunizieren?**
+### Warum braucht man ne IP Adresse anstatt gleich mit MAC zu kommunizieren?
 
 - Routing im Internet (effizient) ermöglichen, Zusammengehöriges kommt in ein Sub-Netz
 - man möchte keine Broadcasts im Internet
@@ -1208,25 +1257,23 @@ Grundlegender Bedeutung: Kommunikation, Synchronisation zwischen Prozessen; Nutz
 
 ## IPv4 vs IPv6
 
-```text
-IPv4                                | IPv6
-- 32bit Adressen  (NAT!)            | - 128bit Adressen
-- keine autom. Adress-Conf.         | - SLAAC
-- variabler Header                  | - konstanter Header + Extension-Header
-  -> ineffizentes Routing           |
-- Fragmentierung durch Router       | - Fragmentierung durch Sender
-```
+| IPv4                          | IPv6                                   |
+| ----------------------------- | -------------------------------------- |
+| - 32bit Adressen  (NAT!)      | - 128bit Adressen                      |
+| - keine autom. Adress-Conf.   | - SLAAC                                |
+| - variabler Header            | - konstanter Header + Extension-Header |
+| -> ineffizentes Routing       |                                        |
+| - Fragmentierung durch Router | - Fragmentierung durch Sender          |
 
 ## UDP vs TCP
 
-```text
-UDP                              | TCP
-- verbindungslos                 | - verbindungsorientiert
-- unzuverlässig                  | - zuverlässig
-- geringer Protokoll-Overhead    | - höherer Protokoll-Overhead
-- keine Reihenfolgegarantie      | - Reihenfolgegarantie
-- Anw.: DNS, DHCP, NTP, SNMP     | - Flusskontrolle, Überlaststeuerung
-```
+| UDP                           | TCP                                 |
+| ----------------------------- | ----------------------------------- |
+| - verbindungslos              | - verbindungsorientiert             |
+| - unzuverlässig               | - zuverlässig                       |
+| - geringer Protokoll-Overhead | - höherer Protokoll-Overhead        |
+| - keine Reihenfolgegarantie   | - Reihenfolgegarantie               |
+| - Anw.: DNS, DHCP, NTP, SNMP  | - Flusskontrolle, Überlaststeuerung |
 
 ## TCP-Handshake
 
@@ -1254,6 +1301,8 @@ ACK = Bestätigen der SeqNr
 
 > *Was ist der Unterschied zischen HTTP und HTTPS?*
 
+<!-- md2apkg split -->
+
 - setzt auf TCP-Verbindungen auf
 - bietet: Authentisierung und Schlüsselaustausch, Verschlüsselungsalgorithmen und kryptographische Hashfunktionen
 - sichert z.B. HTTP-Kommunikation (`https`) oder Schlüsseltausch bei OpenVPN
@@ -1273,6 +1322,8 @@ ACK = Bestätigen der SeqNr
 
 > *Was passiert bei einem Browseraufruf (URL)?*
 
+<!-- md2apkg split -->
+
 - Namensauflösung URL -> IP durch DNS
 - HTTP-Request
 - HTTP Response: Status Code, HTML-Page
@@ -1285,8 +1336,6 @@ ACK = Bestätigen der SeqNr
 - `REQUEST`: Client bestätigt Konfiguration
 - `ACK`: Server bestätigt, optionale Konfiguration
 - Konfiguration: Default-Gateway, Subnetz, IP, (DNS), (Timeserver)
-
-----------------------------------------------------------------------------------------------------------------------
 
 ## SDSL / ADSL
 
@@ -1305,12 +1354,16 @@ ACK = Bestätigen der SeqNr
 > - ERM
 > - *"SQL"*
 
+<!-- md2apkg ignore-card -->
+
 ## Datenbankentwurf
 
 - Anforderungsanalyse (requirements engineering)
   - funktionale und nicht funktionale Anforderungen nennen
 - Modellierung der Sichten
 - TODO:
+
+<!-- md2apkg ignore-card -->
 
 ## ANSI-SPARC Drei-Ebenen-Konzept
 
@@ -1322,32 +1375,32 @@ ACK = Bestätigen der SeqNr
 
 ## Datenmodelle
 
-**hierarchisches Modell**
+### hierarchisches Modell
 
 - hierarchische Datensätze mit verschiedenen Feldern
 - stark an Filesystem orientiert $\rightarrow$ Baumstruktur (Verweise über Pointer)
 - Grenzen: starres Modell, das keine n:m-Beziehungen unterstützt (ohne Redundanzen)
 
-**Netzwerkmodell**
+### Netzwerkmodell
 
 - Verallgemeinerung des hierarchischen Modells $\rightarrow$ keine strenge Hierarchie
 - m:n-Beziehungen indirekt über Hilfsdatensatztyp möglich (2x 1:n)
 
-**Relationales Modell**
+### Relationales Modell
 
 - ein Objekt besitzt bestimmte Merkmale (= Attribute)
 - Beziehungen zwischen den Objekten besitzen ebenfalls Merkmale
 - Speicherung in einfacher Tabellenform (Zeilen = Objekte, Spalten = Attribute)
 - Darstellung von Beziehungen zwischen Objekten durch Attributwerte statt Pointer
 
-**Objektorientiertes Datenmodell**
+### Objektorientiertes Datenmodell
 
 - Sammlung von Objekten (enthalten Attribute und weitere Objekte)
 - eindeutige Identifikation von Objekten durch unveränderliche Indikatoren
 - Erfassen von mehr Semantik $\rightarrow$ aufwändige Verbundoperationen entfallen (Optimierung vs. Datenunabhängigkeit)
 - Kriterien: komplexe Objekte, Kapselung, Klassen- und Typhierarchie, Sicherstellung der Objektidentität, ...
 
-**Objektrelationale Systeme**
+### Objektrelationale Systeme
 
 - Verknüpfung von relationalen Systemen und Objektorientierung
 
@@ -1373,7 +1426,7 @@ ACK = Bestätigen der SeqNr
 
 ## Sperrkonzepte
 
-**RX-Sperrverfahren**
+### RX-Sperrverfahren
 
 ```text
                vorhandene Sperre
@@ -1385,8 +1438,6 @@ Sperre         X |  + | % | %        X = Write Lock |
 - Gefahren durch Deadlocks: Transaktionen abbrechen (später erneut durchführen) oder Timeout-Verfahren
 
 ## Constraints
-
-> *Was sind Constraints?*
 
 - Wahrung der Konsistenz durch Bedingungen $\rightarrow$ ermöglichen DBMS Integrität zu prüfen
 - z.B. `CONSTRAINT ck_plz CHECK (plz LIKE '[0-9][0-9][0-9][0-9][0-9]');`
@@ -1406,8 +1457,6 @@ Archivspeicher ╱     offline    ╲ sec - min
                ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 ```
 
-----------------------------------------------------------------------------------------------------------------------
-
 # Systemanalyse
 
 > **ToDo:**
@@ -1417,6 +1466,8 @@ Archivspeicher ╱     offline    ╲ sec - min
 > - *Welche Phasenmodelle gibt es und wie funktionieren diese?* (inkl. Vor- und Nachteile)
 > - *Welche Rolle spielt das Testen in der SE?*
 > - Aufwandsschätzung
+
+<!-- md2apkg ignore-card -->
 
 ## Softwareengineering
 
@@ -1449,8 +1500,6 @@ Archivspeicher ╱     offline    ╲ sec - min
 - Belege, Ablaufpläne und Checklisten
 
 ## Phasenmodelle
-
-> - *Welche Phasenmodelle gibt es und wie funktionieren diese?* (inkl. Vor- und Nachteile) TODO
 
 ### Wasserfallmodell (einfaches Phasenmodell)
 
@@ -1498,8 +1547,6 @@ Archivspeicher ╱     offline    ╲ sec - min
 | klare Test-Struktur vorgegeben                        | bezieht sich nur auf Entwicklung: Kein Betrieb, keine Wartung definiert                                           |
 | Iterationen bis alle Tests der Phase OK sind          | kein Rückspringen in vorherige Phase ohne Fehlerfall vorgesehen (siehe iteriertes Wasserfallmodell)               |
 
-----------------------------------------------------------------------------------------------------------------------
-
 # Systementwurf
 
 > **ToDo:**
@@ -1507,6 +1554,8 @@ Archivspeicher ╱     offline    ╲ sec - min
 > - *Was ist OOP? Wieso wurde OOP eingeführt? Wofür wird OOP verwendet?*
 >   - Unterschied Klasse/Objekt/Interface/abstrakte Klasse
 > - UML
+
+<!-- md2apkg ignore-card -->
 
 ## OOP-Paradigmen
 
@@ -1518,25 +1567,13 @@ Archivspeicher ╱     offline    ╲ sec - min
 - **Polymorphie**: Fähigkeit eines Bezeichners, abhängig von seiner Verwendung unterschiedliche Datentypen anzunehmen (vgl. virtual-Klassen)
 - **Vererbung**: abgeleitete Klasse erben die Methoden und Attribute der Basisklasse
 
-> - *Was ist OOP? Wieso wurde OOP eingeführt? Wofür wird OOP verwendet?*
+### Vorteile der OOP
 
-**Was ist OOP?**
-
-- siehe OOP-Paradigmen
-- Alles ist ein Objekt
-- Objekte sind Instanzen einer Klasse
-- etc..
-
-**Wieso?**
-
-- Wiederverwendbarkeit Entwurfstmuster
+- Wiederverwendbarkeit von Entwurfstmuster
   - steigert Produktivität der Programmierer
   - vermeidet Fehler
 - Datenkapselung
-
-**Wofür?**
-
-- Immer komplexere Softwareprodukte
+- immer komplexere Softwareprodukte
 - Architektur einer Software der Realität ähnlich abbilden
 
 ## MVC-Architektur
@@ -1564,12 +1601,12 @@ Archivspeicher ╱     offline    ╲ sec - min
 
 ## XML
 
-> *Was ist XML? Wie können XML-Dateien validiert werden?*
-
 - XML = E**X**tensible **M**arkup **L**anguage
 - Auszeichnungssprache zur Darstellung hierarchisch strukturierter Daten in einem Textformat
 - für Mensch und Maschine lesbar
 - Validierung: wohlgeformt = physische Struktur eingehalten (Regeln der Sprache); valide = entspricht einem definiertem Schema
+
+### tag- vs. inhaltsbasiertes XML
 
 **tag-basiertes XML**
 
@@ -1593,26 +1630,24 @@ Archivspeicher ╱     offline    ╲ sec - min
 </ROOT>
 ```
 
-----------------------------------------------------------------------------------------------------------------------
-
 # Hardwarenahe Programmierung
 
 > **ToDo:**
 >
 > - *Was ist das wichtigste Flag in Rechensystemen + Wieso? (Overflow-Flag)*
 
+<!-- md2apkg ignore-card -->
+
 ## RISC vs. CISC
 
-```text
-Reduced Instruction Set Computing   | Complex Instruction Set Computing
-────────────────────────────────────┼─────────────────────────────────────────
-reduzierter, homogener Befehlssatz  | komplexer, aber komfortabler Befehlssatz
-parallele Verarbeitung              | sequenzielle Verarbeitung
--> geringere Taktrate, Verbrauch    | -> höhere Taktrate, Stromverbrauch nötig
--> aber: Synchronisationsaufwand    |
-komplexer Compile-Schritt           | Befehle werden als Microcode ausgeführt
-Pipelining möglich                  | Pipelining schwierig
-```
+| Reduced Instruction Set Computing    | Complex Instruction Set Computing          |
+| ------------------------------------ | ------------------------------------------ |
+| - reduzierter, homogener Befehlssatz | - komplexer, aber komfortabler Befehlssatz |
+| - parallele Verarbeitung             | - sequenzielle Verarbeitung                |
+| -> geringere Taktrate, Verbrauch     | -> höhere Taktrate, Stromverbrauch nötig   |
+| -> aber: Synchronisationsaufwand     |                                            |
+| - komplexer Compile-Schritt          | - Befehle werden als Microcode ausgeführt  |
+| - Pipelining möglich                 | - Pipelining schwierig                     |
 
 ## Pipelining
 
@@ -1627,8 +1662,6 @@ Befehl 2:                  │   Hol-Phase   │   Decodierphase  │ Ausführun
 Befehl 3:                                  │    Hol-Phase     │   Decodierphase  │ ... │
                                            └──────────────────┴──────────────────┴─────┘
 ```
-
-----------------------------------------------------------------------------------------------------------------------
 
 # IT-Trends
 
@@ -1646,7 +1679,7 @@ Befehl 3:                                  │    Hol-Phase     │   Decodierph
 
 ## Machine-Learning und Künstliche Intelligenz
 
-**Künstliche Intelligenz (TODO)**
+### Künstliche Intelligenz
 
 - Überbegriff für Anwendungen, bei denen Maschinen menschenähnliche Intelligenzleistungen wie Lernen, Urteilen und Problemlösen erbringen
 - geeignet für nicht-turing-vollständige Probleme
@@ -1654,10 +1687,11 @@ Befehl 3:                                  │    Hol-Phase     │   Decodierph
 - schwache KI: Experte auf einem Gebiet, Vorhersagen/Entscheidungen treffen
 - starke KI: System, das eigenständig entscheidet, anpassbar, quasi die Fähigkeiten (und darüber hinaus) eines Menschen in Software
 
-**Machine-Learning**
+#### Machine-Learning
 
 - Teilbereich KI
-- Erkennen von Mustern in  Datenbeständen: in der Lage, eigenständig Lösungen für Probleme zu finden
+- Erkennen von Mustern in Datenbeständen
+- $\rightarrow$ in der Lage, eigenständig Lösungen für Probleme zu finden
 
 **Anwendung**
 
@@ -1667,10 +1701,8 @@ Befehl 3:                                  │    Hol-Phase     │   Decodierph
 
 ## Internet of Things (IoT)
 
-> - *Was sind IoT?*
-
 - (alltägliche) Gegenstände sind Teil des Internets
 - bekommen ID, kommunizieren untereinander, empfangen Befehle, senden Daten
-- Aufgaben ohne Eingriffe von außen erledigen
-- Industriell vs privat
-- Vgl. Smart-Home, Wearables
+- können Aufgaben ohne Eingriffe von außen erledigen
+- industriell vs. privat
+- vgl. Smart-Home, Smart-City<!--Gera-->, Wearables
