@@ -72,8 +72,8 @@ Als größtenteil irrelevant betrachtete Themen:
 > - CSS
 >   - Selektoren
 > - Javascript
-> - PHP?!
-> - REST-Apis
+> - PHP
+> - REST-APIs
 
 <!-- md2apkg ignore-card -->
 
@@ -103,7 +103,7 @@ Als größtenteil irrelevant betrachtete Themen:
 > - BGP
 > - Architekturen
 > - Firewalls
-> - CAP-Theorem <!--?-->
+> - CAP-Theorem
 
 <!-- md2apkg ignore-card -->
 
@@ -113,7 +113,16 @@ Als größtenteil irrelevant betrachtete Themen:
 >
 > - Kalkulation <!--Günther-->
 >   - Break-Even-Analyse
+>   - Teil- vs. Vollkostenrechnung
+>   - statische Amortisationsrechnung
 > - Angebotsarbeit <!--Günther-->
+> - Unternehmen/Betrieb/Firma (Defintionen)
+> - Rechtsformen (Überblick)
+> - Produkt-/Preis-/Kommunikations-/Distributions-Politik <!--?-->
+> - SWOT <!--?-->
+> - Projekt (Definition, Phasen)
+> - Klassische Qualitätssicherung vs. TQM <!--?-->
+<!-- Kompetenz !!!-->
 
 <!-- md2apkg ignore-card -->
 
