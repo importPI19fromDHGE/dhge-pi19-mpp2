@@ -223,13 +223,28 @@ $$\text{Amortisationszeit} = \frac{\text{Kapitaleinsatz}}{\text{Rückflüsse pro
 
 > **ToDo**
 >
-> - Parser
+> - Lexer [DONE]
+> - Parser [DONE]
 >   - Top-Down-Parser
 >   - Shift-Reduce-Parser
-> - Lexer
 > - Compiler-Compiler
 
 <!-- md2apkg ignore-card -->
+
+## Lexer
+
+> *"lexikalischer Analysator"*
+
+- Verarbeitet Strom von Einagbezeichen in Token
+- z.B. Zusammenfassen von Ziffer zu Zahlen oder Buchstaben zu Schlüsselworten
+
+## Parser
+
+> *"Syntaxanalysator"*
+
+- Anwendung der Syntaxregeln zur Verarbeitung der Eingabe
+- Ausgabe: Syntaxbaum oder direkte Ausführung
+- Erkennung von Syntaxfehlern
 
 # Computerforensik
 
