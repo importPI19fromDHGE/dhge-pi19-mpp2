@@ -55,7 +55,6 @@ Als größtenteil irrelevant betrachtete Themen:
 > - Atomare Operation
 > - Exklusive Ressource
 > - Semaphore
-> - Deadlock
 > - Interprozesskommunikation
 >   - Pipes (uni/bidirektional, named)
 >   - Sockets (lokal, rechnerübergreifend)
@@ -63,8 +62,32 @@ Als größtenteil irrelevant betrachtete Themen:
 > - Signale?! <!-- Steht nur in der Übersicht am Anfang des Moduls und taucht dann nicht nochmal auf-->
 
 <!-- md2apkg ignore-card -->
+<!-- Deadlock -->
 
-### Was ist ein Deadlock?
+## Wie lautet das Philosophenproblem?
+
+- 5 Philosophen mit 5 Stäbchen an rundem Tisch
+- Aktion: Denken oder Essen;
+- Essen benötigt zwei Stäbchen (Nicht genug Ressourcen für alle)
+- gleichzeitiger Zugriff
+- Deadlock kann entstehen
+
+## Was ist ein Deadlock?
+
+- **Allgemein**
+  - Situation, in der sich beide Alternativen eines Dilemmas gegenseitig blockieren **oder**
+  - in der die Handlungspartner nicht zu Kompromissen zur Lösung einer solchen Situation bereit sind, wodurch die Situation ausweglos wird.
+- **Informatik**
+  - Gegenseitige Blockade mehrere Prozesse, weil sie auf die Freigabe von Betriebsmitteln warten, die ein anderer beteiligter Prozess bereits exklusiv belegt hat
+
+## Wie werden Deadlocks verhindert oder aufgelöst?
+
+- ggf. auch über Pipes (Implementierung notwendig)
+- Sockets benutzen
+<!-- ToDo Erklärung für Pipes, Sockets, Factcheck, sind Semaphoren gemeint?-->
+- Reboot
+- Auf Ressource verzichten (Signale an Prozess senden)
+- Prozess beenden, Signal SIGTERM/SIGKILL
 
 # Entwicklung von Webanwendungen
 
