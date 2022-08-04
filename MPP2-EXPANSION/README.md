@@ -73,6 +73,7 @@ Als größtenteil irrelevant betrachtete Themen:
 >   - Selektoren
 > - Javascript
 > - PHP?!
+> - REST-Apis
 
 <!-- md2apkg ignore-card -->
 
@@ -84,6 +85,7 @@ Als größtenteil irrelevant betrachtete Themen:
 > - ISO 27001
 > - BSI 200er kennen
 > - IT-Grundschutz-Kompendium und Bausteine einordnen
+> - Anonymisierung
 
 <!-- md2apkg ignore-card -->
 
@@ -91,10 +93,16 @@ Als größtenteil irrelevant betrachtete Themen:
 
 > **ToDo**
 >
+> - Verteiltes System (Definition)
+> - Namens- und Verzeichnisdienste
+> - ACID vs. BASE
+> - sync. vs. async (Replikation)
+> - Microservices
 > - VLAN
 > - OSPF
 > - BGP
 > - Architekturen
+> - Firewalls
 > - CAP-Theorem <!--?-->
 
 <!-- md2apkg ignore-card -->
@@ -104,6 +112,7 @@ Als größtenteil irrelevant betrachtete Themen:
 > **ToDo**
 >
 > - Kalkulation <!--Günther-->
+>   - Break-Even-Analyse
 > - Angebotsarbeit <!--Günther-->
 
 <!-- md2apkg ignore-card -->
@@ -112,11 +121,11 @@ Als größtenteil irrelevant betrachtete Themen:
 
 > **ToDo**
 >
-> - Dokumentationsgeneratoren
-> - Builds-Tools
+> - Dokumentationsgeneratoren (Vorteile)
+> - Builds-Tools (Make)
 > - Versionsverwaltung
-> - Debugger
-> - Analyse von Speicherzugriffen
+> - Debugger (Arten)
+> - Speicherzugriffsanalyse (statisch/dynamisch)
 > - Profiling
 > - Unit-Tests
 
@@ -127,9 +136,8 @@ Als größtenteil irrelevant betrachtete Themen:
 > **ToDo**
 >
 > - Parser
->   - Tabellengesteuert
->   - Rekursiv
->   - Syntaxbaum
+>   - Top-Down-Parser
+>   - Shift-Reduce-Parser
 > - Lexer
 > - Compiler-Compiler
 
@@ -138,6 +146,12 @@ Als größtenteil irrelevant betrachtete Themen:
 # Computerforensik
 
 > **ToDo**
+>
+> - Definition: Digitale Forensik
+> - Datenschutzvorfall
+> - Bereiche
+> - Spuren
+> - Post-Morem vs. Live-Forensik
 
 <!-- md2apkg ignore-card -->
 
