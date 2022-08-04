@@ -485,6 +485,11 @@ int someFunction(int par1, ///< parameter 1
 > - DevOps
 > - Virtualiserung vs. Containerisierung
 
+## Was ist DevOps?
+
+- Kofferwort aus "Development" und "Operations"
+- bezeichnet Entwicklung und Betrieb einer Software durch dasselbe Team, untrennbar
+
 <!-- md2apkg ignore-card -->
 
 # Wissenschaftliches Arbeiten
