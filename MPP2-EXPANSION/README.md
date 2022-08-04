@@ -261,13 +261,3 @@ $$\text{Amortisationszeit} = \frac{\text{Kapitaleinsatz}}{\text{Rückflüsse pro
 > - Anforderungsanalyse
 
 <!-- md2apkg ignore-card -->
-
-# Wissenschaftliches Arbeiten
-
-> **ToDo**
->
-> - Problemdefinition <!--Günther-->
-> - Lösungsansatz <!--Günther-->
-> - Anforderungsanalyse
-
-<!-- md2apkg ignore-card -->
