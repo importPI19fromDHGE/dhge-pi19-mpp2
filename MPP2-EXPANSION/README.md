@@ -209,15 +209,54 @@ $$\text{Amortisationszeit} = \frac{\text{Kapitaleinsatz}}{\text{Rückflüsse pro
 
 > **ToDo**
 >
-> - Dokumentationsgeneratoren (Vorteile)
-> - Builds-Tools (Make)
-> - Versionsverwaltung
+> - Dokumentationsgeneratoren (Vorteile) [DONE]
+> - Builds-Tools (Make) [DONE]
+> - Versionsverwaltung [DONE]
 > - Debugger (Arten)
 > - Speicherzugriffsanalyse (statisch/dynamisch)
 > - Profiling
 > - Unit-Tests
 
 <!-- md2apkg ignore-card -->
+
+## Dokumentation
+
+- Unterscheidung zw. **interner Doku (Entwickler-/Tester-Doku)** und **externer Doku (Endnutzer)**
+- interne Doku wird durch Entwickler geschrieben und **direkt im Quellcode** festgehalten
+  - **einfache Änderung**
+  - direkte Einbindung in **Versionsverwaltung**
+  - Unterstützung durch **IDE-Anbindung**
+- Formate: `LaTeX`, `Docbook`, `AsciiDoc`, `Markdown`
+
+### Dokumentationsgeneratoren
+
+- Zweck: Erzeugung kommentierter Klassenreferenzen
+- Extraktion der Doku aus dem Code und **speziellen Kommentaren im Source**
+- *Spezielle Formatierung* von Funktionsparametern- und Returnwert-Doku
+- Automatische Erzeugung von *Listen und Inhaltsverzeichnissen,* Abhängigkeitslisten, ...
+- Beispiele: `doxygen`, `javadoc`, `robodoc`, ...
+
+```cpp
+/// this function does something
+int someFunction(int par1, ///< parameter 1
+                 int par2) ///< parameter 2
+```
+## Versionsverwaltung
+
+- **Verwaltung und Archivierung aller Dateien** eines Software-Produkts **in Ständen**
+- Buchführung über jede einzelne Änderung in jeder einzelnen Datei
+  - optimierte Speicherung: **Nur die Deltas jeder Änderung,** nicht jedesmal die komplette Datei, und zwar **rückwärts** (aktuelle Version im Volltext)
+
+> **Reproduzierbarkeit und Nachverfolgbarkeit**
+
+## Builds-Tools (`make`)
+
+- `make` automatisiert das **Compilieren (großer) Projekte**
+- erzeugt **intern Abhängigkeitsgraphen** der gewünschten Output-Files von den dazu notwendigen Input-Files
+- baut nur genau das neu, was notwendig ist/geändert wurde
+- `make` **arbeitet nur nach File-Datum** (greift nicht auf die File-Inhalte zu)
+- erkennt Abhängigkeiten der Files $\rightarrow$ kann voneinander **Unabhängige parallel compilieren**
+- Konfiguration über `Makefile` $\rightarrow$ Targets und deren Abhängigkeiten
 
 # Compilerbau
 
