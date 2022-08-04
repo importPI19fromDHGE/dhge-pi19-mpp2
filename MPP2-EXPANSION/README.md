@@ -258,6 +258,32 @@ $$\text{Amortisationszeit} = \frac{\text{Kapitaleinsatz}}{\text{Rückflüsse pro
 >
 > - Problemdefinition <!--Günther-->
 > - Lösungsansatz <!--Günther-->
-> - Anforderungsanalyse
+> - Anforderungsanalyse [DONE]
+
+## Anforderungsanalyse
+
+- Erhebung, Analyse, Spezifikation und Bewertung von Anforderungen eines Auftraggebers (nach IEEE)
+- Ergebnis der Analyse: Lastenheft oder Backlog
+
+### Nicht-Funktionale Anforderungen
+
+> Anforderungen an die Qualität und Anforderungen, die sich aus Randbedingungen ergeben.
+
+- **Qualität (nach ISO / IEC 9126):**
+  - Änderbarkeit
+  - Benutzbarkeit
+  - Effizienz
+  - Funktionalität
+  - Übertragbarkeit
+  - Zuverlässigkeit
+- **Randbedingungen:**
+  - Gesetze
+  - Normen
+  - Organisatorisch (Standards, Vorgehensweisen, Termine, Kosten)
+
+### Funktionale Anforderungen
+
+> beschreiben die Funktionalitäten und das Verhalten des Produkts ($\rightarrow$ Produktspezifisch)
+
 
 <!-- md2apkg ignore-card -->
