@@ -95,8 +95,9 @@ Als größtenteil irrelevant betrachtete Themen:
 >
 > - Verteiltes System (Definition) [DONE]
 > - CAP-Theorem [DONE]
-> - Namens- und Verzeichnisdienste
-> - ACID vs. BASE
+> - Namens- und Verzeichnisdienste [DONE]
+> - Caching vs. Replikation [DONE]
+> - ACID vs. BASE [DONE]
 > - sync. vs. async (Replikation)
 > - Microservices
 > - VLAN
@@ -128,23 +129,47 @@ Ein verteiltes System kann zwei der folgenden Eigenschaften gleichzeitig erfüll
 ## Namens- vs. Verzeichnisdienste
 
 - **Namensdienst:** Bilden Namen auf Adressen ab
-  - Namen: Standortunabhängige Bezeichnung einer Ressource
+  - Namen: standortunabhängige Bezeichnung einer Ressource
   - Adresse / Referenz: eindeutige, physikalische / ortsbezogene Bezeichnung
 - **Verzeichnisdienst:** Finden von Kommunikationspartnern, Ressourcen, Attributen, ...
   - Erweiterung des Namensdienstes
 
 ### Caching vs. Replikation
 
-- Caching: Speicherung von Teilen des Namensraums
-  - v.a. auf unteren Ebenen
-  - vollst. oder teilw. Namen
-  - TODO: Vor-/Nachteile
-  - *reaktiv*
-- Replikation
-  - v.a. auf unteren Ebenen
-  - höhere Fehlertoleranz
-  - *proaktiv* (geplant)
-- Problem: Aktualität von Einträgen und Gewährleistung von Konsistenz
+**Caching**
+
+- Speicherung von Teilen des Namensraums
+- v.a. auf unteren Ebenen
+- vollst. oder teilw. Namen
+- *reaktiv*
+
+**Replikation**
+
+- v.a. auf unteren Ebenen
+- höhere Fehlertoleranz
+- *proaktiv* (geplant)
+
+> Problem: Aktualität von Einträgen und Gewährleistung von Konsistenz
+
+## ACID-Prinzip
+
+> auf Konsistenz ausgelegt
+
+- **Atomicity:** Entweder vollständige oder keine Ausführung
+- **Consistency:** nur Übergänge von konsistentem Zustand zu konsistentem Zustand
+- **Isolation:** keine Überlappung von Transaktionen, die sich gegenseitig beeinflussen können
+- **Durability:** nach Abschluss einer Transaktion werden Daten garantiert dauerhaft in einer DB gespeichert
+
+### ACID vs. BASE
+
+> **BASE** = **B**asically **A**vailable, **S**oft state, **E**ventual consistency (BASE)
+
+|                      | ACID                         | BASE                                             |
+| -------------------- | ---------------------------- | ------------------------------------------------ |
+| **Optimierungsziel** | Konsistenz                   | Verfügbarkeit (Konsistenz wird nicht garantiert) |
+| **Zugriffe**         | isoliert (Commit-basiert)    | letzer Schreibzugriff "gewinnt"                  |
+| **Implementation**   | komplex, begrenzt skalierbar | einfach implementier und skalierbar              |
+| **Attribute**        | konservativ / pessimistisch  | aggressiv / optimistisch / best effort           |
 
 # Allgemeine Betriebswirtschaftslehre
 
