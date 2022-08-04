@@ -93,7 +93,8 @@ Als größtenteil irrelevant betrachtete Themen:
 
 > **ToDo**
 >
-> - Verteiltes System (Definition)
+> - Verteiltes System (Definition) [DONE]
+> - CAP-Theorem [DONE]
 > - Namens- und Verzeichnisdienste
 > - ACID vs. BASE
 > - sync. vs. async (Replikation)
@@ -103,9 +104,47 @@ Als größtenteil irrelevant betrachtete Themen:
 > - BGP
 > - Architekturen
 > - Firewalls
-> - CAP-Theorem
 
 <!-- md2apkg ignore-card -->
+
+## Verteiltes System
+
+Ein verteiltes System ist ein System bestehend aus...
+
+- mehreren Einzelkomponenten
+- auf unterschiedlichen Rechnern
+- kein gemeinsamen Speicher
+- Kooperation mittels Nachrichtenaustausch (Netzwerk)
+- gemeinsames Ziel
+
+## CAP-Theorem
+
+Ein verteiltes System kann zwei der folgenden Eigenschaften gleichzeitig erfüllen, jedoch nicht alle drei:
+
+- **C**onsistency (Konsistenz)
+- **A**vailability (Verfügbarkeit)
+- **P**artition Tolerance (Ausfalltoleranz)
+
+## Namens- vs. Verzeichnisdienste
+
+- **Namensdienst:** Bilden Namen auf Adressen ab
+  - Namen: Standortunabhängige Bezeichnung einer Ressource
+  - Adresse / Referenz: eindeutige, physikalische / ortsbezogene Bezeichnung
+- **Verzeichnisdienst:** Finden von Kommunikationspartnern, Ressourcen, Attributen, ...
+  - Erweiterung des Namensdienstes
+
+### Caching vs. Replikation
+
+- Caching: Speicherung von Teilen des Namensraums
+  - v.a. auf unteren Ebenen
+  - vollst. oder teilw. Namen
+  - TODO: Vor-/Nachteile
+  - *reaktiv*
+- Replikation
+  - v.a. auf unteren Ebenen
+  - höhere Fehlertoleranz
+  - *proaktiv* (geplant)
+- Problem: Aktualität von Einträgen und Gewährleistung von Konsistenz
 
 # Allgemeine Betriebswirtschaftslehre
 
