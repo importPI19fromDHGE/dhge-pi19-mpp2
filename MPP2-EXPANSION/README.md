@@ -178,9 +178,9 @@ Ein verteiltes System kann zwei der folgenden Eigenschaften gleichzeitig erfüll
 > - Kalkulation <!--Günther-->
 >   - Break-Even-Analyse
 >   - Teil- vs. Vollkostenrechnung
->   - statische Amortisationsrechnung
+>   - statische Amortisationsrechnung [DONE]
 > - Angebotsarbeit <!--Günther-->
-> - Unternehmen/Betrieb/Firma (Defintionen)
+> - Unternehmen/Betrieb/Firma (Defintionen) [DONE]
 > - Rechtsformen (Überblick)
 > - Produkt-/Preis-/Kommunikations-/Distributions-Politik <!--?-->
 > - SWOT <!--?-->
@@ -189,6 +189,20 @@ Ein verteiltes System kann zwei der folgenden Eigenschaften gleichzeitig erfüll
 <!-- Kompetenz !!!-->
 
 <!-- md2apkg ignore-card -->
+
+## Unternehmen / Betrieb / Firma
+
+- **Unternehmen:** ganzheitliche, rechtliche, finanzielle und wirtschaftliche Einheit des Betriebs
+- **Betrieb:** Ort der Leistungserbringung
+- **Firma:** Geschäftsbezeichnung eines Unternehmens inkl. Rechtsformzusatz
+
+## BWL-Kalkulation
+
+### Statische Amortisationsrechnung
+
+> Berechnung der Zeitspanne bis zur vollständigen Tilgung einer Investition
+
+$$\text{Amortisationszeit} = \frac{\text{Kapitaleinsatz}}{\text{Rückflüsse pro Jahr}}$$
 
 # Entwicklerwerkzeuge
 
