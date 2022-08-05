@@ -303,6 +303,19 @@ int someFunction(int par1, ///< parameter 1
 - **Feedback** für Optimierungen
 - Abdeckungsgrad von Tests feststellen
 
+## Unit Tests
+
+> Tests von möglichst kleine Code-Stücken (z.B. Funktionen) auf konformes Verhalten
+
+- Motivation: zeitnahe Fehlerfindung, gesamte Code-Abdeckung, genaue Lokalisierung
+- laufen automatisch, erfordern Tooling
+- hoher Einmal-Aufwand, geringer laufender Aufwand
+- Positive Nebeneffekte: Prüfung der Spezifikation und des Feinentwurfes
+- Ein Testfall pro Verhalten einer Funktion $\rightarrow$ ein Testfall pro Codefall
+- Ein Testfall für jeden bekannten Bug
+- Erstellung zeitnah/gleichzeitig zum Code (nicht durch QA $\rightarrow$ Betriebsblindheit)
+- werden in der Versionsverwaltung mit eingecheckt
+
 # Compilerbau
 
 > **ToDo**
