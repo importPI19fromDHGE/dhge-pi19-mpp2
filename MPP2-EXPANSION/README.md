@@ -111,13 +111,13 @@ Als größtenteil irrelevant betrachtete Themen:
 
 ## Verteiltes System
 
-Ein verteiltes System ist ein System bestehend aus...
+Ein verteiltes System...
 
-- mehreren Einzelkomponenten
-- auf unterschiedlichen Rechnern
-- kein gemeinsamen Speicher
-- Kooperation mittels Nachrichtenaustausch (Netzwerk)
-- gemeinsames Ziel
+- besteht aus mehreren Einzelkomponenten auf unterschiedlichen Rechnern
+- besitzt keinen gemeinsamen Speicher
+- koordiniert und kooperiert mittels Nachrichtenaustausch (Netzwerk)
+- hat ein gemeinsames Ziel
+- tritt gegenüber Nutzenden als kohärentes System auf
 
 ## CAP-Theorem
 
@@ -252,18 +252,18 @@ int someFunction(int par1, ///< parameter 1
 
 ## Builds-Tools (`make`)
 
-- `make` automatisiert das **Compilieren (großer) Projekte**
+- `make` automatisiert das **Kompilieren (großer) Projekte**
 - erzeugt **intern Abhängigkeitsgraphen** der gewünschten Output-Files von den dazu notwendigen Input-Files
 - baut nur genau das neu, was notwendig ist/geändert wurde
 - `make` **arbeitet nur nach File-Datum** (greift nicht auf die File-Inhalte zu)
-- erkennt Abhängigkeiten der Files $\rightarrow$ kann voneinander **Unabhängige parallel compilieren**
+- erkennt Abhängigkeiten der Files $\rightarrow$ kann voneinander **Unabhängige parallel kompilieren**
 - Konfiguration über `Makefile` $\rightarrow$ Targets und deren Abhängigkeiten
 
 ## Debugger
 
 > Werkzeug zum **Diagnostizieren und Auffinden von Fehlern**
 
-- Code muss mit **Debug-Symbolen** compiliert worden sein
+- Code muss mit **Debug-Symbolen** kompiliert worden sein
 - Ansichten: Position im Source, Call-Stack (Funktionen + Argumente), Variablen (lokal + global)
 - Funktionen: Breakpoints, Stepping, Watchpoints, Manipulation von Variablen, ...
 
@@ -275,7 +275,7 @@ int someFunction(int par1, ///< parameter 1
 
 ### Speicherfehler
 
-- **Memory-Leaks:** Referenz auf dynamisch reservierten Speicher geht verloren $\rightarrow$ Speicherbedarf wächst bis Prozessabbruch
+- **Memory-Leaks:** Referenz auf dynamisch reservierten Speicher geht verloren $\rightarrow$ Speicherbedarf wächst bis zum Prozessabbruch
 - **Memory-Fragmentation:** kein echter Programmfehler $\rightarrow$ ungünstige Speichernutzung
   - Folge unterschiedlich großer `malloc` und `free` Befehle $\rightarrow$ keine größeren Speicherblöcke mehr verfügbar
 
@@ -283,7 +283,7 @@ int someFunction(int par1, ///< parameter 1
 
 - **Adress Sanitizer:** über jedes Byte im gesamten Adressraum wird Buch geführt ob (un)gültig; jeder Pointerzugriff wird geprüft
 - **Memory Sanitizer:** erkennt Lesezugriffe auf Speicherbereiche, die zuvor nicht initialisiert wurden
-- **Leak Sanitizer:** liefert am Ende der Ausführung Liste dynamisch angelegter und nicht mehr freigegebenen Speicherstrukturen
+- **Leak Sanitizer:** liefert am Ende der Ausführung Liste dynamisch angelegter und nicht freigegebener Speicherstrukturen
 - **Thread-Sanitizer:** erkennt Data Races (Zugriffe verschiedener Threads auf gemeinsamen Speicher $\rightarrow$ zufällig, Scheduler abhängig!)
 
 ## Profiling
