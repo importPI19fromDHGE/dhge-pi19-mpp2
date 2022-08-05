@@ -215,7 +215,7 @@ $$\text{Amortisationszeit} = \frac{\text{Kapitaleinsatz}}{\text{Rückflüsse pro
 > - Debugger (Arten) [DONE]
 > - Speicherzugriffsanalyse (statisch/dynamisch) [DONE]
 > - Profiling [DONE]
-> - Unit-Tests
+> - Unit-Tests [DONE]
 
 <!-- md2apkg ignore-card -->
 
