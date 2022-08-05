@@ -140,6 +140,14 @@ Als größtenteil irrelevant betrachtete Themen:
 - **Integrität** und **Sicherheit** mit TOMs
 - **Rechenschaftspflicht** (Verarbeitungsübersicht, SiKo)
 
+## BSI-Standards des IT-Grundschutz (200-x)
+
+- `BSI-Standard 200-1`: Aufbau eines Informationssicherheitsmanagementsystems
+- `BSI-Standard 200-2`: Vorgehensweisen nach IT-Grundschutz
+- `BSI-Standard 200-3`: Risikoanalyse
+- `BSI-Standard 200-4`: Business Continuity Management
+
+
 # Rechnernetze und Verteilte Systeme
 
 > **ToDo**
