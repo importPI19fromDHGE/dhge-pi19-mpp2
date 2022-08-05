@@ -88,8 +88,10 @@ Als größtenteil irrelevant betrachtete Themen:
 > - Governance vs. Compliance [DONE]
 > - Geltende Gesetze
 > - Schutzziele [DONE]
-> - Personenbezogene Daten
-> - Besondere Datenkategorien
+> - DSGVO
+>   - Personenbezogene Daten [DONE]
+>   - Besondere Datenkategorien [DONE]
+>   - Grundsätze der Verarbeitung [DONE]
 > - Anonymisierung, Pseudonomisierung
 
 <!-- md2apkg ignore-card -->
@@ -102,8 +104,32 @@ Als größtenteil irrelevant betrachtete Themen:
 
 ## Governance / Compliance
 
-- **Governance:** die Einhaltung von Richtlinien wird **empfohlen**
-- **Compliance:** die Einhaltung von Richtlinien ist **verpflichtend**
+- **Governance:** Einhaltung von Richtlinien wird **empfohlen**
+- **Compliance:** Einhaltung von Richtlinien ist **verpflichtend**
+
+## DSGVO
+
+### Personenbezogene Daten
+
+> alle Informationen, die sich auf eine identifizierte oder identifizierbare lebende Person beziehen.
+
+### Besondere Datenkategorien (Art. 9)
+
+- Gesundheits- und biometrische Daten
+- Politische Meinungen
+- Religion
+- Ethnie
+- Gewerkschaftsangehörigkeit
+
+> Diese sensiblen Daten besitzen einen **hohen Schutzbedarf** und benötigen **besondere technisch-organisatorische Maßnahmen**
+
+### Grundsätze der Verarbeitung (Art. 5)
+
+- Verarbeitung muss **rechtmäßig** und **zweckgebunden** erfolgen
+- **Datenminimum**
+- **Richtigkeit** der Daten
+- **Integrität** und **Sicherheit** mit TOMs
+- **Rechenschaftspflicht** (Verarbeitungsübersicht, SiKo)
 
 # Rechnernetze und Verteilte Systeme
 
