@@ -85,7 +85,7 @@ Als größtenteil irrelevant betrachtete Themen:
 > - ISO 27001
 > - BSI 200er kennen
 > - IT-Grundschutz-Kompendium und Bausteine einordnen
-> - Governance vs. Compliance
+> - Governance vs. Compliance [DONE]
 > - Geltende Gesetze
 > - Schutzziele [DONE]
 > - Personenbezogene Daten
@@ -99,6 +99,11 @@ Als größtenteil irrelevant betrachtete Themen:
 - Verfügbarkeit
 - Vertraulichkeit
 - Integrität
+
+## Governance / Compliance
+
+- **Governance:** die Einhaltung von Richtlinien wird **empfohlen**
+- **Compliance:** die Einhaltung von Richtlinien ist **verpflichtend**
 
 # Rechnernetze und Verteilte Systeme
 
