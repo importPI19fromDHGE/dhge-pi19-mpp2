@@ -96,7 +96,6 @@ Als größtenteil irrelevant betrachtete Themen:
 - Vertraulichkeit
 - Integrität
 
-
 # Rechnernetze und Verteilte Systeme
 
 > **ToDo**
