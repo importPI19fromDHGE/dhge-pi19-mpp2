@@ -109,7 +109,7 @@ Als größtenteil irrelevant betrachtete Themen:
 
 <!-- md2apkg ignore-card -->
 
-## Verteiltes System
+## Verteiltes System (Definition)
 
 Ein verteiltes System...
 
@@ -127,7 +127,7 @@ Ein verteiltes System kann zwei der folgenden Eigenschaften gleichzeitig erfüll
 - **A**vailability (Verfügbarkeit)
 - **P**artition Tolerance (Ausfalltoleranz)
 
-## Namens- vs. Verzeichnisdienste
+## Namens- vs. Verzeichnisdienste (Definition)
 
 - **Namensdienst:** Bilden Namen auf Adressen ab
   - Namen: standortunabhängige Bezeichnung einer Ressource
