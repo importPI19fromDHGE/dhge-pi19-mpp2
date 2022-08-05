@@ -85,7 +85,11 @@ Als größtenteil irrelevant betrachtete Themen:
 > - ISO 27001
 > - BSI 200er kennen
 > - IT-Grundschutz-Kompendium und Bausteine einordnen
+> - Governance vs. Compliance
+> - Geltende Gesetze
 > - Schutzziele [DONE]
+> - Personenbezogene Daten
+> - Besondere Datenkategorien
 > - Anonymisierung, Pseudonomisierung
 
 <!-- md2apkg ignore-card -->
