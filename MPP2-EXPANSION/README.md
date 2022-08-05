@@ -273,6 +273,17 @@ int someFunction(int par1, ///< parameter 1
 - Anhängen an einen **bereits laufenden Prozess:** nützlich, wenn Programm erst nach langer Laufzeit Fehler zeigt
 - **Starten einer Binary** mit Debugger: gängigste Methode in der Entwicklung
 
+## Profiling
+
+> Untersuchung des zeitlichen Programmverhaltens
+
+- Statistiken zu:
+  - Anzahl der Funktionsaufrufe
+  - Ausführungszeit von Codeabschnitten
+  - Coverage (*Welcher `if`-Zweig nie/selten?*)
+- **Instrumentierte Profiler:** Messcode für Code-Blöcke und Funktionen $\rightarrow$ exakte Messung, verändertes Zeitverhalten durch Overhead
+- **Sampling Profiler:** *Code bleibt unverändert* $\rightarrow$ regelmäßiges Unterbrechen und Extrahieren von Debug-Infos (aber an manchen Stellen "blind")
+
 # Compilerbau
 
 > **ToDo**
