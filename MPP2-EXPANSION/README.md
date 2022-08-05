@@ -213,8 +213,8 @@ $$\text{Amortisationszeit} = \frac{\text{Kapitaleinsatz}}{\text{Rückflüsse pro
 > - Builds-Tools (Make) [DONE]
 > - Versionsverwaltung [DONE]
 > - Debugger (Arten) [DONE]
-> - Speicherzugriffsanalyse (statisch/dynamisch)
-> - Profiling
+> - Speicherzugriffsanalyse (statisch/dynamisch) [DONE]
+> - Profiling [DONE]
 > - Unit-Tests
 
 <!-- md2apkg ignore-card -->
@@ -273,6 +273,19 @@ int someFunction(int par1, ///< parameter 1
 - Anhängen an einen **bereits laufenden Prozess:** nützlich, wenn Programm erst nach langer Laufzeit Fehler zeigt
 - **Starten einer Binary** mit Debugger: gängigste Methode in der Entwicklung
 
+### Speicherfehler
+
+- **Memory-Leaks:** Referenz auf dynamisch reservierten Speicher geht verloren $\rightarrow$ Speicherbedarf wächst bis Prozessabbruch
+- **Memory-Fragmentation:** kein echter Programmfehler $\rightarrow$ ungünstige Speichernutzung
+  - Folge unterschiedlich großer `malloc` und `free` Befehle $\rightarrow$ keine größeren Speicherblöcke mehr verfügbar
+
+#### Speicherfehler-Tools
+
+- **Adress Sanitizer:** über jedes Byte im gesamten Adressraum wird Buch geführt ob (un)gültig; jeder Pointerzugriff wird geprüft
+- **Memory Sanitizer:** erkennt Lesezugriffe auf Speicherbereiche, die zuvor nicht initialisiert wurden
+- **Leak Sanitizer:** liefert am Ende der Ausführung Liste dynamisch angelegter und nicht mehr freigegebenen Speicherstrukturen
+- **Thread-Sanitizer:** erkennt Data Races (Zugriffe verschiedener Threads auf gemeinsamen Speicher $\rightarrow$ zufällig, Scheduler abhängig!)
+
 ## Profiling
 
 > Untersuchung des zeitlichen Programmverhaltens
@@ -283,6 +296,12 @@ int someFunction(int par1, ///< parameter 1
   - Coverage (*Welcher `if`-Zweig nie/selten?*)
 - **Instrumentierte Profiler:** Messcode für Code-Blöcke und Funktionen $\rightarrow$ exakte Messung, verändertes Zeitverhalten durch Overhead
 - **Sampling Profiler:** *Code bleibt unverändert* $\rightarrow$ regelmäßiges Unterbrechen und Extrahieren von Debug-Infos (aber an manchen Stellen "blind")
+
+### Ziele von Profiling
+
+- **Hotspots** erkennen (stark frequentierte bzw. zeitintensive Codeblöcke) $\rightarrow$ größtes Potential für Optimierung
+- **Feedback** für Optimierungen
+- Abdeckungsgrad von Tests feststellen
 
 # Compilerbau
 
