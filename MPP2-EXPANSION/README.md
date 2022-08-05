@@ -147,7 +147,6 @@ Als größtenteil irrelevant betrachtete Themen:
 - `BSI-Standard 200-3`: Risikoanalyse
 - `BSI-Standard 200-4`: Business Continuity Management
 
-
 # Rechnernetze und Verteilte Systeme
 
 > **ToDo**
