@@ -212,7 +212,7 @@ $$\text{Amortisationszeit} = \frac{\text{Kapitaleinsatz}}{\text{Rückflüsse pro
 > - Dokumentationsgeneratoren (Vorteile) [DONE]
 > - Builds-Tools (Make) [DONE]
 > - Versionsverwaltung [DONE]
-> - Debugger (Arten)
+> - Debugger (Arten) [DONE]
 > - Speicherzugriffsanalyse (statisch/dynamisch)
 > - Profiling
 > - Unit-Tests
@@ -258,6 +258,20 @@ int someFunction(int par1, ///< parameter 1
 - `make` **arbeitet nur nach File-Datum** (greift nicht auf die File-Inhalte zu)
 - erkennt Abhängigkeiten der Files $\rightarrow$ kann voneinander **Unabhängige parallel compilieren**
 - Konfiguration über `Makefile` $\rightarrow$ Targets und deren Abhängigkeiten
+
+## Debugger
+
+> Werkzeug zum **Diagnostizieren und Auffinden von Fehlern**
+
+- Code muss mit **Debug-Symbolen** compiliert worden sein
+- Ansichten: Position im Source, Call-Stack (Funktionen + Argumente), Variablen (lokal + global)
+- Funktionen: Breakpoints, Stepping, Watchpoints, Manipulation von Variablen, ...
+
+### Betriebsmodi eines Debuggers
+
+- **Post-mortem** Debugging: Analysieren einer "Leiche" (`core dump` laden)
+- Anhängen an einen **bereits laufenden Prozess:** nützlich, wenn Programm erst nach langer Laufzeit Fehler zeigt
+- **Starten einer Binary** mit Debugger: gängigste Methode in der Entwicklung
 
 # Compilerbau
 
