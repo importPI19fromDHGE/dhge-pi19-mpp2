@@ -107,6 +107,15 @@ Als größtenteil irrelevant betrachtete Themen:
 - **Governance:** Einhaltung von Richtlinien wird **empfohlen**
 - **Compliance:** Einhaltung von Richtlinien ist **verpflichtend**
 
+## Geltende Gesetze
+
+<!-- ToDo: unvollständig -->
+
+- DSGVO
+- Telemediengesetzes
+- Urheberrecht
+- E-Government-Gesetz
+
 ## DSGVO
 
 ### Personenbezogene Daten
