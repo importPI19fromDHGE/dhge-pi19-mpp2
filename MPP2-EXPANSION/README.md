@@ -172,14 +172,14 @@ Als größtenteil irrelevant betrachtete Themen:
 > - DevOps
 > - Virtualiserung vs. Containerisierung
 
-## Was ist DevOps?
+## DevOps
 
 - Kofferwort aus "Development" und "Operations"
 - bezeichnet Entwicklung und Betrieb einer Software durch dasselbe Team, untrennbar
   - im ferneren Sinne auch QA
 - oft in Verbindung mit Lean Management, agilen Methoden und CI/CD
 
-## Ein paar Bestandteile der Entwicklung
+### Ein paar Bestandteile der Entwicklung
 
 - Programmieren der Software
 - Tests
@@ -187,7 +187,7 @@ Als größtenteil irrelevant betrachtete Themen:
 - Auslieferung
 - Doku für Kunde
 
-## Ein paar Bestandteile des Betriebs (Ops)
+### Ein paar Bestandteile des Betriebs (Ops)
 
 - Bereitstellung der Hardware
 - Installation der Software und Abhängigkeiten
@@ -195,13 +195,13 @@ Als größtenteil irrelevant betrachtete Themen:
 - Updates
 - Wartung der Komponenten (z.B. pflegen der Datenbank)
 
-## Vorteile von DevOps
+### Vorteile von DevOps
 
 - keine _Wall of Confusion_ / Silodenken zwischen Teams
 - beschleunigt Entwicklungsprozess
 - verhindert _"works on my machine"_
 
-## Methode: Infra as Code (IaC)
+### Methode: Infra as Code (IaC)
 
 - Infrastruktur wird maschinenlesbar abgebildet
 - Nutzung von Auszeichnungssprachen (JSON, YAML)
@@ -209,21 +209,102 @@ Als größtenteil irrelevant betrachtete Themen:
 - hoher Automatisierungsgrad
 - Bsp.: Ansible, Terraform, Chef, Puppet
 
-## Blue/Green Deployment
+### Blue/Green Deployment
 
 - Minimierung der Ausfallzeit bei Updates
 - zwei Instanzen einer Anwendung hinter Reverse Proxy, laufen parallel
 - produktiv schalten der neuen Version durch Änderung der Reverse Proxy Konfiguration $\rightarrow$ minimale Downtime
 
-## A/B Testing
+### A/B Testing
 
 - testen experimenteller Änderungen an kleinem Prozentsatz von Nutzern
 - messen der Hypothesen, Vergleich der Reaktionen zwischen den Varianten
 
-## Canary Releases
+### Canary Releases
 
 - ähnlich zu A/B, aber mit dem Zweck, Fehler in neuen Versionen zu finden
 - alte und neue Instanz laufen hinter Reverse Proxy, kleiner Prozentsatz Nutzer wird auf neue, zu testende Version der Anwendung geleitet
+
+## Vorteile von Monolithen
+
+- einfaches Modell für Entwickler
+- einheitliche Code-Basis und Build-Umgebung
+- einfache **vertikale** Skalierbarkeit, d.h. mehr Ressourcen für Instanz zuweisen
+
+## Nachteile von Monolithen
+
+- Code-Basis wird riesig und unüberschaubar
+- Überlastete Tools bei Refactoring, Builds, ...
+- Skalierung ist Ressourcen-intensiv
+- Deployment erfordert Stopp des gesamten Systems
+- **horizontale** Skalierbarkeit schwierig
+
+## Vorteile von Schichten-Architekturen
+
+- einfach hinsichtlich Abhängigkeiten, Deployment, Skalierungsmodell
+
+## Nachteile von Schichten-Architekturen
+
+- Codebasis wächst mit jeder Schicht
+  - und damit auch die Entwicklungs- / Betriebs-Prozesse
+- Skalierung besser, aber weiterhin begrenzt
+- technische Zerlegung $\rightarrow$ Silodenken
+
+## REST
+
+> Definition?
+
+<!-- md2apkg split -->
+
+- **Re**presentational **S**tate **T**ransfer
+- Maschine-zu-Maschine Kommunikation auf Basis von HTTP als weit verbreitetes und gut unterstütztes Datenübertragungsprotokoll
+- Client-Server-Prinzip
+- zustandslos
+- Caching möglich
+- Nachrichten sind selbstbeschreibend, da Ressourcen über URI adressiert
+- unterstützt verschiedene Repräsentationen für Daten, z.B. JSON, XML
+
+### CRUD-Operatoren
+
+- was bedeutet CRUD?
+- was sind die Operatoren?
+
+<!-- md2apkg split -->
+
+- Create, Read, Update, Delete
+- POST, GET, PUT, DELETE
+
+## Microservice-Architektur
+
+> Skizzieren Sie eine Microservice-Architektur und erläutern sie diese
+
+<!-- md2apkg split -->
+
+![Microservice-Architektur](assets/ms-arch.png)<!--width=600px-->
+
+- erledigt nur eine Aufgabe, siehe UNIX-Philosophie
+- arbeitet mit anderen Microservices via universeller Schnittstelle (z.B. REST)
+- $\rightarrow$ Modularisierung (fachlich), funktionieren unabhängig voneinander
+- keine gemeinsamen Zustände
+- Vorschlag: Ein MS durch 5 bis 7 Entwickler realisierbar
+- Betrieb in VMs oder Containern
+
+### Vorteile von Microservices
+
+- getrennte, überschaubare Code-Basen
+- schnellere Entwicklung, CI/CD mit kürzeren Durchlaufzeiten
+- geringe Kopplung
+- Erweiterbarkeit durch einheitliche Schnittstellen
+- horizontal und vertikal skalierbar
+- Updates im laufenden Betrieb möglich
+
+### Nachteile von Microservices
+
+- empfindlich gegenüber Netzwerk-Störungen
+- komplizierteres Modell
+- höherer Overhead (Rechenressourcen und Kommunikation via HTTP)
+- Datenkonsistenz wird aufwändiger
+- Logging, Monitoring und Testen wird aufwändiger
 
 <!-- md2apkg ignore-card -->
 
