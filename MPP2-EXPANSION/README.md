@@ -94,24 +94,63 @@ Als größtenteil irrelevant betrachtete Themen:
 
 <!-- md2apkg ignore-card -->
 
-# Rechnernetze und Verteilte Systeme
+# Rechnernetzadministration (und Verteilte Systeme ToDo)
 
 > **ToDo**
 >
-> - Verteiltes System (Definition) [DONE]
-> - CAP-Theorem [DONE]
-> - Namens- und Verzeichnisdienste [DONE]
-> - Caching vs. Replikation [DONE]
-> - ACID vs. BASE [DONE]
-> - sync. vs. async (Replikation)
-> - Microservices
-> - VLAN
-> - OSPF
-> - BGP
-> - Architekturen
+> - Rechnernetzadministration Sem5 Barié
+>   - VLAN
+>   - Spanning Tree Protocol
+>   - BGP
+>   - SPOF
+> - verteilte Systeme Sem 6 Feldmann
+>   - Verteiltes System (Definition) [DONE]
+>   - CAP-Theorem [DONE]
+>   - Namens- und Verzeichnisdienste [DONE]
+>   - Caching vs. Replikation [DONE]
+>   - ACID vs. BASE [DONE]
+>   - sync. vs. async (Replikation)
+>   - Architekturen
+>   - Microservices (? falsches Modul oder Mitschrift unvollständig)
 > - Firewalls
 
 <!-- md2apkg ignore-card -->
+
+## VLAN und Zweck
+
+- Unterscheidung physische Topologie, logische Topologie
+- L2 - Switch/Bridge managed
+  - Tabelle in den Bridges: Zuordnung VLANs zu Ports
+  - Port kann zu mehreren VLANs gehören
+- Paket: Feld im Ethernet-Header: welches VLAN?
+- Varianten
+  - portbasiert: Bridge kümmert sich um Hinzufügen, Entfernen: Endgeräte verarbeiten VLAN-Info nicht
+  - tagged: Endgeräte befüllen VLAN-Felder selbst, interpretieren
+  
+<!-- ^ bitte VLAN Factcheck ^ ToDo -->
+
+## Spanning Tree Protocol / VLAN
+
+- Grundlage: STP Sem4 (ToDo gibt es dazu eine Karte?)
+- jedes VLAN benötigt seinen eigenen Spanning-Tree
+- Broadcast-Traffic soll in VLAN bleiben
+- Schleifen in VLANs sind zu vermeiden
+- **verschiedene** VLANs können Schleifen bilden
+- Konnektivität für seperate VLANs muss auch bei Ausfall möglich sein (solange physische Verbindung vorhanden)
+- ggf. weniger ungenutzte physische Links 
+
+## eBGP
+
+- Kommunikation zwischen AS
+- Border Router: gegenseitiges Peering mit fremden Border Router; Adresse muss bekannt sein
+- Austausch Nachrichten: "Ich kenne den Weg zu Netz 123, die Wegkosten sind 456"
+- ToDo in Abgabe Klausurersatzleistung schauen, Dopplung Sem4 prüfen
+
+## Firewalls
+
+- ToDo
+
+# Verteilte Systeme ToDo
 
 ## Verteiltes System (Definition)
 
@@ -176,17 +215,31 @@ Ein verteiltes System kann zwei der folgenden Eigenschaften gleichzeitig erfüll
 | **Implementation**   | komplex, begrenzt skalierbar | einfach implementier und skalierbar              |
 | **Attribute**        | konservativ / pessimistisch  | aggressiv / optimistisch / best effort           |
 
-## Microservices
-
-## VLAN
-
-## OSPF
-
-## BGP
-
 ## Architekturen
 
-## Firewalls
+<-- Klausurersatzleistung, mehr? ToDo -->
+
+### Dreistufige Architektur
+
+- Präsentationsschicht - User Interface
+- Verarbeitungsschicht - Applikationslogik
+- Persistenzschicht - Datenbank
+
+### Vorteile eine Einteilung der Architektur eines Verteilten Systems in Stufen
+
+- Definition eindeutiger Schnittstellen
+- unabhängige Modifikationen an den Stufen möglich
+- Komplexität des Gesamtsystems wird durch Aufteilung reduziert
+
+### Nachteile von Systemen  mit zahlreichen (z.B. mehr als zehn) Stufen
+
+- ToDo
+
+## Microservices
+
+- ToDo
+
+<!-- Die Mitschrift in sem6 ist wohl nicht vollständig/Wiederholung Kasche Sem3/4 k.A. -->
 
 # Allgemeine Betriebswirtschaftslehre
 
