@@ -86,11 +86,12 @@ Als größtenteil irrelevant betrachtete Themen:
 
 - ggf. auch über Pipes (Implementierung notwendig)
 - Sockets benutzen
-<!-- ToDo Erklärung für Pipes, Sockets, Factcheck, sind Semaphoren gemeint?-->
 - Semaphoren
 - Reboot
 - Auf Ressource verzichten (Signale an Prozess senden)
 - Prozess beenden, Signal SIGTERM/SIGKILL
+
+<!-- ToDo Erklärung für Pipes, Sockets, Factcheck, sind Semaphoren gemeint?-->
 
 <!-- Fork -->
 
@@ -98,6 +99,7 @@ Als größtenteil irrelevant betrachtete Themen:
 
 - es wird eine exakte Kopie des Aufrufers als Kindprozess erzeugt
 - Kindprozess übernimmt Code, Daten inkl. Befehlszähler, Dateideskriptoren, ...
+
 <!-- Sempahore -->
 
 ## Rückgabewerte fork
@@ -164,7 +166,7 @@ Als größtenteil irrelevant betrachtete Themen:
 
 ## Arten Socket
 
-- Verbindungslos (SOCK_DGRAM) 
+- Verbindungslos (SOCK_DGRAM)
 - vollduplex, verbindungsorientiert (SOCK_STREAM)
 
 außerdem
@@ -191,7 +193,6 @@ außerdem
 > - Javascript
 > - PHP
 > - REST-APIs
-
 
 <!-- md2apkg ignore-card -->
 
@@ -518,15 +519,5 @@ int someFunction(int par1, ///< parameter 1
 ### Funktionale Anforderungen
 
 > beschreiben die Funktionalitäten und das Verhalten des Produkts ($\rightarrow$ Produktspezifisch)
-
-<!-- md2apkg ignore-card -->
-
-# Wissenschaftliches Arbeiten
-
-> **ToDo**
->
-> - Problemdefinition <!--Günther-->
-> - Lösungsansatz <!--Günther-->
-> - Anforderungsanalyse
 
 <!-- md2apkg ignore-card -->
