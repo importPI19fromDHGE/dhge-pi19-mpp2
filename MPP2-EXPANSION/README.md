@@ -112,7 +112,7 @@ Als größtenteil irrelevant betrachtete Themen:
 <!-- ToDo: unvollständig -->
 
 - DSGVO
-- Telemediengesetzes
+- Telemediengesetz
 - Urheberrecht
 - E-Government-Gesetz
 
