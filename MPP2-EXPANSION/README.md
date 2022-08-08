@@ -55,7 +55,10 @@ Als größtenteil irrelevant betrachtete Themen:
 > - Atomare Operation
 > - Exklusive Ressource
 > - Fork [DONE]
+> - Deadlock [DONE]
+> - Semaphore [DONE]
 > - Interprozesskommunikation [DONE]
+>   - Pipes (uni/bidirektional, named) [DONE]
 >   - Sockets (lokal, rechnerübergreifend) [DONE]
 >   - Shared Memory [**ToDO**]
 > - Signale?! <!-- Steht nur in der Übersicht am Anfang des Moduls und taucht dann nicht nochmal auf-->
@@ -186,7 +189,9 @@ außerdem
 > - CSS
 >   - Selektoren
 > - Javascript
-> - PHP?!
+> - PHP
+> - REST-APIs
+
 
 <!-- md2apkg ignore-card -->
 
@@ -198,6 +203,12 @@ außerdem
 > - ISO 27001
 > - BSI 200er kennen
 > - IT-Grundschutz-Kompendium und Bausteine einordnen
+> - Governance vs. Compliance
+> - Geltende Gesetze
+> - Schutzziele
+> - Personenbezogene Daten
+> - Besondere Datenkategorien
+> - Anonymisierung, Pseudonomisierung
 
 <!-- md2apkg ignore-card -->
 
@@ -205,56 +216,308 @@ außerdem
 
 > **ToDo**
 >
+> - Verteiltes System (Definition) [DONE]
+> - CAP-Theorem [DONE]
+> - Namens- und Verzeichnisdienste [DONE]
+> - Caching vs. Replikation [DONE]
+> - ACID vs. BASE [DONE]
+> - sync. vs. async (Replikation)
+> - Microservices
+> - Firewalls
 > - VLAN
 > - OSPF
 > - BGP
 > - Architekturen
-> - CAP-Theorem <!--?-->
 
 <!-- md2apkg ignore-card -->
+
+## Verteiltes System (Definition)
+
+Ein verteiltes System...
+
+- besteht aus mehreren Einzelkomponenten auf unterschiedlichen Rechnern
+- besitzt keinen gemeinsamen Speicher
+- koordiniert und kooperiert mittels Nachrichtenaustausch (Netzwerk)
+- hat ein gemeinsames Ziel
+- tritt gegenüber Nutzenden als kohärentes System auf
+
+## CAP-Theorem
+
+Ein verteiltes System kann zwei der folgenden Eigenschaften gleichzeitig erfüllen, jedoch nicht alle drei:
+
+- **C**onsistency (Konsistenz)
+- **A**vailability (Verfügbarkeit)
+- **P**artition Tolerance (Ausfalltoleranz)
+
+## Namens- vs. Verzeichnisdienste (Definition)
+
+- **Namensdienst:** Bilden Namen auf Adressen ab
+  - Namen: standortunabhängige Bezeichnung einer Ressource
+  - Adresse / Referenz: eindeutige, physikalische / ortsbezogene Bezeichnung
+- **Verzeichnisdienst:** Finden von Kommunikationspartnern, Ressourcen, Attributen, ...
+  - Erweiterung des Namensdienstes
+
+### Caching vs. Replikation
+
+**Caching**
+
+- Speicherung von Teilen des Namensraums
+- v.a. auf unteren Ebenen
+- vollst. oder teilw. Namen
+- *reaktiv*
+
+**Replikation**
+
+- v.a. auf unteren Ebenen
+- höhere Fehlertoleranz
+- *proaktiv* (geplant)
+
+> Problem: Aktualität von Einträgen und Gewährleistung von Konsistenz
+
+## ACID-Prinzip
+
+> auf Konsistenz ausgelegt
+
+- **Atomicity:** Entweder vollständige oder keine Ausführung
+- **Consistency:** nur Übergänge von konsistentem Zustand zu konsistentem Zustand
+- **Isolation:** keine Überlappung von Transaktionen, die sich gegenseitig beeinflussen können
+- **Durability:** nach Abschluss einer Transaktion werden Daten garantiert dauerhaft in einer DB gespeichert
+
+### ACID vs. BASE
+
+> **BASE** = **B**asically **A**vailable, **S**oft state, **E**ventual consistency (BASE)
+
+|                      | ACID                         | BASE                                             |
+| -------------------- | ---------------------------- | ------------------------------------------------ |
+| **Optimierungsziel** | Konsistenz                   | Verfügbarkeit (Konsistenz wird nicht garantiert) |
+| **Zugriffe**         | isoliert (Commit-basiert)    | letzer Schreibzugriff "gewinnt"                  |
+| **Implementation**   | komplex, begrenzt skalierbar | einfach implementier und skalierbar              |
+| **Attribute**        | konservativ / pessimistisch  | aggressiv / optimistisch / best effort           |
 
 # Allgemeine Betriebswirtschaftslehre
 
 > **ToDo**
 >
 > - Kalkulation <!--Günther-->
+>   - Break-Even-Analyse
+>   - Teil- vs. Vollkostenrechnung
+>   - statische Amortisationsrechnung [DONE]
 > - Angebotsarbeit <!--Günther-->
+> - Unternehmen/Betrieb/Firma (Defintionen) [DONE]
+> - Rechtsformen (Überblick)
+> - Produkt-/Preis-/Kommunikations-/Distributions-Politik <!--?-->
+> - SWOT <!--?-->
+> - Projekt (Definition, Phasen)
+> - Klassische Qualitätssicherung vs. TQM <!--?-->
+<!-- Kompetenz !!!-->
 
 <!-- md2apkg ignore-card -->
+
+## Unternehmen / Betrieb / Firma
+
+- **Unternehmen:** ganzheitliche, rechtliche, finanzielle und wirtschaftliche Einheit des Betriebs
+- **Betrieb:** Ort der Leistungserbringung
+- **Firma:** Geschäftsbezeichnung eines Unternehmens inkl. Rechtsformzusatz
+
+## BWL-Kalkulation
+
+### Statische Amortisationsrechnung
+
+> Berechnung der Zeitspanne bis zur vollständigen Tilgung einer Investition
+
+$$\text{Amortisationszeit} = \frac{\text{Kapitaleinsatz}}{\text{Rückflüsse pro Jahr}}$$
 
 # Entwicklerwerkzeuge
 
 > **ToDo**
 >
-> - Dokumentationsgeneratoren
-> - Builds-Tools
-> - Versionsverwaltung
-> - Debugger
-> - Speicherzugriffsanalyse
-> - Profiling
-> - Unit-Tests
+> - Dokumentationsgeneratoren (Vorteile) [DONE]
+> - Builds-Tools (Make) [DONE]
+> - Versionsverwaltung [DONE]
+> - Debugger (Arten) [DONE]
+> - Speicherzugriffsanalyse (statisch/dynamisch) [DONE]
+> - Profiling [DONE]
+> - Unit-Tests [DONE]
 
 <!-- md2apkg ignore-card -->
+
+## Dokumentation
+
+- Unterscheidung zw. **interner Doku (Entwickler-/Tester-Doku)** und **externer Doku (Endnutzer)**
+- interne Doku wird durch Entwickler geschrieben und **direkt im Quellcode** festgehalten
+  - **einfache Änderung**
+  - direkte Einbindung in **Versionsverwaltung**
+  - Unterstützung durch **IDE-Anbindung**
+- Formate: `LaTeX`, `Docbook`, `AsciiDoc`, `Markdown`
+
+### Dokumentationsgeneratoren
+
+- Zweck: Erzeugung kommentierter Klassenreferenzen
+- Extraktion der Doku aus dem Code und **speziellen Kommentaren im Source**
+- *Spezielle Formatierung* von Funktionsparametern- und Returnwert-Doku
+- Automatische Erzeugung von *Listen und Inhaltsverzeichnissen,* Abhängigkeitslisten, ...
+- Beispiele: `doxygen`, `javadoc`, `robodoc`, ...
+
+```cpp
+/// this function does something
+int someFunction(int par1, ///< parameter 1
+                 int par2) ///< parameter 2
+```
+
+## Versionsverwaltung
+
+- **Verwaltung und Archivierung aller Dateien** eines Software-Produkts **in Ständen**
+- Buchführung über jede einzelne Änderung in jeder einzelnen Datei
+  - optimierte Speicherung: **Nur die Deltas jeder Änderung,** nicht jedesmal die komplette Datei, und zwar **rückwärts** (aktuelle Version im Volltext)
+
+> **Reproduzierbarkeit und Nachverfolgbarkeit**
+
+## Builds-Tools (`make`)
+
+- `make` automatisiert das **Kompilieren (großer) Projekte**
+- erzeugt **intern Abhängigkeitsgraphen** der gewünschten Output-Files von den dazu notwendigen Input-Files
+- baut nur genau das neu, was notwendig ist/geändert wurde
+- `make` **arbeitet nur nach File-Datum** (greift nicht auf die File-Inhalte zu)
+- erkennt Abhängigkeiten der Files $\rightarrow$ kann voneinander **Unabhängige parallel kompilieren**
+- Konfiguration über `Makefile` $\rightarrow$ Targets und deren Abhängigkeiten
+
+## Debugger
+
+> Werkzeug zum **Diagnostizieren und Auffinden von Fehlern**
+
+- Code muss mit **Debug-Symbolen** kompiliert worden sein
+- Ansichten: Position im Source, Call-Stack (Funktionen + Argumente), Variablen (lokal + global)
+- Funktionen: Breakpoints, Stepping, Watchpoints, Manipulation von Variablen, ...
+
+### Betriebsmodi eines Debuggers
+
+- **Post-mortem** Debugging: Analysieren einer "Leiche" (`core dump` laden)
+- Anhängen an einen **bereits laufenden Prozess:** nützlich, wenn Programm erst nach langer Laufzeit Fehler zeigt
+- **Starten einer Binary** mit Debugger: gängigste Methode in der Entwicklung
+
+### Speicherfehler
+
+- **Memory-Leaks:** Referenz auf dynamisch reservierten Speicher geht verloren $\rightarrow$ Speicherbedarf wächst bis zum Prozessabbruch
+- **Memory-Fragmentation:** kein echter Programmfehler $\rightarrow$ ungünstige Speichernutzung
+  - Folge unterschiedlich großer `malloc` und `free` Befehle $\rightarrow$ keine größeren Speicherblöcke mehr verfügbar
+
+#### Speicherfehler-Tools
+
+- **Adress Sanitizer:** über jedes Byte im gesamten Adressraum wird Buch geführt ob (un)gültig; jeder Pointerzugriff wird geprüft
+- **Memory Sanitizer:** erkennt Lesezugriffe auf Speicherbereiche, die zuvor nicht initialisiert wurden
+- **Leak Sanitizer:** liefert am Ende der Ausführung Liste dynamisch angelegter und nicht freigegebener Speicherstrukturen
+- **Thread-Sanitizer:** erkennt Data Races (Zugriffe verschiedener Threads auf gemeinsamen Speicher $\rightarrow$ zufällig, Scheduler abhängig!)
+
+## Profiling
+
+> Untersuchung des zeitlichen Programmverhaltens
+
+- Statistiken zu:
+  - Anzahl der Funktionsaufrufe
+  - Ausführungszeit von Codeabschnitten
+  - Coverage (*Welcher `if`-Zweig nie/selten?*)
+- **Instrumentierte Profiler:** Messcode für Code-Blöcke und Funktionen $\rightarrow$ exakte Messung, verändertes Zeitverhalten durch Overhead
+- **Sampling Profiler:** *Code bleibt unverändert* $\rightarrow$ regelmäßiges Unterbrechen und Extrahieren von Debug-Infos (aber an manchen Stellen "blind")
+
+### Ziele von Profiling
+
+- **Hotspots** erkennen (stark frequentierte bzw. zeitintensive Codeblöcke) $\rightarrow$ größtes Potential für Optimierung
+- **Feedback** für Optimierungen
+- Abdeckungsgrad von Tests feststellen
+
+## Unit Tests
+
+> Tests von möglichst kleine Code-Stücken (z.B. Funktionen) auf konformes Verhalten
+
+- Motivation: zeitnahe Fehlerfindung, gesamte Code-Abdeckung, genaue Lokalisierung
+- laufen automatisch, erfordern Tooling
+- hoher Einmal-Aufwand, geringer laufender Aufwand
+- Positive Nebeneffekte: Prüfung der Spezifikation und des Feinentwurfes
+- Ein Testfall pro Verhalten einer Funktion $\rightarrow$ ein Testfall pro Codefall
+- Ein Testfall für jeden bekannten Bug
+- Erstellung zeitnah/gleichzeitig zum Code (nicht durch QA $\rightarrow$ Betriebsblindheit)
+- werden in der Versionsverwaltung mit eingecheckt
 
 # Compilerbau
 
 > **ToDo**
 >
-> - Parser
-> - Lexer
+> - Lexer [DONE]
+> - Parser [DONE]
+>   - Top-Down-Parser
+>   - Shift-Reduce-Parser
 > - Compiler-Compiler
 
 <!-- md2apkg ignore-card -->
 
+## Lexer
+
+> *"lexikalischer Analysator"*
+
+- Verarbeitet Strom von Einagbezeichen in Token
+- z.B. Zusammenfassen von Ziffer zu Zahlen oder Buchstaben zu Schlüsselworten
+
+## Parser
+
+> *"Syntaxanalysator"*
+
+- Anwendung der Syntaxregeln zur Verarbeitung der Eingabe
+- Ausgabe: Syntaxbaum oder direkte Ausführung
+- Erkennung von Syntaxfehlern
+
 # Computerforensik
 
 > **ToDo**
+>
+> - Definition: Digitale Forensik
+> - Datenschutzvorfall
+> - Bereiche
+> - Spuren
+> - Post-Morem vs. Live-Forensik
 
 <!-- md2apkg ignore-card -->
 
 # IT-Consulting
 
 > **ToDo**
+>
+> - DevOps
+> - Virtualiserung vs. Containerisierung
+
+<!-- md2apkg ignore-card -->
+
+# Wissenschaftliches Arbeiten
+
+> **ToDo**
+>
+> - Problemdefinition <!--Günther-->
+> - Lösungsansatz <!--Günther-->
+> - Anforderungsanalyse [DONE]
+
+## Anforderungsanalyse
+
+- Erhebung, Analyse, Spezifikation und Bewertung von Anforderungen eines Auftraggebers (nach IEEE)
+- Ergebnis der Analyse: Lastenheft oder Backlog
+
+### Nicht-Funktionale Anforderungen
+
+> Anforderungen an die Qualität und Anforderungen, die sich aus Randbedingungen ergeben.
+
+- **Qualität (nach ISO / IEC 9126):**
+  - Änderbarkeit
+  - Benutzbarkeit
+  - Effizienz
+  - Funktionalität
+  - Übertragbarkeit
+  - Zuverlässigkeit
+- **Randbedingungen:**
+  - Gesetze
+  - Normen
+  - Organisatorisch (Standards, Vorgehensweisen, Termine, Kosten)
+
+### Funktionale Anforderungen
+
+> beschreiben die Funktionalitäten und das Verhalten des Produkts ($\rightarrow$ Produktspezifisch)
 
 <!-- md2apkg ignore-card -->
 
