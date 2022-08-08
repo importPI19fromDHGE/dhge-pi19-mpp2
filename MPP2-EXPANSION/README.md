@@ -139,7 +139,7 @@ Ein verteiltes System kann zwei der folgenden Eigenschaften gleichzeitig erfüll
 - **Verzeichnisdienst:** Finden von Kommunikationspartnern, Ressourcen, Attributen, ...
   - Erweiterung des Namensdienstes
 
-### Caching vs. Replikation
+## Caching vs. Replikation
 
 **Caching**
 
@@ -175,6 +175,18 @@ Ein verteiltes System kann zwei der folgenden Eigenschaften gleichzeitig erfüll
 | **Zugriffe**         | isoliert (Commit-basiert)    | letzer Schreibzugriff "gewinnt"                  |
 | **Implementation**   | komplex, begrenzt skalierbar | einfach implementier und skalierbar              |
 | **Attribute**        | konservativ / pessimistisch  | aggressiv / optimistisch / best effort           |
+
+## Microservices
+
+## VLAN
+
+## OSPF
+
+## BGP
+
+## Architekturen
+
+## Firewalls
 
 # Allgemeine Betriebswirtschaftslehre
 
