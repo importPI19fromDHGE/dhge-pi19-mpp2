@@ -51,12 +51,13 @@ Als größtenteil irrelevant betrachtete Themen:
 > **ToDo**
 >
 > - Parallele Programmierung
-> - Kritischer Abschnitt
+> - Kritischer Abschnitt [DONE]
 > - Atomare Operation
 > - Exklusive Ressource
-> - Interprozesskommunikation
->   - Sockets (lokal, rechnerübergreifend)
->   - Shared Memory
+> - Fork [DONE]
+> - Interprozesskommunikation [DONE]
+>   - Sockets (lokal, rechnerübergreifend) [DONE]
+>   - Shared Memory [**ToDO**]
 > - Signale?! <!-- Steht nur in der Übersicht am Anfang des Moduls und taucht dann nicht nochmal auf-->
 
 <!-- md2apkg ignore-card -->
@@ -88,7 +89,36 @@ Als größtenteil irrelevant betrachtete Themen:
 - Auf Ressource verzichten (Signale an Prozess senden)
 - Prozess beenden, Signal SIGTERM/SIGKILL
 
+<!-- Fork -->
+
+## Zweck, Wirkweise fork()
+
+- es wird eine exakte Kopie des Aufrufers als Kindprozess erzeugt
+- Kindprozess übernimmt Code, Daten inkl. Befehlszähler, Dateideskriptoren, ...
 <!-- Sempahore -->
+
+## Rückgabewerte fork
+
+- `>0`: die PID des Kindprozesses
+- `0`: es wurde eben geforkt und wir sind das Kind
+- `-1`: Fehler
+
+<!-- Interprozesskommunikation IPC -->
+
+## Motivation Interprozesskommunikation
+
+- Verhinderung von
+  - gleichzeitigen Schreibzugriffen
+  - Verhungern von Prozessen
+  - Deadlocks
+
+### Wie können Sie bidirektionale Interprozesskommunikation ermöglichen?
+
+- Pipe umdrehen, ggf. mit Zugriffskonzept (Semaphore), BAD Practice
+- 2 Pipes verwenden
+- Sockets
+
+<!-- Semaphore -->
 
 ## Was sind Semaphoren und wozu werden Sie eingesetzt?
 
@@ -99,8 +129,8 @@ Als größtenteil irrelevant betrachtete Themen:
 
 - Es ist ein Codebereich, der nur in einer definierten Anzahl von Prozessen gleichzeitig zur Verfügung steht (stehen sollte)
 - Entwickler müssen im Programm dafür Sorge tragen und den kritischen Abschnitt definieren
-- Semaphor Operation -P- Vor dem kritischen Abschnitt LOCK - Ressourcen blockieren
-- Semaphor Operation -V- Nach dem kritischen Abschnitt UNLOCK - Ressourcen freigeben
+- Semaphor Operation P, Passieren, Vor dem kritischen Abschnitt LOCK - Ressourcen blockieren
+- Semaphor Operation V, Verlassen, Nach dem kritischen Abschnitt UNLOCK - Ressourcen freigeben
 
 <!-- Pipes -->
 
@@ -119,13 +149,25 @@ Als größtenteil irrelevant betrachtete Themen:
   - Read: Aus Kernelbuffer in Programmbuffer schreiben; aus Sicht des Programms von Pipe lesen
   - Lesen verbraucht Daten der Pipe
 
-### Wie können Sie bidirektionale Interprozesskommunikation ermöglichen?
+<!-- Socket -->
 
-- Pipe umdrehen, ggf. mit Zugriffskonzept (Semaphore), BAD Practice
-- 2 Pipes verwenden
-- Sockets
+## Addressfamilien Socket
 
-<!-- Sockets ToDo -->
+- POSIX local inter-process communication sockets/Unix Domain Socket/IPC Socket (AF_UNIX,AF_LOCAL)
+- Internet-Domain (AF_INET und AF_INET6)
+- diverse andere, viele veraltet
+  - AF_IRDA
+  - AF_BLUETOOTH
+
+## Arten Socket
+
+- Verbindungslos (SOCK_DGRAM) 
+- vollduplex, verbindungsorientiert (SOCK_STREAM)
+
+außerdem
+
+- SOCK_RAW nur für Developer, Root-User, Zugriff auf L3,L2-Felder --> eigenes L4-Protokoll entwickeln
+- SOCK_SEQPACKET (nur UNIX, besseres SOCK_STREAM)
 
 ## Unterschied Pipe Socket
 
