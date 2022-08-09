@@ -102,6 +102,12 @@ Als größtenteil irrelevant betrachtete Themen:
 - Vertraulichkeit
 - Integrität
 
+erweitert:
+
+- Verbindlichkeit
+- Authentizität
+- Zurechenbarkeit
+
 ## Governance / Compliance
 
 - **Governance:** Einhaltung von Richtlinien wird **empfohlen**
