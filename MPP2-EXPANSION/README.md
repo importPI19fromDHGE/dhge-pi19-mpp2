@@ -77,6 +77,29 @@ Als größtenteil irrelevant betrachtete Themen:
 
 <!-- md2apkg ignore-card -->
 
+## HTML
+
+- ToDo
+
+## CSS
+
+- ToDo
+## Selektoren
+
+- ToDo
+
+## Javascript
+
+- ToDo
+
+## PHP
+
+- ToDo
+
+## REST-APIs
+
+- ToDo
+
 # IT-Sicherheit/-Recht/-Infrastrukturen
 
 > **ToDo**
