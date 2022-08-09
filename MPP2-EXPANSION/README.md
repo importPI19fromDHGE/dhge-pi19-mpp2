@@ -35,17 +35,89 @@ Als größtenteil irrelevant betrachtete Themen:
 
 > **ToDo**
 > - Günther
->   - Intel vs. AVR?
->   - Application Binary Interface (ABI)
->   - Register
->   - Stack
->   - Heap
+>   - Intel vs. AVR
+>   - Application Binary Interface (ABI) [DONE]
+>   - Register (auch Grimm)
+>   - Stack (auch Grimm)
+>   - Heap (relevant, aber in dem Modul nicht angesprochen)
 > - Grimm
 >   - Flags
 >   - Timer
 >   - Watchdog
+>   - Interrupt
 
 <!-- md2apkg ignore-card -->
+
+## Intel vs. AVR
+
+- ToDo
+
+## Application Binary Interface (ABI)
+
+- allgemein: Schnittstelle auf Maschinenebene (vgl. compilierte API)
+- definierte Schnittstelle, die Assembler-Verarbeitung ermöglicht (vgl. Inline-Assembler)
+- ermöglicht direkten Aufruf von Assembler-Routinen
+
+## Register
+
+- Datenregister zur Speicherung Operanden und Ergebnisse
+- Adressregister zur Adressierung von Operanden (Speichern von Adressen)
+- Steuerregister
+
+## Stack (Speicher)
+
+- vgl Datenstruktur. Stapelspeicher, Kellerspeicher (push,pop), LIFO
+- In Mikroprozessoren: Register Stackpointer
+  - bei Aufruf eines Unterprogramms: Rücksprungadresse ablegen 
+  - Parameter und lokale Variablen leben im Stack (vgl. Pufferüberlauf)
+  - beginnt i.d.R. bei hoher Adresse, wächst Richtung 0 "nach unten"
+
+## Heap (Speicher)
+
+- beliebig frei zuordnenbarer Speicherbereich
+- in C: vgl. Objekte `malloc()` und co., `free()`
+- ! nicht zu verwechseln mit Datenstruktur Heap
+
+## AVR ATmega 8515L
+
+### Flags 
+
+- Statusregister SREG enthält 1-Bit-Informationen (Flags)
+- Zeigen Ereignisse an
+  - Carry
+  - Zero
+  - Negative
+  - Overflow
+  - Interrupt
+  - ...
+
+### Timer
+
+- Zusammenhang MicroController-Takt
+- i.d.R. Teilung des Takt (Prescaler)
+- Anwendungen:
+  - periodische Interrupts als Zeitgeber
+  - Zeitverzögerungen; Ersatz für Programmschleifen
+  - Frequenzgenerator / -messer
+- periodische Interrupts als Zeitgeber
+
+### Watchdog
+
+- häufigste Anwendung: Reset des Programms im Fehlerfall
+- eigener Takt
+- zählt hoch
+- Erreichen Schwellwert führt zu Neustart
+- Im Normalbetrieb Reset der gezählten Zyklen -> kein Neustart
+- Brownout Detection **ToDo**
+
+### Interrupt
+
+- Anforderung zur Unterbrechung des aktuellen Programms durch definiertes Ereignis
+- Interruptflag gesetzt
+  - Program Counter (PC) automatisch auf Stack gspeichert, Statusregister manuell sichern!
+- Behandlung des Interrupts: PC ruft Interrupt Service Routine (ISR) definiert in Interruptvektortabelle auf
+- ...
+- Mit PC vom Stack fortfahren
 
 # Systemprogrammierung
 
