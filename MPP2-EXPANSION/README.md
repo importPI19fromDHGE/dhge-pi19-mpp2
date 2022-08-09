@@ -79,11 +79,98 @@ Als größtenteil irrelevant betrachtete Themen:
 
 ## HTML
 
+### HTML-Sytnax: Tags
+
+- Auszeichnung von Textelementen durch Tags
+- <tag>Text</tag>
+- Öffnendes Tag  schließendes Tag  dazwischen Body
+- schließende Tags können in einigen Fällen entfallen (z.B. <img/>)
+- Tags können Attribute enthalten <tag attribut="Wert">body</tag>
+
+### HTML Struktur: <html>
+
+- <html> ist sogenanntes Wurzeltag
+- Attribut "lang" gibt die Dokumentensprache an
+
+### HTML Struktur: <head>
+
+- Dateikopf, Metainformationen, keine Darstellungen
+- Informationen werden durch Browser, Suchmaschinen und Crawler benutzt
+
+### Beispielelemente in <head>
+
+```html
+  <head>
+    <meta charset="utf-8" />
+    <!--kann Funktion eines HTTP-Response-Headers erfüllen-->
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <!--Größe der Darstellung auf Displaygröße des Devices anpassen-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Seite stellt zwei Farbschemata zur Verfügung, bevorzugt hell -->
+    <meta name="color-scheme" content="light dark">
+    <title>Hier steht der Titel der Seite</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="icon" href="images/favicon.png" />
+    <meta charset="UTF-8">
+    <meta name="description" content="Seite">
+    <meta name="keywords" content="HTML, CSS">
+    <meta name="author" content="John Doe">
+    <title>Titel</title>
+  </head>
+```
+
+### HTML Struktur: <body>
+
+Hauptteil der Seite, Inhalt, angezeigte Elemente
+
+### HTML Hyperlinks
+
+- `a` $\rightarrow$ anchor aka Hyperlinks
+- `href="dokument.html"` ODER `="#ziel"` ODER `="dokument#ziel"`
+- `href=""` $\rightarrow$ Seite neuladen
+- `href="#"` oder `href="#top"` $\rightarrow$ Seitenanfang
+- `download` $\rightarrow$ bei href angegebene Datei soll heruntergeladen werden
+- `target` $\rightarrow$ wo Linkziel öffnen
+
+### HTML Tabellen
+
+- ToDo
+
+### HTML Formulare
+
+- ToDo
+
+### HTML Listentypen
+
+- sortiert $\rightarrow$ `ol` > `li`
+- unsortiert $\rightarrow$ `ul` > `li`
+- Beschreibungsliste $\rightarrow$ `dl` > `dt`, `dd`
+
+### HTML 5: Verbesserungen
+
+- Schwerpunkt auf Gliederung der Seite $\rightarrow$ bessere Übersicht bei vielen Elementen
+- Suchmaschinen werten den Inhalt der Seite besser aus (mehr Semantik in der Syntax)
+- Screenreader können flüssiger lesen
+- weitere Neuerungen für Multimedia, Formulare
+
+### HTML 5 Gliederungselemente
+
+- ``<header>``
+- ``<nav>``
+- ``<main>``
+- ``<article>``
+- ``<section>``
+- ``<footer>``
+- ``<aside>``
+
+### HTML niversalattribute
+
 - ToDo
 
 ## CSS
 
 - ToDo
+
 ## Selektoren
 
 - ToDo
