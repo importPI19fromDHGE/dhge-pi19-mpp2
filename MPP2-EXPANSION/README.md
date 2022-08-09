@@ -34,15 +34,16 @@ Als größtenteil irrelevant betrachtete Themen:
 # Hardwarenahe Programmierung
 
 > **ToDo**
->
-> - Intel vs. AVR?
-> - Application Binary Interface (ABI)
-> - Register
-> - Stack
-> - Heap
-> - Flags
-> - Timer
-> - Watchdog
+> - Günther
+>   - Intel vs. AVR?
+>   - Application Binary Interface (ABI)
+>   - Register
+>   - Stack
+>   - Heap
+> - Grimm
+>   - Flags
+>   - Timer
+>   - Watchdog
 
 <!-- md2apkg ignore-card -->
 
