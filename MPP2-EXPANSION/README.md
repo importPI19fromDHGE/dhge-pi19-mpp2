@@ -134,12 +134,39 @@ Hauptteil der Seite, Inhalt, angezeigte Elemente
 
 ### HTML Tabellen
 
-- ToDo
+```html
+<table> <!-- Beginn einer Tabelle>
+<tr> <!-- Tabellen Reihe>
+<td> <!-- Tabellen Daten bzw. Spalte>
+</td>
+</tr>
+</table>
 
 ### HTML Formulare
 
-- ToDo
+```html
+<form>
+ <label for="name">Name</label><!-- Beschriftung-->
+ <input id="name" type="text"><!-- Eingabefeld-->
+ <button type="submit">Absenden</button><!-- Button-->
+   <label for="cars">Choose a car:</label>
+  <select id="cars" name="cars"> <!-- Auswahlmenü-->
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+  </select>
+</form>
+- input type
+ - text
+ - password
+ - color
+ - checkbox
+ - date
+ - file
+ - number
+ - radio
+ - range
 
+ToDo (ich bin mir unsicher, ob das genügt^^)
 ### HTML Listentypen
 
 - sortiert $\rightarrow$ `ol` > `li`
@@ -163,7 +190,7 @@ Hauptteil der Seite, Inhalt, angezeigte Elemente
 - ``<footer>``
 - ``<aside>``
 
-### HTML niversalattribute
+### HTML Universalattribute
 
 - ToDo
 
