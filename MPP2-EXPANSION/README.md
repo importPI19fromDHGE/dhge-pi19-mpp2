@@ -234,10 +234,10 @@ außerdem
 ### HTML-Sytnax: Tags
 
 - Auszeichnung von Textelementen durch Tags
-- <tag>Text</tag>
+- `<tag>Text</tag>`
 - Öffnendes Tag  schließendes Tag  dazwischen Body
-- schließende Tags können in einigen Fällen entfallen (z.B. <img/>)
-- Tags können Attribute enthalten <tag attribut="Wert">body</tag>
+- schließende Tags können in einigen Fällen entfallen (z.B. `<img/>`)
+- Tags können Attribute enthalten `<tag attribut="Wert">body</tag>`
 
 ### HTML Struktur: <html>
 
@@ -310,16 +310,15 @@ Hauptteil der Seite, Inhalt, angezeigte Elemente
 ```
 
 - input type:
- - `text`
- - `password`
- - `color`
- - `checkbox`
- - `date`
- - `file`
- - `number`
- - `radio`
- - `range`
-
+  - `text`
+  - `password`
+  - `color`
+  - `checkbox`
+  - `date`
+  - `file`
+  - `number`
+  - `radio`
+  - `range`
 ### HTML Listentypen
 
 - sortiert $\rightarrow$ `ol` > `li`
@@ -354,7 +353,7 @@ Hauptteil der Seite, Inhalt, angezeigte Elemente
 - `draggable` (Kann Element gezogen werden?)
 - `lang` (Sprache für Elemente überschreiben)
 - `style` (inline-css)
-- `title` 
+- `title`
 
 ## CSS
 
@@ -409,7 +408,7 @@ dynamic
 - ECMA-Script $\rightarrow$ Scripting Language Specification
 - JavaScript (& andere Scriptsprachen) $\rightarrow$ setzen diesen Standard um
 
-### DOM (Document Object Model) 
+### DOM (Document Object Model)
 
 - Programmierschnittstelle für HTML- und XML-Dokumente
 - Dokumente als Baumstruktur
