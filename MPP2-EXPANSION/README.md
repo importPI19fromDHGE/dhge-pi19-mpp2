@@ -68,14 +68,49 @@ Als größtenteil irrelevant betrachtete Themen:
 
 > **ToDo**
 >
-> - HTML
-> - CSS
->   - Selektoren
+> - HTML [DONE 90%]
+> - CSS [DONE?]
+>   - Selektoren [DONE]
 > - Javascript
 > - PHP
 > - REST-APIs
 
 <!-- md2apkg ignore-card -->
+
+## Geschichte des Internets
+
+<!-- md2apkg ignore-card -->
+
+- 1958: Gründung Advanced Research Projects Agency
+- 1969: ARPAnet vernetzt 4 Großrechner in Kalifornien und Utah
+- 1972: 37 Einrichtungen in USA angeschlossen
+- 1974: Entwicklung TCP, später TCP/IP
+- 1986: Top Level Domains werden ins Leben gerufen
+- 1989: Timothy Berners-Lee entwickelt ersten "Browser" WorldWideWeb
+- 1991: Berners-Lee veröffentlicht HTML sowie die erste WWW-Seite
+- 1992: 1 Mio. Rechner im Internet
+- 2001: Wikipedia geht online
+- 2005: Youtube geht ins Netz
+  - $\rightarrow$ erstmals von Web 2.0 gesprochen (Inhalte kommen primär von den Nutzern)
+
+
+## Client-Technologien
+
+- HTML 5 $\rightarrow$ Beschreibung der Struktur der Webseiten
+- CSS 3 $\rightarrow$ Formatierung / Aussehen
+- Java-/ECMA-Script $\rightarrow$ Interaktion
+- DOM/Ajax $\rightarrow$ Manipulation des Seiteninhalts
+- Flash $\rightarrow$ obsolet
+- JSON, XML(SVG, MathML, RSS, GraphML, ...) $\rightarrow$ Datenaustausch
+
+## Server-Technologien
+
+- PHP
+- NodeJS
+- Ruby (on Rails)
+- Java
+- ASP.NET
+- ColdFusion
 
 ## HTML
 
@@ -155,18 +190,19 @@ Hauptteil der Seite, Inhalt, angezeigte Elemente
     <option value="saab">Saab</option>
   </select>
 </form>
-- input type
- - text
- - password
- - color
- - checkbox
- - date
- - file
- - number
- - radio
- - range
+```
 
-ToDo (ich bin mir unsicher, ob das genügt^^)
+- input type:
+ - `text`
+ - `password`
+ - `color`
+ - `checkbox`
+ - `date`
+ - `file`
+ - `number`
+ - `radio`
+ - `range`
+
 ### HTML Listentypen
 
 - sortiert $\rightarrow$ `ol` > `li`
@@ -205,7 +241,19 @@ ToDo (ich bin mir unsicher, ob das genügt^^)
 
 ## CSS
 
-- ToDo
+### CSS einbinden
+
+- inline CSS (`style="..."`)
+- `<style></style>` im HTML-Header
+- externes CSS einbinden (`<link rel="stylesheet" type="text/css" href="style.css">` im ``<head>``)
+
+### Box-Model
+
+- alle HTML-Elemente werden von Boxen umgeben (innen nach außen)
+  - Content: Inhalt, Bilder, Texte
+  - Padding: Bildet einen Puffer zwischen Content und Border, transparent
+  - Border: Rand um das Padding, z.B. Linie mit eigener Breite, Farbe
+  - Margin: Abstand zu anderen Elementen, transparent
 
 ## Selektoren
 
