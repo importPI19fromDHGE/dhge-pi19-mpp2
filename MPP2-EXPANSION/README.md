@@ -239,17 +239,17 @@ außerdem
 - schließende Tags können in einigen Fällen entfallen (z.B. `<img/>`)
 - Tags können Attribute enthalten `<tag attribut="Wert">body</tag>`
 
-### HTML Struktur: <html>
+### HTML Struktur: `<html>`
 
-- <html> ist sogenanntes Wurzeltag
+- `<html>` ist sogenanntes Wurzeltag
 - Attribut "lang" gibt die Dokumentensprache an
 
-### HTML Struktur: <head>
+### HTML Struktur: `<head>`
 
 - Dateikopf, Metainformationen, keine Darstellungen
 - Informationen werden durch Browser, Suchmaschinen und Crawler benutzt
 
-### Beispielelemente in <head>
+### Beispielelemente in `<head>`
 
 ```html
   <head>
@@ -271,7 +271,7 @@ außerdem
   </head>
 ```
 
-### HTML Struktur: <body>
+### HTML Struktur: `<body>`
 
 Hauptteil der Seite, Inhalt, angezeigte Elemente
 
@@ -293,6 +293,7 @@ Hauptteil der Seite, Inhalt, angezeigte Elemente
 </td>
 </tr>
 </table>
+```
 
 ### HTML Formulare
 
