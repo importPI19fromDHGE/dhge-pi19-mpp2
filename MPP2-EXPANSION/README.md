@@ -192,7 +192,16 @@ ToDo (ich bin mir unsicher, ob das genügt^^)
 
 ### HTML Universalattribute
 
-- ToDo
+- `id` $\rightarrow$ eineindeutig
+- `class` kann mehrmals vergeben werden
+- `accesskey` (Taste zum Anspringen des Elementes)
+- `contenteditable` (Inhalt kann verändert werden)
+- `dir` (Schreibrichtung ltr oder rtl)
+- `hidden`  (Element ausgeblendet)
+- `draggable` (Kann Element gezogen werden?)
+- `lang` (Sprache für Elemente überschreiben)
+- `style` (inline-css)
+- `title` 
 
 ## CSS
 
@@ -200,7 +209,14 @@ ToDo (ich bin mir unsicher, ob das genügt^^)
 
 ## Selektoren
 
-- ToDo
+- Typselektor (HTML-Element)
+- Universalselektor (*)
+- Klassenselektor (beginnt mit `.`)
+- ID-Selektor (beginnt mit `#`)
+- Attributselektor `[Attributname]`
+- Pseudoklassen (beziehen sich auf Eigenschaften der HTML-Elemente)
+- Pseudoelemente (beginnen mit `::`) z.B. p :: before {content: ´+´}
+- Verbundsselektoren (*.classname) bezieht sich auf Hierachie, benachbarte Elemente
 
 ## Javascript
 
