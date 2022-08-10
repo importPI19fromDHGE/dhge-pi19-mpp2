@@ -93,7 +93,6 @@ Als größtenteil irrelevant betrachtete Themen:
 - 2005: Youtube geht ins Netz
   - $\rightarrow$ erstmals von Web 2.0 gesprochen (Inhalte kommen primär von den Nutzern)
 
-
 ## Client-Technologien
 
 - HTML 5 $\rightarrow$ Beschreibung der Struktur der Webseiten
@@ -268,15 +267,68 @@ Hauptteil der Seite, Inhalt, angezeigte Elemente
 
 ## Javascript
 
-- ToDo
+### Anwendungen
+
+- clientseitige Datenvalidierung
+- Dialogfenster
+- Nachladen von Daten ohne Reload der Seite
+- Autovervollständigung/Suchvorschläge
+- Manipulation von Websites per DOM
+
+### Verwendung im Browser / mit HTML
+
+- Einbinden von JavaScript Code in HTML mittels `<script>`-Tag
+- inline im Tag oder mit `<script src="müll.js">`
+- Ausführung im Browser mit bspw. Chromiums V8 oder Firefox' SpiderMonkey
+- Ausführung auch unabhängig vom Browser mit Node (nicht Node.js)
+
+### Typisierung JavaScript (static-dynamic)
+
+dynamic
+
+### Unterschied JavaScript & ECMA-Script
+
+- ECMA-Script $\rightarrow$ Scripting Language Specification
+- JavaScript (& andere Scriptsprachen) $\rightarrow$ setzen diesen Standard um
+
+### DOM (Document Object Model) 
+
+- Programmierschnittstelle für HTML- und XML-Dokumente
+- Dokumente als Baumstruktur
+  - jeder Knoten ist ein Objekt im Dokument (Textabschnitte, Überschriften, Tabellen)
+  - es existieren Eltern- und Kindknoten (hierarchischer Aufbau)
+- Zugriff auf Objekte des Dokuments, Manipulation
+- Unterscheidung zwischen:
+  - Elementknoten $\rightarrow$ die hierarchisch miteiander verbundenen Knoten
+  - Attributknoten $\rightarrow$ Eigenschaften von Elementknoten
+  - Textknoten $\rightarrow$ Textinhalt eines Elementknotens
+
+```javascript
+document.getElementById(); // document.getElementById('div1')
+document.getElementsByName();
+document.getElementsByTagName(); // z.B. <p> --> document.getElementsByTagName('p')
+document.getElementsByClassName(); // returnt viele
+document.querySelector(); // gibt erstes Element, das dem angegebenen CSS-Selektor entspricht, z.B.: document.querySelector('#franz');
+document.querySelectorAll(); // gibt alle Elemente, die dem angegebenen CSS-Selektor entsprechen
+```
 
 ## PHP
 
-- ToDo
+### Einbinden
 
-## REST-APIs
+```html
+<?php
 
-- ToDo
+?>
+```
+
+### Anwendung
+
+- Backend
+- Datenbankzugriff
+- Sessionverwaltung
+- Autorisierung
+- u.v.m
 
 # IT-Sicherheit/-Recht/-Infrastrukturen
 
@@ -311,6 +363,7 @@ Hauptteil der Seite, Inhalt, angezeigte Elemente
 > - BGP
 > - Architekturen
 > - Firewalls
+> - REST-API
 
 <!-- md2apkg ignore-card -->
 
