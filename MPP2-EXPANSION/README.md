@@ -34,23 +34,18 @@ Als größtenteil irrelevant betrachtete Themen:
 # Hardwarenahe Programmierung
 
 > **ToDo**
-> - Günther
->   - Intel vs. AVR
->   - Application Binary Interface (ABI) [DONE]
->   - Register (auch Grimm)
->   - Stack (auch Grimm)
->   - Heap (relevant, aber in dem Modul nicht angesprochen)
+> - Application Binary Interface (ABI) [DONE]
+> - C und Make siehe Kusche Entwicklerwerkzeuge
+> - Register [DONE]
+> - Stack [DONE]
+> - Heap (relevant, aber in dem Modul nicht angesprochen) [DONE]
 > - Grimm
->   - Flags
->   - Timer
->   - Watchdog
->   - Interrupt
+> - Flags [DONE]
+> - Timer [DONE]
+> - Watchdog [DONE]
+> - Interrupt [DONE]
 
 <!-- md2apkg ignore-card -->
-
-## Intel vs. AVR
-
-- ToDo
 
 ## Application Binary Interface (ABI)
 
@@ -68,7 +63,7 @@ Als größtenteil irrelevant betrachtete Themen:
 
 - vgl Datenstruktur. Stapelspeicher, Kellerspeicher (push,pop), LIFO
 - In Mikroprozessoren: Register Stackpointer
-  - bei Aufruf eines Unterprogramms: Rücksprungadresse ablegen 
+  - bei Aufruf eines Unterprogramms: Rücksprungadresse ablegen
   - Parameter und lokale Variablen leben im Stack (vgl. Pufferüberlauf)
   - beginnt i.d.R. bei hoher Adresse, wächst Richtung 0 "nach unten"
 
@@ -80,7 +75,7 @@ Als größtenteil irrelevant betrachtete Themen:
 
 ## AVR ATmega 8515L
 
-### Flags 
+### Flags
 
 - Statusregister SREG enthält 1-Bit-Informationen (Flags)
 - Zeigen Ereignisse an
