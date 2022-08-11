@@ -108,7 +108,8 @@ Als größtenteil irrelevant betrachtete Themen:
 - zählt hoch
 - Erreichen Schwellwert führt zu Neustart
 - Im Normalbetrieb Reset der gezählten Zyklen -> kein Neustart
-- Brownout Detection **ToDo**
+- Brownout Detection (Erkennen, ob die Betriebsspannung einen bestimmten Wert unterschreitet)
+  - tritt regelmäßig auf! $\rightarrow$ ohne Detection unvorhersehbares Verhalten
 
 ### Interrupt
 
