@@ -55,7 +55,7 @@ Als größtenteil irrelevant betrachtete Themen:
 
 ## Register
 
-- Datenregister zur Speicherung Operanden und Ergebnisse
+- Datenregister zur Speicherung von Operanden und Ergebnisse
 - Adressregister zur Adressierung von Operanden (Speichern von Adressen)
 - Steuerregister
 
