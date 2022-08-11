@@ -320,7 +320,7 @@ Hauptteil der Seite, Inhalt, angezeigte Elemente
   - `number`
   - `radio`
   - `range`
-  
+
 ### HTML Listentypen
 
 - sortiert $\rightarrow$ `ol` > `li`
