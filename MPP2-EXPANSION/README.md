@@ -370,6 +370,9 @@ int someFunction(int par1, ///< parameter 1
 - **Verwaltung und Archivierung aller Dateien** eines Software-Produkts **in Ständen**
 - Buchführung über jede einzelne Änderung in jeder einzelnen Datei
   - optimierte Speicherung: **Nur die Deltas jeder Änderung,** nicht jedesmal die komplette Datei, und zwar **rückwärts** (aktuelle Version im Volltext)
+  - organisiert Entwicklungszustände
+  - alte Zustände sind wiederherstellbar
+- koordiniert gemeinsamen Zugriff
 
 > **Reproduzierbarkeit und Nachverfolgbarkeit**
 
@@ -618,19 +621,6 @@ int someFunction(int par1, ///< parameter 1
 - höherer Overhead (Rechenressourcen und Kommunikation via HTTP)
 - Datenkonsistenz wird aufwändiger
 - Logging, Monitoring und Testen wird aufwändiger
-
-## Versionsverwaltung
-
-Was ist der *Zweck* / die Motivation von Versionsverwaltung?
-
-<!-- md2apkg split -->
-
-- organisiert Entwicklungszustände
-- Archivieren und Wiederherstellung alter Zustände
-- protokolliert Änderungen
-- gemeinsamer Zugriff wird koordiniert
-
-...das ist mit einfachen Lösungen wie File-Shares nicht möglich.
 
 ### Git: Datei-Lebenszyklus
 
