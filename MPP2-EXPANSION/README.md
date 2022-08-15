@@ -127,7 +127,7 @@ Als größtenteil irrelevant betrachtete Themen:
 
 ## Was sind Semaphoren und wozu werden Sie eingesetzt?
 
-- Mittel der Interprozesskommunikation zu Verwaltung von (exklusivem) Zugriff auf Ressourcen
+- Mittel der Interprozesskommunikation zur Verwaltung von (exklusivem) Zugriff auf Ressourcen
 - Deadlock vermeiden
 
 ## Was ist der kritische Abschnitt im Kontext Sempahoren?
