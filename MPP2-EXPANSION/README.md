@@ -306,6 +306,60 @@ Als größtenteil irrelevant betrachtete Themen:
 - Datenkonsistenz wird aufwändiger
 - Logging, Monitoring und Testen wird aufwändiger
 
+## Versionsverwaltung
+
+Was ist der *Zweck* / die Motivation von Versionsverwaltung?
+
+<!-- md2apkg split -->
+
+- organisiert Entwicklungszustände
+- Archivieren und Wiederherstellung alter Zustände
+- protokolliert Änderungen
+- gemeinsamer Zugriff wird koordiniert
+
+...das ist mit einfachen Lösungen wie File-Shares nicht möglich.
+
+### Git: Datei-Lebenszyklus
+
+- **Untracked**: nicht eingecheckt
+- **Unmodified**: eingecheckt, keine lokale Änderung
+- **Modified**: eingecheckt, lokale Änderung
+- **Staged**: modifizierte Datei ist in Änderungsmenge, diese Version ist zum Commit vorgemerkt (Änderungen nach Stage werden nicht committet)
+- **Committed**: Datei-Version ist permanent in lokalem Repository
+- **Pushed**: Version an externes Repository übertragen
+
+### Git: Merge vs. Rebase
+
+- **`git merge`**: Commits aus einer Branch in eine andere Branch übernehmen, die Änderungen _verschmelzen_
+- **`git merge`**: schreibt einer Branch um, sodass sie auf einen neuen Commit der Parent Branch zeigen
+  - Effekt: neue Änderungen an der Eltern-Branch werden in Child-Branch übernommen
+  - Remember: Commits sind Rückwärts-Deltas
+
+### Git: Feature-getriebener Workflow (Bild)
+
+![Git Feature-Workflow](assets/git-feature-workflow.png)<!--width=600px-->
+
+### Git: Trunk-basierter Workflow (Bild)
+
+![Git Trunk-Workflow](assets/git-trunk-workflow.png)<!--width=600px-->
+
+### Git: Vor- und Nachteile Feature-Workflow
+
+| Vorteile | Nachteile |
+| :------: | :-------: |
+| Verwaltung großer Projekte einfacher, da sauberer Zustand einzelner Branches | viele Merges notwendig, unübersichtlich |
+| Trennung von stabilem und experimentellem Code, leichter Einstieg | langlebige Feature-Branches lassen Versionen divergieren |
+| Unterstützung für Release-Planung und verschiedenen Release-Zweigen | parallele Branches erschweren DevOps |
+
+### Git: Vor- und Nachteile Trunk-Workflow
+
+| Vorteile | Nachteile |
+| :------: | :-------: |
+| Nur Main-Branch ist langlebig $\rightarrow$ weniger Merge-Konflikte | Main-Branch unterliegt ständiger Änderung (Churn) |
+| Einfachs Branching-Modell, vermeidet divergierende Entwicklung | Parallele Feature-Entwicklung in einer Branch |
+| Schnelle Entwicklungszyklen, da einfache Integration und jederzeit lauffähige Version | Gemeinsame Verwaltung von stabilem und experimentellem Code, da sofortiges Zusammenlaufen in `main` |
+
+
 <!-- md2apkg ignore-card -->
 
 # Wissenschaftliches Arbeiten
