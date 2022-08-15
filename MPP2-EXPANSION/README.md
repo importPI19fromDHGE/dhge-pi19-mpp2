@@ -672,6 +672,24 @@ Was ist der *Zweck* / die Motivation von Versionsverwaltung?
 | Einfachs Branching-Modell, vermeidet divergierende Entwicklung | Parallele Feature-Entwicklung in einer Branch |
 | Schnelle Entwicklungszyklen, da einfache Integration und jederzeit lauffähige Version | Gemeinsame Verwaltung von stabilem und experimentellem Code, da sofortiges Zusammenlaufen in `main` |
 
+## Docker
+
+- Container-basierte Virtualisierung von Anwendungen
+- nutzt Features des Linux-Kernels : Namespaces, cgroups, libcontainer (MacOS und Windows: VM)
+- nutzt Beschreibungsformate für Images und Container: Dockerfile, Compose-File
+
+- Isolation von Dateisystem, Ressourcen und Netzwerk
+- Verwaltung via Kommandozeile oder REST-API
+- Logging-Funktionalität für Container
+
+### Docker: Images
+
+- unveränderliche Snapshots eines Dateisystems
+- können beliebig oft instanziiert werden, sowie transportiert und veröffentlicht
+- Identifikation über Hash, Eigentümer, Name und Tag
+- **Container** sind Instanzen eines Images
+- implementiert Dateisystem-Layers für aufeinander aufbauende Images und effizientere Speicherung (Think: übereinanderlegen von Polylux-Folien)
+- Änderungen am Dateisystem in einem **Container** werden in eigenem Container-Layer gespeichert
 
 <!-- md2apkg ignore-card -->
 
