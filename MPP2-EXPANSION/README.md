@@ -111,7 +111,6 @@ Als größtenteil irrelevant betrachtete Themen:
 >   - ACID vs. BASE [DONE]
 >   - sync. vs. async (Replikation)
 >   - Architekturen
->   - Microservices (? falsches Modul oder Mitschrift unvollständig)
 > - Firewalls
 
 <!-- md2apkg ignore-card -->
