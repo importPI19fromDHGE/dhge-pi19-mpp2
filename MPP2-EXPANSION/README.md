@@ -229,6 +229,7 @@ erweitert:
 > - SWOT <!--?-->
 > - Projekt (Definition, Phasen)
 > - Klassische Qualitätssicherung vs. TQM <!--?-->
+
 <!-- Kompetenz !!!-->
 
 <!-- md2apkg ignore-card -->
