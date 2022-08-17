@@ -256,14 +256,267 @@ außerdem
 
 > **ToDo**
 >
-> - HTML
-> - CSS
->   - Selektoren
+> - HTML [DONE 90%]
+> - CSS [DONE?]
+>   - Selektoren [DONE]
 > - Javascript
 > - PHP
-> - REST-APIs
 
 <!-- md2apkg ignore-card -->
+
+## Geschichte des Internets
+
+<!-- md2apkg ignore-card -->
+
+- 1958: Gründung Advanced Research Projects Agency
+- 1969: ARPAnet vernetzt 4 Großrechner in Kalifornien und Utah
+- 1972: 37 Einrichtungen in USA angeschlossen
+- 1974: Entwicklung TCP, später TCP/IP
+- 1986: Top Level Domains werden ins Leben gerufen
+- 1989: Timothy Berners-Lee entwickelt ersten "Browser" WorldWideWeb
+- 1991: Berners-Lee veröffentlicht HTML sowie die erste WWW-Seite
+- 1992: 1 Mio. Rechner im Internet
+- 2001: Wikipedia geht online
+- 2005: Youtube geht ins Netz
+  - $\rightarrow$ erstmals von Web 2.0 gesprochen (Inhalte kommen primär von den Nutzern)
+
+## Client-Technologien
+
+- HTML 5 $\rightarrow$ Beschreibung der Struktur der Webseiten
+- CSS 3 $\rightarrow$ Formatierung / Aussehen
+- Java-/ECMA-Script $\rightarrow$ Interaktion
+- DOM/Ajax $\rightarrow$ Manipulation des Seiteninhalts
+- Flash $\rightarrow$ obsolet
+- JSON, XML(SVG, MathML, RSS, GraphML, ...) $\rightarrow$ Datenaustausch
+
+## Server-Technologien
+
+- PHP
+- NodeJS
+- Ruby (on Rails)
+- Java
+- ASP.NET
+- ColdFusion
+
+## HTML
+
+### HTML-Sytnax: Tags
+
+- Auszeichnung von Textelementen durch Tags
+- `<tag>Text</tag>`
+- Öffnendes Tag  schließendes Tag  dazwischen Body
+- schließende Tags können in einigen Fällen entfallen (z.B. `<img/>`)
+- Tags können Attribute enthalten `<tag attribut="Wert">body</tag>`
+
+### HTML Struktur: `<html>`
+
+- `<html>` ist sogenanntes Wurzeltag
+- Attribut "lang" gibt die Dokumentensprache an
+
+### HTML Struktur: `<head>`
+
+- Dateikopf, Metainformationen, keine Darstellungen
+- Informationen werden durch Browser, Suchmaschinen und Crawler benutzt
+
+### Beispielelemente in `<head>`
+
+```html
+  <head>
+    <meta charset="utf-8" />
+    <!--kann Funktion eines HTTP-Response-Headers erfüllen-->
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <!--Größe der Darstellung auf Displaygröße des Devices anpassen-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Seite stellt zwei Farbschemata zur Verfügung, bevorzugt hell -->
+    <meta name="color-scheme" content="light dark">
+    <title>Hier steht der Titel der Seite</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="icon" href="images/favicon.png" />
+    <meta charset="UTF-8">
+    <meta name="description" content="Seite">
+    <meta name="keywords" content="HTML, CSS">
+    <meta name="author" content="John Doe">
+    <title>Titel</title>
+  </head>
+```
+
+### HTML Struktur: `<body>`
+
+Hauptteil der Seite, Inhalt, angezeigte Elemente
+
+### HTML Hyperlinks
+
+- `a` $\rightarrow$ anchor aka Hyperlinks
+- `href="dokument.html"` ODER `="#ziel"` ODER `="dokument#ziel"`
+- `href=""` $\rightarrow$ Seite neuladen
+- `href="#"` oder `href="#top"` $\rightarrow$ Seitenanfang
+- `download` $\rightarrow$ bei href angegebene Datei soll heruntergeladen werden
+- `target` $\rightarrow$ wo Linkziel öffnen
+
+### HTML Tabellen
+
+```html
+<table> <!-- Beginn einer Tabelle>
+<tr> <!-- Tabellen Reihe>
+<td> <!-- Tabellen Daten bzw. Spalte>
+</td>
+</tr>
+</table>
+```
+
+### HTML Formulare
+
+```html
+<form>
+ <label for="name">Name</label><!-- Beschriftung-->
+ <input id="name" type="text"><!-- Eingabefeld-->
+ <button type="submit">Absenden</button><!-- Button-->
+   <label for="cars">Choose a car:</label>
+  <select id="cars" name="cars"> <!-- Auswahlmenü-->
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+  </select>
+</form>
+```
+
+- input type:
+  - `text`
+  - `password`
+  - `color`
+  - `checkbox`
+  - `date`
+  - `file`
+  - `number`
+  - `radio`
+  - `range`
+
+### HTML Listentypen
+
+- sortiert $\rightarrow$ `ol` > `li`
+- unsortiert $\rightarrow$ `ul` > `li`
+- Beschreibungsliste $\rightarrow$ `dl` > `dt`, `dd`
+
+### HTML 5: Verbesserungen
+
+- Schwerpunkt auf Gliederung der Seite $\rightarrow$ bessere Übersicht bei vielen Elementen
+- Suchmaschinen werten den Inhalt der Seite besser aus (mehr Semantik in der Syntax)
+- Screenreader können flüssiger lesen
+- weitere Neuerungen für Multimedia, Formulare
+
+### HTML 5 Gliederungselemente
+
+- ``<header>``
+- ``<nav>``
+- ``<main>``
+- ``<article>``
+- ``<section>``
+- ``<footer>``
+- ``<aside>``
+
+### HTML Universalattribute
+
+- `id` $\rightarrow$ eineindeutig
+- `class` kann mehrmals vergeben werden
+- `accesskey` (Taste zum Anspringen des Elementes)
+- `contenteditable` (Inhalt kann verändert werden)
+- `dir` (Schreibrichtung ltr oder rtl)
+- `hidden`  (Element ausgeblendet)
+- `draggable` (Kann Element gezogen werden?)
+- `lang` (Sprache für Elemente überschreiben)
+- `style` (inline-css)
+- `title`
+
+## CSS
+
+### CSS einbinden
+
+- inline CSS (`style="..."`)
+- `<style></style>` im HTML-Header
+- externes CSS einbinden (`<link rel="stylesheet" type="text/css" href="style.css">` im ``<head>``)
+
+### Box-Model
+
+- alle HTML-Elemente werden von Boxen umgeben (innen nach außen)
+  - Content: Inhalt, Bilder, Texte
+  - Padding: Bildet einen Puffer zwischen Content und Border, transparent
+  - Border: Rand um das Padding, z.B. Linie mit eigener Breite, Farbe
+  - Margin: Abstand zu anderen Elementen, transparent
+
+## Selektoren
+
+- Typselektor (HTML-Element)
+- Universalselektor (*)
+- Klassenselektor (beginnt mit `.`)
+- ID-Selektor (beginnt mit `#`)
+- Attributselektor `[Attributname]`
+- Pseudoklassen (beziehen sich auf Eigenschaften der HTML-Elemente)
+- Pseudoelemente (beginnen mit `::`) z.B. p :: before {content: ´+´}
+- Verbundsselektoren (*.classname) bezieht sich auf Hierachie, benachbarte Elemente
+
+## Javascript
+
+### Anwendungen
+
+- clientseitige Datenvalidierung
+- Dialogfenster
+- Nachladen von Daten ohne Reload der Seite
+- Autovervollständigung/Suchvorschläge
+- Manipulation von Websites per DOM
+
+### Verwendung im Browser / mit HTML
+
+- Einbinden von JavaScript Code in HTML mittels `<script>`-Tag
+- inline im Tag oder mit `<script src="müll.js">`
+- Ausführung im Browser mit bspw. Chromiums V8 oder Firefox' SpiderMonkey
+- Ausführung auch unabhängig vom Browser mit Node (nicht Node.js)
+
+### Typisierung JavaScript (static-dynamic)
+
+dynamic
+
+### Unterschied JavaScript & ECMA-Script
+
+- ECMA-Script $\rightarrow$ Scripting Language Specification
+- JavaScript (& andere Scriptsprachen) $\rightarrow$ setzen diesen Standard um
+
+### DOM (Document Object Model)
+
+- Programmierschnittstelle für HTML- und XML-Dokumente
+- Dokumente als Baumstruktur
+  - jeder Knoten ist ein Objekt im Dokument (Textabschnitte, Überschriften, Tabellen)
+  - es existieren Eltern- und Kindknoten (hierarchischer Aufbau)
+- Zugriff auf Objekte des Dokuments, Manipulation
+- Unterscheidung zwischen:
+  - Elementknoten $\rightarrow$ die hierarchisch miteiander verbundenen Knoten
+  - Attributknoten $\rightarrow$ Eigenschaften von Elementknoten
+  - Textknoten $\rightarrow$ Textinhalt eines Elementknotens
+
+```javascript
+document.getElementById(); // document.getElementById('div1')
+document.getElementsByName(); // returnt viele
+document.getElementsByTagName(); // returnt viele; Bsp.: <p> --> document.getElementsByTagName('p')
+document.getElementsByClassName(); // returnt viele
+document.querySelector(); // gibt erstes Element, das dem angegebenen CSS-Selektor entspricht, z.B.: document.querySelector('#franz');
+document.querySelectorAll(); // gibt alle Elemente, die dem angegebenen CSS-Selektor entsprechen
+```
+
+## PHP
+
+### Einbinden
+
+```html
+<?php
+
+?>
+```
+
+### Anwendung
+
+- Backend
+- Datenbankzugriff
+- Sessionverwaltung
+- Autorisierung
+- u.v.m
 
 # IT-Sicherheit/-Recht/-Infrastrukturen
 
@@ -298,6 +551,7 @@ außerdem
 > - OSPF
 > - BGP
 > - Architekturen
+> - REST-API
 
 <!-- md2apkg ignore-card -->
 
