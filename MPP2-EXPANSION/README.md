@@ -424,8 +424,8 @@ dynamic
 
 ```javascript
 document.getElementById(); // document.getElementById('div1')
-document.getElementsByName();
-document.getElementsByTagName(); // z.B. <p> --> document.getElementsByTagName('p')
+document.getElementsByName(); // returnt viele
+document.getElementsByTagName(); // returnt viele; Bsp.: <p> --> document.getElementsByTagName('p')
 document.getElementsByClassName(); // returnt viele
 document.querySelector(); // gibt erstes Element, das dem angegebenen CSS-Selektor entspricht, z.B.: document.querySelector('#franz');
 document.querySelectorAll(); // gibt alle Elemente, die dem angegebenen CSS-Selektor entsprechen
