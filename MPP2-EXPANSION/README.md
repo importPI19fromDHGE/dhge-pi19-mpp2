@@ -560,15 +560,13 @@ document.querySelectorAll(); // gibt alle Elemente, die dem angegebenen CSS-Sele
 ## VLAN und Zweck
 
 - Unterscheidung physische Topologie, logische Topologie
-- L2 - Switch/Bridge managed
-  - Tabelle in den Bridges: Zuordnung VLANs zu Ports
-  - Port kann zu mehreren VLANs gehören
-- Paket: Feld im Ethernet-Header: welches VLAN?
-- Varianten
-  - portbasiert: Bridge kümmert sich um Hinzufügen, Entfernen: Endgeräte verarbeiten VLAN-Info nicht
-  - tagged: Endgeräte befüllen VLAN-Felder selbst, interpretieren
-
-<!-- ^ bitte VLAN Factcheck ^ ToDo -->
+- auf L2 angesiedelt (Ethernet)
+- **portbasiert / untagged**: Zuordnung Ports zu VLAN auf Managed Switch
+  - Endgerät weiß nichts von VLAN, normale Ethernet-Pakete
+- **tag-basiert / tagged**: fügt ein [802.1q](https://de.wikipedia.org/wiki/IEEE_802.1Q) Feld im Ethernet-Header hinzu, welches VLAN ein Paket hat
+  - mehrere VLANs pro Port möglich (oft "Trunk-Port")
+  - erfordert Hardware mit VLAN-Support
+- tagged VLAN auf unmanaged Switches: leiten korrekt weiter, können nicht tagged und untagged konvertieren
 
 ## Spanning Tree Protocol / VLAN
 
