@@ -175,11 +175,11 @@ erweitert:
 ### `BSI-Standard 200-2`: Vorgehensweisen nach IT-Grundschutz
 
 - Anleitungen zu:
- - Aufgaben des IT-Sicherheitsmanagements
- - Etablierung einer IT-Sicherheitsorganisation
- - Erstellung eines IT-Sicherheitskonzepts
- - Auswahl angemessener IT-Sicherheitsmaßnahmen
- - IT-Sicherheit aufrecht erhalten und verbessern
+  - Aufgaben des IT-Sicherheitsmanagements
+  - Etablierung einer IT-Sicherheitsorganisation
+  - Erstellung eines IT-Sicherheitskonzepts
+  - Auswahl angemessener IT-Sicherheitsmaßnahmen
+  - IT-Sicherheit aufrecht erhalten und verbessern
 
 - Basis-, Kern- oder Standard-Absicherung
 - Standard-Absicherung ermöglicht ISO 27001 Zertifizierung
