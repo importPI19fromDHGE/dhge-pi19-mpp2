@@ -62,10 +62,10 @@ Als größtenteil irrelevant betrachtete Themen:
 ## Stack (Speicher)
 
 - vgl. Datenstruktur (Stapel-/Kellerspeicher $\rightarrow$ LIFO)
+- beinhaltet Parameter und lokale Variablen
 - in Mikroprozessoren: **Register des Stackpointer**
-  - bei Aufruf eines Unterprogramms: Rücksprungadresse ablegen
-  - Parameter und lokale Variablen leben im Stack (vgl. Pufferüberlauf)
-  - beginnt i.d.R. bei hoher Adresse, wächst Richtung 0 "nach unten"
+- bei Aufruf eines Unterprogramms: Rücksprungadresse ablegen
+- beginnt i.d.R. bei hoher Adresse, wächst Richtung 0 "nach unten"
 
 ## Heap (Speicher)
 
@@ -119,9 +119,9 @@ Als größtenteil irrelevant betrachtete Themen:
 
 > **ToDo**
 >
-> - Parallele Programmierung
+> - Parallele Programmierung [DONE]
 > - Kritischer Abschnitt [DONE]
-> - Atomare Operation
+> - Atomare Operation [DONE]
 > - Exklusive Ressource
 > - Fork [DONE]
 > - Deadlock [DONE]
@@ -135,12 +135,26 @@ Als größtenteil irrelevant betrachtete Themen:
 <!-- md2apkg ignore-card -->
 <!-- Deadlock -->
 
-## Philosophenproblem
+## Parallele Programmierung
 
-- **5 Philosophen** mit **5 Stäbchen** an rundem Tisch
-- Aktion: Denken oder Essen
-- Essen benötigt zwei Stäbchen $\rightarrow$ nicht genug Ressourcen für alle
-- gleichzeitiger Zugriff $\rightarrow$ Deadlock kann entstehen
+> gleichzeitige Abarbeitung von Aufgaben
+
+- Motivation: **Zeit sparen** $\rightarrow$ eine große Aufgabe wird zur selben Zeit in mehreren kleinen erledigt
+- **Ausnutzung der Hardware:** Multicore-Prozessoren, verteilte Rechnerkerne
+
+## Atomare Operation
+
+- Verbund von Einzeloperationen, der als logische Einheit betrachtet wird
+- kann nur als Ganzes erfolgreich ablaufen oder fehlschlagen
+- nicht durch andere Operationen unterbrechbar
+
+## Exklusive Ressourcen
+
+- Betriebsmittel, die zu jeden Zeitpunkt nur von genau einem Prozess genutzt werden können
+
+## Prozesssynchronisation
+
+- Koordinierung des zeitlichen Ablaufs mehrerer nebenläufiger Prozesse
 
 ## Deadlock
 
@@ -150,33 +164,39 @@ Als größtenteil irrelevant betrachtete Themen:
 - **Informatik**
   - Gegenseitige Blockade mehrere Prozesse, weil sie auf die Freigabe von Betriebsmitteln warten, die ein anderer beteiligter Prozess bereits exklusiv belegt hat
 
-## Wie werden Deadlocks verhindert oder aufgelöst?
+### Philosophenproblem
 
-- ggf. auch über Pipes (Implementierung notwendig)
-- Sockets benutzen
-- Semaphoren
+- **5 Philosophen** mit **5 Stäbchen** an rundem Tisch
+- Aktion: Denken oder Essen
+- Essen benötigt zwei Stäbchen
+- wenn nur ein Stäbchen verfügbar ist, wird dieses so lange reserviert, bis auch das zweite verfügbar ist.
+
+> gleichzeitiger Zugriff $\rightarrow$ Deadlock
+
+### Vermeidung von Deadlocks
+
+> eine der notwendigen Bedingungen eliminieren
+
+- **Exklusive Ressourcen:** Verwaltung durch Spooler
+- **Belegungs- und Wartebedingung:** alle benötigten Ressourcen im vorraus anfordert und nur dann ausführen, wenn alle verfügbar
+- **Ununterbrechbarkeit:** Prozessen Ressourcen entziehen (oft schwierig/unmöglich $\rightarrow$ Drucker)
+- **Zyklische Wartebedingung:** Ressourcen durchnummerieren und nur in aufsteigender Reihenfolge reservieren
+
+#### "Hartes" Beenden eines Deadlock-Zustandes
+
+- Prozess beenden, Signal `SIGTERM`/`SIGKILL`
 - Reboot
-- Auf Ressource verzichten (Signale an Prozess senden)
-- Prozess beenden, Signal SIGTERM/SIGKILL
-
-<!-- ToDo Erklärung für Pipes, Sockets, Factcheck, sind Semaphoren gemeint?-->
-
-<!-- Fork -->
 
 ## fork()
 
 - erzeugt exakte Kopie des Aufrufers als Kindprozess
 - Kindprozess übernimmt Code, Daten inkl. Befehlszähler, Dateideskriptoren, ...
 
-<!-- Sempahore -->
-
 ## Rückgabewerte fork()
 
 - `>0`: die PID des Kindprozesses
 - `0`: es wurde eben geforkt und wir sind das Kind
 - `-1`: Fehler
-
-<!-- Interprozesskommunikation IPC -->
 
 ## Motivation Interprozesskommunikation
 
