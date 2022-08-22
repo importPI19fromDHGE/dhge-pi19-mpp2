@@ -55,14 +55,14 @@ Als größtenteil irrelevant betrachtete Themen:
 
 ## Register
 
-- Datenregister zur Speicherung von Operanden und Ergebnisse
-- Adressregister zur Adressierung von Operanden (Speichern von Adressen)
-- Steuerregister
+- **Datenregister:** Speicherung von Operanden und Ergebnisse
+- **Adressregister:** Adressierung von Operanden (Speichern von Adressen)
+- **Steuerregister**
 
 ## Stack (Speicher)
 
-- vgl Datenstruktur. Stapelspeicher, Kellerspeicher (push,pop), LIFO
-- In Mikroprozessoren: Register Stackpointer
+- vgl. Datenstruktur (Stapel-/Kellerspeicher $\rightarrow$ LIFO)
+- in Mikroprozessoren: **Register des Stackpointer**
   - bei Aufruf eines Unterprogramms: Rücksprungadresse ablegen
   - Parameter und lokale Variablen leben im Stack (vgl. Pufferüberlauf)
   - beginnt i.d.R. bei hoher Adresse, wächst Richtung 0 "nach unten"
@@ -71,13 +71,14 @@ Als größtenteil irrelevant betrachtete Themen:
 
 - beliebig frei zuordnenbarer Speicherbereich
 - in C: vgl. Objekte `malloc()` und co., `free()`
-- ! nicht zu verwechseln mit Datenstruktur Heap
+
+> nicht zu verwechseln mit Datenstruktur Heap
 
 ## AVR ATmega 8515L
 
 ### Flags
 
-- Statusregister SREG enthält 1-Bit-Informationen (Flags)
+- Statusregister `SREG` enthält 1-Bit-Informationen (Flags)
 - Zeigen Ereignisse an
   - Carry
   - Zero
@@ -88,13 +89,12 @@ Als größtenteil irrelevant betrachtete Themen:
 
 ### Timer
 
-- Zusammenhang MicroController-Takt
-- i.d.R. Teilung des Takt (Prescaler)
+- Zusammenhang Microcontroller-Takt
+- i.d.R. Teilung des Takt durch **Prescaler**
 - Anwendungen:
   - periodische Interrupts als Zeitgeber
-  - Zeitverzögerungen; Ersatz für Programmschleifen
-  - Frequenzgenerator / -messer
-- periodische Interrupts als Zeitgeber
+  - Zeitverzögerungen (Ersatz für Programmschleifen)
+  - Frequenzgenerator/-messer
 
 ### Watchdog
 
@@ -135,15 +135,14 @@ Als größtenteil irrelevant betrachtete Themen:
 <!-- md2apkg ignore-card -->
 <!-- Deadlock -->
 
-## Wie lautet das Philosophenproblem?
+## Philosophenproblem
 
-- 5 Philosophen mit 5 Stäbchen an rundem Tisch
-- Aktion: Denken oder Essen;
-- Essen benötigt zwei Stäbchen (Nicht genug Ressourcen für alle)
-- gleichzeitiger Zugriff
-- Deadlock kann entstehen
+- **5 Philosophen** mit **5 Stäbchen** an rundem Tisch
+- Aktion: Denken oder Essen
+- Essen benötigt zwei Stäbchen $\rightarrow$ nicht genug Ressourcen für alle
+- gleichzeitiger Zugriff $\rightarrow$ Deadlock kann entstehen
 
-## Was ist ein Deadlock?
+## Deadlock
 
 - **Allgemein**
   - Situation, in der sich beide Alternativen eines Dilemmas gegenseitig blockieren **oder**
@@ -164,14 +163,14 @@ Als größtenteil irrelevant betrachtete Themen:
 
 <!-- Fork -->
 
-## Zweck, Wirkweise fork()
+## fork()
 
-- es wird eine exakte Kopie des Aufrufers als Kindprozess erzeugt
+- erzeugt exakte Kopie des Aufrufers als Kindprozess
 - Kindprozess übernimmt Code, Daten inkl. Befehlszähler, Dateideskriptoren, ...
 
 <!-- Sempahore -->
 
-## Rückgabewerte fork
+## Rückgabewerte fork()
 
 - `>0`: die PID des Kindprozesses
 - `0`: es wurde eben geforkt und wir sind das Kind
@@ -181,7 +180,7 @@ Als größtenteil irrelevant betrachtete Themen:
 
 ## Motivation Interprozesskommunikation
 
-- Verhinderung von
+- Verhinderung von:
   - gleichzeitigen Schreibzugriffen
   - Verhungern von Prozessen
   - Deadlocks
