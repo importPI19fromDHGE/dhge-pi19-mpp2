@@ -110,10 +110,11 @@ erweitert:
 
 ## IT-Grundschutz-Kompendium
 
-- beinhaltet Einführung in die IT-Grundschutz-Methodik, Modellierung, Bausteine, Elementare Gefährdungen
+> beinhaltet Einführung in die IT-Grundschutz-Methodik, Modellierung, Bausteine, Elementare Gefährdungen
 
 - Prozess-Bausteine: ISMS (Sicherheitsmanagement), ORP (Organisation und Personal), CON (Konzeption und Vorgehensweise), OPS (Betrieb, vier Teilschichten: Eigener IT-Betrieb, Betrieb von Dritten, Betrieb für Dritte und Betriebliche Aspekte), DER (Detektion und Reaktion)
 - System-Bausteine: APP (Anwendungen), SYS (IT-Systeme), IND (Industrielle IT), NET (Netze und Kommunikation), INF (Infrastruktur)
+
 ## Governance / Compliance
 
 - **Governance:** Einhaltung von Richtlinien wird **empfohlen**
@@ -195,7 +196,8 @@ erweitert:
 7. IT-GS-Check
 8. Realisierung der Maßnahmen
 
-- immer währenddessen: Aufrechterhaltung und kontinuierliche Verbesserung
+> immer währenddessen: Aufrechterhaltung und kontinuierliche Verbesserung
+
 # Rechnernetze und Verteilte Systeme
 
 > **ToDo**
