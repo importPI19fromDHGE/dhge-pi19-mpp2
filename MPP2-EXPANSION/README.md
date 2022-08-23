@@ -535,7 +535,7 @@ document.querySelectorAll(); // gibt alle Elemente, die dem angegebenen CSS-Sele
 
 <!-- md2apkg ignore-card -->
 
-# Rechnernetzadministration (und Verteilte Systeme ToDo)
+# Rechnernetze und Verteilte Systeme
 
 > **ToDo**
 >
@@ -557,7 +557,7 @@ document.querySelectorAll(); // gibt alle Elemente, die dem angegebenen CSS-Sele
 
 <!-- md2apkg ignore-card -->
 
-## VLAN und Zweck
+## VLAN
 
 - Unterscheidung physische Topologie, logische Topologie
 - auf L2 angesiedelt (Ethernet)
@@ -568,26 +568,19 @@ document.querySelectorAll(); // gibt alle Elemente, die dem angegebenen CSS-Sele
   - erfordert Hardware mit VLAN-Support
 - tagged VLAN auf unmanaged Switches: leiten korrekt weiter, können nicht tagged und untagged konvertieren
 
-## Spanning Tree Protocol / VLAN
+## Spanning Tree Protocol
 
-- Grundlage: STP Sem4 (ToDo gibt es dazu eine Karte?)
+- STP etabliert sich innerhalb des Netzes einen Spannbaum durch das Blockieren von Ports
+- Spannbaum muss bei Ausfall physischer Links angepasst werden
 - jedes VLAN benötigt seinen eigenen Spanning-Tree
-- Broadcast-Traffic soll in VLAN bleiben
-- Schleifen in VLANs sind zu vermeiden
-- **verschiedene** VLANs können Schleifen bilden
-- Konnektivität für seperate VLANs muss auch bei Ausfall möglich sein (solange physische Verbindung vorhanden)
-- ggf. weniger ungenutzte physische Links
+
 
 ## eBGP
 
 - Kommunikation zwischen AS
 - Border Router: gegenseitiges Peering mit fremden Border Router; Adresse muss bekannt sein
 - Austausch Nachrichten: "Ich kenne den Weg zu Netz 123, die Wegkosten sind 456"
-- ToDo in Abgabe Klausurersatzleistung schauen, Dopplung Sem4 prüfen
 
-## Firewalls
-
-- ToDo
 
 # Verteilte Systeme ToDo
 
@@ -670,15 +663,11 @@ Ein verteiltes System kann zwei der folgenden Eigenschaften gleichzeitig erfüll
 - unabhängige Modifikationen an den Stufen möglich
 - Komplexität des Gesamtsystems wird durch Aufteilung reduziert
 
-### Nachteile von Systemen  mit zahlreichen (z.B. mehr als zehn) Stufen
+### Nachteile von Systemen mit zahlreichen (z.B. mehr als zehn) Stufen
 
-- ToDo
-
-## Microservices
-
-- ToDo
-
-<!-- Die Mitschrift in sem6 ist wohl nicht vollständig/Wiederholung Kasche Sem3/4 k.A. -->
+- hoher Kommunikationsaufwand
+- erschwert klare Zuordnung von Funktionen und Verantwortlichkeiten
+- erhöhter administrativer Aufwand
 
 # Allgemeine Betriebswirtschaftslehre
 
