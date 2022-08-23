@@ -49,62 +49,61 @@ Als größtenteil irrelevant betrachtete Themen:
 
 ## Application Binary Interface (ABI)
 
-- allgemein: Schnittstelle auf Maschinenebene (vgl. compilierte API)
-- definierte Schnittstelle, die Assembler-Verarbeitung ermöglicht (vgl. Inline-Assembler)
-- ermöglicht direkten Aufruf von Assembler-Routinen
+- Binärschnittstelle zur Verarbeitung von Befehlen auf Maschinenebenen
+- legt u.a. Aufrufkonventionen fest
+- reserviert benötigte Prozessorregister
+- muss auf eine Architektur festgelegt sein
 
 ## Register
+
+> Speicherbereich innerhalb eines Prozessors
 
 - **Datenregister:** Speicherung von Operanden und Ergebnisse
 - **Adressregister:** Adressierung von Operanden (Speichern von Adressen)
 - **Steuerregister**
 
-## Stack (Speicher)
+## Stack(-Speicher)
 
-- vgl. Datenstruktur (Stapel-/Kellerspeicher $\rightarrow$ LIFO)
-- beinhaltet Parameter und lokale Variablen
+- vgl. Datenstruktur (Stapel-/Kellerspeicher $\rightarrow$ **LIFO**)
+- beinhaltet **Parameter und lokale Variablen**
 - in Mikroprozessoren: **Register des Stackpointer**
-- bei Aufruf eines Unterprogramms: Rücksprungadresse ablegen
+- bei Aufruf eines Unterprogramms: **Rücksprungadresse ablegen**
 - beginnt i.d.R. bei hoher Adresse, wächst Richtung 0 "nach unten"
+- bei **Multitasking-Systemen** besitzt **jeder Thread eine eigenen Stack**
 
-## Heap (Speicher)
+## Heap(-Speicher)
 
-- beliebig frei zuordnenbarer Speicherbereich
-- in C: vgl. Objekte `malloc()` und co., `free()`
-
-> nicht zu verwechseln mit Datenstruktur Heap
+- dynamischer Speicherbereich
+- kann nur Laufzeit beliebig angefordert werden
+- vgl. `malloc()`/`free()` in `C`
+- im Gegensatz zu Stack deutlich größer
 
 ## AVR ATmega 8515L
 
 ### Flags
 
-- Statusregister `SREG` enthält 1-Bit-Informationen (Flags)
-- Zeigen Ereignisse an
-  - Carry
-  - Zero
-  - Negative
-  - Overflow
-  - Interrupt
-  - ...
+- Statusregister `SREG` enthält **1-Bit-Informationen** (Flags)
+- zeigen **Zustände** an `Carry`, `Zero`, `Negative`, `Overflow`
+- Grundlage für **bedingte Sprünge**
+- Auch zum **(De-)aktivieren** von Funktionen (`Interrupt`-Flag)
 
 ### Timer
 
-- Zusammenhang Microcontroller-Takt
-- i.d.R. Teilung des Takt durch **Prescaler**
-- Anwendungen:
-  - periodische Interrupts als Zeitgeber
-  - Zeitverzögerungen (Ersatz für Programmschleifen)
-  - Frequenzgenerator/-messer
+- **Interrupt-Quelle** im Zusammenhang mit Microcontroller-Takt
+- meist Teilung des Takt durch **Prescaler**
+
+**Anwendungen**
+
+- Zeitgeber (periodische Interrupts)
+- Zeitverzögerungen (Ersatz für Programmschleifen)
+- Frequenzgenerator/-messer
 
 ### Watchdog
 
-- häufigste Anwendung: Reset des Programms im Fehlerfall
-- eigener Takt
-- zählt hoch
-- Erreichen Schwellwert führt zu Neustart
-- Im Normalbetrieb Reset der gezählten Zyklen -> kein Neustart
-- Brownout Detection (Erkennen, ob die Betriebsspannung einen bestimmten Wert unterschreitet)
-  - tritt regelmäßig auf! $\rightarrow$ ohne Detection unvorhersehbares Verhalten
+- Zähler mit eigenem Takt
+- Erreichen eines Schwellwert führt zu Neustart
+- Ziel: Reset des Programms im Fehlerfall (Endlosschleifen)
+- wird im Normalbetrieb regelmäßig zurückgesetzt
 
 ### Interrupt
 
@@ -122,7 +121,7 @@ Als größtenteil irrelevant betrachtete Themen:
 > - Parallele Programmierung [DONE]
 > - Kritischer Abschnitt [DONE]
 > - Atomare Operation [DONE]
-> - Exklusive Ressource
+> - Exklusive Ressource [DONE]
 > - Fork [DONE]
 > - Deadlock [DONE]
 > - Semaphore [DONE]
@@ -133,7 +132,6 @@ Als größtenteil irrelevant betrachtete Themen:
 > - Signale?! <!-- Steht nur in der Übersicht am Anfang des Moduls und taucht dann nicht nochmal auf-->
 
 <!-- md2apkg ignore-card -->
-<!-- Deadlock -->
 
 ## Parallele Programmierung
 
@@ -192,7 +190,7 @@ Als größtenteil irrelevant betrachtete Themen:
 - erzeugt exakte Kopie des Aufrufers als Kindprozess
 - Kindprozess übernimmt Code, Daten inkl. Befehlszähler, Dateideskriptoren, ...
 
-## Rückgabewerte fork()
+### Rückgabewerte von fork()
 
 - `>0`: die PID des Kindprozesses
 - `0`: es wurde eben geforkt und wir sind das Kind
