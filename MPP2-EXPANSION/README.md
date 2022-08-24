@@ -110,7 +110,7 @@ Als größtenteil irrelevant betrachtete Themen:
 
 > gleichzeitige Abarbeitung von Aufgaben
 
-- Motivation: **Zeit sparen** $\rightarrow$ eine große Aufgabe wird zur selben Zeit in mehreren kleinen erledigt
+- Motivation: **Zeit sparen** $\rightarrow$ eine große Aufgabe wird zur selben Zeit in mehreren kleinen Teilen erledigt
 - **Ausnutzung der Hardware:** Multicore-Prozessoren, verteilte Rechnerkerne
 
 ## Atomare Operation
