@@ -776,19 +776,14 @@ int someFunction(int par1, ///< parameter 1
 
 # IT-Consulting
 
-> **ToDo**
->
-> - DevOps
-> - Virtualiserung vs. Containerisierung
-
 ## DevOps
 
-- Kofferwort aus "Development" und "Operations"
-- bezeichnet Entwicklung und Betrieb einer Software durch dasselbe Team, untrennbar
+- Kofferwort aus **Development** und **Operations**
+- bezeichnet Entwicklung und Betrieb einer Software durch dasselbe Team (untrennbar)
   - im ferneren Sinne auch QA
 - oft in Verbindung mit Lean Management, agilen Methoden und CI/CD
 
-### Ein paar Bestandteile der Entwicklung
+### Bestandteile der Entwicklung (Dev)
 
 - Programmieren der Software
 - Tests
@@ -796,7 +791,7 @@ int someFunction(int par1, ///< parameter 1
 - Auslieferung
 - Doku für Kunde
 
-### Ein paar Bestandteile des Betriebs (Ops)
+### Bestandteile des Betriebs (Ops)
 
 - Bereitstellung der Hardware
 - Installation der Software und Abhängigkeiten
@@ -806,9 +801,9 @@ int someFunction(int par1, ///< parameter 1
 
 ### Vorteile von DevOps
 
-- keine _Wall of Confusion_ / Silodenken zwischen Teams
+- keine *Wall of Confusion* / Silodenken zwischen Teams
 - beschleunigt Entwicklungsprozess
-- verhindert _"works on my machine"_
+- verhindert *"works on my machine"*
 
 ### Methode: Infra as Code (IaC)
 
@@ -818,22 +813,6 @@ int someFunction(int par1, ///< parameter 1
 - hoher Automatisierungsgrad
 - Bsp.: Ansible, Terraform, Chef, Puppet
 
-### Blue/Green Deployment
-
-- Minimierung der Ausfallzeit bei Updates
-- zwei Instanzen einer Anwendung hinter Reverse Proxy, laufen parallel
-- produktiv schalten der neuen Version durch Änderung der Reverse Proxy Konfiguration $\rightarrow$ minimale Downtime
-
-### A/B Testing
-
-- testen experimenteller Änderungen an kleinem Prozentsatz von Nutzern
-- messen der Hypothesen, Vergleich der Reaktionen zwischen den Varianten
-
-### Canary Releases
-
-- ähnlich zu A/B, aber mit dem Zweck, Fehler in neuen Versionen zu finden
-- alte und neue Instanz laufen hinter Reverse Proxy, kleiner Prozentsatz Nutzer wird auf neue, zu testende Version der Anwendung geleitet
-
 ## Vorteile von Monolithen
 
 - einfaches Modell für Entwickler
@@ -842,46 +821,49 @@ int someFunction(int par1, ///< parameter 1
 
 ## Nachteile von Monolithen
 
-- Code-Basis wird riesig und unüberschaubar
-- Überlastete Tools bei Refactoring, Builds, ...
-- Skalierung ist Ressourcen-intensiv
+- Code-Basis wird riesig und **unüberschaubar**
+- **Überlastete Tools** bei Refactoring, Builds, ...
+- Skalierung ist **ressourcen-intensiv**
 - Deployment erfordert Stopp des gesamten Systems
-- **horizontale** Skalierbarkeit schwierig
+- **horizontale Skalierbarkeit schwierig**
 
 ## Vorteile von Schichten-Architekturen
 
-- einfach hinsichtlich Abhängigkeiten, Deployment, Skalierungsmodell
+- geringere Komplexität der **Abhängigkeiten**
+  - **geringere Kopplung** bei gleichzeitig **höherer Kohäsion** der einzelnen Schichten
+- erleichtertes Verständnis für **Wartung**
+- Austauschbarkeit einzelner Schichten $\rightarrow$ **Deployment**, **Skalierbarkeit**
 
 ## Nachteile von Schichten-Architekturen
 
-- Codebasis wächst mit jeder Schicht
-  - und damit auch die Entwicklungs- / Betriebs-Prozesse
+- **hoher Kommunikationsaufwand** zwischen Schichten (Weiterleitung und Transformation von Daten)
+- Codebasis wächst mit jeder Schicht (damit auch Entwicklungs-/**Betriebsprozesse**)
 - Skalierung besser, aber weiterhin begrenzt
-- technische Zerlegung $\rightarrow$ Silodenken
+- technische Zerlegung $\rightarrow$ **Silodenken**
 
 ## REST
-
-> Definition?
 
 <!-- md2apkg split -->
 
 - **Re**presentational **S**tate **T**ransfer
-- Maschine-zu-Maschine Kommunikation auf Basis von HTTP als weit verbreitetes und gut unterstütztes Datenübertragungsprotokoll
 - Client-Server-Prinzip
-- zustandslos
-- Caching möglich
-- Nachrichten sind selbstbeschreibend, da Ressourcen über URI adressiert
-- unterstützt verschiedene Repräsentationen für Daten, z.B. JSON, XML
+- **zustandslos**
+- **Caching** möglich
+- Nachrichten sind **selbstbeschreibend**, da Ressourcen über URI adressiert
+- unterstützt **verschiedene Repräsentationen** für Daten, z.B. `JSON`, `XML`
+
+> Maschine-zu-Maschine Kommunikation auf Basis von HTTP = weit verbreitetes und gut unterstütztes Datenübertragungsprotokoll
 
 ### CRUD-Operatoren
 
-- was bedeutet CRUD?
-- was sind die Operatoren?
-
 <!-- md2apkg split -->
 
-- Create, Read, Update, Delete
-- POST, GET, PUT, DELETE
+- **C**reate
+- **R**ead
+- **U**pdate
+- **D**elete
+
+> `http`-Methoden: `POST`, `GET`, `PUT`, `DELETE`
 
 ## Microservice-Architektur
 
@@ -891,10 +873,10 @@ int someFunction(int par1, ///< parameter 1
 
 ![Microservice-Architektur](assets/ms-arch.png)<!--width=600px-->
 
-- erledigt nur eine Aufgabe, siehe UNIX-Philosophie
-- arbeitet mit anderen Microservices via universeller Schnittstelle (z.B. REST)
-- $\rightarrow$ Modularisierung (fachlich), funktionieren unabhängig voneinander
-- keine gemeinsamen Zustände
+- erledigt nur **eine Aufgabe** (vgl. UNIX-Philosophie)
+- arbeitet mit anderen Microservices via universeller Schnittstelle (z.B. `REST`)
+- $\rightarrow$ Modularisierung (fachlich), funktionieren **unabhängig voneinander**
+- **keine gemeinsamen Zustände**
 - Vorschlag: Ein MS durch 5 bis 7 Entwickler realisierbar
 - Betrieb in VMs oder Containern
 
@@ -915,15 +897,6 @@ int someFunction(int par1, ///< parameter 1
 - Datenkonsistenz wird aufwändiger
 - Logging, Monitoring und Testen wird aufwändiger
 
-### Git: Datei-Lebenszyklus
-
-- **Untracked**: nicht eingecheckt
-- **Unmodified**: eingecheckt, keine lokale Änderung
-- **Modified**: eingecheckt, lokale Änderung
-- **Staged**: modifizierte Datei ist in Änderungsmenge, diese Version ist zum Commit vorgemerkt (Änderungen nach Stage werden nicht committet)
-- **Committed**: Datei-Version ist permanent in lokalem Repository
-- **Pushed**: Version an externes Repository übertragen
-
 ### Git: Merge vs. Rebase
 
 - **`git merge`**: Commits aus einer Branch in eine andere Branch übernehmen, die Änderungen _verschmelzen_
@@ -941,40 +914,52 @@ int someFunction(int par1, ///< parameter 1
 
 ### Git: Vor- und Nachteile Feature-Workflow
 
-|                                   Vorteile                                   |                        Nachteile                         |
-| :--------------------------------------------------------------------------: | :------------------------------------------------------: |
-| Verwaltung großer Projekte einfacher, da sauberer Zustand einzelner Branches |         viele Merges notwendig, unübersichtlich          |
-|      Trennung von stabilem und experimentellem Code, leichter Einstieg       | langlebige Feature-Branches lassen Versionen divergieren |
-|     Unterstützung für Release-Planung und verschiedenen Release-Zweigen      |           parallele Branches erschweren DevOps           |
+| Vorteile                                                                     | Nachteile                                                |
+| :--------------------------------------------------------------------------- | :------------------------------------------------------- |
+| Verwaltung großer Projekte einfacher, da sauberer Zustand einzelner Branches | viele Merges notwendig, unübersichtlich                  |
+| Trennung von stabilem und experimentellem Code, leichter Einstieg            | langlebige Feature-Branches lassen Versionen divergieren |
+| Unterstützung für Release-Planung und verschiedenen Release-Zweigen          | parallele Branches erschweren DevOps                     |
 
 ### Git: Vor- und Nachteile Trunk-Workflow
 
-|                                       Vorteile                                        |                                              Nachteile                                              |
-| :-----------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------: |
-|          Nur Main-Branch ist langlebig $\rightarrow$ weniger Merge-Konflikte          |                          Main-Branch unterliegt ständiger Änderung (Churn)                          |
-|            Einfachs Branching-Modell, vermeidet divergierende Entwicklung             |                            Parallele Feature-Entwicklung in einer Branch                            |
-| Schnelle Entwicklungszyklen, da einfache Integration und jederzeit lauffähige Version | Gemeinsame Verwaltung von stabilem und experimentellem Code, da sofortiges Zusammenlaufen in `main` |
+| Vorteile                                                                              | Nachteile                                                                                           |
+| :------------------------------------------------------------------------------------ | :-------------------------------------------------------------------------------------------------- |
+| nur `main`-Branch ist langlebig $\rightarrow$ weniger Merge-Konflikte                 | `main`-Branch unterliegt ständiger Änderung (Churn)                                                 |
+| einfachs Branching-Modell, vermeidet divergierende Entwicklung                        | Parallele Feature-Entwicklung in einer Branch                                                       |
+| schnelle Entwicklungszyklen, da einfache Integration und jederzeit lauffähige Version | Gemeinsame Verwaltung von stabilem und experimentellem Code, da sofortiges Zusammenlaufen in `main` |
 
 ## Docker
 
-- Container-basierte Virtualisierung von Anwendungen
-- nutzt Features des Linux-Kernels : Namespaces, cgroups, libcontainer (MacOS und Windows: VM)
+- Container-basierte **Virtualisierung** von Anwendungen
+- nutzt Features des Linux-Kernels: `namespaces`, `cgroups`, `libcontainer` (MacOS und Windows: VM)
 - nutzt Beschreibungsformate für Images und Container: Dockerfile, Compose-File
-
-- Isolation von Dateisystem, Ressourcen und Netzwerk
-- Verwaltung via Kommandozeile oder REST-API
-- Logging-Funktionalität für Container
+- **Isolation** von Dateisystem, Ressourcen und Netzwerk
+- **Verwaltung** via Kommandozeile oder REST-API
+- **Logging-Funktionalität** für Container
 
 ### Docker: Images
 
-- unveränderliche Snapshots eines Dateisystems
-- können beliebig oft instanziiert werden, sowie transportiert und veröffentlicht
-- Identifikation über Hash, Eigentümer, Name und Tag
-- **Container** sind Instanzen eines Images
-- implementiert Dateisystem-Layers für aufeinander aufbauende Images und effizientere Speicherung (Think: übereinanderlegen von Polylux-Folien)
-- Änderungen am Dateisystem in einem **Container** werden in eigenem Container-Layer gespeichert
+> unveränderliche Snapshots eines Dateisystems
 
-<!-- md2apkg ignore-card -->
+- **beliebig oft instanziierbar** (portabel $\rightarrow$ können veröffentlicht werden)
+- Identifikation über Hash, Eigentümer, Name und Tag
+
+### Docker: Container
+
+> Instanz eines Images
+
+- implementiert Dateisystem-Layers für aufeinander aufbauende Images und effizientere Speicherung
+- Änderungen am Dateisystem in einem **Container** werden in eigenem Container-Layer gespeichert (nicht persistent!)
+
+### Virtualisierung vs. Containerisierung
+
+| Virtualisierung | Containerisierung |
+|---|---|
+| - Verhalten sich wie physische Systeme (aber durch Hypervisor von Ressourcen getrennt)| - Isolation einzelner Anwendungen und deren Abhängigkeiten (portabel) |
+| - VMs beinhalten eigenes Betriebsystem | - mehrere Container teilen sich ein Host-Betriebssystem |
+| - hohe Isolationssicherheit | - effiziente Ressourcennutzung |
+
+![Virtualisierung vs. Containerisierung](assets/vm-container.jpg)
 
 # Wissenschaftliches Arbeiten
 
