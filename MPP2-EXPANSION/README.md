@@ -116,23 +116,6 @@ Als größtenteil irrelevant betrachtete Themen:
 
 # Systemprogrammierung
 
-> **ToDo**
->
-> - Parallele Programmierung [DONE]
-> - Kritischer Abschnitt [DONE]
-> - Atomare Operation [DONE]
-> - Exklusive Ressource [DONE]
-> - Fork [DONE]
-> - Deadlock [DONE]
-> - Semaphore [DONE]
-> - Interprozesskommunikation [DONE]
->   - Pipes (uni/bidirektional, named) [DONE]
->   - Sockets (lokal, rechnerübergreifend) [DONE]
->   - Shared Memory [**ToDO**]
-> - Signale?! <!-- Steht nur in der Übersicht am Anfang des Moduls und taucht dann nicht nochmal auf-->
-
-<!-- md2apkg ignore-card -->
-
 ## Parallele Programmierung
 
 > gleichzeitige Abarbeitung von Aufgaben
@@ -152,12 +135,16 @@ Als größtenteil irrelevant betrachtete Themen:
 
 ## Prozesssynchronisation
 
-- Koordinierung des zeitlichen Ablaufs mehrerer nebenläufiger Prozesse
+> Koordinierung des zeitlichen Ablaufs mehrerer nebenläufiger Prozesse
+
+## Race Condition
+
+> Konstellation, in der das Ergebnis einer Operation vom zeitlichen Verhalten bestimmter Einzeloperationen oder der Umgebung abhängt
 
 ## Deadlock
 
 - **Allgemein:** Situation, in der sich beide Alternativen eines Dilemmas gegenseitig blockieren
-- **Informatik:** zyklische Wartesituation zwischen mehreren Prozessen, wobei jeder beteiligte Prozess auf die **Freigabe von Betriebsmitteln** wartet, die bereits ein **anderer beteiligter Prozess exklusiv belegt** hat
+- **Informatik:** zyklische **Wartesituation** zwischen mehreren Prozessen, wobei jeder beteiligte Prozess auf die **Freigabe von Betriebsmitteln** wartet, die bereits ein **anderer beteiligter Prozess exklusiv belegt** hat
 
 ### Philosophenproblem
 
@@ -193,6 +180,19 @@ Als größtenteil irrelevant betrachtete Themen:
 - `0`: es wurde eben geforkt und wir sind das Kind
 - `-1`: Fehler
 
+## Semaphore
+
+- Variable, die die **Verwaltung beschränkter (zählbarer) Ressourcen** ermöglicht
+- Manipulation der Semaphore über zwei **unteilbare Operationen** (reservieren = `P(sema)`; freigeben = `V(sema)`)
+- **Synchronisation** von Prozessen $\rightarrow$ Semaphore **realisiert ein passives Warten der Prozesse**
+
+## Kritische Abschnitt
+
+> mehreren Einzelanweisungen, deren Zwischenergebnisse inkonsistente Zustände darstellen
+
+- zu jedem Zeitpunkt darf sich nur ein einziger Prozess in diesem Abschnitt aufhalten (Sicherstellung der Konsistenz, Deadlocks)
+- Entwickler definieren einen kritischen Abschnitt
+
 ## Interprozesskommunikation
 
 > Informationsaustausch zwischen mehreren Prozessen
@@ -203,82 +203,64 @@ Als größtenteil irrelevant betrachtete Themen:
   - Verhungern von Prozessen
   - Deadlocks
 
+### Pipes
+
+- **unidirektionaler Datenstrom zwischen zwei Prozessen**
+- vgl. Puffer/Warteschlange nach dem **FIFO**-Prinzip
+
+#### Pipes: Arten
+
+- **namenlose Pipes:** Kommunikation zwischen Prozessen mit gemeinsamen Vorfahren (`fork()`)
+- **benannte Pipes:** Zugriff durch alle Prozesse mit Zugriffsrecht möglich
+
+#### Pipes: Operationen
+
+- `write(pipefd[1],buffer)`
+  - Write: aus **Programmbuffer auf die Pipe schreiben** (in den Kernelbuffer)
+  - Daten sind **gepuffert bis sie gelesen werden**
+- `read(pipefd[0],buffer)`
+  - Read: aus **Kernelbuffer in Programmbuffer schreiben** ("Pipe lesen")
+  - Lesen verbraucht Daten der Pipe (vgl. Warteschlange)
+
+### Socket
+
+#### Socket: Addressfamilien
+
+- `AF_UNIX`: Unix-Domain
+- `AF_INET`: Internet-Domain (bzw. `AF_INET6`)
+- diverse andere, viele veraltet
+  - `AF_IRDA`
+  - `AF_BLUETOOTH`
+
+#### Socket: Arten
+
+- `SOCK_DGRAM`: verbindungslos (vgl. `UDP`)
+- `SOCK_STREAM`: verbindungsorientiert (vgl. `TCP`)
+
+außerdem
+
+- `SOCK_RAW`: nur für Developer, Root-User, Zugriff auf L3,L2-Felder $\rightarrow$ eigenes L4-Protokoll entwickeln
+
+### Pipe vs. Socket
+
+| Pipes                                                                 | Sockets               |
+| --------------------------------------------------------------------- | --------------------- |
+| - unidirektional                                                      | - bidirektional       |
+| - Unix-Domaine (nur gleiches Rechensystem)                            | - Unix/Internetdomäne |
+| - Kommunikationspartner benötigen gemeinsamen Elternprozess (unnamed) |                       |
+
+### Shared Memory
+
+- **geteilter Speicherbereich** zwischen mehreren Prozessen
+- Kommunikation über Shared Memory erfordert **Prozesssynchronisation**
+
 ### bidirektionale Interprozesskommunikation
 
 - zwei Pipes (für jede Richtung eine)
 - Sockets
-
-<!-- Semaphore -->
-
-## Was sind Semaphoren und wozu werden Sie eingesetzt?
-
-- Mittel der Pr zur Verwaltung von (exklusivem) Zugriff auf Ressourcen
-- Deadlock vermeiden
-
-## Was ist der kritische Abschnitt im Kontext Sempahoren?
-
-- Es ist ein Codebereich, der nur in einer definierten Anzahl von Prozessen gleichzeitig zur Verfügung steht (stehen sollte)
-- Entwickler müssen im Programm dafür Sorge tragen und den kritischen Abschnitt definieren
-- Semaphor Operation P, Passieren, Vor dem kritischen Abschnitt LOCK - Ressourcen blockieren
-- Semaphor Operation V, Verlassen, Nach dem kritischen Abschnitt UNLOCK - Ressourcen freigeben
-
-<!-- Pipes -->
-
-## Was sind Pipes im Kontext Interprozesskommunikation? Unterscheiden Sie zwei Arten von Pipes
-
-- unidirektionaler Datenstrom zwischen zwei Prozessen: Puffer/Warteschlange nach dem FIFO-Prinzip
-- namenlose Pipes: Kommunikation zwischen verwandten Prozessen (vgl. fork())
-- benannte Pipes: Zugriff durch alle Prozesse mit Zugriffsrecht möglich
-
-## Welche Operationen auf einer Pipe kennen Sie? Beschreiben Sie deren Funktion
-
-- `write(pipefd[1],buffer)`
-  - Write: Aus Programmbuffer auf die Pipe schreiben, in den Kernelbuffer
-  - Daten sind gepuffert bis sie gelesen werden
-- `read(pipefd[0],buffer)`
-  - Read: Aus Kernelbuffer in Programmbuffer schreiben; aus Sicht des Programms von Pipe lesen
-  - Lesen verbraucht Daten der Pipe
-
-<!-- Socket -->
-
-## Addressfamilien Socket
-
-- POSIX local inter-process communication sockets/Unix Domain Socket/IPC Socket (AF_UNIX,AF_LOCAL)
-- Internet-Domain (AF_INET und AF_INET6)
-- diverse andere, viele veraltet
-  - AF_IRDA
-  - AF_BLUETOOTH
-
-## Arten Socket
-
-- Verbindungslos (SOCK_DGRAM)
-- vollduplex, verbindungsorientiert (SOCK_STREAM)
-
-außerdem
-
-- SOCK_RAW nur für Developer, Root-User, Zugriff auf L3,L2-Felder --> eigenes L4-Protokoll entwickeln
-- SOCK_SEQPACKET (nur UNIX, besseres SOCK_STREAM)
-
-## Unterschied Pipe Socket
-
-- Pipes
-  - Unix-Domaine exklusiv, d.h. gleiches Rechensystem
-  - unidirektional
-- Socket
-  - Unix/Internetdomäne
-  - bidirektional
+- Shared Memory
 
 # Entwicklung von Webanwendungen
-
-> **ToDo**
->
-> - HTML [DONE 90%]
-> - CSS [DONE?]
->   - Selektoren [DONE]
-> - Javascript
-> - PHP
-
-<!-- md2apkg ignore-card -->
 
 ## Client-Technologien
 
@@ -290,31 +272,31 @@ außerdem
 
 ## Server-Technologien
 
-- PHP
-- NodeJS
-- Ruby (on Rails)
-- Java
-- ASP.NET
+- `PHP`
+- `Java`
+- `NodeJS`
+- `Ruby` *(on Rails)*
+- `ASP.NET`
 
 ## HTML
 
 ### HTML-Sytnax: Tags
 
-- Auszeichnung von Textelementen durch Tags
+- Auszeichnung von Elementen durch Tags
 - `<tag>Text</tag>`
-- Öffnendes Tag  schließendes Tag  dazwischen Body
 - schließende Tags können in einigen Fällen entfallen (z.B. `<img/>`)
-- Tags können Attribute enthalten `<tag attribut="Wert">body</tag>`
+- Tags können **Attribute** enthalten `<tag attribut="Wert">body</tag>`
+- Tags können **hierarchisch** geschachtelt werden
 
 ### HTML-Struktur: `<html>`
 
 - `<html>` ist sogenanntes Wurzeltag
-- Attribut "lang" gibt die Dokumentensprache an
+- Attribut `lang` gibt die Dokumentensprache an
 
 ### HTML-Struktur: `<head>`
 
-- Dateikopf, Metainformationen, keine Darstellungen
-- Informationen werden durch Browser, Suchmaschinen und Crawler benutzt
+- **Dateikopf**, **Meta**informationen, **keine Darstellungen**
+- Informationen werden durch **Browser**, **Suchmaschinen** und **Crawler** benutzt
 
 ### HTML-Struktur: `<body>`
 
@@ -363,6 +345,8 @@ außerdem
 - **Padding:** Puffer zwischen Content und Border, transparent
 - **Border:** Abgrenzung um das Padding (Linie mit eigener Breite, Farbe)
 - **Margin:** Abstand zu anderen Elementen (transparent)
+
+![Box-Model](assets/box-model.png)
 
 ### Selektoren
 
@@ -980,18 +964,18 @@ int someFunction(int par1, ///< parameter 1
 
 ### Git: Vor- und Nachteile Feature-Workflow
 
-| Vorteile | Nachteile |
-| :------: | :-------: |
-| Verwaltung großer Projekte einfacher, da sauberer Zustand einzelner Branches | viele Merges notwendig, unübersichtlich |
-| Trennung von stabilem und experimentellem Code, leichter Einstieg | langlebige Feature-Branches lassen Versionen divergieren |
-| Unterstützung für Release-Planung und verschiedenen Release-Zweigen | parallele Branches erschweren DevOps |
+|                                   Vorteile                                   |                        Nachteile                         |
+| :--------------------------------------------------------------------------: | :------------------------------------------------------: |
+| Verwaltung großer Projekte einfacher, da sauberer Zustand einzelner Branches |         viele Merges notwendig, unübersichtlich          |
+|      Trennung von stabilem und experimentellem Code, leichter Einstieg       | langlebige Feature-Branches lassen Versionen divergieren |
+|     Unterstützung für Release-Planung und verschiedenen Release-Zweigen      |           parallele Branches erschweren DevOps           |
 
 ### Git: Vor- und Nachteile Trunk-Workflow
 
-| Vorteile | Nachteile |
-| :------: | :-------: |
-| Nur Main-Branch ist langlebig $\rightarrow$ weniger Merge-Konflikte | Main-Branch unterliegt ständiger Änderung (Churn) |
-| Einfachs Branching-Modell, vermeidet divergierende Entwicklung | Parallele Feature-Entwicklung in einer Branch |
+|                                       Vorteile                                        |                                              Nachteile                                              |
+| :-----------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------: |
+|          Nur Main-Branch ist langlebig $\rightarrow$ weniger Merge-Konflikte          |                          Main-Branch unterliegt ständiger Änderung (Churn)                          |
+|            Einfachs Branching-Modell, vermeidet divergierende Entwicklung             |                            Parallele Feature-Entwicklung in einer Branch                            |
 | Schnelle Entwicklungszyklen, da einfache Integration und jederzeit lauffähige Version | Gemeinsame Verwaltung von stabilem und experimentellem Code, da sofortiges Zusammenlaufen in `main` |
 
 ## Docker
