@@ -33,24 +33,10 @@ Als größtenteil irrelevant betrachtete Themen:
 
 # Hardwarenahe Programmierung
 
-> **ToDo**
-> - Application Binary Interface (ABI) [DONE]
-> - C und Make siehe Kusche Entwicklerwerkzeuge
-> - Register [DONE]
-> - Stack [DONE]
-> - Heap (relevant, aber in dem Modul nicht angesprochen) [DONE]
-> - Grimm
-> - Flags [DONE]
-> - Timer [DONE]
-> - Watchdog [DONE]
-> - Interrupt [DONE]
-
-<!-- md2apkg ignore-card -->
-
 ## Application Binary Interface (ABI)
 
-- Binärschnittstelle zur Verarbeitung von Befehlen auf Maschinenebenen
-- legt u.a. Aufrufkonventionen fest
+- **Binärschnittstelle** zur Verarbeitung von Befehlen auf Maschinenebenen
+- legt u.a. **Aufrufkonventionen** fest
 - reserviert benötigte Prozessorregister
 - muss auf eine Architektur festgelegt sein
 
@@ -101,18 +87,22 @@ Als größtenteil irrelevant betrachtete Themen:
 ### Watchdog
 
 - Zähler mit eigenem Takt
-- Erreichen eines Schwellwert führt zu Neustart
-- Ziel: Reset des Programms im Fehlerfall (Endlosschleifen)
+- Erreichen eines **Schwellwert** führt zu Neustart
+- Ziel: **Reset** des Programms im Fehlerfall (Endlosschleifen)
 - wird im Normalbetrieb regelmäßig zurückgesetzt
 
 ### Interrupt
 
-- Anforderung zur Unterbrechung des aktuellen Programms durch definiertes Ereignis
-- Interruptflag gesetzt
-  - Program Counter (PC) automatisch auf Stack gspeichert, Statusregister manuell sichern!
-- Behandlung des Interrupts: PC ruft Interrupt Service Routine (ISR) definiert in Interruptvektortabelle auf
-- ...
-- Mit PC vom Stack fortfahren
+> **kurzfristige Unterbrechung** eines Programms durch eine von der CPU abzuarbeitende Befehlssequenz (Interrupt Service Routine $\rightarrow$ schnelle Reaktion auf I/O, Zeitgeber, ...)
+
+#### Ablauf eines Interrupt
+
+- Sperren weiterer Unterbrechungen mit gleicher oder geringerer Priorität
+- Sicherung wichtiger Register-Informationen
+- Bestimmen der Interruptquelle (durch Hardware realisiert)
+- Laden des zugehörigen Interruptvektors
+- Abarbeitung der Interruptroutine
+- Rückkehr zur unterbrochenen Aufgabe (Registerinformationen wiederherstellen)
 
 # Systemprogrammierung
 
@@ -408,23 +398,6 @@ außerdem
 
 # IT-Sicherheit/-Recht/-Infrastrukturen
 
-> **ToDo**
->
-> - IT-Sibe
-> - ISO 27001
-> - BSI 200er kennen
-> - IT-Grundschutz-Kompendium und Bausteine einordnen
-> - Governance vs. Compliance [DONE]
-> - Geltende Gesetze
-> - Schutzziele [DONE]
-> - DSGVO
->   - Personenbezogene Daten [DONE]
->   - Besondere Datenkategorien [DONE]
->   - Grundsätze der Verarbeitung [DONE]
-> - Anonymisierung, Pseudonomisierung
-
-<!-- md2apkg ignore-card -->
-
 ## Schutzziele
 
 - Verfügbarkeit
@@ -441,21 +414,18 @@ erweitert:
 
 > beinhaltet Einführung in die IT-Grundschutz-Methodik, Modellierung, Bausteine, Elementare Gefährdungen
 
-- Prozess-Bausteine: ISMS (Sicherheitsmanagement), ORP (Organisation und Personal), CON (Konzeption und Vorgehensweise), OPS (Betrieb, vier Teilschichten: Eigener IT-Betrieb, Betrieb von Dritten, Betrieb für Dritte und Betriebliche Aspekte), DER (Detektion und Reaktion)
-- System-Bausteine: APP (Anwendungen), SYS (IT-Systeme), IND (Industrielle IT), NET (Netze und Kommunikation), INF (Infrastruktur)
+- **Prozess-Bausteine:** `ISMS` (Sicherheitsmanagement), `ORP` (Organisation und Personal), `CON` (Konzeption und Vorgehensweise), `OPS` (Betrieb), `DER` (Detektion und Reaktion)
+- **System-Bausteine:** `APP` (Anwendungen), `SYS` (IT-Systeme), `IND` (Industrielle IT), `NET` (Netze und Kommunikation), `INF` (Infrastruktur)
 
-## Governance / Compliance
+## Governance vs. Compliance
 
 - **Governance:** Einhaltung von Richtlinien wird **empfohlen**
 - **Compliance:** Einhaltung von Richtlinien ist **verpflichtend**
 
 ## Geltende Gesetze
 
-<!-- ToDo: unvollständig -->
-
 - DSGVO
 - Telemediengesetz
-- Urheberrecht
 - E-Government-Gesetz
 - klassisches IT-Recht besitzt nur vereinzelt besondere Gesetze ($\uparrow$)
 - relevante Normen größtenteils über viele verschiedene Rechtsquellen verteilt
@@ -494,8 +464,8 @@ erweitert:
 
 ### `BSI-Standard 200-1`: Managementsysteme für Informationssicherheit
 
-- Was: Erfolgsfaktoren beim Mgmt von Informationssicherheit
-- Wie: Steuerung und Überwachung des Sicherheitsprozesses vom verantwortlichen Mgmt
+- Was: Erfolgsfaktoren beim Management von Informationssicherheit
+- Wie: Steuerung und Überwachung des Sicherheitsprozesses vom verantwortlichen Management
 - Wie: Entwicklung von Sicherheitszielen und angemessener Sicherheitsstrategie
 - Wie: Auswahl Sicherheitsmaßnahmen und Erstellung Sicherheitskonzepte
 - Wie: Erhalten und Verbessern eines erreichten Sicherheitsniveaus
@@ -510,7 +480,6 @@ erweitert:
   - Erstellung eines IT-Sicherheitskonzepts
   - Auswahl angemessener IT-Sicherheitsmaßnahmen
   - IT-Sicherheit aufrecht erhalten und verbessern
-
 - Basis-, Kern- oder Standard-Absicherung
 - Standard-Absicherung ermöglicht ISO 27001 Zertifizierung
 
@@ -526,6 +495,13 @@ erweitert:
 8. Realisierung der Maßnahmen
 
 > immer währenddessen: Aufrechterhaltung und kontinuierliche Verbesserung
+
+## Anonymisierung vs. Pseudonymisierung
+
+- **Anonymisierung:** **Verändern personenbezogener Daten** derart, dass diese Daten nicht mehr oder nur mit einem unverhältnismäßig großen Aufwand (Zeit/Kosten) einer bestimmten oder bestimmbaren natürlichen Person zugeordnet werden können
+- **Pseudonymisierung:** **Ersetzen von Identifikationsmerkmal** durch Pseudonym sodass eine Festellung der Identität des Betroffenen ausgeschlossen werden kann
+
+> bei der Pseudonymisierung können Bezüge verschiedener Datensätze erhalten bleiben
 
 # Rechnernetze und Verteilte Systeme
 
@@ -551,11 +527,11 @@ erweitert:
 
 Ein verteiltes System...
 
-- besteht aus mehreren Einzelkomponenten auf unterschiedlichen Rechnern
-- besitzt keinen gemeinsamen Speicher
-- koordiniert und kooperiert mittels Nachrichtenaustausch (Netzwerk)
-- hat ein gemeinsames Ziel
-- tritt gegenüber Nutzenden als kohärentes System auf
+- besteht aus **mehreren Einzelkomponenten** auf **unterschiedlichen Rechnern**
+- besitzt **keinen gemeinsamen Speicher**
+- koordiniert und kooperiert mittels **Nachrichtenaustausch** (Netzwerk)
+- hat ein **gemeinsames Ziel**
+- tritt gegenüber Nutzenden als **kohärentes System** auf
 
 ## CAP-Theorem
 
@@ -645,18 +621,6 @@ Ein verteiltes System kann zwei der folgenden Eigenschaften gleichzeitig erfüll
 $$\text{Amortisationszeit} = \frac{\text{Kapitaleinsatz}}{\text{Rückflüsse pro Jahr}}$$
 
 # Entwicklerwerkzeuge
-
-> **ToDo**
->
-> - Dokumentationsgeneratoren (Vorteile) [DONE]
-> - Builds-Tools (Make) [DONE]
-> - Versionsverwaltung [DONE]
-> - Debugger (Arten) [DONE]
-> - Speicherzugriffsanalyse (statisch/dynamisch) [DONE]
-> - Profiling [DONE]
-> - Unit-Tests [DONE]
-
-<!-- md2apkg ignore-card -->
 
 ## Dokumentation
 
@@ -760,16 +724,6 @@ int someFunction(int par1, ///< parameter 1
 
 # Compilerbau
 
-> **ToDo**
->
-> - Lexer [DONE]
-> - Parser [DONE]
->   - Top-Down-Parser
->   - Shift-Reduce-Parser
-> - Compiler-Compiler
-
-<!-- md2apkg ignore-card -->
-
 ## Lexer
 
 > *"lexikalischer Analysator"*
@@ -787,15 +741,38 @@ int someFunction(int par1, ///< parameter 1
 
 # Computerforensik
 
-> **ToDo**
->
-> - Definition: Digitale Forensik
-> - Datenschutzvorfall
-> - Bereiche
-> - Spuren
-> - Post-Morem vs. Live-Forensik
+## Digitale Forensik
 
-<!-- md2apkg ignore-card -->
+- **streng methodisch vorgenommene Datenanalyse** (Datenträgern, Computernetzen)
+- Ziel: **Aufklärung von Vorfällen**
+- Verwendung von Möglichkeiten der strategischen Vorbereitung
+  - insbesondere aus der Sicht des Anlagenbetreibers eines IT-Systems
+
+## Spuren
+
+- materielle **Veränderungen an Personen oder Objekten**
+- stehen **im Zusammenhang mit relevanten Ereignissen**
+- **können zur Tataufklärung beitragen** (geben Rückschlüsse auf Tatablauf und Täter)
+
+### Unterschiede im Gegensatz zu analogen Spuren
+
+- digitale Spuren entstehen im Hintergrund
+- können flüchtig sein, sind leicht änderbar
+- können verschlüsselt sein
+- liegen physisch auf Datenträger vor und müssen dann logisch interpretiert werden um lesbar zu werden
+
+## Live Forensik
+
+- *während das System noch läuft* findet die Untersuchung eines Vorfalls statt
+- Daten live abziehen, wenn das System noch läuft (z.B. RAM)
+- Anwendung wenn kein physischer Zugriff/man weiß nicht was drauf läuft/evtl. Verschlüsselung bei herunterfahren
+- Vorteil: geht deutlich schneller
+
+## Post-mortem Forensik
+
+- *"nach dem Tod"* (nach einem Vorfall) werden Daten erhoben und analysiert (z.B. Datenträger-Forensik)
+- wenn Rechner ausgeschaltet und Festplatte ausbaubar $\rightarrow$ komplettes Datenträgerabbild mit forensischer Maschine erstellen
+- immer wieder neue Wege zur Ermittlung einschlagbar durch vollumfängliche Kopie
 
 # IT-Consulting
 
