@@ -46,7 +46,7 @@ Als größtenteil irrelevant betrachtete Themen:
 
 - **Datenregister:** Speicherung von Operanden und Ergebnisse
 - **Adressregister:** Adressierung von Operanden (Speichern von Adressen)
-- **Steuerregister**
+- **Spezialregister:** Statusregister, Befehlszähler, Interrupt-Steuerregister, ...
 
 ## Stack(-Speicher)
 
