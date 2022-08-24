@@ -509,9 +509,7 @@ erweitert:
 >
 > - sync. vs. async (Replikation)
 > - Firewalls
-> - VLAN
 > - OSPF
-> - BGP
 
 <!-- md2apkg ignore-card -->
 
@@ -541,7 +539,7 @@ Ein verteiltes System kann zwei der folgenden Eigenschaften gleichzeitig erfüll
 - **Verzeichnisdienst:** Finden von Kommunikationspartnern, Ressourcen, Attributen, ...
   - Erweiterung des Namensdienstes
 
-### Caching vs. Replikation
+## Caching vs. Replikation
 
 **Caching**
 
@@ -577,6 +575,47 @@ Ein verteiltes System kann zwei der folgenden Eigenschaften gleichzeitig erfüll
 | **Zugriffe**         | isoliert (Commit-basiert)    | letzer Schreibzugriff "gewinnt"                  |
 | **Implementation**   | komplex, begrenzt skalierbar | einfach implementier und skalierbar              |
 | **Attribute**        | konservativ / pessimistisch  | aggressiv / optimistisch / best effort           |
+
+### Dreistufige Architektur
+
+- Präsentationsschicht - User Interface
+- Verarbeitungsschicht - Applikationslogik
+- Persistenzschicht - Datenbank
+
+### Vorteile eine Einteilung der Architektur eines Verteilten Systems in Stufen
+
+- Definition eindeutiger Schnittstellen
+- unabhängige Modifikationen an den Stufen möglich
+- Komplexität des Gesamtsystems wird durch Aufteilung reduziert
+
+### Nachteile von Systemen mit zahlreichen (z.B. mehr als zehn) Stufen
+
+- hoher Kommunikationsaufwand
+- erschwert klare Zuordnung von Funktionen und Verantwortlichkeiten
+- erhöhter administrativer Aufwand
+
+## VLAN
+
+- Unterscheidung physische Topologie, logische Topologie
+- auf L2 angesiedelt (Ethernet)
+- **portbasiert / untagged**: Zuordnung Ports zu VLAN auf Managed Switch
+  - Endgerät weiß nichts von VLAN, normale Ethernet-Pakete
+- **tag-basiert / tagged**: fügt ein [802.1q](https://de.wikipedia.org/wiki/IEEE_802.1Q) Feld im Ethernet-Header hinzu, welches VLAN ein Paket hat
+  - mehrere VLANs pro Port möglich (oft "Trunk-Port")
+  - erfordert Hardware mit VLAN-Support
+- tagged VLAN auf unmanaged Switches: leiten korrekt weiter, können nicht tagged und untagged konvertieren
+
+## Spanning Tree Protocol
+
+- STP etabliert sich innerhalb des Netzes einen Spannbaum durch das Blockieren von Ports
+- Spannbaum muss bei Ausfall physischer Links angepasst werden
+- jedes VLAN benötigt seinen eigenen Spanning-Tree
+
+## eBGP
+
+- Kommunikation zwischen AS
+- Border Router: gegenseitiges Peering mit fremden Border Router; Adresse muss bekannt sein
+- Austausch Nachrichten: "Ich kenne den Weg zu Netz 123, die Wegkosten sind 456"
 
 # Allgemeine Betriebswirtschaftslehre
 
