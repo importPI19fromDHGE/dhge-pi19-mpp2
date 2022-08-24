@@ -60,7 +60,7 @@ Als größtenteil irrelevant betrachtete Themen:
 ## Heap(-Speicher)
 
 - dynamischer Speicherbereich
-- kann nur Laufzeit beliebig angefordert werden
+- kann zur Laufzeit beliebig angefordert werden
 - vgl. `malloc()`/`free()` in `C`
 - im Gegensatz zu Stack deutlich größer
 
