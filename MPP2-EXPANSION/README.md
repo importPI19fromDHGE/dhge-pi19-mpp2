@@ -507,19 +507,11 @@ erweitert:
 
 > **ToDo**
 >
-> - Verteiltes System (Definition) [DONE]
-> - CAP-Theorem [DONE]
-> - Namens- und Verzeichnisdienste [DONE]
-> - Caching vs. Replikation [DONE]
-> - ACID vs. BASE [DONE]
 > - sync. vs. async (Replikation)
-> - Microservices
 > - Firewalls
 > - VLAN
 > - OSPF
 > - BGP
-> - Architekturen
-> - REST-API
 
 <!-- md2apkg ignore-card -->
 
@@ -592,17 +584,7 @@ Ein verteiltes System kann zwei der folgenden Eigenschaften gleichzeitig erfüll
 >
 > - Kalkulation <!--Günther-->
 >   - Break-Even-Analyse
->   - Teil- vs. Vollkostenrechnung
->   - statische Amortisationsrechnung [DONE]
 > - Angebotsarbeit <!--Günther-->
-> - Unternehmen/Betrieb/Firma (Defintionen) [DONE]
-> - Rechtsformen (Überblick)
-> - Produkt-/Preis-/Kommunikations-/Distributions-Politik <!--?-->
-> - SWOT <!--?-->
-> - Projekt (Definition, Phasen)
-> - Klassische Qualitätssicherung vs. TQM <!--?-->
-
-<!-- Kompetenz !!!-->
 
 <!-- md2apkg ignore-card -->
 
@@ -612,13 +594,95 @@ Ein verteiltes System kann zwei der folgenden Eigenschaften gleichzeitig erfüll
 - **Betrieb:** Ort der Leistungserbringung
 - **Firma:** Geschäftsbezeichnung eines Unternehmens inkl. Rechtsformzusatz
 
+## Rechtsformen
+
+- **Personengesellschaften:** GbR, OHG, ... (persönliche und unbegrenzte Haftung der Gesellschafter)
+- **Kapitalgesellschaften:** GmbH, AG, ... (Haftung mit dem Vermögen der Gesellschaft $\rightarrow$ selbstständige juristische Person)
+
 ## BWL-Kalkulation
+
+### Vollkostenrechnung
+
+> Verfahren der Kostenrechnung, das sämtliche Leistungen und Kosten (**fixe und variable Kosten**) auf die Kostenträger verteilt
+
+- Vorteil: einfaches Verfahren zur Bestimmung einer langfristigen Preisuntergrenze
+- Nachteil: Fixkostenproportionalisierung: tatsächlich produzierte Menge wird nicht berücksichtigt
+
+### Teilkostenrechnung
+
+> Verfahren der Kostenrechnung, das nur einen **Teil der Kosten** auf die Kostenträger verteilt
+
+- Vorteil: verursachungsgerechte Bestimmung mit Orientierung am Deckungsbeitrag
+- Nachteil: laufende Kosten werden nicht berücksichtigt (mittelfristiges Risiko)
 
 ### Statische Amortisationsrechnung
 
 > Berechnung der Zeitspanne bis zur vollständigen Tilgung einer Investition
 
 $$\text{Amortisationszeit} = \frac{\text{Kapitaleinsatz}}{\text{Rückflüsse pro Jahr}}$$
+
+## Instrumente des Marketings
+
+- **Produkt-/Dienstleistungspolitik**
+  - Produkt-/Dienstleistungsportfolio
+  - Breite & Tiefe des Sortiments
+  - Aktualität
+- **Distributionspolitik**
+  - Vertrieb
+  - Bereitstellung und Logistik
+  - Pflege der Kundenbeziehungen
+- **Kommunikationspolitik**
+  - Werbung
+  - Einsatz der Werbemittel/-Träger und Zielgruppenansprache
+- **Preispolitik**
+  - Preis der Produkte/Dienstleistungen
+  - Angebot und Nachfrage
+
+## Projekt und Projektmanagement (Definitionen)
+
+- **Projekt:** risikobehafteter, hoch komplexer Gegenstand einer Handlung (Ziel/Aufgabe) mit begrenzten Ressourcen (HR, MR, FR) in einem bestimmten Zeitrahmen
+- **Projektmanagement:** Organisation von Ablauf, Abrechnung und Dokumentation der Umsetzung eines Projektes
+
+### Planungszeiträume
+
+- **strategisch** (> 3/5 Jahre): langfristige, grundlegende Ziele
+- **taktisch** (< 3/5 Jahre, >1 Jahr): mittelfristige Teilziele
+- **operativ** (<1 Jahr): kurzfristige Prozesssteuerung
+
+### PDCA
+
+**Plan**
+
+- Prozessplanung
+- Erkennen von Verbesserungspotentialen, Aufgaben und Zielstellung
+- Analyse des aktuellen Stands, Entwicklung eines neuen Konzepts
+
+**Do**
+
+- Ausprobieren, Testen, praktisches Optimieren des Konzeptes
+- durch schnell realisierbare, einfache Mittel
+- Erfassen und Sammeln der anfallenden Daten
+
+**Check**
+
+- Überprüfen und Analyse der gesammelten Daten
+
+- bei Erfolg als Standard für Umsetzung freigeben
+
+**Act**
+
+- Anwendung und Fixierung des neuen Standards in der Organisation
+- Überprüfung der Daten auf Einhaltung $\rightarrow$ Audits
+
+## Klassische Qualitätssicherung vs. TQM
+
+| Klassische Qualitätssicherung                                 | Total-Quality-Management                                                      |
+| ------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| Menschen machen Fehler                                        | Prozesse provozieren Fehler                                                   |
+| Einzelne Mitarbeiter sind für Fehler verantwortlich           | Alle Mitarbeiter sind für Fehler verantwortlich                               |
+| Null Fehler sind nicht realisierbar                           | Null Fehler ist das Ziel                                                      |
+| Einkauf von vielen Lieferanten                                | Partnerschaft mit wenigen Lieferanten ($\rightarrow$ Supply-Chain-Management) |
+| Kunden müssen nehmen, was das Unternehmen an Qualität liefert | Alles ist auf vollkommene Kundenzufriedenheit ausgerichtet                    |
 
 # Entwicklerwerkzeuge
 
