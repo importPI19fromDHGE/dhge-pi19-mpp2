@@ -787,7 +787,7 @@ int someFunction(int par1, ///< parameter 1
 
 - Programmieren der Software
 - Tests
-- Artefakte erzeugen (Kompilate / Archive)
+- Artefakte erzeugen (Kompilate/Archive)
 - Auslieferung
 - Doku für Kunde
 
@@ -797,7 +797,7 @@ int someFunction(int par1, ///< parameter 1
 - Installation der Software und Abhängigkeiten
 - Monitoring
 - Updates
-- Wartung der Komponenten (z.B. pflegen der Datenbank)
+- Wartung der Komponenten (z.B. Pflegen der Datenbank)
 
 ### Vorteile von DevOps
 
@@ -808,10 +808,10 @@ int someFunction(int par1, ///< parameter 1
 ### Methode: Infra as Code (IaC)
 
 - Infrastruktur wird maschinenlesbar abgebildet
-- Nutzung von Auszeichnungssprachen (JSON, YAML)
+- Nutzung von Auszeichnungssprachen (`JSON`, `YAML`)
 - versionierbar
 - hoher Automatisierungsgrad
-- Bsp.: Ansible, Terraform, Chef, Puppet
+- Bsp.: `Ansible`, `Terraform`, `Chef`, `Puppet`
 
 ## Vorteile von Monolithen
 
@@ -843,8 +843,6 @@ int someFunction(int par1, ///< parameter 1
 
 ## REST
 
-<!-- md2apkg split -->
-
 - **Re**presentational **S**tate **T**ransfer
 - Client-Server-Prinzip
 - **zustandslos**
@@ -855,8 +853,6 @@ int someFunction(int par1, ///< parameter 1
 > Maschine-zu-Maschine Kommunikation auf Basis von HTTP = weit verbreitetes und gut unterstütztes Datenübertragungsprotokoll
 
 ### CRUD-Operatoren
-
-<!-- md2apkg split -->
 
 - **C**reate
 - **R**ead
@@ -953,13 +949,20 @@ int someFunction(int par1, ///< parameter 1
 
 ### Virtualisierung vs. Containerisierung
 
-| Virtualisierung | Containerisierung |
-|---|---|
-| - Verhalten sich wie physische Systeme (aber durch Hypervisor von Ressourcen getrennt)| - Isolation einzelner Anwendungen und deren Abhängigkeiten (portabel) |
-| - VMs beinhalten eigenes Betriebsystem | - mehrere Container teilen sich ein Host-Betriebssystem |
-| - hohe Isolationssicherheit | - effiziente Ressourcennutzung |
+| Virtualisierung                                                                        | Containerisierung                                                     |
+| -------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| - Verhalten sich wie physische Systeme (aber durch Hypervisor von Ressourcen getrennt) | - Isolation einzelner Anwendungen und deren Abhängigkeiten (portabel) |
+| - VMs beinhalten eigenes Betriebsystem                                                 | - mehrere Container teilen sich ein Host-Betriebssystem               |
+| - hohe Isolationssicherheit                                                            | - effiziente Ressourcennutzung                                        |
 
 ![Virtualisierung vs. Containerisierung](assets/vm-container.jpg)
+
+## Kopplung vs. Kohäsion
+
+- **Kopplung:** Stärke der Verknüpfung zwischen Komponenten
+- **Kohäsion:** Grad der vollständigen Abdeckung einer Aufgabe durch eine Komponente
+
+> Ziel in der Softwareentwicklung ist es oft einen **hohen Grad an Kohäsion** bei **geringer Kopplung** zu erreichen.
 
 # Wissenschaftliches Arbeiten
 
