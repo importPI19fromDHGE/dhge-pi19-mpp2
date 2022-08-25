@@ -1067,6 +1067,14 @@ int someFunction(int par1, ///< parameter 1
 
 > Ziel in der Softwareentwicklung ist es oft einen **hohen Grad an Kohäsion** bei **geringer Kopplung** zu erreichen.
 
+## Assoziation vs. Komposition vs. Aggregation
+
+- **Assoziation:** Beziehung zwischen Objekten ("A kennt B")
+- **Aggregation:** Assoziation zwischen Objekten, wobei sich ein Objekt **aus mehreren Teilobjekten zusammensetzt**
+- **Komposition:** Assoziation zwischen Objekten, wobei ein Objekt **untrennbar** mit Teilobjekten verbunden ist (in **Existenzabhängigkeit**)
+
+![Komposition vs. Aggregation in UML](assets/komposition-aggregation.png)
+
 # Wissenschaftliches Arbeiten
 
 > **ToDo**
