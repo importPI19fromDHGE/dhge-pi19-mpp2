@@ -1024,7 +1024,7 @@ int someFunction(int par1, ///< parameter 1
 | Vorteile                                                                              | Nachteile                                                                                           |
 | :------------------------------------------------------------------------------------ | :-------------------------------------------------------------------------------------------------- |
 | nur `main`-Branch ist langlebig $\rightarrow$ weniger Merge-Konflikte                 | `main`-Branch unterliegt ständiger Änderung (Churn)                                                 |
-| einfachs Branching-Modell, vermeidet divergierende Entwicklung                        | Parallele Feature-Entwicklung in einer Branch                                                       |
+| einfaches Branching-Modell, vermeidet divergierende Entwicklung                        | Parallele Feature-Entwicklung in einer Branch                                                       |
 | schnelle Entwicklungszyklen, da einfache Integration und jederzeit lauffähige Version | Gemeinsame Verwaltung von stabilem und experimentellem Code, da sofortiges Zusammenlaufen in `main` |
 
 ## Docker
