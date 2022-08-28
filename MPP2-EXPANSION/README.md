@@ -33,424 +33,320 @@ Als größtenteil irrelevant betrachtete Themen:
 
 # Hardwarenahe Programmierung
 
-> **ToDo**
-> - Application Binary Interface (ABI) [DONE]
-> - C und Make siehe Kusche Entwicklerwerkzeuge
-> - Register [DONE]
-> - Stack [DONE]
-> - Heap (relevant, aber in dem Modul nicht angesprochen) [DONE]
-> - Grimm
-> - Flags [DONE]
-> - Timer [DONE]
-> - Watchdog [DONE]
-> - Interrupt [DONE]
-
-<!-- md2apkg ignore-card -->
-
 ## Application Binary Interface (ABI)
 
-- allgemein: Schnittstelle auf Maschinenebene (vgl. compilierte API)
-- definierte Schnittstelle, die Assembler-Verarbeitung ermöglicht (vgl. Inline-Assembler)
-- ermöglicht direkten Aufruf von Assembler-Routinen
+- **Binärschnittstelle** zur Verarbeitung von Befehlen auf Maschinenebenen
+- legt u.a. **Aufrufkonventionen** fest
+- reserviert benötigte Prozessorregister
+- muss auf eine Architektur festgelegt sein
 
 ## Register
 
-- Datenregister zur Speicherung von Operanden und Ergebnisse
-- Adressregister zur Adressierung von Operanden (Speichern von Adressen)
-- Steuerregister
+> Speicherbereich innerhalb eines Prozessors
 
-## Stack (Speicher)
+- **Datenregister:** Speicherung von Operanden und Ergebnisse
+- **Adressregister:** Adressierung von Operanden (Speichern von Adressen)
+- **Spezialregister:** Statusregister, Befehlszähler, Interrupt-Steuerregister, ...
 
-- vgl Datenstruktur. Stapelspeicher, Kellerspeicher (push,pop), LIFO
-- In Mikroprozessoren: Register Stackpointer
-  - bei Aufruf eines Unterprogramms: Rücksprungadresse ablegen
-  - Parameter und lokale Variablen leben im Stack (vgl. Pufferüberlauf)
-  - beginnt i.d.R. bei hoher Adresse, wächst Richtung 0 "nach unten"
+## Stack(-Speicher)
 
-## Heap (Speicher)
+- vgl. Datenstruktur (Stapel-/Kellerspeicher $\rightarrow$ **LIFO**)
+- beinhaltet **Parameter und lokale Variablen**
+- in Mikroprozessoren: **Register des Stackpointer**
+- bei Aufruf eines Unterprogramms: **Rücksprungadresse ablegen**
+- beginnt i.d.R. bei hoher Adresse, wächst Richtung 0 "nach unten"
+- bei **Multitasking-Systemen** besitzt **jeder Thread eine eigenen Stack**
 
-- beliebig frei zuordnenbarer Speicherbereich
-- in C: vgl. Objekte `malloc()` und co., `free()`
-- ! nicht zu verwechseln mit Datenstruktur Heap
+## Heap(-Speicher)
+
+- dynamischer Speicherbereich
+- kann zur Laufzeit beliebig angefordert werden
+- vgl. `malloc()`/`free()` in `C`
+- im Gegensatz zu Stack deutlich größer
 
 ## AVR ATmega 8515L
 
 ### Flags
 
-- Statusregister SREG enthält 1-Bit-Informationen (Flags)
-- Zeigen Ereignisse an
-  - Carry
-  - Zero
-  - Negative
-  - Overflow
-  - Interrupt
-  - ...
+- Statusregister `SREG` enthält **1-Bit-Informationen** (Flags)
+- zeigen **Zustände** an `Carry`, `Zero`, `Negative`, `Overflow`
+- Grundlage für **bedingte Sprünge**
+- Auch zum **(De-)aktivieren** von Funktionen (`Interrupt`-Flag)
 
 ### Timer
 
-- Zusammenhang MicroController-Takt
-- i.d.R. Teilung des Takt (Prescaler)
-- Anwendungen:
-  - periodische Interrupts als Zeitgeber
-  - Zeitverzögerungen; Ersatz für Programmschleifen
-  - Frequenzgenerator / -messer
-- periodische Interrupts als Zeitgeber
+- **Interrupt-Quelle** im Zusammenhang mit Microcontroller-Takt
+- meist Teilung des Takt durch **Prescaler**
+
+**Anwendungen**
+
+- Zeitgeber (periodische Interrupts)
+- Zeitverzögerungen (Ersatz für Programmschleifen)
+- Frequenzgenerator/-messer
 
 ### Watchdog
 
-- häufigste Anwendung: Reset des Programms im Fehlerfall
-- eigener Takt
-- zählt hoch
-- Erreichen Schwellwert führt zu Neustart
-- Im Normalbetrieb Reset der gezählten Zyklen -> kein Neustart
-- Brownout Detection (Erkennen, ob die Betriebsspannung einen bestimmten Wert unterschreitet)
-  - tritt regelmäßig auf! $\rightarrow$ ohne Detection unvorhersehbares Verhalten
+- Zähler mit eigenem Takt
+- Erreichen eines **Schwellwert** führt zu Neustart
+- Ziel: **Reset** des Programms im Fehlerfall (Endlosschleifen)
+- wird im Normalbetrieb regelmäßig zurückgesetzt
 
 ### Interrupt
 
-- Anforderung zur Unterbrechung des aktuellen Programms durch definiertes Ereignis
-- Interruptflag gesetzt
-  - Program Counter (PC) automatisch auf Stack gspeichert, Statusregister manuell sichern!
-- Behandlung des Interrupts: PC ruft Interrupt Service Routine (ISR) definiert in Interruptvektortabelle auf
-- ...
-- Mit PC vom Stack fortfahren
+> **kurzfristige Unterbrechung** eines Programms durch eine von der CPU abzuarbeitende Befehlssequenz (Interrupt Service Routine $\rightarrow$ schnelle Reaktion auf I/O, Zeitgeber, ...)
+
+#### Ablauf eines Interrupt
+
+- Sperren weiterer Unterbrechungen mit gleicher oder geringerer Priorität
+- Sicherung wichtiger Register-Informationen
+- Bestimmen der Interruptquelle (durch Hardware realisiert)
+- Laden des zugehörigen Interruptvektors
+- Abarbeitung der Interruptroutine
+- Rückkehr zur unterbrochenen Aufgabe (Registerinformationen wiederherstellen)
 
 # Systemprogrammierung
 
-> **ToDo**
->
-> - Parallele Programmierung
-> - Kritischer Abschnitt [DONE]
-> - Atomare Operation
-> - Exklusive Ressource
-> - Fork [DONE]
-> - Deadlock [DONE]
-> - Semaphore [DONE]
-> - Interprozesskommunikation [DONE]
->   - Pipes (uni/bidirektional, named) [DONE]
->   - Sockets (lokal, rechnerübergreifend) [DONE]
->   - Shared Memory [**ToDO**]
-> - Signale?! <!-- Steht nur in der Übersicht am Anfang des Moduls und taucht dann nicht nochmal auf-->
+## Parallele Programmierung
 
-<!-- md2apkg ignore-card -->
-<!-- Deadlock -->
+> gleichzeitige Abarbeitung von Aufgaben
 
-## Wie lautet das Philosophenproblem?
+- Motivation: **Zeit sparen** $\rightarrow$ eine große Aufgabe wird zur selben Zeit in mehreren kleinen Teilen erledigt
+- **Ausnutzung der Hardware:** Multicore-Prozessoren, verteilte Rechnerkerne
 
-- 5 Philosophen mit 5 Stäbchen an rundem Tisch
-- Aktion: Denken oder Essen;
-- Essen benötigt zwei Stäbchen (Nicht genug Ressourcen für alle)
-- gleichzeitiger Zugriff
-- Deadlock kann entstehen
+## Atomare Operation
 
-## Was ist ein Deadlock?
+- Verbund von Einzeloperationen, der als logische Einheit betrachtet wird
+- kann nur als Ganzes erfolgreich ablaufen oder fehlschlagen
+- nicht durch andere Operationen unterbrechbar
 
-- **Allgemein**
-  - Situation, in der sich beide Alternativen eines Dilemmas gegenseitig blockieren **oder**
-  - in der die Handlungspartner nicht zu Kompromissen zur Lösung einer solchen Situation bereit sind, wodurch die Situation ausweglos wird.
-- **Informatik**
-  - Gegenseitige Blockade mehrere Prozesse, weil sie auf die Freigabe von Betriebsmitteln warten, die ein anderer beteiligter Prozess bereits exklusiv belegt hat
+## Exklusive Ressourcen
 
-## Wie werden Deadlocks verhindert oder aufgelöst?
+- Betriebsmittel, die zu jeden Zeitpunkt nur von genau einem Prozess genutzt werden können
 
-- ggf. auch über Pipes (Implementierung notwendig)
-- Sockets benutzen
-- Semaphoren
+## Prozesssynchronisation
+
+> Koordinierung des zeitlichen Ablaufs mehrerer nebenläufiger Prozesse
+
+## Race Condition
+
+> Konstellation, in der das Ergebnis einer Operation vom zeitlichen Verhalten bestimmter Einzeloperationen oder der Umgebung abhängt
+
+## Deadlock
+
+- **Allgemein:** Situation, in der sich beide Alternativen eines Dilemmas gegenseitig blockieren
+- **Informatik:** zyklische **Wartesituation** zwischen mehreren Prozessen, wobei jeder beteiligte Prozess auf die **Freigabe von Betriebsmitteln** wartet, die bereits ein **anderer beteiligter Prozess exklusiv belegt** hat
+
+### Philosophenproblem
+
+- **5 Philosophen** mit **5 Stäbchen** an rundem Tisch
+- Aktion: Denken oder Essen
+- Essen benötigt zwei Stäbchen
+- wenn nur ein Stäbchen verfügbar ist, wird dieses so lange reserviert, bis auch das zweite verfügbar ist.
+
+> gleichzeitiger Zugriff $\rightarrow$ Deadlock
+
+### Vermeidung von Deadlocks
+
+> eine der notwendigen Bedingungen eliminieren
+
+- **Exklusive Ressourcen:** Verwaltung durch Spooler
+- **Belegungs- und Wartebedingung:** alle benötigten Ressourcen im vorraus anfordert und nur dann ausführen, wenn alle verfügbar
+- **Ununterbrechbarkeit:** Prozessen Ressourcen entziehen (oft schwierig/unmöglich $\rightarrow$ Drucker)
+- **Zyklische Wartebedingung:** Ressourcen durchnummerieren und nur in aufsteigender Reihenfolge reservieren
+
+#### "Hartes" Beenden eines Deadlock-Zustandes
+
+- Prozess beenden, Signal `SIGTERM`/`SIGKILL`
 - Reboot
-- Auf Ressource verzichten (Signale an Prozess senden)
-- Prozess beenden, Signal SIGTERM/SIGKILL
 
-<!-- ToDo Erklärung für Pipes, Sockets, Factcheck, sind Semaphoren gemeint?-->
+## fork()
 
-<!-- Fork -->
-
-## Zweck, Wirkweise fork()
-
-- es wird eine exakte Kopie des Aufrufers als Kindprozess erzeugt
+- erzeugt exakte Kopie des Aufrufers als Kindprozess
 - Kindprozess übernimmt Code, Daten inkl. Befehlszähler, Dateideskriptoren, ...
 
-<!-- Sempahore -->
-
-## Rückgabewerte fork
+### Rückgabewerte von fork()
 
 - `>0`: die PID des Kindprozesses
 - `0`: es wurde eben geforkt und wir sind das Kind
 - `-1`: Fehler
 
-<!-- Interprozesskommunikation IPC -->
+## Semaphore
 
-## Motivation Interprozesskommunikation
+- Variable, die die **Verwaltung beschränkter (zählbarer) Ressourcen** ermöglicht
+- Manipulation der Semaphore über zwei **unteilbare Operationen** (reservieren = `P(sema)`; freigeben = `V(sema)`)
+- **Synchronisation** von Prozessen $\rightarrow$ Semaphore **realisiert ein passives Warten der Prozesse**
 
-- Verhinderung von
+## Kritische Abschnitt
+
+> mehreren Einzelanweisungen, deren Zwischenergebnisse inkonsistente Zustände darstellen
+
+- zu jedem Zeitpunkt darf sich nur ein einziger Prozess in diesem Abschnitt aufhalten (Sicherstellung der Konsistenz, Deadlocks)
+- Entwickler definieren einen kritischen Abschnitt
+
+## Interprozesskommunikation
+
+> Informationsaustausch zwischen mehreren Prozessen
+
+- Mittel: Pipes, Sockets, Shared Memory
+- Ziel: Verhinderung von...
   - gleichzeitigen Schreibzugriffen
   - Verhungern von Prozessen
   - Deadlocks
 
-### Wie können Sie bidirektionale Interprozesskommunikation ermöglichen?
+### Pipes
 
-- Pipe umdrehen, ggf. mit Zugriffskonzept (Semaphore), BAD Practice
-- 2 Pipes verwenden
-- Sockets
+- **unidirektionaler Datenstrom zwischen zwei Prozessen**
+- vgl. Puffer/Warteschlange nach dem **FIFO**-Prinzip
 
-<!-- Semaphore -->
+#### Pipes: Arten
 
-## Was sind Semaphoren und wozu werden Sie eingesetzt?
+- **namenlose Pipes:** Kommunikation zwischen Prozessen mit gemeinsamen Vorfahren (`fork()`)
+- **benannte Pipes:** Zugriff durch alle Prozesse mit Zugriffsrecht möglich
 
-- Mittel der Interprozesskommunikation zur Verwaltung von (exklusivem) Zugriff auf Ressourcen
-- Deadlock vermeiden
-
-## Was ist der kritische Abschnitt im Kontext Sempahoren?
-
-- Es ist ein Codebereich, der nur in einer definierten Anzahl von Prozessen gleichzeitig zur Verfügung steht (stehen sollte)
-- Entwickler müssen im Programm dafür Sorge tragen und den kritischen Abschnitt definieren
-- Semaphor Operation P, Passieren, Vor dem kritischen Abschnitt LOCK - Ressourcen blockieren
-- Semaphor Operation V, Verlassen, Nach dem kritischen Abschnitt UNLOCK - Ressourcen freigeben
-
-<!-- Pipes -->
-
-## Was sind Pipes im Kontext Interprozesskommunikation? Unterscheiden Sie zwei Arten von Pipes
-
-- unidirektionaler Datenstrom zwischen zwei Prozessen: Puffer/Warteschlange nach dem FIFO-Prinzip
-- namenlose Pipes: Kommunikation zwischen verwandten Prozessen (vgl. fork())
-- benannte Pipes: Zugriff durch alle Prozesse mit Zugriffsrecht möglich
-
-## Welche Operationen auf einer Pipe kennen Sie? Beschreiben Sie deren Funktion
+#### Pipes: Operationen
 
 - `write(pipefd[1],buffer)`
-  - Write: Aus Programmbuffer auf die Pipe schreiben, in den Kernelbuffer
-  - Daten sind gepuffert bis sie gelesen werden
+  - Write: aus **Programmbuffer auf die Pipe schreiben** (in den Kernelbuffer)
+  - Daten sind **gepuffert bis sie gelesen werden**
 - `read(pipefd[0],buffer)`
-  - Read: Aus Kernelbuffer in Programmbuffer schreiben; aus Sicht des Programms von Pipe lesen
-  - Lesen verbraucht Daten der Pipe
+  - Read: aus **Kernelbuffer in Programmbuffer schreiben** ("Pipe lesen")
+  - Lesen verbraucht Daten der Pipe (vgl. Warteschlange)
 
-<!-- Socket -->
+### Socket
 
-## Addressfamilien Socket
+#### Socket: Addressfamilien
 
-- POSIX local inter-process communication sockets/Unix Domain Socket/IPC Socket (AF_UNIX,AF_LOCAL)
-- Internet-Domain (AF_INET und AF_INET6)
+- `AF_UNIX`: Unix-Domain
+- `AF_INET`: Internet-Domain (bzw. `AF_INET6`)
 - diverse andere, viele veraltet
-  - AF_IRDA
-  - AF_BLUETOOTH
+  - `AF_IRDA`
+  - `AF_BLUETOOTH`
 
-## Arten Socket
+#### Socket: Arten
 
-- Verbindungslos (SOCK_DGRAM)
-- vollduplex, verbindungsorientiert (SOCK_STREAM)
+- `SOCK_DGRAM`: verbindungslos (vgl. `UDP`)
+- `SOCK_STREAM`: verbindungsorientiert (vgl. `TCP`)
 
 außerdem
 
-- SOCK_RAW nur für Developer, Root-User, Zugriff auf L3,L2-Felder --> eigenes L4-Protokoll entwickeln
-- SOCK_SEQPACKET (nur UNIX, besseres SOCK_STREAM)
+- `SOCK_RAW`: nur für Developer, Root-User, Zugriff auf L3,L2-Felder $\rightarrow$ eigenes L4-Protokoll entwickeln
 
-## Unterschied Pipe Socket
+### Pipe vs. Socket
 
-- Pipes
-  - Unix-Domaine exklusiv, d.h. gleiches Rechensystem
-  - unidirektional
-- Socket
-  - Unix/Internetdomäne
-  - bidirektional
+| Pipes                                                                 | Sockets               |
+| --------------------------------------------------------------------- | --------------------- |
+| - unidirektional                                                      | - bidirektional       |
+| - Unix-Domaine (nur gleiches Rechensystem)                            | - Unix/Internetdomäne |
+| - Kommunikationspartner benötigen gemeinsamen Elternprozess (unnamed) |                       |
+
+### Shared Memory
+
+- **geteilter Speicherbereich** zwischen mehreren Prozessen
+- Kommunikation über Shared Memory erfordert **Prozesssynchronisation**
+
+### bidirektionale Interprozesskommunikation
+
+- zwei Pipes (für jede Richtung eine)
+- Sockets
+- Shared Memory
 
 # Entwicklung von Webanwendungen
 
-> **ToDo**
->
-> - HTML [DONE 90%]
-> - CSS [DONE?]
->   - Selektoren [DONE]
-> - Javascript
-> - PHP
-
-<!-- md2apkg ignore-card -->
-
-## Geschichte des Internets
-
-<!-- md2apkg ignore-card -->
-
-- 1958: Gründung Advanced Research Projects Agency
-- 1969: ARPAnet vernetzt 4 Großrechner in Kalifornien und Utah
-- 1972: 37 Einrichtungen in USA angeschlossen
-- 1974: Entwicklung TCP, später TCP/IP
-- 1986: Top Level Domains werden ins Leben gerufen
-- 1989: Timothy Berners-Lee entwickelt ersten "Browser" WorldWideWeb
-- 1991: Berners-Lee veröffentlicht HTML sowie die erste WWW-Seite
-- 1992: 1 Mio. Rechner im Internet
-- 2001: Wikipedia geht online
-- 2005: Youtube geht ins Netz
-  - $\rightarrow$ erstmals von Web 2.0 gesprochen (Inhalte kommen primär von den Nutzern)
-
 ## Client-Technologien
 
-- HTML 5 $\rightarrow$ Beschreibung der Struktur der Webseiten
-- CSS 3 $\rightarrow$ Formatierung / Aussehen
-- Java-/ECMA-Script $\rightarrow$ Interaktion
-- DOM/Ajax $\rightarrow$ Manipulation des Seiteninhalts
-- Flash $\rightarrow$ obsolet
-- JSON, XML(SVG, MathML, RSS, GraphML, ...) $\rightarrow$ Datenaustausch
+- `HTML 5` $\rightarrow$ Beschreibung der Struktur der Webseiten
+- `CSS 3` $\rightarrow$ Formatierung / Aussehen
+- `Java-/ECMA-Script` $\rightarrow$ Interaktion
+- `DOM/Ajax` $\rightarrow$ Manipulation des Seiteninhalts
+- `JSON`, `XML`(`SVG`, `MathML`, `RSS`, `GraphML`, ...) $\rightarrow$ Datenaustausch
 
 ## Server-Technologien
 
-- PHP
-- NodeJS
-- Ruby (on Rails)
-- Java
-- ASP.NET
-- ColdFusion
+- `PHP`
+- `Java`
+- `NodeJS`
+- `Ruby` *(on Rails)*
+- `ASP.NET`
 
 ## HTML
 
 ### HTML-Sytnax: Tags
 
-- Auszeichnung von Textelementen durch Tags
+- Auszeichnung von Elementen durch Tags
 - `<tag>Text</tag>`
-- Öffnendes Tag  schließendes Tag  dazwischen Body
 - schließende Tags können in einigen Fällen entfallen (z.B. `<img/>`)
-- Tags können Attribute enthalten `<tag attribut="Wert">body</tag>`
+- Tags können **Attribute** enthalten `<tag attribut="Wert">body</tag>`
+- Tags können **hierarchisch** geschachtelt werden
 
-### HTML Struktur: `<html>`
+### HTML-Struktur: `<html>`
 
 - `<html>` ist sogenanntes Wurzeltag
-- Attribut "lang" gibt die Dokumentensprache an
+- Attribut `lang` gibt die Dokumentensprache an
 
-### HTML Struktur: `<head>`
+### HTML-Struktur: `<head>`
 
-- Dateikopf, Metainformationen, keine Darstellungen
-- Informationen werden durch Browser, Suchmaschinen und Crawler benutzt
+- **Dateikopf**, **Meta**informationen, **keine Darstellungen**
+- Informationen werden durch **Browser**, **Suchmaschinen** und **Crawler** benutzt
 
-### Beispielelemente in `<head>`
+### HTML-Struktur: `<body>`
 
-```html
-  <head>
-    <meta charset="utf-8" />
-    <!--kann Funktion eines HTTP-Response-Headers erfüllen-->
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <!--Größe der Darstellung auf Displaygröße des Devices anpassen-->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--Seite stellt zwei Farbschemata zur Verfügung, bevorzugt hell -->
-    <meta name="color-scheme" content="light dark">
-    <title>Hier steht der Titel der Seite</title>
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="icon" href="images/favicon.png" />
-    <meta charset="UTF-8">
-    <meta name="description" content="Seite">
-    <meta name="keywords" content="HTML, CSS">
-    <meta name="author" content="John Doe">
-    <title>Titel</title>
-  </head>
-```
-
-### HTML Struktur: `<body>`
-
-Hauptteil der Seite, Inhalt, angezeigte Elemente
-
-### HTML Hyperlinks
-
-- `a` $\rightarrow$ anchor aka Hyperlinks
-- `href="dokument.html"` ODER `="#ziel"` ODER `="dokument#ziel"`
-- `href=""` $\rightarrow$ Seite neuladen
-- `href="#"` oder `href="#top"` $\rightarrow$ Seitenanfang
-- `download` $\rightarrow$ bei href angegebene Datei soll heruntergeladen werden
-- `target` $\rightarrow$ wo Linkziel öffnen
-
-### HTML Tabellen
-
-```html
-<table> <!-- Beginn einer Tabelle>
-<tr> <!-- Tabellen Reihe>
-<td> <!-- Tabellen Daten bzw. Spalte>
-</td>
-</tr>
-</table>
-```
-
-### HTML Formulare
-
-```html
-<form>
- <label for="name">Name</label><!-- Beschriftung-->
- <input id="name" type="text"><!-- Eingabefeld-->
- <button type="submit">Absenden</button><!-- Button-->
-   <label for="cars">Choose a car:</label>
-  <select id="cars" name="cars"> <!-- Auswahlmenü-->
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-  </select>
-</form>
-```
-
-- input type:
-  - `text`
-  - `password`
-  - `color`
-  - `checkbox`
-  - `date`
-  - `file`
-  - `number`
-  - `radio`
-  - `range`
-
-### HTML Listentypen
-
-- sortiert $\rightarrow$ `ol` > `li`
-- unsortiert $\rightarrow$ `ul` > `li`
-- Beschreibungsliste $\rightarrow$ `dl` > `dt`, `dd`
+- Hauptteil der Seite
+- Inhalt (angezeigte Elemente)
 
 ### HTML 5: Verbesserungen
 
-- Schwerpunkt auf Gliederung der Seite $\rightarrow$ bessere Übersicht bei vielen Elementen
-- Suchmaschinen werten den Inhalt der Seite besser aus (mehr Semantik in der Syntax)
+- Schwerpunkt auf **semantischer Gliederung** der Seite
+- bessere **automatisierte Auswertung** der Inhalte durch **Suchmaschinen**
 - Screenreader können flüssiger lesen
 - weitere Neuerungen für Multimedia, Formulare
 
-### HTML 5 Gliederungselemente
+#### HTML 5: Gliederungselemente
 
-- ``<header>``
-- ``<nav>``
-- ``<main>``
-- ``<article>``
-- ``<section>``
-- ``<footer>``
-- ``<aside>``
+- `<header>`
+- `<nav>`
+- `<main>`
+- `<article>`
+- `<section>`
+- `<footer>`
+- `<aside>`
+- ...
 
 ### HTML Universalattribute
 
-- `id` $\rightarrow$ eineindeutig
-- `class` kann mehrmals vergeben werden
-- `accesskey` (Taste zum Anspringen des Elementes)
-- `contenteditable` (Inhalt kann verändert werden)
-- `dir` (Schreibrichtung ltr oder rtl)
-- `hidden`  (Element ausgeblendet)
-- `draggable` (Kann Element gezogen werden?)
-- `lang` (Sprache für Elemente überschreiben)
-- `style` (inline-css)
-- `title`
+- `id`: eineindeutig
+- `class`: kann mehrmals vergeben werden
+- `hidden`: Element ausblenden
+- `lang`: Sprache für Elemente überschreiben
+- `style`: inline CSS-Attribute
 
 ## CSS
 
-### CSS einbinden
+### CSS in HTML einbinden
 
-- inline CSS (`style="..."`)
-- `<style></style>` im HTML-Header
-- externes CSS einbinden (`<link rel="stylesheet" type="text/css" href="style.css">` im ``<head>``)
+- `<style>`-Tag in `head`/`body` im HTML
+- inline für einzelne Elemente (`style="..."`)
+- externe CSS-Datei (`<link rel="stylesheet" type="text/css" href="style.css">`)
 
 ### Box-Model
 
-- alle HTML-Elemente werden von Boxen umgeben (innen nach außen)
-  - Content: Inhalt, Bilder, Texte
-  - Padding: Bildet einen Puffer zwischen Content und Border, transparent
-  - Border: Rand um das Padding, z.B. Linie mit eigener Breite, Farbe
-  - Margin: Abstand zu anderen Elementen, transparent
+> alle HTML-Elemente werden von Boxen umgeben (innen nach außen)
 
-## Selektoren
+- **Content:** Tatsächliche Größe des Inhalts (Bild/Text/...)
+- **Padding:** Puffer zwischen Content und Border, transparent
+- **Border:** Abgrenzung um das Padding (Linie mit eigener Breite, Farbe)
+- **Margin:** Abstand zu anderen Elementen (transparent)
+
+![Box-Model](assets/box-model.png)
+
+### Selektoren
 
 - Typselektor (HTML-Element)
-- Universalselektor (*)
+- Universalselektor (`*`)
 - Klassenselektor (beginnt mit `.`)
 - ID-Selektor (beginnt mit `#`)
 - Attributselektor `[Attributname]`
 - Pseudoklassen (beziehen sich auf Eigenschaften der HTML-Elemente)
-- Pseudoelemente (beginnen mit `::`) z.B. p :: before {content: ´+´}
+- Pseudoelemente (beginnen mit `::`) z.B. `p :: before {content: ´+´}`
 - Verbundsselektoren (*.classname) bezieht sich auf Hierachie, benachbarte Elemente
 
 ## Javascript
@@ -463,79 +359,44 @@ Hauptteil der Seite, Inhalt, angezeigte Elemente
 - Autovervollständigung/Suchvorschläge
 - Manipulation von Websites per DOM
 
-### Verwendung im Browser / mit HTML
+### JS in HTML einbinden
 
-- Einbinden von JavaScript Code in HTML mittels `<script>`-Tag
-- inline im Tag oder mit `<script src="müll.js">`
-- Ausführung im Browser mit bspw. Chromiums V8 oder Firefox' SpiderMonkey
-- Ausführung auch unabhängig vom Browser mit Node (nicht Node.js)
+- `<script>`-Tag in `head`/`body` im HTML
+- inline in bestimmten Tags (z.B. `onclick`)
+- externe JS-Datei `<script src="müll.js">`
 
-### Typisierung JavaScript (static-dynamic)
+**Weitere Umgebungen**
 
-dynamic
+- Entwicklerkonsole des Browsers
+- Ausführung auch unabhängig vom Browser mit `Node` $\rightarrow$ `JS` auch für Serveranwendungen
 
 ### Unterschied JavaScript & ECMA-Script
 
-- ECMA-Script $\rightarrow$ Scripting Language Specification
-- JavaScript (& andere Scriptsprachen) $\rightarrow$ setzen diesen Standard um
+- `ECMA-Script` $\rightarrow$ Scripting Language Specification
+- `JavaScript` (& andere Scriptsprachen) $\rightarrow$ setzen diesen Standard um
 
-### DOM (Document Object Model)
+### DOM
 
-- Programmierschnittstelle für HTML- und XML-Dokumente
-- Dokumente als Baumstruktur
-  - jeder Knoten ist ein Objekt im Dokument (Textabschnitte, Überschriften, Tabellen)
-  - es existieren Eltern- und Kindknoten (hierarchischer Aufbau)
-- Zugriff auf Objekte des Dokuments, Manipulation
-- Unterscheidung zwischen:
-  - Elementknoten $\rightarrow$ die hierarchisch miteiander verbundenen Knoten
-  - Attributknoten $\rightarrow$ Eigenschaften von Elementknoten
-  - Textknoten $\rightarrow$ Textinhalt eines Elementknotens
+> Document Object Model
 
-```javascript
-document.getElementById(); // document.getElementById('div1')
-document.getElementsByName(); // returnt viele
-document.getElementsByTagName(); // returnt viele; Bsp.: <p> --> document.getElementsByTagName('p')
-document.getElementsByClassName(); // returnt viele
-document.querySelector(); // gibt erstes Element, das dem angegebenen CSS-Selektor entspricht, z.B.: document.querySelector('#franz');
-document.querySelectorAll(); // gibt alle Elemente, die dem angegebenen CSS-Selektor entsprechen
-```
+- **Programmierschnittstelle** für HTML- (und XML-Dokumente)
+- stellt HTML-Elemente als **Baumstruktur** dar
+  - jeder Knoten ist ein Element (Textabschnitte, Überschriften, Tabellen)
+  - **hierarchischer Aufbau** (Eltern- und Kindknoten)
+- ermöglicht **Zugriff und Manipulation von Elementen**
 
 ## PHP
 
-### Einbinden
+> Skriptsptache zur Erstellung dynamischer Webseiten
 
-```html
-<?php
+**Anwendungsbereiche**
 
-?>
-```
-
-### Anwendung
-
-- Backend
+- Backend (Datenverarbeitung)
 - Datenbankzugriff
 - Sessionverwaltung
 - Autorisierung
-- u.v.m
 
 # IT-Sicherheit/-Recht/-Infrastrukturen
-
-> **ToDo**
->
-> - IT-Sibe
-> - ISO 27001
-> - BSI 200er kennen
-> - IT-Grundschutz-Kompendium und Bausteine einordnen
-> - Governance vs. Compliance [DONE]
-> - Geltende Gesetze
-> - Schutzziele [DONE]
-> - DSGVO
->   - Personenbezogene Daten [DONE]
->   - Besondere Datenkategorien [DONE]
->   - Grundsätze der Verarbeitung [DONE]
-> - Anonymisierung, Pseudonomisierung
-
-<!-- md2apkg ignore-card -->
 
 ## Schutzziele
 
@@ -553,21 +414,18 @@ erweitert:
 
 > beinhaltet Einführung in die IT-Grundschutz-Methodik, Modellierung, Bausteine, Elementare Gefährdungen
 
-- Prozess-Bausteine: ISMS (Sicherheitsmanagement), ORP (Organisation und Personal), CON (Konzeption und Vorgehensweise), OPS (Betrieb, vier Teilschichten: Eigener IT-Betrieb, Betrieb von Dritten, Betrieb für Dritte und Betriebliche Aspekte), DER (Detektion und Reaktion)
-- System-Bausteine: APP (Anwendungen), SYS (IT-Systeme), IND (Industrielle IT), NET (Netze und Kommunikation), INF (Infrastruktur)
+- **Prozess-Bausteine:** `ISMS` (Sicherheitsmanagement), `ORP` (Organisation und Personal), `CON` (Konzeption und Vorgehensweise), `OPS` (Betrieb), `DER` (Detektion und Reaktion)
+- **System-Bausteine:** `APP` (Anwendungen), `SYS` (IT-Systeme), `IND` (Industrielle IT), `NET` (Netze und Kommunikation), `INF` (Infrastruktur)
 
-## Governance / Compliance
+## Governance vs. Compliance
 
 - **Governance:** Einhaltung von Richtlinien wird **empfohlen**
 - **Compliance:** Einhaltung von Richtlinien ist **verpflichtend**
 
 ## Geltende Gesetze
 
-<!-- ToDo: unvollständig -->
-
 - DSGVO
 - Telemediengesetz
-- Urheberrecht
 - E-Government-Gesetz
 - klassisches IT-Recht besitzt nur vereinzelt besondere Gesetze ($\uparrow$)
 - relevante Normen größtenteils über viele verschiedene Rechtsquellen verteilt
@@ -606,8 +464,8 @@ erweitert:
 
 ### `BSI-Standard 200-1`: Managementsysteme für Informationssicherheit
 
-- Was: Erfolgsfaktoren beim Mgmt von Informationssicherheit
-- Wie: Steuerung und Überwachung des Sicherheitsprozesses vom verantwortlichen Mgmt
+- Was: Erfolgsfaktoren beim Management von Informationssicherheit
+- Wie: Steuerung und Überwachung des Sicherheitsprozesses vom verantwortlichen Management
 - Wie: Entwicklung von Sicherheitszielen und angemessener Sicherheitsstrategie
 - Wie: Auswahl Sicherheitsmaßnahmen und Erstellung Sicherheitskonzepte
 - Wie: Erhalten und Verbessern eines erreichten Sicherheitsniveaus
@@ -622,7 +480,6 @@ erweitert:
   - Erstellung eines IT-Sicherheitskonzepts
   - Auswahl angemessener IT-Sicherheitsmaßnahmen
   - IT-Sicherheit aufrecht erhalten und verbessern
-
 - Basis-, Kern- oder Standard-Absicherung
 - Standard-Absicherung ermöglicht ISO 27001 Zertifizierung
 
@@ -639,64 +496,32 @@ erweitert:
 
 > immer währenddessen: Aufrechterhaltung und kontinuierliche Verbesserung
 
+## Anonymisierung vs. Pseudonymisierung
+
+- **Anonymisierung:** **Verändern personenbezogener Daten** derart, dass diese Daten nicht mehr oder nur mit einem unverhältnismäßig großen Aufwand (Zeit/Kosten) einer bestimmten oder bestimmbaren natürlichen Person zugeordnet werden können
+- **Pseudonymisierung:** **Ersetzen von Identifikationsmerkmal** durch Pseudonym sodass eine Festellung der Identität des Betroffenen ausgeschlossen werden kann
+
+> bei der Pseudonymisierung können Bezüge verschiedener Datensätze erhalten bleiben
+
 # Rechnernetze und Verteilte Systeme
 
 > **ToDo**
 >
-> - Rechnernetzadministration Sem5 Barié
->   - VLAN
->   - Spanning Tree Protocol
->   - BGP
->   - SPOF
->   - Architekturen
-> - verteilte Systeme Sem 6 Feldmann
->   - Verteiltes System (Definition) [DONE]
->   - CAP-Theorem [DONE]
->   - Namens- und Verzeichnisdienste [DONE]
->   - Caching vs. Replikation [DONE]
->   - ACID vs. BASE [DONE]
->   - sync. vs. async (Replikation)
->   - Architekturen
+> - sync. vs. async (Replikation)
 > - Firewalls
+> - OSPF
 
 <!-- md2apkg ignore-card -->
-
-## VLAN
-
-- Unterscheidung physische Topologie, logische Topologie
-- auf L2 angesiedelt (Ethernet)
-- **portbasiert / untagged**: Zuordnung Ports zu VLAN auf Managed Switch
-  - Endgerät weiß nichts von VLAN, normale Ethernet-Pakete
-- **tag-basiert / tagged**: fügt ein [802.1q](https://de.wikipedia.org/wiki/IEEE_802.1Q) Feld im Ethernet-Header hinzu, welches VLAN ein Paket hat
-  - mehrere VLANs pro Port möglich (oft "Trunk-Port")
-  - erfordert Hardware mit VLAN-Support
-- tagged VLAN auf unmanaged Switches: leiten korrekt weiter, können nicht tagged und untagged konvertieren
-
-## Spanning Tree Protocol
-
-- STP etabliert sich innerhalb des Netzes einen Spannbaum durch das Blockieren von Ports
-- Spannbaum muss bei Ausfall physischer Links angepasst werden
-- jedes VLAN benötigt seinen eigenen Spanning-Tree
-
-
-## eBGP
-
-- Kommunikation zwischen AS
-- Border Router: gegenseitiges Peering mit fremden Border Router; Adresse muss bekannt sein
-- Austausch Nachrichten: "Ich kenne den Weg zu Netz 123, die Wegkosten sind 456"
-
-
-# Verteilte Systeme ToDo
 
 ## Verteiltes System (Definition)
 
 Ein verteiltes System...
 
-- besteht aus mehreren Einzelkomponenten auf unterschiedlichen Rechnern
-- besitzt keinen gemeinsamen Speicher
-- koordiniert und kooperiert mittels Nachrichtenaustausch (Netzwerk)
-- hat ein gemeinsames Ziel
-- tritt gegenüber Nutzenden als kohärentes System auf
+- besteht aus **mehreren Einzelkomponenten** auf **unterschiedlichen Rechnern**
+- besitzt **keinen gemeinsamen Speicher**
+- koordiniert und kooperiert mittels **Nachrichtenaustausch** (Netzwerk)
+- hat ein **gemeinsames Ziel**
+- tritt gegenüber Nutzenden als **kohärentes System** auf
 
 ## CAP-Theorem
 
@@ -751,10 +576,6 @@ Ein verteiltes System kann zwei der folgenden Eigenschaften gleichzeitig erfüll
 | **Implementation**   | komplex, begrenzt skalierbar | einfach implementier und skalierbar              |
 | **Attribute**        | konservativ / pessimistisch  | aggressiv / optimistisch / best effort           |
 
-## Architekturen
-
-<-- Klausurersatzleistung, mehr? ToDo -->
-
 ### Dreistufige Architektur
 
 - Präsentationsschicht - User Interface
@@ -773,23 +594,36 @@ Ein verteiltes System kann zwei der folgenden Eigenschaften gleichzeitig erfüll
 - erschwert klare Zuordnung von Funktionen und Verantwortlichkeiten
 - erhöhter administrativer Aufwand
 
+## VLAN
+
+- Unterscheidung physische Topologie, logische Topologie
+- auf L2 angesiedelt (Ethernet)
+- **portbasiert / untagged**: Zuordnung Ports zu VLAN auf Managed Switch
+  - Endgerät weiß nichts von VLAN, normale Ethernet-Pakete
+- **tag-basiert / tagged**: fügt ein [802.1q](https://de.wikipedia.org/wiki/IEEE_802.1Q) Feld im Ethernet-Header hinzu, welches VLAN ein Paket hat
+  - mehrere VLANs pro Port möglich (oft "Trunk-Port")
+  - erfordert Hardware mit VLAN-Support
+- tagged VLAN auf unmanaged Switches: leiten korrekt weiter, können nicht tagged und untagged konvertieren
+
+## Spanning Tree Protocol
+
+- STP etabliert sich innerhalb des Netzes einen Spannbaum durch das Blockieren von Ports
+- Spannbaum muss bei Ausfall physischer Links angepasst werden
+- jedes VLAN benötigt seinen eigenen Spanning-Tree
+
+## eBGP
+
+- Kommunikation zwischen AS
+- Border Router: gegenseitiges Peering mit fremden Border Router; Adresse muss bekannt sein
+- Austausch Nachrichten: "Ich kenne den Weg zu Netz 123, die Wegkosten sind 456"
+
 # Allgemeine Betriebswirtschaftslehre
 
 > **ToDo**
 >
 > - Kalkulation <!--Günther-->
 >   - Break-Even-Analyse
->   - Teil- vs. Vollkostenrechnung
->   - statische Amortisationsrechnung [DONE]
 > - Angebotsarbeit <!--Günther-->
-> - Unternehmen/Betrieb/Firma (Defintionen) [DONE]
-> - Rechtsformen (Überblick)
-> - Produkt-/Preis-/Kommunikations-/Distributions-Politik <!--?-->
-> - SWOT <!--?-->
-> - Projekt (Definition, Phasen)
-> - Klassische Qualitätssicherung vs. TQM <!--?-->
-
-<!-- Kompetenz !!!-->
 
 <!-- md2apkg ignore-card -->
 
@@ -799,7 +633,26 @@ Ein verteiltes System kann zwei der folgenden Eigenschaften gleichzeitig erfüll
 - **Betrieb:** Ort der Leistungserbringung
 - **Firma:** Geschäftsbezeichnung eines Unternehmens inkl. Rechtsformzusatz
 
+## Rechtsformen
+
+- **Personengesellschaften:** GbR, OHG, ... (persönliche und unbegrenzte Haftung der Gesellschafter)
+- **Kapitalgesellschaften:** GmbH, AG, ... (Haftung mit dem Vermögen der Gesellschaft $\rightarrow$ selbstständige juristische Person)
+
 ## BWL-Kalkulation
+
+### Vollkostenrechnung
+
+> Verfahren der Kostenrechnung, das sämtliche Leistungen und Kosten (**fixe und variable Kosten**) auf die Kostenträger verteilt
+
+- Vorteil: einfaches Verfahren zur Bestimmung einer langfristigen Preisuntergrenze
+- Nachteil: Fixkostenproportionalisierung: tatsächlich produzierte Menge wird nicht berücksichtigt
+
+### Teilkostenrechnung
+
+> Verfahren der Kostenrechnung, das nur einen **Teil der Kosten** auf die Kostenträger verteilt
+
+- Vorteil: verursachungsgerechte Bestimmung mit Orientierung am Deckungsbeitrag
+- Nachteil: laufende Kosten werden nicht berücksichtigt (mittelfristiges Risiko)
 
 ### Statische Amortisationsrechnung
 
@@ -807,19 +660,70 @@ Ein verteiltes System kann zwei der folgenden Eigenschaften gleichzeitig erfüll
 
 $$\text{Amortisationszeit} = \frac{\text{Kapitaleinsatz}}{\text{Rückflüsse pro Jahr}}$$
 
+## Instrumente des Marketings
+
+- **Produkt-/Dienstleistungspolitik**
+  - Produkt-/Dienstleistungsportfolio
+  - Breite & Tiefe des Sortiments
+  - Aktualität
+- **Distributionspolitik**
+  - Vertrieb
+  - Bereitstellung und Logistik
+  - Pflege der Kundenbeziehungen
+- **Kommunikationspolitik**
+  - Werbung
+  - Einsatz der Werbemittel/-Träger und Zielgruppenansprache
+- **Preispolitik**
+  - Preis der Produkte/Dienstleistungen
+  - Angebot und Nachfrage
+
+## Projekt und Projektmanagement (Definitionen)
+
+- **Projekt:** risikobehafteter, hoch komplexer Gegenstand einer Handlung (Ziel/Aufgabe) mit begrenzten Ressourcen (HR, MR, FR) in einem bestimmten Zeitrahmen
+- **Projektmanagement:** Organisation von Ablauf, Abrechnung und Dokumentation der Umsetzung eines Projektes
+
+### Planungszeiträume
+
+- **strategisch** (> 3/5 Jahre): langfristige, grundlegende Ziele
+- **taktisch** (< 3/5 Jahre, >1 Jahr): mittelfristige Teilziele
+- **operativ** (<1 Jahr): kurzfristige Prozesssteuerung
+
+### PDCA
+
+**Plan**
+
+- Prozessplanung
+- Erkennen von Verbesserungspotentialen, Aufgaben und Zielstellung
+- Analyse des aktuellen Stands, Entwicklung eines neuen Konzepts
+
+**Do**
+
+- Ausprobieren, Testen, praktisches Optimieren des Konzeptes
+- durch schnell realisierbare, einfache Mittel
+- Erfassen und Sammeln der anfallenden Daten
+
+**Check**
+
+- Überprüfen und Analyse der gesammelten Daten
+
+- bei Erfolg als Standard für Umsetzung freigeben
+
+**Act**
+
+- Anwendung und Fixierung des neuen Standards in der Organisation
+- Überprüfung der Daten auf Einhaltung $\rightarrow$ Audits
+
+## Klassische Qualitätssicherung vs. TQM
+
+| Klassische Qualitätssicherung                                 | Total-Quality-Management                                                      |
+| ------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| Menschen machen Fehler                                        | Prozesse provozieren Fehler                                                   |
+| Einzelne Mitarbeiter sind für Fehler verantwortlich           | Alle Mitarbeiter sind für Fehler verantwortlich                               |
+| Null Fehler sind nicht realisierbar                           | Null Fehler ist das Ziel                                                      |
+| Einkauf von vielen Lieferanten                                | Partnerschaft mit wenigen Lieferanten ($\rightarrow$ Supply-Chain-Management) |
+| Kunden müssen nehmen, was das Unternehmen an Qualität liefert | Alles ist auf vollkommene Kundenzufriedenheit ausgerichtet                    |
+
 # Entwicklerwerkzeuge
-
-> **ToDo**
->
-> - Dokumentationsgeneratoren (Vorteile) [DONE]
-> - Builds-Tools (Make) [DONE]
-> - Versionsverwaltung [DONE]
-> - Debugger (Arten) [DONE]
-> - Speicherzugriffsanalyse (statisch/dynamisch) [DONE]
-> - Profiling [DONE]
-> - Unit-Tests [DONE]
-
-<!-- md2apkg ignore-card -->
 
 ## Dokumentation
 
@@ -923,16 +827,6 @@ int someFunction(int par1, ///< parameter 1
 
 # Compilerbau
 
-> **ToDo**
->
-> - Lexer [DONE]
-> - Parser [DONE]
->   - Top-Down-Parser
->   - Shift-Reduce-Parser
-> - Compiler-Compiler
-
-<!-- md2apkg ignore-card -->
-
 ## Lexer
 
 > *"lexikalischer Analysator"*
@@ -950,75 +844,77 @@ int someFunction(int par1, ///< parameter 1
 
 # Computerforensik
 
-> **ToDo**
->
-> - Definition: Digitale Forensik
-> - Datenschutzvorfall
-> - Bereiche
-> - Spuren
-> - Post-Morem vs. Live-Forensik
+## Digitale Forensik
 
-<!-- md2apkg ignore-card -->
+- **streng methodisch vorgenommene Datenanalyse** (Datenträgern, Computernetzen)
+- Ziel: **Aufklärung von Vorfällen**
+- Verwendung von Möglichkeiten der strategischen Vorbereitung
+  - insbesondere aus der Sicht des Anlagenbetreibers eines IT-Systems
+
+## Spuren
+
+- materielle **Veränderungen an Personen oder Objekten**
+- stehen **im Zusammenhang mit relevanten Ereignissen**
+- **können zur Tataufklärung beitragen** (geben Rückschlüsse auf Tatablauf und Täter)
+
+### Unterschiede im Gegensatz zu analogen Spuren
+
+- digitale Spuren entstehen im Hintergrund
+- können flüchtig sein, sind leicht änderbar
+- können verschlüsselt sein
+- liegen physisch auf Datenträger vor und müssen dann logisch interpretiert werden um lesbar zu werden
+
+## Live Forensik
+
+- *während das System noch läuft* findet die Untersuchung eines Vorfalls statt
+- Daten live abziehen, wenn das System noch läuft (z.B. RAM)
+- Anwendung wenn kein physischer Zugriff/man weiß nicht was drauf läuft/evtl. Verschlüsselung bei herunterfahren
+- Vorteil: geht deutlich schneller
+
+## Post-mortem Forensik
+
+- *"nach dem Tod"* (nach einem Vorfall) werden Daten erhoben und analysiert (z.B. Datenträger-Forensik)
+- wenn Rechner ausgeschaltet und Festplatte ausbaubar $\rightarrow$ komplettes Datenträgerabbild mit forensischer Maschine erstellen
+- immer wieder neue Wege zur Ermittlung einschlagbar durch vollumfängliche Kopie
 
 # IT-Consulting
 
-> **ToDo**
->
-> - DevOps
-> - Virtualiserung vs. Containerisierung
-
 ## DevOps
 
-- Kofferwort aus "Development" und "Operations"
-- bezeichnet Entwicklung und Betrieb einer Software durch dasselbe Team, untrennbar
+- Kofferwort aus **Development** und **Operations**
+- bezeichnet Entwicklung und Betrieb einer Software durch dasselbe Team (untrennbar)
   - im ferneren Sinne auch QA
 - oft in Verbindung mit Lean Management, agilen Methoden und CI/CD
 
-### Ein paar Bestandteile der Entwicklung
+### Bestandteile der Entwicklung (Dev)
 
 - Programmieren der Software
 - Tests
-- Artefakte erzeugen (Kompilate / Archive)
+- Artefakte erzeugen (Kompilate/Archive)
 - Auslieferung
 - Doku für Kunde
 
-### Ein paar Bestandteile des Betriebs (Ops)
+### Bestandteile des Betriebs (Ops)
 
 - Bereitstellung der Hardware
 - Installation der Software und Abhängigkeiten
 - Monitoring
 - Updates
-- Wartung der Komponenten (z.B. pflegen der Datenbank)
+- Wartung der Komponenten (z.B. Pflegen der Datenbank)
 
 ### Vorteile von DevOps
 
-- keine _Wall of Confusion_ / Silodenken zwischen Teams
+- keine *Wall of Confusion* / Silodenken zwischen Teams
 - beschleunigt Entwicklungsprozess
-- verhindert _"works on my machine"_
+- verhindert *"works on my machine"*
 
 ### Methode: Infra as Code (IaC)
 
 - Infrastruktur wird maschinenlesbar abgebildet
-- Nutzung von Auszeichnungssprachen (JSON, YAML)
+- Nutzung von Auszeichnungssprachen (`JSON`, `YAML`)
 - versionierbar
 - hoher Automatisierungsgrad
-- Bsp.: Ansible, Terraform, Chef, Puppet
-
-### Blue/Green Deployment
-
-- Minimierung der Ausfallzeit bei Updates
-- zwei Instanzen einer Anwendung hinter Reverse Proxy, laufen parallel
-- produktiv schalten der neuen Version durch Änderung der Reverse Proxy Konfiguration $\rightarrow$ minimale Downtime
-
-### A/B Testing
-
-- testen experimenteller Änderungen an kleinem Prozentsatz von Nutzern
-- messen der Hypothesen, Vergleich der Reaktionen zwischen den Varianten
-
-### Canary Releases
-
-- ähnlich zu A/B, aber mit dem Zweck, Fehler in neuen Versionen zu finden
-- alte und neue Instanz laufen hinter Reverse Proxy, kleiner Prozentsatz Nutzer wird auf neue, zu testende Version der Anwendung geleitet
+- Bsp.: `Ansible`, `Terraform`, `Chef`, `Puppet`
 
 ## Vorteile von Monolithen
 
@@ -1028,46 +924,45 @@ int someFunction(int par1, ///< parameter 1
 
 ## Nachteile von Monolithen
 
-- Code-Basis wird riesig und unüberschaubar
-- Überlastete Tools bei Refactoring, Builds, ...
-- Skalierung ist Ressourcen-intensiv
+- Code-Basis wird riesig und **unüberschaubar**
+- **Überlastete Tools** bei Refactoring, Builds, ...
+- Skalierung ist **ressourcen-intensiv**
 - Deployment erfordert Stopp des gesamten Systems
-- **horizontale** Skalierbarkeit schwierig
+- **horizontale Skalierbarkeit schwierig**
 
 ## Vorteile von Schichten-Architekturen
 
-- einfach hinsichtlich Abhängigkeiten, Deployment, Skalierungsmodell
+- geringere Komplexität der **Abhängigkeiten**
+  - **geringere Kopplung** bei gleichzeitig **höherer Kohäsion** der einzelnen Schichten
+- erleichtertes Verständnis für **Wartung**
+- Austauschbarkeit einzelner Schichten $\rightarrow$ **Deployment**, **Skalierbarkeit**
 
 ## Nachteile von Schichten-Architekturen
 
-- Codebasis wächst mit jeder Schicht
-  - und damit auch die Entwicklungs- / Betriebs-Prozesse
+- **hoher Kommunikationsaufwand** zwischen Schichten (Weiterleitung und Transformation von Daten)
+- Codebasis wächst mit jeder Schicht (damit auch Entwicklungs-/**Betriebsprozesse**)
 - Skalierung besser, aber weiterhin begrenzt
-- technische Zerlegung $\rightarrow$ Silodenken
+- technische Zerlegung $\rightarrow$ **Silodenken**
 
 ## REST
 
-> Definition?
-
-<!-- md2apkg split -->
-
 - **Re**presentational **S**tate **T**ransfer
-- Maschine-zu-Maschine Kommunikation auf Basis von HTTP als weit verbreitetes und gut unterstütztes Datenübertragungsprotokoll
 - Client-Server-Prinzip
-- zustandslos
-- Caching möglich
-- Nachrichten sind selbstbeschreibend, da Ressourcen über URI adressiert
-- unterstützt verschiedene Repräsentationen für Daten, z.B. JSON, XML
+- **zustandslos**
+- **Caching** möglich
+- Nachrichten sind **selbstbeschreibend**, da Ressourcen über URI adressiert
+- unterstützt **verschiedene Repräsentationen** für Daten, z.B. `JSON`, `XML`
+
+> Maschine-zu-Maschine Kommunikation auf Basis von HTTP = weit verbreitetes und gut unterstütztes Datenübertragungsprotokoll
 
 ### CRUD-Operatoren
 
-- was bedeutet CRUD?
-- was sind die Operatoren?
+- **C**reate
+- **R**ead
+- **U**pdate
+- **D**elete
 
-<!-- md2apkg split -->
-
-- Create, Read, Update, Delete
-- POST, GET, PUT, DELETE
+> `http`-Methoden: `POST`, `GET`, `PUT`, `DELETE`
 
 ## Microservice-Architektur
 
@@ -1077,10 +972,10 @@ int someFunction(int par1, ///< parameter 1
 
 ![Microservice-Architektur](assets/ms-arch.png)<!--width=600px-->
 
-- erledigt nur eine Aufgabe, siehe UNIX-Philosophie
-- arbeitet mit anderen Microservices via universeller Schnittstelle (z.B. REST)
-- $\rightarrow$ Modularisierung (fachlich), funktionieren unabhängig voneinander
-- keine gemeinsamen Zustände
+- erledigt nur **eine Aufgabe** (vgl. UNIX-Philosophie)
+- arbeitet mit anderen Microservices via universeller Schnittstelle (z.B. `REST`)
+- $\rightarrow$ Modularisierung (fachlich), funktionieren **unabhängig voneinander**
+- **keine gemeinsamen Zustände**
 - Vorschlag: Ein MS durch 5 bis 7 Entwickler realisierbar
 - Betrieb in VMs oder Containern
 
@@ -1101,15 +996,6 @@ int someFunction(int par1, ///< parameter 1
 - Datenkonsistenz wird aufwändiger
 - Logging, Monitoring und Testen wird aufwändiger
 
-### Git: Datei-Lebenszyklus
-
-- **Untracked**: nicht eingecheckt
-- **Unmodified**: eingecheckt, keine lokale Änderung
-- **Modified**: eingecheckt, lokale Änderung
-- **Staged**: modifizierte Datei ist in Änderungsmenge, diese Version ist zum Commit vorgemerkt (Änderungen nach Stage werden nicht committet)
-- **Committed**: Datei-Version ist permanent in lokalem Repository
-- **Pushed**: Version an externes Repository übertragen
-
 ### Git: Merge vs. Rebase
 
 - **`git merge`**: Commits aus einer Branch in eine andere Branch übernehmen, die Änderungen _verschmelzen_
@@ -1127,40 +1013,67 @@ int someFunction(int par1, ///< parameter 1
 
 ### Git: Vor- und Nachteile Feature-Workflow
 
-| Vorteile | Nachteile |
-| :------: | :-------: |
-| Verwaltung großer Projekte einfacher, da sauberer Zustand einzelner Branches | viele Merges notwendig, unübersichtlich |
-| Trennung von stabilem und experimentellem Code, leichter Einstieg | langlebige Feature-Branches lassen Versionen divergieren |
-| Unterstützung für Release-Planung und verschiedenen Release-Zweigen | parallele Branches erschweren DevOps |
+| Vorteile                                                                     | Nachteile                                                |
+| :--------------------------------------------------------------------------- | :------------------------------------------------------- |
+| Verwaltung großer Projekte einfacher, da sauberer Zustand einzelner Branches | viele Merges notwendig, unübersichtlich                  |
+| Trennung von stabilem und experimentellem Code, leichter Einstieg            | langlebige Feature-Branches lassen Versionen divergieren |
+| Unterstützung für Release-Planung und verschiedenen Release-Zweigen          | parallele Branches erschweren DevOps                     |
 
 ### Git: Vor- und Nachteile Trunk-Workflow
 
-| Vorteile | Nachteile |
-| :------: | :-------: |
-| Nur Main-Branch ist langlebig $\rightarrow$ weniger Merge-Konflikte | Main-Branch unterliegt ständiger Änderung (Churn) |
-| Einfachs Branching-Modell, vermeidet divergierende Entwicklung | Parallele Feature-Entwicklung in einer Branch |
-| Schnelle Entwicklungszyklen, da einfache Integration und jederzeit lauffähige Version | Gemeinsame Verwaltung von stabilem und experimentellem Code, da sofortiges Zusammenlaufen in `main` |
+| Vorteile                                                                              | Nachteile                                                                                           |
+| :------------------------------------------------------------------------------------ | :-------------------------------------------------------------------------------------------------- |
+| nur `main`-Branch ist langlebig $\rightarrow$ weniger Merge-Konflikte                 | `main`-Branch unterliegt ständiger Änderung (Churn)                                                 |
+| einfaches Branching-Modell, vermeidet divergierende Entwicklung                        | Parallele Feature-Entwicklung in einer Branch                                                       |
+| schnelle Entwicklungszyklen, da einfache Integration und jederzeit lauffähige Version | Gemeinsame Verwaltung von stabilem und experimentellem Code, da sofortiges Zusammenlaufen in `main` |
 
 ## Docker
 
-- Container-basierte Virtualisierung von Anwendungen
-- nutzt Features des Linux-Kernels : Namespaces, cgroups, libcontainer (MacOS und Windows: VM)
+- Container-basierte **Virtualisierung** von Anwendungen
+- nutzt Features des Linux-Kernels: `namespaces`, `cgroups`, `libcontainer` (MacOS und Windows: VM)
 - nutzt Beschreibungsformate für Images und Container: Dockerfile, Compose-File
-
-- Isolation von Dateisystem, Ressourcen und Netzwerk
-- Verwaltung via Kommandozeile oder REST-API
-- Logging-Funktionalität für Container
+- **Isolation** von Dateisystem, Ressourcen und Netzwerk
+- **Verwaltung** via Kommandozeile oder REST-API
+- **Logging-Funktionalität** für Container
 
 ### Docker: Images
 
-- unveränderliche Snapshots eines Dateisystems
-- können beliebig oft instanziiert werden, sowie transportiert und veröffentlicht
-- Identifikation über Hash, Eigentümer, Name und Tag
-- **Container** sind Instanzen eines Images
-- implementiert Dateisystem-Layers für aufeinander aufbauende Images und effizientere Speicherung (Think: übereinanderlegen von Polylux-Folien)
-- Änderungen am Dateisystem in einem **Container** werden in eigenem Container-Layer gespeichert
+> unveränderliche Snapshots eines Dateisystems
 
-<!-- md2apkg ignore-card -->
+- **beliebig oft instanziierbar** (portabel $\rightarrow$ können veröffentlicht werden)
+- Identifikation über Hash, Eigentümer, Name und Tag
+
+### Docker: Container
+
+> Instanz eines Images
+
+- implementiert Dateisystem-Layers für aufeinander aufbauende Images und effizientere Speicherung
+- Änderungen am Dateisystem in einem **Container** werden in eigenem Container-Layer gespeichert (nicht persistent!)
+
+### Virtualisierung vs. Containerisierung
+
+| Virtualisierung                                                                        | Containerisierung                                                     |
+| -------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| - Verhalten sich wie physische Systeme (aber durch Hypervisor von Ressourcen getrennt) | - Isolation einzelner Anwendungen und deren Abhängigkeiten (portabel) |
+| - VMs beinhalten eigenes Betriebsystem                                                 | - mehrere Container teilen sich ein Host-Betriebssystem               |
+| - hohe Isolationssicherheit                                                            | - effiziente Ressourcennutzung                                        |
+
+![Virtualisierung vs. Containerisierung](assets/vm-container.jpg)
+
+## Kopplung vs. Kohäsion
+
+- **Kopplung:** Stärke der Verknüpfung zwischen Komponenten
+- **Kohäsion:** Grad der vollständigen Abdeckung einer Aufgabe durch eine Komponente
+
+> Ziel in der Softwareentwicklung ist es oft einen **hohen Grad an Kohäsion** bei **geringer Kopplung** zu erreichen.
+
+## Assoziation vs. Komposition vs. Aggregation
+
+- **Assoziation:** Beziehung zwischen Objekten ("A kennt B")
+- **Aggregation:** Assoziation zwischen Objekten, wobei sich ein Objekt **aus mehreren Teilobjekten zusammensetzt**
+- **Komposition:** Assoziation zwischen Objekten, wobei ein Objekt **untrennbar** mit Teilobjekten verbunden ist (in **Existenzabhängigkeit**)
+
+![Komposition vs. Aggregation in UML](assets/komposition-aggregation.png)
 
 # Wissenschaftliches Arbeiten
 
